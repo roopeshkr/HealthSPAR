@@ -1,7 +1,6 @@
 package com.stackroute.service;
 
 import com.stackroute.model.Hospital;
-import com.stackroute.model.Patient;
 
 import java.util.List;
 

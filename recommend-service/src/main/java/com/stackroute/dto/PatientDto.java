@@ -1,16 +1,11 @@
 package com.stackroute.dto;
 
-import jakarta.validation.constraints.NotBlank;
+import com.stackroute.model.City;
+import jakarta.validation.constraints.NotNull;
 
 public record PatientDto(
-        Long id,
-        @NotBlank(message = "Patient must have a first name")
-        String firstName,
-        @NotBlank(message = "Patient must have a last name")
-        String lastName,
-        @NotBlank(message = "Patient must have a email")
-        String email,
-        @NotBlank(message = "Patient must have a city")
-        String city
+        Long patientId,
+        @NotNull(message = "Patient must have a city")
+        City city
 ) {
 }

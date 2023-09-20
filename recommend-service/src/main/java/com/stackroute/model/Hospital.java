@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Relationship;
 
 import java.util.List;
 
@@ -16,11 +17,23 @@ import java.util.List;
 public class Hospital {
     @Id
     @GeneratedValue
-    private Long id;
-    private String name;
-    private String email;
-    private String city;
-    private String imageURL;
-    private Double rating;
-    private List<String> speciality;
+    private Long hospitalId;
+    private String hospitalName;
+    private String hospitalWebsite;
+    private String hospitalEmail;
+    private String hospitalPhoneNumber;
+    private String hospitalImageURL;
+    private Double hospitalRating;
+    private List<String> hospitalReviews;
+    private City city;
+    private List<String> hospitalAmenities; //parking/cafeteria
+    private int numberOfBeds;
+
+    @Relationship(type = "HAS_DOCTOR",direction = Relationship.Direction.OUTGOING)
+    private List<Doctor> doctors;
+
+    @Relationship(type = "OFFERS_SPECIALITY",direction = Relationship.Direction.OUTGOING)
+    private List<Specialty> specialty;
+
+
 }

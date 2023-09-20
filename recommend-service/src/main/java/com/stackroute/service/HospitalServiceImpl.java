@@ -4,21 +4,25 @@ import com.stackroute.exception.HospitalNotFoundException;
 import com.stackroute.model.Hospital;
 import com.stackroute.repository.HospitalRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class HospitalServiceImpl implements HospitalService {
     private final HospitalRepository hospitalRepository;
     @Override
     public Hospital createHospital(Hospital hospital) {
+        log.info("Creating an hospital :"+hospital+" in the database");
         return hospitalRepository.save(hospital);
     }
 
     @Override
     public Hospital getHospitalById(Long id) {
+        log.info("Fetching an hospital with id :"+id+" in the database");
         return hospitalRepository.findById(id).orElseThrow(
                 ()->new HospitalNotFoundException("Hospital not found with id : "+id)
         );
@@ -26,11 +30,13 @@ public class HospitalServiceImpl implements HospitalService {
 
     @Override
     public List<Hospital> getAllHospitals() {
+        log.info("Fetching all hospitals in the database");
         return hospitalRepository.findAll();
     }
 
     @Override
     public boolean deleteHospital(Long id) {
+        log.info("Deleting an hospital with id :"+id+" in the database");
         if (hospitalRepository.existsById(id))
         {
             hospitalRepository.deleteById(id);
@@ -41,13 +47,20 @@ public class HospitalServiceImpl implements HospitalService {
 
     @Override
     public Hospital updateHospital(Long id, Hospital hospital) {
+        log.info("Updating an hospital with id :"+id+" in the database");
         Hospital existingHospital=getHospitalById(id);
-        existingHospital.setName(hospital.getName());
-        existingHospital.setEmail(hospital.getEmail());
+        existingHospital.setHospitalName(hospital.getHospitalName());
+        existingHospital.setHospitalWebsite(hospital.getHospitalWebsite());
+        existingHospital.setHospitalEmail(hospital.getHospitalEmail());
+        existingHospital.setHospitalPhoneNumber(hospital.getHospitalPhoneNumber());
+        existingHospital.setHospitalImageURL(hospital.getHospitalImageURL());
+        existingHospital.setHospitalRating(hospital.getHospitalRating());
+        existingHospital.setHospitalReviews(hospital.getHospitalReviews());
         existingHospital.setCity(hospital.getCity());
-        existingHospital.setRating(hospital.getRating());
-        existingHospital.setSpeciality(hospital.getSpeciality());
-        existingHospital.setImageURL(hospital.getImageURL());
+        existingHospital.setHospitalAmenities(hospital.getHospitalAmenities());
+        existingHospital.setNumberOfBeds(hospital.getNumberOfBeds());
+        existingHospital.setDoctors(hospital.getDoctors());
+        existingHospital.setSpecialty(hospital.getSpecialty());
         return hospitalRepository.save(existingHospital);
     }
 }
