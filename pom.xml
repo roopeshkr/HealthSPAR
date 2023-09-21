@@ -11,9 +11,13 @@
 	<groupId>com.stackroute</groupId>
 	<artifactId>HealthSPAR</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>HealthSPAR</name>
+    <packaging>pom</packaging>
+    <name>HealthSPAR</name>
 	<description>Demo project for Spring Boot</description>
-	<properties>
+    <modules>
+        <module>booked-appointments</module>
+    </modules>
+    <properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
