@@ -8097,3 +8097,22 @@ The query used a deprecated function: `id`.
 	MATCH (patient:`Patient`) WHERE id(patient) = $__id__ RETURN patient{__nodeLabels__: labels(patient), __internalNeo4jId__: id(patient), __elementId__: toString(id(patient)), Patient_LOCATED_IN_City: [(patient)-[:`LOCATED_IN`]->(patient_city:`City`) | patient_city{.country, .district, .name, .state, .zip, __nodeLabels__: labels(patient_city), __internalNeo4jId__: id(patient_city), __elementId__: toString(id(patient_city))}]}
 	                                                                                                                           ^
 The query used a deprecated function: `id`.
+2023-09-21 14:13:52 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-09-21 14:13:52 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-09-21 14:13:53 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2023-09-21 14:13:53 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 214 ms. Found 0 Neo4j repository interfaces.
+2023-09-21 14:13:53 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2023-09-21 14:13:53 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33 ms. Found 5 Neo4j repository interfaces.
+2023-09-21 14:13:55 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-09-21 14:13:55 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-09-21 14:13:55 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-09-21 14:13:55 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-09-21 14:13:55 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2354 ms
+2023-09-21 14:13:55 [restartedMain] INFO  o.n.driver.internal.DriverFactory - Routing driver instance 1679734149 created for server address b3a8699c.databases.neo4j.io:7687
+2023-09-21 14:13:55 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.Specialty is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-09-21 14:13:55 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-09-21 14:13:55 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.Doctor is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-09-21 14:13:55 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.City is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-09-21 14:13:55 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.Patient is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-09-21 14:13:55 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.Hospital is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-09-21 14:13:56 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
