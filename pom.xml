@@ -16,6 +16,7 @@
 	<description>Demo project for Spring Boot</description>
     <modules>
         <module>booked-appointments</module>
+		<module>recommend-service</module>
     </modules>
     <properties>
 		<java.version>17</java.version>
