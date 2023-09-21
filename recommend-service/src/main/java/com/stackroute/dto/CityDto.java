@@ -18,8 +18,7 @@ public record CityDto(
         String country,
         @NotBlank(message = "City must have a zip code")
         @Pattern(regexp = "\\d{6}", message = "Zip code must have exactly 6 digits")
-        String zip,
-        List<Hospital> hospitals
+        String zip
 
 ) {
 }

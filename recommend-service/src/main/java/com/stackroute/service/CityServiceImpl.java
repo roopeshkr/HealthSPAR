@@ -53,7 +53,6 @@ public class CityServiceImpl implements CityService {
         existingCity.setState(city.getState());
         existingCity.setCountry(city.getCountry());
         existingCity.setZip(city.getZip());
-        existingCity.setHospitals(city.getHospitals());
         return cityRepository.save(existingCity);
     }
 }
