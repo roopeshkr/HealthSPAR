@@ -1,1 +1,45 @@
-<p>recommendation works!</p>
+<div class="row my-5">
+  <h2 class="display-5 col-12 py-2" >Recommendations By Your Location</h2>
+  <div
+    *ngFor="let recommendation of recommendedHospitals"
+    class="col-md-6 col-xl-3 py-2"
+    
+  >
+    <div class="card m-b-30">
+      <div class="card-body row">
+        <div class="col-12 card-title align-self-center mb-0">
+          <h3 class="text-center">{{ recommendation.hospitalName }}</h3>
+          <hr />
+        </div>
+        <div class="col-1">
+          <img
+            src="assets/images/rating.svg"
+            width="30"
+            height="24"
+            class="d-inline-block align-text-top"
+          />
+        </div>
+        <div class="col-4">
+          <p class="m-0">
+            {{ recommendation.hospitalRating }}
+          </p>
+        </div>
+        <div class="col-12 my-2">
+          <a href="">
+            <img
+              [src]="recommendation.hospitalImageURL"
+              alt=""
+              class="img-fluid custom-image"
+              style="height: 30vh;width:100vh;"
+            />
+          </a>
+        </div>
+        <div class="col-12 text-center my-2">
+          <a href="" class="my-2">
+            <button class="btn btn-danger">Book</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
