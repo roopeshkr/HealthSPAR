@@ -21,7 +21,7 @@ public class RecommendationService {
         Patient patient=patientRepository.findById(patientId).orElseThrow(
                 ()->new PatientNotFoundException("Patient not found with id : "+patientId)
         );
-        String patientCity=patient.getCity();
+        String patientCity= String.valueOf(patient.getCity());
         return hospitalRepository.findByCity(patientCity);
     }
 }

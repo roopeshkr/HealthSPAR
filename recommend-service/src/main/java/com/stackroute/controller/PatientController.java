@@ -3,7 +3,6 @@ package com.stackroute.controller;
 import com.stackroute.dto.PatientDto;
 import com.stackroute.model.Patient;
 import com.stackroute.service.PatientService;
-import com.stackroute.service.PatientServiceImpl;
 import com.stackroute.util.PatientUtility;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -50,7 +49,7 @@ public class PatientController {
     @PutMapping("/{id}")
     public ResponseEntity<PatientDto> updatePatient(@Valid @PathVariable Long id,@RequestBody PatientDto dto){
         Patient newPatient=utility.toEntity(dto);
-        newPatient.setId(id);
+        newPatient.setPatientId(id);
         var updatedPatient=patientService.updatePatient(id,newPatient);
         var updatedPatientDto=utility.toDto(updatedPatient);
         return ResponseEntity.ok(updatedPatientDto);

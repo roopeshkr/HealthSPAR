@@ -10,20 +10,15 @@ public class PatientUtility {
     public PatientDto toDto(Patient patient)
     {
         return new PatientDto(
-                patient.getId(),
-                patient.getFirstName(),
-                patient.getLastName(),
-                patient.getEmail(),
-                patient.getCity());
+                patient.getPatientId(),
+                patient.getCity()
+        );
     }
 
     public Patient toEntity(PatientDto dto) {
         return Patient
                 .builder()
-                .id(dto.id())
-                .firstName(dto.firstName())
-                .lastName(dto.lastName())
-                .email(dto.email())
+                .patientId(dto.patientId())
                 .city(dto.city())
                 .build();
     }
