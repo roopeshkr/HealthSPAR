@@ -14,8 +14,7 @@ public class CityUtility {
                 city.getDistrict(),
                 city.getState(),
                 city.getCountry(),
-                city.getZip(),
-                city.getHospitals()
+                city.getZip()
         );
     }
     public City toEntity(CityDto dto)
@@ -28,7 +27,6 @@ public class CityUtility {
                 .state(dto.state())
                 .country(dto.country())
                 .zip(dto.zip())
-                .hospitals(dto.hospitals())
                 .build();
     }
 }

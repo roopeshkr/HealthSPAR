@@ -12,9 +12,10 @@ import { AboutComponent } from './components/shared/about/about.component';
 import { ContactComponent } from './components/shared/contact/contact.component';
 import { DashboardComponent } from './components/hospital/dashboard/dashboard.component';
 import { DoctorComponent } from './components/hospital/doctor/doctor.component';
+import { NavbarComponent } from './components/patient/shared/navbar/navbar.component';
 import { HeroComponent } from './components/patient/hero/hero.component';
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
-import { NavbarComponent } from './components/patient/shared/navbar/navbar.component';
+import { HomeComponent } from './components/patient/home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,10 @@ import { NavbarComponent } from './components/patient/shared/navbar/navbar.compo
     ContactComponent,
     DashboardComponent,
     DoctorComponent,
+    NavbarComponent,
     HeroComponent,
     RecommendationComponent,
-    NavbarComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
