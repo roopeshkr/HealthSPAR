@@ -23,4 +23,7 @@ public class RecommendationController {
         List<Hospital> recommendedHospitals=recommendationService.recommendHospitalsForPatient(patientId);
         return ResponseEntity.ok(recommendedHospitals);
     }
+
+
+
 }

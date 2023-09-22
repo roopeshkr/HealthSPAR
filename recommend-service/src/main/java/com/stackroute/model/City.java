@@ -24,7 +24,6 @@ public class City {
     private String country;
     private String zip;
 
-    @Relationship(type = "LOCATES_HOSPITAL", direction = Relationship.Direction.OUTGOING)
-    private List<Hospital> hospitals;
+
 
 }
