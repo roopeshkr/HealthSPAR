@@ -1,9 +1,21 @@
 <div class="row my-5">
-  <h2 class="display-5 col-12 py-2" >Recommendations By Your Location</h2>
+  <div class="d-flex">
+    <img
+      src="assets/images/location.svg"
+      width="30"
+      height="24"
+      class="d-inline-block align-text-top"
+    />
+
+    <h4 class="text-primary d-inline-block align-text-top">
+      {{ recommendedHospitals[0].city.name }}
+    </h4>
+  </div>
+
+  <h2 class="display-5 col-12 py-2">Recommendations By Your Location</h2>
   <div
     *ngFor="let recommendation of recommendedHospitals"
     class="col-md-6 col-xl-3 py-2"
-    
   >
     <div class="card m-b-30">
       <div class="card-body row">
@@ -19,10 +31,14 @@
             class="d-inline-block align-text-top"
           />
         </div>
-        <div class="col-4">
+        <div class="col-7">
           <p class="m-0">
             {{ recommendation.hospitalRating }}
           </p>
+        </div>
+
+        <div class="col-4">
+          {{ recommendation.city.name }}
         </div>
         <div class="col-12 my-2">
           <a href="">
@@ -30,7 +46,7 @@
               [src]="recommendation.hospitalImageURL"
               alt=""
               class="img-fluid custom-image"
-              style="height: 30vh;width:100vh;"
+              style="height: 30vh; width: 100vh"
             />
           </a>
         </div>

@@ -15,7 +15,7 @@ export class RecommendationComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.getRecommendations(6);
+    this.getRecommendations(7);
   }
 
   public getRecommendations(patientId:number):void{
