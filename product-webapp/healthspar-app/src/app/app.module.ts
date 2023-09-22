@@ -15,6 +15,8 @@ import { DoctorComponent } from './components/hospital/doctor/doctor.component';
 import { HeroComponent } from './components/patient/hero/hero.component';
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 import { NavbarComponent } from './components/patient/shared/navbar/navbar.component';
+import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
+import { HospitalDetailsComponent } from './components/hospital/hospital-details/hospital-details.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { NavbarComponent } from './components/patient/shared/navbar/navbar.compo
     DoctorComponent,
     HeroComponent,
     RecommendationComponent,
-    NavbarComponent
+    NavbarComponent,
+    HospitalPageComponent,
+    HospitalDetailsComponent
   ],
   imports: [
     BrowserModule,
