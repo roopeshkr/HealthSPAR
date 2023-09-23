@@ -129,6 +129,57 @@
                     </div>
                   </div>
                 </div>
+                <br>
+                <h3><span>Doctors</span></h3>
+                <hr>
+                <div class="form-group" *ngFor="let doctor of doctors; let i = index">
+                  <h4>Doctor {{ i + 1 }}</h4>
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <input type="text" class="form-control" placeholder="Name" id="doctorName{{ i }}"
+                        name="doctorName{{ i }}" [(ngModel)]="doctor.name">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <input type="text" class="form-control" placeholder="Specialty" id="doctorSpecialty{{ i }}"
+                        name="doctorSpecialty{{ i }}" [(ngModel)]="doctor.specialty">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <input type="text" class="form-control" placeholder="Year of Experience"
+                        id="doctorExperience{{ i }}" name="doctorExperience{{ i }}" [(ngModel)]="doctor.experience">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <input type="text" class="form-control" placeholder="Language Known" id="doctorLanguage{{ i }}"
+                        name="doctorLanguage{{ i }}" [(ngModel)]="doctor.language">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text" id="Education" placeholder="Education Qualification "
+                          class="form-control form-control-lg" />
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                      <div class="form-outline">
+                        <input type="text" id="starttime" placeholder="Start Time"
+                          class="form-control form-control-lg" />
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                      <div class="form-outline">
+                        <input type="text" id="endtime" placeholder="End Time" class="form-control form-control-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control" placeholder="Add Bio" id="bio" rows="3"></textarea>
+                  </div>
+                  <button type="button" class="btn btn-danger" (click)="removeDoctor(i)">Remove Doctor</button>
+                </div>
+                <button class="btn btn-primary" (click)="addDoctor()">Add Doctor</button>
+
                 <div class="d-flex align-items-center justify-content-center">
                   <button type="submit" class="btn btn-danger">Save</button>
                 </div>

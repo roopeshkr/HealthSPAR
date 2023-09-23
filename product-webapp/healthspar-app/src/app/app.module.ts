@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -16,6 +17,7 @@ import { NavbarComponent } from './components/patient/shared/navbar/navbar.compo
 import { HeroComponent } from './components/patient/hero/hero.component';
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 import { HomeComponent } from './components/patient/home/home.component';
+import { HospitalDetailsComponent } from './components/hospital/hospital-details/hospital-details.component';
 
 @NgModule({
   declarations: [
@@ -29,16 +31,20 @@ import { HomeComponent } from './components/patient/home/home.component';
     DoctorComponent,
     NavbarComponent,
     HeroComponent,
+    HospitalComponent,
+    HomeComponent,
     RecommendationComponent,
-    HomeComponent
+    HospitalDetailsComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
