@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-//@Document(collection = "medical_history_collection")
+@Document(collection = "medical_history_collection")
 public class MedicalHistory {
 
         private LocalDate date;

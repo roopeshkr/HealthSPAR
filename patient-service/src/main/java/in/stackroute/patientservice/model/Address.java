@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-//@Document(collection = "address_collection")
+@Document(collection = "address_collection")
 public class Address {
 
         private String street;

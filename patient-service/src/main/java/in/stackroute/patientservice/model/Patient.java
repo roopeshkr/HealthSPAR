@@ -3,6 +3,7 @@ package in.stackroute.patientservice.model;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.LocalDate;
 
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 @Builder
 @Document(collection = "patient_collection")
 public class Patient {
-    @Id
+    @MongoId
     private String id;
 
     private int patientId;
