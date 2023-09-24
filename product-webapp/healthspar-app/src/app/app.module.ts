@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,9 @@ import { HeroComponent } from './components/patient/hero/hero.component';
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 import { HomeComponent } from './components/patient/home/home.component';
 import { HospitalDetailsComponent } from './components/hospital/hospital-details/hospital-details.component';
+import { ProfileComponent } from './components/patient/profile/profile.component';
+import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
+import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,9 @@ import { HospitalDetailsComponent } from './components/hospital/hospital-details
     HomeComponent,
     RecommendationComponent,
     HospitalDetailsComponent,
+    ProfileComponent,
+    UpdateProfileComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,8 @@ import { HospitalDetailsComponent } from './components/hospital/hospital-details
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule,
+    ReactiveFormsModule ,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
