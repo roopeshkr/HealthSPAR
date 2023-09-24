@@ -16,6 +16,11 @@ import { NavbarComponent } from './components/patient/shared/navbar/navbar.compo
 import { HeroComponent } from './components/patient/hero/hero.component';
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 import { HomeComponent } from './components/patient/home/home.component';
+import { LoginComponent } from './components/shared/login/login.component';
+import { SignupComponent } from './components/shared/signup/signup.component';
+import { PatientProfileComponent } from './components/patient/patient-profile/patient-profile.component';
+import { ProfileSidenavComponent } from './components/patient/profile-sidenav/profile-sidenav.component';
+import { ProfileMainComponent } from './components/patient/profile-main/profile-main.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ import { HomeComponent } from './components/patient/home/home.component';
     NavbarComponent,
     HeroComponent,
     RecommendationComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    SignupComponent,
+    PatientProfileComponent,
+    ProfileSidenavComponent,
+    ProfileMainComponent
   ],
   imports: [
     BrowserModule,

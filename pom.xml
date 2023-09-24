@@ -17,6 +17,7 @@
 	<modules>
 		<module>recommend-service</module>
 		<module>authentication-service</module>
+		<module>patient-service</module>
 	</modules>
 	<properties>
 		<java.version>17</java.version>
