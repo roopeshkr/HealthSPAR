@@ -5,13 +5,17 @@ import { HospitalComponent } from './components/patient/hospital/hospital.compon
 import { HospitalDetailsComponent } from './components/hospital/hospital-details/hospital-details.component';
 import { ProfileComponent } from './components/patient/profile/profile.component';
 import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
+import { LoginComponent } from './components/shared/login/login.component';
+import { SignupComponent } from './components/shared/signup/signup.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'index', component: HomeComponent },
   { path: 'hospital', component: HospitalComponent },
   { path: 'patient-profile', component: ProfileComponent },
   { path: 'update-profile', component: UpdateProfileComponent },
-  { path: '', redirectTo: '/index', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'hospital-details', component: HospitalDetailsComponent },
 ];
 

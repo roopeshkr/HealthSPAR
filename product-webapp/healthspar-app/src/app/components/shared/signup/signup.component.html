@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="text-center">
+            <h1>Signup</h1>
+            <h6>Please enter emain & password!!</h6>
+          </div>
+          
+          <form>
+            <!-- Role selection buttons -->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button
+                class="btn btn-primary"
+                type="button"
+                (click)="selectRole('PATIENT')"
+              >
+                Patient
+              </button>
+              <button
+                class="btn btn-primary"
+                type="button"
+                (click)="selectRole('HCP')"
+              >
+                Hospital
+              </button>
+            </div>
+  
+            <!-- Form for signup -->
+            <form *ngIf="selectedRole === 'PATIENT'" (ngSubmit)="signup()">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  [(ngModel)]="name"
+                  name="name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  [(ngModel)]="email"
+                  name="email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  [(ngModel)]="password"
+                  name="password"
+                />
+              </div>
+              <!-- Include a hidden field to store the selectedRole -->
+              <input type="hidden" [value]="selectedRole" name="role" />
+  
+              <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+            <form *ngIf="selectedRole === 'HCP'" (ngSubmit)="signup()">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  [(ngModel)]="name"
+                  name="name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  [(ngModel)]="email"
+                  name="email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  [(ngModel)]="password"
+                  name="password"
+                />
+              </div>
+              <!-- Include a hidden field to store the selectedRole -->
+              <input type="hidden" [value]="selectedRole" name="role" />
+  
+              <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
