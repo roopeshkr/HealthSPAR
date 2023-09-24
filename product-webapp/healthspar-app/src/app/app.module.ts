@@ -19,6 +19,9 @@ import { HeroComponent } from './components/patient/hero/hero.component';
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 import { HomeComponent } from './components/patient/home/home.component';
 import { HospitalDetailsComponent } from './components/hospital/hospital-details/hospital-details.component';
+import { ProfileComponent } from './components/patient/profile/profile.component';
+import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
+import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { HospitalDetailsComponent } from './components/hospital/hospital-details
     HomeComponent,
     RecommendationComponent,
     HospitalDetailsComponent,
+    ProfileComponent,
+    UpdateProfileComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,

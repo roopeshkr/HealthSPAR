@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/patient/home/home.component';
 import { HospitalComponent } from './components/patient/hospital/hospital.component';
 import { HospitalDetailsComponent } from './components/hospital/hospital-details/hospital-details.component';
+import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
+import { ProfileComponent } from './components/patient/profile/profile.component';
+import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
+import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
 
 const routes: Routes = [
   { path: 'index', component: HomeComponent },
@@ -19,6 +23,8 @@ const routes: Routes = [
     path: 'hospital-page',
     component: HospitalPageComponent,
   },
+  { path: 'sidenav', component: SidenavComponent },
+  { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({
