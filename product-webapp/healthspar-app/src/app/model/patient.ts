@@ -5,7 +5,7 @@ export interface Patient {
   phoneNumber: string;
   dob: Date;
   bloodGroup: string;
-  gender: number;
+  gender: string;
   cityName: string;
   district: string; 
   state: string;

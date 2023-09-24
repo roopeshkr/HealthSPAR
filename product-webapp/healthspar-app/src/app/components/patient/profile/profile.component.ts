@@ -12,6 +12,7 @@ export class ProfileComponent {
   patientProfileForm: FormGroup;
   isSubmitted: boolean = false;
 
+
   constructor(private profileService: PatientProfileService, private formBuilder: FormBuilder) {
     this.patientProfileForm = this.formBuilder.group({
       patientName: ['', Validators.required],
@@ -30,7 +31,6 @@ export class ProfileComponent {
 
   onSubmit() {
     this.isSubmitted = true;
-    console.log(this.patientProfileForm.value);
 
 
     if (this.patientProfileForm.valid) {
@@ -39,9 +39,6 @@ export class ProfileComponent {
       this.profileService.addPatientProfile(patientData).subscribe(
         (response) => {
           console.log('Patient added successfully:', response);
-        },
-        (error) => {
-          console.error('Error adding patient:', error);
         }
       );
 
