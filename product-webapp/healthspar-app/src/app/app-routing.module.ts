@@ -7,6 +7,7 @@ import { HospitalPageComponent } from './components/hospital/hospital-page/hospi
 import { ProfileComponent } from './components/patient/profile/profile.component';
 import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
 import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
+import { HospitalSidenavComponent } from './components/hospital/shared/hospital-sidenav/hospital-sidenav.component';
 
 const routes: Routes = [
   { path: 'index', component: HomeComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   },
   { path: 'sidenav', component: SidenavComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'hospital-sidenav', component: HospitalSidenavComponent },
 ];
 
 @NgModule({
