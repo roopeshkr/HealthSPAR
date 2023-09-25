@@ -12,7 +12,6 @@ export class ProfileComponent {
   patientProfileForm: FormGroup;
   isSubmitted: boolean = false;
 
-
   constructor(private profileService: PatientProfileService, private formBuilder: FormBuilder) {
     this.patientProfileForm = this.formBuilder.group({
       patientName: ['', Validators.required],

@@ -21,6 +21,10 @@ public class User implements UserDetails {
     @GeneratedValue
     private Integer id;
     private String name;
+<<<<<<< HEAD
+=======
+    @Column(unique = true)
+>>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
     private String email;
     private String password;
 

@@ -20,6 +20,7 @@ public class Main {
     }
 
 
+<<<<<<< HEAD
     @Bean
     public CommandLineRunner commandLineRunner(
             AuthenticationService service
@@ -35,4 +36,7 @@ public class Main {
 
         };
     }
+=======
+
+>>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
 }

@@ -56,6 +56,7 @@ public class SecurityConfiguration {
     }
 }
 
+<<<<<<< HEAD
 //    @Bean
 //    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 //        http.csrf().disable();
@@ -76,3 +77,5 @@ public class SecurityConfiguration {
 //                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 //        return http.build();
 //    }
+=======
+>>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
