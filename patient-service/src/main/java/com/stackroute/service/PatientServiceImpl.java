@@ -31,6 +31,9 @@ public class PatientServiceImpl implements PatientService {
         existingPatient.setState(patient.getState());
         existingPatient.setCountry(patient.getCountry());
         existingPatient.setZip(patient.getZip());
+        existingPatient.setMedicalHistory(patient.getMedicalHistory());
+        existingPatient.setMedicineHistory(patient.getMedicineHistory());
+        existingPatient.setTreatmentHistory(patient.getTreatmentHistory());
         return patientRepository.save(existingPatient);
     }
 
