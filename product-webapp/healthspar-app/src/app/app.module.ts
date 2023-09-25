@@ -27,6 +27,7 @@ import { LoginComponent } from './components/shared/login/login.component';
 import { SignupComponent } from './components/shared/signup/signup.component';
 import { UpdateHospitalDetailsComponent } from './components/hospital/update-hospital-details/update-hospital-details.component';
 import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
+import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { DisplayProfileComponent } from './components/patient/display-profile/di
     HospitalDetailsComponent,
     ProfileComponent,
     UpdateProfileComponent,
+    HospitalPageComponent,
     HospitalSidenavComponent,
     LoginComponent,
     SignupComponent,

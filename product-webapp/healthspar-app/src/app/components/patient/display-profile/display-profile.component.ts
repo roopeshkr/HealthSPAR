@@ -8,7 +8,6 @@ import { PatientProfileService } from 'src/app/service/patient-profile.service';
   styleUrls: ['./display-profile.component.css']
 })
 export class DisplayProfileComponent implements OnInit {
-  selectedAvatarFile: File | null = null;
   patient: Patient = {
     patientName: '',
     email: '',
@@ -42,10 +41,5 @@ export class DisplayProfileComponent implements OnInit {
     )
   }
 
-  onAvatarFileChanged(event: any) {
-    const files = event.target.files;
-    if (files && files.length > 0) {
-      this.selectedAvatarFile = files[0];
-    }
-  }
+ 
 }

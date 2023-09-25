@@ -20,7 +20,10 @@ public class PatientUtility {
                 patient.getDistrict(),
                 patient.getState(),
                 patient.getCountry(),
-                patient.getZip()
+                patient.getZip(),
+                patient.getMedicalHistory(),
+                patient.getMedicineHistory(),
+                patient.getTreatmentHistory()
         );
     }
 
@@ -40,6 +43,9 @@ public class PatientUtility {
                 .state(dto.state())
                 .country(dto.country())
                 .zip(dto.zip())
+                .medicalHistory(dto.medicalHistory())
+                .medicineHistory(dto.medicineHistory())
+                .treatmentHistory(dto.treatmentHistory())
                 .build();
     }
 }
