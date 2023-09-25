@@ -1,5 +1,9 @@
 server:
+<<<<<<< HEAD
   port: 8000 # Port on which the application will run
+=======
+  port: 8090
+>>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
 spring:
   application:
     name: patient-service
@@ -7,6 +11,7 @@ spring:
     mongodb:
       host: localhost
       port: 27017
+<<<<<<< HEAD
       database: patients_db
 #logging:
 #  level:
@@ -26,3 +31,13 @@ spring:
 #    service-url:
 #      defaultZone: http://localhost:8761/eureka/ # URL of the Eureka server
 #
+=======
+      database: patient_db
+logging:
+  file:
+    name: logs/patient-service.log
+  level:
+    root: info
+    org.springframework.data.mongodb.core.MongoTemplate: debug
+    com.stackroute: debug
+>>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76

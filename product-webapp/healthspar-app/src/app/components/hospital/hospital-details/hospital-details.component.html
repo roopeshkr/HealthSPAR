@@ -1,145 +1,131 @@
-<div class="d-flex" id="wrapper">
-
-  <!-- Sidebar -->
-  <div class="border-right" id="sidebar-wrapper" [ngClass]="status ? 'hide' : 'show'">
-    <div class="sidebar-heading">MGM Hospital
-      <p>Upload avtar image here</p>
-      <button type="button" class="btn btn-primary ">Primary</button>
-    </div>
-    <br>
-    <div class="list-group list-group-flush">
-      <a href="#" class="list-group-item list-group-item-action bg-light">Hospital Details</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Update Profile</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Logout</a>
-    </div>
-  </div>
-  <!-- /#sidebar-wrapper -->
-
-  <!-- Page Content -->
-  <div id="page-content-wrapper">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="assets/images/healthspar_icon.svg" alt="Logo" width="30" height="24"
-            class="d-inline-block align-text-top" />
-          HealthSPAR
-        </a>
-        <button class="btn btn-primary" (click)="clickEvent()">Toggle Menu</button>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item mx-4">
-              <a class="nav-link" href="#">Dashboard</a>
-            </li>
-            <li class="nav-item mx-4">
-              <a class="nav-link" href="#">Doctor</a>
-            </li>
-            <li class="nav-item mx-4">
-              <a class="nav-link" href="#">Appointments</a>
-            </li>
-            <li class="nav-item mx-4">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item mx-4">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav ml-auto mx-4">
-            <li class="nav-item mx-3">
-              <a class="nav-link" href="#">Profile</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <br>
-    <div class="container py-5 h-100">
-      <div class="row justify-content-center align-items-center h-100">
-        <div class="col-12 col-lg-9 col-xl-7">
-          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-            <div class="card-body p-4 p-md-5">
-              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5"><span>Hospital Details</span></h3>
-              <form>
-                <h3><span>Basic</span></h3>
-                <hr>
-                <div class="row">
-                  <div class="col-md-12 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="Name" placeholder="Name" class="form-control form-control-lg" />
-                    </div>
-                  </div>
+<div class="container-fluid">
+  <div class="row">
+    <app-hospital-sidenav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar"
+      style="height: 132vh"></app-hospital-sidenav>
+    <!-- Page Content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+        <div class="card-body p-4 p-md-5">
+          <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Hospital Details</h3>
+          <form>
+            <h3><span>Basic</span></h3>
+            <hr>
+            <div class="row">
+              <div class="col-md-12 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="Name" placeholder="Name" class="form-control form-control-lg" />
                 </div>
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="email" id="Email" placeholder="Email" class="form-control form-control-lg" />
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="lastName" placeholder="Phone Number"
-                        class="form-control form-control-lg" />
-                    </div>
-                  </div>
-                </div>
-                <br>
-                <h3><span>Address</span></h3>
-                <hr>
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="Street" placeholder="Street" class="form-control form-control-lg" />
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="City" placeholder="City" class="form-control form-control-lg" />
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="District" placeholder="District" class="form-control form-control-lg" />
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="Zip" placeholder="Zip" class="form-control form-control-lg" />
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="State" placeholder="State" class="form-control form-control-lg" />
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="Country" placeholder="Country" class="form-control form-control-lg" />
-                    </div>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center">
-                  <button type="submit" class="btn btn-danger">Save</button>
-                </div>
-              </form>
+              </div>
             </div>
-          </div>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="email" id="Email" placeholder="Email" class="form-control form-control-lg" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="lastName" placeholder="Phone Number" class="form-control form-control-lg" />
+                </div>
+              </div>
+            </div>
+            <br>
+            <h3><span>Address</span></h3>
+            <hr>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="Street" placeholder="Street" class="form-control form-control-lg" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="City" placeholder="City" class="form-control form-control-lg" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="District" placeholder="District" class="form-control form-control-lg" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="Zip" placeholder="Zip" class="form-control form-control-lg" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="State" placeholder="State" class="form-control form-control-lg" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="Country" placeholder="Country" class="form-control form-control-lg" />
+                </div>
+              </div>
+            </div>
+            <br>
+            <h3><span>Doctors</span></h3>
+            <hr>
+            <div class="form-group" *ngFor="let doctor of doctors; let i = index">
+              <h4>Doctor {{ i + 1 }}</h4>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <input type="text" class="form-control" placeholder="Name" id="doctorName{{ i }}"
+                    name="doctorName{{ i }}" [(ngModel)]="doctor.name">
+                </div>
+                <div class="col-md-6 mb-4">
+                  <input type="text" class="form-control" placeholder="Specialty" id="doctorSpecialty{{ i }}"
+                    name="doctorSpecialty{{ i }}" [(ngModel)]="doctor.specialty">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <input type="text" class="form-control" placeholder="Year of Experience" id="doctorExperience{{ i }}"
+                    name="doctorExperience{{ i }}" [(ngModel)]="doctor.experience">
+                </div>
+                <div class="col-md-6 mb-4">
+                  <input type="text" class="form-control" placeholder="Language Known" id="doctorLanguage{{ i }}"
+                    name="doctorLanguage{{ i }}" [(ngModel)]="doctor.language">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="Education" placeholder="Education Qualification "
+                      class="form-control form-control-lg" />
+                  </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="starttime" placeholder="Start Time" class="form-control form-control-lg" />
+                  </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="endtime" placeholder="End Time" class="form-control form-control-lg" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" placeholder="Add Bio" id="bio" rows="3"></textarea>
+              </div>
+              <button type="button" class="btn btn-danger" (click)="removeDoctor(i)">Remove Doctor</button>
+            </div>
+            <button class="btn btn-primary" (click)="addDoctor()">Add Doctor</button>
+
+            <div class="d-flex align-items-center justify-content-center">
+              <button type="submit" class="btn btn-danger">Save</button>
+            </div>
+          </form>
         </div>
       </div>
-    </div>
+    </main>
+    <!-- /#page-content-wrapper -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"></main>
   </div>
-  <!-- /#page-content-wrapper -->
-
 </div>
-<!-- /#wrapper -->

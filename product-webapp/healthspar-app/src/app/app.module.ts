@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +18,17 @@ import { NavbarComponent } from './components/patient/shared/navbar/navbar.compo
 import { HeroComponent } from './components/patient/hero/hero.component';
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 import { HomeComponent } from './components/patient/home/home.component';
+import { HospitalDetailsComponent } from './components/hospital/hospital-details/hospital-details.component';
+import { ProfileComponent } from './components/patient/profile/profile.component';
+import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
+import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
+<<<<<<< HEAD
+import { HospitalSidenavComponent } from './components/hospital/shared/hospital-sidenav/hospital-sidenav.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+=======
+import { LoginComponent } from './components/shared/login/login.component';
+import { SignupComponent } from './components/shared/signup/signup.component';
+>>>>>>> 77276d1d1f652dca8d966174e48af35ecbaa8a88
 
 @NgModule({
   declarations: [
@@ -29,16 +42,31 @@ import { HomeComponent } from './components/patient/home/home.component';
     DoctorComponent,
     NavbarComponent,
     HeroComponent,
+    HospitalComponent,
+    HomeComponent,
     RecommendationComponent,
-    HomeComponent
+    HospitalDetailsComponent,
+    ProfileComponent,
+    UpdateProfileComponent,
+    SidenavComponent,
+<<<<<<< HEAD
+    HospitalSidenavComponent,
+=======
+    LoginComponent,
+    SignupComponent,
+>>>>>>> 77276d1d1f652dca8d966174e48af35ecbaa8a88
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
