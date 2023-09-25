@@ -7,7 +7,7 @@ import { PatientProfileService } from 'src/app/service/patient-profile.service';
   templateUrl: './display-profile.component.html',
   styleUrls: ['./display-profile.component.css']
 })
-export class DisplayProfileComponent implements OnInit{
+export class DisplayProfileComponent implements OnInit {
   selectedAvatarFile: File | null = null;
   patient: Patient = {
     patientName: '',
@@ -21,19 +21,22 @@ export class DisplayProfileComponent implements OnInit{
     state: '',
     country: '',
     zip: '',
-    patientId: ''
+    patientId: '',
+    medicalHistory: '',
+    medicineHistory: '',
+    treatmentHistory: '',
   };
 
-  constructor(private patientService:PatientProfileService){}
+  constructor(private patientService: PatientProfileService) { }
 
   ngOnInit(): void {
     this.getPatientById('65112310a54f852dd3e07a79');
   }
 
-  public getPatientById(patientId:string):void{
+  public getPatientById(patientId: string): void {
     this.patientService.getPatientProfile(patientId).subscribe(
-      (response:Patient)=>{
-        this.patient=response
+      (response: Patient) => {
+        this.patient = response
         console.log(this.patient);
       }
     )

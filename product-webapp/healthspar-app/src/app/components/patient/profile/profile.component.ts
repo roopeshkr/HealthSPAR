@@ -24,7 +24,10 @@ export class ProfileComponent {
       district: [''],
       state: [''],
       country: [''],
-      zip: ['']
+      zip: [''],
+      medicalHistory: [''],
+      medicineHistory: [''],
+      treatmentHistory: [''],
     });
   }
 

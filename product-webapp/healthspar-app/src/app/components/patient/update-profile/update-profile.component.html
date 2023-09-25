@@ -149,7 +149,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4 mb-4">
+        <div class="col-md-6 mb-4">
           <div class="col-auto">
             <label for="state" class="col-form-label">State</label>
           </div>
@@ -163,7 +163,7 @@
             />
           </div>
         </div>
-        <div class="col-md-4 mb-4">
+        <div class="col-md-6 mb-4">
           <div class="col-auto">
             <label for="country" class="col-form-label">Country</label>
           </div>
@@ -177,7 +177,7 @@
             />
           </div>
         </div>
-        <div class="col-md-4 mb-4">
+        <div class="col-md-6 mb-4">
           <div class="col-auto">
             <label for="zip" class="col-form-label">Zip</label>
           </div>
@@ -189,6 +189,55 @@
               class="form-control form-control-lg"
               formControlName="zip"
             />
+          </div>
+        </div>
+      </div>
+      <h3><span>Medical History</span></h3>
+      <hr />
+      <div class="row">
+        <div class="col-md-12 mb-4">
+          <div class="col-auto">
+            <label for="medicalHistory" class="col-form-label">Medical</label>
+          </div>
+          <div class="form-outline">
+            <textarea
+              type="text"
+              id="medicalHistory"
+              placeholder="Enter Your Past Medical History Here"
+              class="form-control form-control-lg"
+              rows="3"
+              formControlName="medicalHistory"
+            ></textarea>
+          </div>
+        </div>
+        <div class="col-md-12 mb-4">
+          <div class="col-auto">
+            <label for="medicineHistory" class="col-form-label">Medicine</label>
+          </div>
+          <div class="form-outline">
+            <textarea
+              type="text"
+              id="medicineHistory"
+              placeholder="Enter Your Medicines History Here"
+              rows="3"
+              class="form-control form-control-lg"
+              formControlName="medicineHistory"
+            ></textarea>
+          </div>
+        </div>
+        <div class="col-md-12 mb-4">
+          <div class="col-auto">
+            <label for="treatmentHistory" class="col-form-label">Treatment</label>
+          </div>
+          <div class="form-outline">
+            <textarea
+              type="text"
+              id="treatmentHistory"
+              placeholder="Enter Your Past Treatments Here"
+              class="form-control form-control-lg"
+              rows="3"
+              formControlName="treatmentHistory"
+            ></textarea>
           </div>
         </div>
       </div>

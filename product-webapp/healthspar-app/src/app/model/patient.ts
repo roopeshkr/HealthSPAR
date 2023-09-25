@@ -11,4 +11,7 @@ export interface Patient {
   state: string;
   country: string;
   zip: string;
+  medicalHistory:string;
+  medicineHistory:string;
+  treatmentHistory:string;
 }

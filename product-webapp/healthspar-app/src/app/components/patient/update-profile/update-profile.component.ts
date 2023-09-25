@@ -21,7 +21,10 @@ export class UpdateProfileComponent implements OnInit {
     state: '',
     country: '',
     zip: '',
-    patientId: ''
+    patientId: '',
+    medicalHistory: '',
+    medicineHistory: '',
+    treatmentHistory: '',
   };
   patientProfileForm: FormGroup;
   isSubmitted: boolean = false;
@@ -38,7 +41,10 @@ export class UpdateProfileComponent implements OnInit {
       district: [''],
       state: [''],
       country: [''],
-      zip: ['']
+      zip: [''],
+      medicalHistory: [''],
+      medicineHistory: [''],
+      treatmentHistory: [''],
     });
   }
 
