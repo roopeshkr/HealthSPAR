@@ -28,10 +28,6 @@ export class RecommendationComponent implements OnInit{
         alert(error.message);
       }
     )
-<<<<<<< HEAD
-=======
-    console.log(this.recommendedHospitals);
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
     
   }
   

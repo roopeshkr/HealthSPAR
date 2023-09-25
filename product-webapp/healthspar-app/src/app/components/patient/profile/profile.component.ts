@@ -12,10 +12,6 @@ export class ProfileComponent {
   patientProfileForm: FormGroup;
   isSubmitted: boolean = false;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
   constructor(private profileService: PatientProfileService, private formBuilder: FormBuilder) {
     this.patientProfileForm = this.formBuilder.group({
       patientName: ['', Validators.required],
@@ -34,10 +30,6 @@ export class ProfileComponent {
 
   onSubmit() {
     this.isSubmitted = true;
-<<<<<<< HEAD
-=======
-    console.log(this.patientProfileForm.value);
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
 
 
     if (this.patientProfileForm.valid) {
@@ -46,12 +38,6 @@ export class ProfileComponent {
       this.profileService.addPatientProfile(patientData).subscribe(
         (response) => {
           console.log('Patient added successfully:', response);
-<<<<<<< HEAD
-=======
-        },
-        (error) => {
-          console.error('Error adding patient:', error);
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
         }
       );
 

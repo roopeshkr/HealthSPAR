@@ -1,6 +1,5 @@
 <div class="container-fluid">
   <div class="row">
-<<<<<<< HEAD
     <app-sidenav
       id="sidebar"
       class="col-md-3 col-lg-2 d-md-block bg-light sidebar"
@@ -12,12 +11,6 @@
         class="card shadow-2-strong card-registration"
         style="border-radius: 15px"
       >
-=======
-    <app-sidenav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar" style="height: 132vh"></app-sidenav>
-
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="card shadow-2-strong card-registration" style="border-radius: 15px">
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
         <div class="card-body p-4 p-md-5">
           <form [formGroup]="patientProfileForm" (ngSubmit)="onSubmit()">
             <h3><span>Basic</span></h3>
@@ -28,7 +21,6 @@
                   <label for="name" class="col-form-label">Name</label>
                 </div>
                 <div class="form-outline">
-<<<<<<< HEAD
                   <input
                     type="text"
                     id="name"
@@ -36,10 +28,6 @@
                     class="form-control form-control-lg"
                     formControlName="patientName"
                   />
-=======
-                  <input type="text" id="name" placeholder="Enter Your Name" class="form-control form-control-lg"
-                    formControlName="patientName" />
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
                 </div>
               </div>
               <div class="col-md-6 mb-4">
@@ -47,7 +35,6 @@
                   <label for="dob" class="col-form-label">Date Of Birth</label>
                 </div>
                 <div class="form-outline">
-<<<<<<< HEAD
                   <input
                     type="date"
                     id="dob"
@@ -55,10 +42,6 @@
                     class="form-control form-control-lg"
                     formControlName="dob"
                   />
-=======
-                  <input type="date" id="dob" placeholder="Enter Your DOB" class="form-control form-control-lg"
-                    formControlName="dob" />
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
                 </div>
               </div>
             </div>
@@ -68,7 +51,6 @@
                   <label for="email" class="col-form-label">Email</label>
                 </div>
                 <div class="form-outline">
-<<<<<<< HEAD
                   <input
                     type="text"
                     id="email"
@@ -76,10 +58,6 @@
                     class="form-control form-control-lg"
                     formControlName="email"
                   />
-=======
-                  <input type="text" id="email" placeholder="Enter Your Email" class="form-control form-control-lg"
-                    formControlName="email" />
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
                 </div>
               </div>
               <div class="col-md-6 mb-4">
@@ -87,7 +65,6 @@
                   <label for="phone" class="col-form-label">Phone Number</label>
                 </div>
                 <div class="form-outline">
-<<<<<<< HEAD
                   <input
                     type="phone"
                     id="phone"
@@ -95,10 +72,6 @@
                     class="form-control form-control-lg"
                     formControlName="phoneNumber"
                   />
-=======
-                  <input type="phone" id="phone" placeholder="Enter Your Phone Number"
-                    class="form-control form-control-lg" formControlName="phoneNumber" />
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
                 </div>
               </div>
             </div>
@@ -107,16 +80,12 @@
                 <div class="col-auto">
                   <label for="blood" class="col-form-label">Blood Group</label>
                 </div>
-<<<<<<< HEAD
                 <select
                   class="form-select"
                   id="blood"
                   aria-label="Select Blood Group"
                   formControlName="bloodGroup"
                 >
-=======
-                <select class="form-select" id="blood" aria-label="Select Blood Group" formControlName="bloodGroup">
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
                   <option selected>Select blood group</option>
                   <option value="A+">A+</option>
                   <option value="A-">A-</option>
@@ -132,16 +101,12 @@
                 <div class="col-auto">
                   <label for="gender" class="col-form-label">Gender</label>
                 </div>
-<<<<<<< HEAD
                 <select
                   class="form-select"
                   id="gender"
                   aria-label="Select Gender"
                   formControlName="gender"
                 >
-=======
-                <select class="form-select" id="gender" aria-label="Select Gender" formControlName="gender">
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
                   <option selected>Select Your Gender</option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
@@ -157,7 +122,6 @@
                   <label for="city" class="col-form-label">City</label>
                 </div>
                 <div class="form-outline">
-<<<<<<< HEAD
                   <input
                     type="text"
                     id="city"
@@ -165,10 +129,6 @@
                     class="form-control form-control-lg"
                     formControlName="cityName"
                   />
-=======
-                  <input type="text" id="city" placeholder="Enter Your City" class="form-control form-control-lg"
-                    formControlName="cityName" />
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
                 </div>
               </div>
               <div class="col-md-6 mb-4">
@@ -176,7 +136,6 @@
                   <label for="district" class="col-form-label">District</label>
                 </div>
                 <div class="form-outline">
-<<<<<<< HEAD
                   <input
                     type="text"
                     id="district"
@@ -184,10 +143,6 @@
                     class="form-control form-control-lg"
                     formControlName="district"
                   />
-=======
-                  <input type="text" id="district" placeholder="Enter Your District"
-                    class="form-control form-control-lg" formControlName="district" />
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
                 </div>
               </div>
             </div>
@@ -197,7 +152,6 @@
                   <label for="state" class="col-form-label">State</label>
                 </div>
                 <div class="form-outline">
-<<<<<<< HEAD
                   <input
                     type="text"
                     id="state"
@@ -205,10 +159,6 @@
                     class="form-control form-control-lg"
                     formControlName="state"
                   />
-=======
-                  <input type="text" id="state" placeholder="Enter Your State" class="form-control form-control-lg"
-                    formControlName="state" />
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
                 </div>
               </div>
               <div class="col-md-4 mb-4">
@@ -216,7 +166,6 @@
                   <label for="country" class="col-form-label">Country</label>
                 </div>
                 <div class="form-outline">
-<<<<<<< HEAD
                   <input
                     type="text"
                     id="country"
@@ -224,10 +173,6 @@
                     class="form-control form-control-lg"
                     formControlName="country"
                   />
-=======
-                  <input type="text" id="country" placeholder="Enter Your Country" class="form-control form-control-lg"
-                    formControlName="country" />
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
                 </div>
               </div>
               <div class="col-md-4 mb-4">
@@ -235,7 +180,6 @@
                   <label for="zip" class="col-form-label">Zip</label>
                 </div>
                 <div class="form-outline">
-<<<<<<< HEAD
                   <input
                     type="text"
                     id="zip"
@@ -243,10 +187,6 @@
                     class="form-control form-control-lg"
                     formControlName="zip"
                   />
-=======
-                  <input type="text" id="zip" placeholder="Enter Your Zip" class="form-control form-control-lg"
-                    formControlName="zip" />
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
                 </div>
               </div>
             </div>
@@ -258,8 +198,4 @@
       </div>
     </main>
   </div>
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76

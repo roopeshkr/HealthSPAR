@@ -18,20 +18,12 @@ import { NavbarComponent } from './components/patient/shared/navbar/navbar.compo
 import { HeroComponent } from './components/patient/hero/hero.component';
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 import { HomeComponent } from './components/patient/home/home.component';
-<<<<<<< HEAD
 import { HospitalDetailsComponent } from './components/hospital/hospital-details/hospital-details.component';
 import { ProfileComponent } from './components/patient/profile/profile.component';
 import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
 import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
 import { LoginComponent } from './components/shared/login/login.component';
 import { SignupComponent } from './components/shared/signup/signup.component';
-=======
-import { LoginComponent } from './components/shared/login/login.component';
-import { SignupComponent } from './components/shared/signup/signup.component';
-import { PatientProfileComponent } from './components/patient/patient-profile/patient-profile.component';
-import { ProfileSidenavComponent } from './components/patient/profile-sidenav/profile-sidenav.component';
-import { ProfileMainComponent } from './components/patient/profile-main/profile-main.component';
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
 
 @NgModule({
   declarations: [
@@ -48,21 +40,12 @@ import { ProfileMainComponent } from './components/patient/profile-main/profile-
     HospitalComponent,
     HomeComponent,
     RecommendationComponent,
-<<<<<<< HEAD
     HospitalDetailsComponent,
     ProfileComponent,
     UpdateProfileComponent,
     SidenavComponent,
     LoginComponent,
     SignupComponent,
-=======
-    HomeComponent,
-    LoginComponent,
-    SignupComponent,
-    PatientProfileComponent,
-    ProfileSidenavComponent,
-    ProfileMainComponent
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
   ],
   imports: [
     BrowserModule,
