@@ -38,4 +38,15 @@ public class AppointmentsController {
 
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<AppointmentsDTO> updateAppointmentById(@PathVariable("id") int id, @RequestBody AppointmentsDTO dto){
+
+        var newAppointment = converter.toEntity(dto);
+        newAppointment.setAppointmentId(id);
+        var updatedAppointment = service.update(newAppointment);
+        var updatedAppointmentDto = converter.toDto(updatedAppointment);
+        return ResponseEntity.ok(updatedAppointmentDto);
+
+    }
+
 }

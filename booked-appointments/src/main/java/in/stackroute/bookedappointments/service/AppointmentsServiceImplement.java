@@ -32,4 +32,9 @@ public class AppointmentsServiceImplement implements AppointmentsService{
     public List<Appointments> findAll() {
         return repository.findAll();
     }
+
+    @Override
+    public Appointments update(Appointments appointments) {
+        return repository.save(appointments);
+    }
 }

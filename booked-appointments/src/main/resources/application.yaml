@@ -1,5 +1,5 @@
 server:
-  port: 8000 # Port of the application will be assigned dynamically
+  port: 8010 # Port of the application will be assigned dynamically
 spring:
   application:
     name: booked-appointments
