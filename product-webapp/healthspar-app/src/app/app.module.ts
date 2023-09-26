@@ -46,6 +46,7 @@ import { HospitalPageComponent } from './components/hospital/hospital-page/hospi
     HeroComponent,
     HospitalComponent,
     HomeComponent,
+    LoginComponent,
     RecommendationComponent,
     HospitalDetailsComponent,
     ProfileComponent,
@@ -65,6 +66,7 @@ import { HospitalPageComponent } from './components/hospital/hospital-page/hospi
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserModule
     // FontAwesomeModule,
   ],
   providers: [],

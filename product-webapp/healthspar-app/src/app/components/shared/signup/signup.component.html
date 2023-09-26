@@ -1,7 +1,6 @@
-<body>
-  <img src="assets/images/login.jpg" alt="signup background">
 
-  <div class="container-fluid">
+<img src="assets/images/login.jpg" alt="login background" style="height: 100vh;width:100vw"/>
+<div class="container-fluid">
 
 
     <div class="row">
@@ -9,11 +8,9 @@
         <div class="card">
           <div class="text-center">
             <h1>Registration</h1>
-            <!-- <h6>Please enter emain & password!!</h6> -->
           </div>
 
           <form>
-            <!-- Role selection buttons -->
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
               <button class="btn btn-primary" type="button" (click)="selectRole('PATIENT')">
                 Patient
@@ -21,30 +18,13 @@
               <button class="btn btn-primary" type="button" (click)="selectRole('HCP')">
                 Hospital
               </button>
-              <!-- <div class="form-box">
-                <div class="button-box">
-                  <div class="btn"></div>
-                  <button class="toggle-button" type="button" (click)="selectRole('PATIENT')">
-                    Patient
-                  </button>
-                  <button class="toggle-button" type="button" (click)="selectRole('HCP')">
-                    Hospital
-                  </button>
-                </div>
-              </div> -->
+             
               
 
 
             </div>
-            <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <div class="toggle-button">
-                <button class="btn btn-primary" id="patient-button" onclick="selectRole('PATIENT')">Patient</button>
-                <button class="btn btn-primary" id="hospital-button" onclick="selectRole('HCP')">Hospital</button>
-                <div class="indicator"></div>
-              </div>
-            </div> -->
+           
 
-            <!-- Form for signup -->
             <form *ngIf="selectedRole === 'PATIENT'" (ngSubmit)="signup()">
               <div class="mb-3">
                 <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
@@ -62,7 +42,6 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password"
                   name="password" minlength="8" required />
               </div>
-              <!-- Include a hidden field to store the selectedRole -->
               <input type="hidden" [value]="selectedRole" name="role" />
 
               <button type="submit" class="btn btn-primary">Register</button>
@@ -84,7 +63,6 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password"
                   name="password" minlength="8" required />
               </div>
-              <!-- Include a hidden field to store the selectedRole -->
               <input type="hidden" [value]="selectedRole" name="role" />
 
               <button type="submit" class="btn btn-primary">Register</button>
@@ -96,4 +74,3 @@
       </div>
     </div>
   </div>
-</body>
