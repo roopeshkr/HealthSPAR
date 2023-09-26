@@ -23,7 +23,7 @@ import { ProfileComponent } from './components/patient/profile/profile.component
 import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
 // import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
 import { HospitalSidenavComponent } from './components/hospital/shared/hospital-sidenav/hospital-sidenav.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './components/shared/login/login.component';
 import { SignupComponent } from './components/shared/signup/signup.component';
 import { UpdateHospitalDetailsComponent } from './components/hospital/update-hospital-details/update-hospital-details.component';
@@ -44,6 +44,7 @@ import { HospitalPageComponent } from './components/hospital/hospital-page/hospi
     HeroComponent,
     HospitalComponent,
     HomeComponent,
+    LoginComponent,
     RecommendationComponent,
     HospitalDetailsComponent,
     ProfileComponent,
@@ -64,7 +65,8 @@ import { HospitalPageComponent } from './components/hospital/hospital-page/hospi
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
-    FontAwesomeModule,
+    BrowserModule,
+    // FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,38 +1,49 @@
-<body>
-  <img src="assets/images/login.jpg" alt="login background">
-  <div class="container">
-    <!-- <div class="background-ima"> -->
-    <!-- <img src="assets/images/login.jpg" alt="Hero Image" class="img-fluid"> -->
-
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="text-center">
-            <h1>Login</h1>
-            <!-- <h6>Please enter your email and password</h6> -->
+<img src="assets/images/login.jpg" alt="login background" style="height: 100vh;width:100vw"/>
+<div class="container-fluid">
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>Login</h1>
+        </div>
+        <form (ngSubmit)="login()">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address<span class="text-danger">*</span></label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              [(ngModel)]="email"
+              name="email"
+            />
           </div>
-          <form (ngSubmit)="login()">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address<span class="text-danger">*</span></label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                [(ngModel)]="email" name="email" />
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password<span class="text-danger">*</span></label>
-              <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password"
-                name="password" />
-            </div>
-
-            <button type="submit" class="btn btn-primary">Login</button>
-          </form>
-          <a routerLink="/signup" style="color: white;">New user? Click to Registration!!</a>
-          <div class="text-center mt-3">
-            <p class="text-danger">{{ errorMessage }}</p>
-            <p class="text-success">{{ successMessage }}</p>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password<span class="text-danger">*</span></label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              [(ngModel)]="password"
+              name="password"
+            />
           </div>
+
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <a routerLink="/signup" style="color: white"
+          >New user? Click to Registration!!</a
+        >
+        <div class="text-center mt-3">
+          <p class="text-danger">{{ errorMessage }}</p>
+          <p class="text-success">{{ successMessage }}</p>
         </div>
       </div>
     </div>
-    <!-- </div> -->
   </div>
-</body>
+</div>
