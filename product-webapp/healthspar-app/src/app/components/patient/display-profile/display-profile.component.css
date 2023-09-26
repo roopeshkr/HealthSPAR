@@ -1,0 +1,76 @@
+.card{
+    display: flex;
+    flex-direction: column;
+}
+
+.card img{
+    margin: 0 auto;
+}
+
+.right
+{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+}
+
+.left img{
+    margin-left: 17px;
+}
+.buttons{
+    background-color: lightslategrey;
+}
+.buttons a{
+    padding: 6px;
+    text-decoration: none;
+    margin: auto 0;
+    margin-right: 23px;
+}
+
+
+.list-group-item span{
+    font-weight: bold;
+    display: inline-block;
+}
+
+.name-list{
+    margin-right: 116px;
+}
+.dob-list{
+    margin-right: 58px;
+}
+.email-list{
+    margin-right: 116px;
+}
+.phone-list{
+    margin-right: 42px;
+}
+.blood-list{
+    margin-right: 58px;
+}
+.gender-list{
+    margin-right: 98px;
+}
+
+
+.city-list{
+    margin-right: 116px;
+}
+.district-list{
+    margin-right: 90px;
+}
+.state-list{
+    margin-right: 103px;
+}
+.country-list{
+    margin-right: 78px;
+}
+.zip-list{
+    margin-right: 115px;
+}
+
+

@@ -21,7 +21,10 @@ export class UpdateProfileComponent implements OnInit {
     state: '',
     country: '',
     zip: '',
-    patientId: ''
+    patientId: '',
+    medicalHistory: '',
+    medicineHistory: '',
+    treatmentHistory: '',
   };
   patientProfileForm: FormGroup;
   isSubmitted: boolean = false;
@@ -38,12 +41,15 @@ export class UpdateProfileComponent implements OnInit {
       district: [''],
       state: [''],
       country: [''],
-      zip: ['']
+      zip: [''],
+      medicalHistory: [''],
+      medicineHistory: [''],
+      treatmentHistory: [''],
     });
   }
 
   ngOnInit(): void {
-    this.getPatient('6510036faa8ba165bc419091');
+    this.getPatient('65112310a54f852dd3e07a79');
   }
 
   onSubmit() {

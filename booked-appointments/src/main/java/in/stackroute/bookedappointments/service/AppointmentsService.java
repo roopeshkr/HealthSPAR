@@ -10,4 +10,6 @@ public interface AppointmentsService {
     void deleteById(int id);
     List<Appointments> findAll();
 
+    Appointments update(Appointments appointments);
+
 }

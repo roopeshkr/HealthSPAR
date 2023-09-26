@@ -2,12 +2,37 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Hospital } from 'src/app/model/hospital';
 import { HospitalService } from 'src/app/service/hospital.service';
+
 @Component({
-  selector: 'app-hospital-details',
-  templateUrl: './hospital-details.component.html',
-  styleUrls: ['./hospital-details.component.css'],
+  selector: 'app-update-hospital-details',
+  templateUrl: './update-hospital-details.component.html',
+  styleUrls: ['./update-hospital-details.component.css']
 })
-export class HospitalDetailsComponent {
+export class UpdateHospitalDetailsComponent implements OnInit{
+
+  hospital: Hospital = {
+    hospitalId: 0,
+    hospitalName: '',
+    hospitalWebsite: '',
+    hospitalEmail: '',
+    hospitalPhoneNumber: '',
+    hospitalImageURL: '',
+    hospitalRating: 0,
+    hospitalReviews: [''],
+    city: {
+      cityId: 0,
+      name: '',
+      district: '',
+      state: '',
+      country: '',
+      zip: '',
+    },
+    hospitalAmenities: [],
+    numberOfBeds: 0,
+    doctors: [],
+    specialty: [],
+  };
+
   doctors: Array<{
     name: string;
     specialty: string;
@@ -43,18 +68,40 @@ export class HospitalDetailsComponent {
       }
     )
   }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   onSubmit(){
     this.isSubmitted=true;
+
     if(this.hospitalProfileForm.valid){
-      const HospitalData:Hospital=this.hospitalProfileForm.value;
-      this.profileService.addHospitalProfile(HospitalData).subscribe(
-        (response)=>{
-          console.log("Hospital Added successfully:",response);
-          
-        }
-      )
+      this.hospital={...this.hospital,...this.hospitalProfileForm.value};
+      this.updateHospital();
     }
+  }
+
+  public getHospital(hospitalId:number):void{
+    this.profileService.getHospitalProfile(hospitalId).subscribe(
+      (response)=>{
+        this.hospital=response;
+        this.hospitalProfileForm.patchValue(this.hospital)
+      },(error)=>{
+        console.error('Error fetching patient:',error);
+      }
+    )
+  }
+
+  public updateHospital():void{
+    this.profileService.updateHospitalProfile(this.hospital.hospitalId,this.hospital).subscribe(
+      (response:Hospital)=>{
+        console.log("Hospital profile updated successfully: ",response);
+        
+      },(error)=>{
+        console.error("Error updating hospital profile:",error);
+        
+      }
+    )
   }
 
   removeDoctor(index: number) {

@@ -31,6 +31,10 @@ public record PatientDto(
         String country,
         @NotBlank(message = "City must have a zip code")
         @Pattern(regexp = "\\d{6}", message = "Zip code must have exactly 6 digits")
-        String zip
+        String zip,
+
+        String medicalHistory,
+        String medicineHistory,
+        String treatmentHistory
 ) {
 }

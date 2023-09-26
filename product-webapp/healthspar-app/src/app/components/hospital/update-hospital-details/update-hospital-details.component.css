@@ -1,0 +1,33 @@
+
+.container-fluid {
+    width: 100%;
+    align-items: center;
+  }
+  
+  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+  }
+  
+  .card-registration .select-arrow {
+    top: 13px;
+  }
+  
+  form button.btn.btn-danger{
+   width: 30%;
+   margin: 20px;
+  }
+  
+  form span{
+    color: rgb(40, 158, 255);
+  }
+  form hr{
+    border: 2px solid #000;
+  }
+  
+  /* #sidebar {
+    background-color: #393B51;
+  } */
+  
