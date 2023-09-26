@@ -1,3 +1,12 @@
+/* body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  
+  background-size: cover;
+  background-position: center;
+
+} */
 .card {
   margin-top: 10px;
   border: none;
@@ -21,3 +30,11 @@ h6 {
 label {
   color: #fff;
 }
+/* .background-ima{
+ 
+  
+
+  
+} */
+/* 
+ */

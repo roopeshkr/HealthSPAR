@@ -6,13 +6,10 @@ import { HospitalDetailsComponent } from './components/hospital/hospital-details
 import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
 import { ProfileComponent } from './components/patient/profile/profile.component';
 import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
-<<<<<<< HEAD
 import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
 import { HospitalSidenavComponent } from './components/hospital/shared/hospital-sidenav/hospital-sidenav.component';
-=======
 import { LoginComponent } from './components/shared/login/login.component';
 import { SignupComponent } from './components/shared/signup/signup.component';
->>>>>>> 77276d1d1f652dca8d966174e48af35ecbaa8a88
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },

@@ -22,13 +22,12 @@ import { HospitalDetailsComponent } from './components/hospital/hospital-details
 import { ProfileComponent } from './components/patient/profile/profile.component';
 import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
 import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
-<<<<<<< HEAD
 import { HospitalSidenavComponent } from './components/hospital/shared/hospital-sidenav/hospital-sidenav.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-=======
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './components/shared/login/login.component';
 import { SignupComponent } from './components/shared/signup/signup.component';
->>>>>>> 77276d1d1f652dca8d966174e48af35ecbaa8a88
+// import { UpdateHospitalDetailsComponent } from './components/hospital/update-hospital-details/update-hospital-details.component';
+// import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
 
 @NgModule({
   declarations: [
@@ -49,12 +48,10 @@ import { SignupComponent } from './components/shared/signup/signup.component';
     ProfileComponent,
     UpdateProfileComponent,
     SidenavComponent,
-<<<<<<< HEAD
     HospitalSidenavComponent,
-=======
     LoginComponent,
     SignupComponent,
->>>>>>> 77276d1d1f652dca8d966174e48af35ecbaa8a88
+    
   ],
   imports: [
     BrowserModule,
@@ -64,7 +61,7 @@ import { SignupComponent } from './components/shared/signup/signup.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    FontAwesomeModule,
+    // FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
