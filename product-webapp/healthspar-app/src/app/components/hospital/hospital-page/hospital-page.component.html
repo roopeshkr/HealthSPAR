@@ -9,33 +9,33 @@
         </div>
         <!-- Right Column with Form -->
         <div class="col-md-6 d-flex align-items-center justify-content-center">
-          <form class="row g-3 php-email-form" id="appointment-form">
+          <form class="row g-3 php-email-form" id="appointment-form" (ngSubmit)="onSubmit()">
             <h1 class="display-4">Make An Appointment</h1>
             <div class="row">
               <div class="col-md-4 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required
                   data-rule="minlen:4" data-msg="Please enter at least 4 chars">
                 <div class="validate"></div>
               </div>
               <div class="col-md-4 form-group mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required
                   data-rule="email" data-msg="Please enter a valid email">
                 <div class="validate"></div>
               </div>
               <div class="col-md-4 form-group mt-3 mt-md-0">
-                <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone"
+                <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required
                   data-rule="minlen:4" data-msg="Please enter at least 4 chars">
                 <div class="validate"></div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-4 form-group mt-3">
-                <input type="datetime" name="date" class="form-control datepicker" id="date"
+                <input type="datetime" name="date" class="form-control datepicker" id="date" required
                   placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
                 <div class="validate"></div>
               </div>
               <div class="col-md-4 form-group mt-3">
-                <select name="department" id="department" class="form-select">
+                <select name="department" id="department" class="form-select" required>
                   <option value="">Select Department</option>
                   <ng-container *ngFor="let department of hospital.specialty">
                     <option [value]="department.name">{{department.name}}</option>
@@ -44,7 +44,7 @@
                 <div class="validate"></div>
               </div>
               <div class="col-md-4 form-group mt-3">
-                <select name="doctor" id="doctor" class="form-select">
+                <select name="doctor" id="doctor" class="form-select" required>
                   <option value="">Select Doctor</option>
                   <ng-container *ngFor="let doctor of hospital.doctors">
                     <option [value]="doctor.doctorName">{{doctor.doctorName}}</option>

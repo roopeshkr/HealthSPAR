@@ -30,6 +30,7 @@ export class HospitalPageComponent implements OnInit {
     doctors: [],
     specialty: [],
   };
+  isSubmitted:boolean=false;
 
   constructor(private hospitalService:HospitalService){}
 
@@ -45,6 +46,12 @@ export class HospitalPageComponent implements OnInit {
         
       }
     )
+  }
+
+  onSubmit(){
+    this.isSubmitted=true;
+    console.log("submited");
+    
   }
 
 }
