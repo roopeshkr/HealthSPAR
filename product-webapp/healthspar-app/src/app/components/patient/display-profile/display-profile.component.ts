@@ -1,45 +1,55 @@
 import { Component, OnInit } from '@angular/core';
-import { Patient } from 'src/app/model/patient';
-import { PatientProfileService } from 'src/app/service/patient-profile.service';
+import * as $ from 'jquery';
+
+/**
+ *
+ * Make sure you have jQuery installed and properly configured
+ * in your Angular project for this code to work.
+ *
+
+      "npm install jquery --save"
+
+ *
+ * And include it in the angular.json file under the "scripts" section:
+ *
+
+      "scripts": [
+        "node_modules/jquery/dist/jquery.min.js"
+      ],
+
+**/
 
 @Component({
   selector: 'app-display-profile',
   templateUrl: './display-profile.component.html',
-  styleUrls: ['./display-profile.component.css']
+  styleUrls: ['./display-profile.component.css'],
 })
 export class DisplayProfileComponent implements OnInit {
-  patient: Patient = {
-    patientName: '',
-    email: '',
-    phoneNumber: '',
-    dob: new Date(),
-    bloodGroup: '',
-    gender: '',
-    cityName: '',
-    district: '',
-    state: '',
-    country: '',
-    zip: '',
-    patientId: '',
-    medicalHistory: '',
-    medicineHistory: '',
-    treatmentHistory: '',
-  };
+  ngOnInit() {
+    const trigger = $('.hamburger');
+    const overlay = $('.overlay');
+    let isClosed = false;
 
-  constructor(private patientService: PatientProfileService) { }
+    trigger.click(() => {
+      hamburger_cross();
+    });
 
-  ngOnInit(): void {
-    this.getPatientById('65112310a54f852dd3e07a79');
-  }
-
-  public getPatientById(patientId: string): void {
-    this.patientService.getPatientProfile(patientId).subscribe(
-      (response: Patient) => {
-        this.patient = response
-        console.log(this.patient);
+    function hamburger_cross() {
+      if (isClosed == true) {
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
       }
-    )
-  }
+    }
 
- 
+    $('[data-toggle="offcanvas"]').click(() => {
+      $('#wrapper').toggleClass('toggled');
+    });
+  }
 }

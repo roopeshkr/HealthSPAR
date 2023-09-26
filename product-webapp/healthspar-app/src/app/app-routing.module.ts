@@ -24,17 +24,21 @@ const routes: Routes = [
   { path: 'hospital', component: HospitalComponent },
   { path: 'patient-profile', component: ProfileComponent },
   { path: 'update-profile', component: UpdateProfileComponent },
-  {path:'display-patient-profile',component:DisplayProfileComponent},
+  { path: 'display-patient-profile', component: DisplayProfileComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'hospital-details', component: HospitalDetailsComponent },
-  { path: 'update-hospital-details', component:UpdateHospitalDetailsComponent },
+  {
+    path: 'update-hospital-details',
+    component: UpdateHospitalDetailsComponent,
+  },
   {
     path: 'hospital-page',
     component: HospitalPageComponent,
   },
   { path: 'profile', component: ProfileComponent },
   { path: 'hospital-sidenav', component: HospitalSidenavComponent },
+  { path: 'display-profile', component: DisplayProfileComponent },
 ];
 
 @NgModule({
