@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Hospital } from 'src/app/model/hospital';
 import { HospitalService } from 'src/app/service/hospital.service';
 
@@ -10,7 +11,6 @@ import { HospitalService } from 'src/app/service/hospital.service';
 })
 export class UpdateHospitalDetailsComponent implements OnInit {
   hospital: Hospital = {
-    hospitalId: 0,
     hospitalName: '',
     hospitalWebsite: '',
     hospitalEmail: '',
@@ -19,7 +19,6 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     hospitalRating: 0,
     hospitalReviews: [''],
     city: {
-      cityId: 0,
       name: '',
       district: '',
       state: '',
@@ -30,21 +29,17 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     numberOfBeds: 0,
     doctors: [],
     specialty: [],
+    hospitalId: 0,
   };
-
-  doctors: Array<{
-    name: string;
-    specialty: string;
-    experience: string;
-    language: string;
-  }> = [];
 
   hospitalProfileForm: FormGroup;
   isSubmitted: boolean = false;
+  step: number = 1;
 
   constructor(
     private profileService: HospitalService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: Router
   ) {
     this.hospitalProfileForm = this.formBuilder.group({
       hospitalName: ['', Validators.required],
@@ -52,14 +47,12 @@ export class UpdateHospitalDetailsComponent implements OnInit {
       hospitalEmail: ['', Validators.email],
       hospitalPhoneNumber: [
         '',
-        [
-          Validators.pattern('^[0-9]*$'),
-          Validators.maxLength(10),
-          Validators.minLength(10),
-        ],
+        Validators.pattern('^[0-9]*$'),
+        Validators.maxLength(10),
+        Validators.minLength(10),
       ],
       hospitalImageURL: '',
-      hospitalRating: [0, [Validators.max(5), Validators.min(0)]],
+      hospitalRating: [0, Validators.max(5), Validators.min(0)],
       hospitalReviews: [''],
       city: {
         cityId: 0,
@@ -69,11 +62,9 @@ export class UpdateHospitalDetailsComponent implements OnInit {
         country: ['', Validators.required],
         zip: [
           '',
-          [
-            Validators.pattern('^[0-9]*$'),
-            Validators.minLength(6),
-            Validators.maxLength(6),
-          ],
+          Validators.pattern('^[0-9]*$'),
+          Validators.minLength(6),
+          Validators.maxLength(6),
         ],
       },
       hospitalAmenities: [],
@@ -83,7 +74,17 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.getHospital(6);
+  }
+
+  get basicDetails() {
+    return this.hospitalProfileForm.get('basicDetailForm');
+  }
+  get addressDetails() {
+    return this.hospitalProfileForm.get('addressDetailForm');
+  }
+  get doctorDetails() {
+    return this.hospitalProfileForm.get('doctorDetailForm') as FormArray;
   }
 
   onSubmit() {
@@ -92,6 +93,7 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     if (this.hospitalProfileForm.valid) {
       this.hospital = { ...this.hospital, ...this.hospitalProfileForm.value };
       this.updateHospital();
+      this.route.navigate(['/display-patient-profile']);
     }
   }
 
@@ -120,21 +122,11 @@ export class UpdateHospitalDetailsComponent implements OnInit {
       );
   }
 
-  removeDoctor(index: number) {
-    this.doctors.splice(index, 1);
+  removeDoctor() {
+    console.log('remove');
   }
 
   addDoctor() {
-    this.doctors.push({
-      name: '',
-      specialty: '',
-      experience: '',
-      language: '',
-    });
-  }
-
-  status: boolean = false;
-  clickEvent() {
-    this.status = !this.status;
+    console.log('add');
   }
 }

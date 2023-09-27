@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Patient } from 'src/app/model/patient';
 import { PatientProfileService } from 'src/app/service/patient-profile.service';
 
@@ -11,31 +12,54 @@ import { PatientProfileService } from 'src/app/service/patient-profile.service';
 export class ProfileComponent {
   patientProfileForm: FormGroup;
   isSubmitted: boolean = false;
+  step: any = 1;
 
-  constructor(private profileService: PatientProfileService, private formBuilder: FormBuilder) {
+
+  constructor(private profileService: PatientProfileService, private formBuilder: FormBuilder, private route: Router) {
     this.patientProfileForm = this.formBuilder.group({
-      patientName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', Validators.required],
-      dob: [new Date(), Validators.required],
-      bloodGroup: [''],
-      gender: [''],
-      cityName: [''],
-      district: [''],
-      state: [''],
-      country: [''],
-      zip: [''],
-      medicalHistory: [''],
-      medicineHistory: [''],
-      treatmentHistory: [''],
+      basicDetailForm: this.formBuilder.group({
+        patientName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
+        email: ['', [Validators.required, Validators.email]],
+        phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(10), Validators.maxLength(10)]],
+        dob: [new Date(), Validators.required],
+        bloodGroup: ['null', Validators.required],
+        gender: ['null', Validators.required],
+      }),
+      addressDetailForm: this.formBuilder.group({
+        cityName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
+        district: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
+        state: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
+        country: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
+        zip: ['', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(6), Validators.maxLength(6)]],
+      }),
+      medicalDetailForm: this.formBuilder.group({
+        medicalHistory: [''],
+        medicineHistory: [''],
+        treatmentHistory: [''],
+      })
     });
+  }
+
+  get basicDetails() {
+    return this.patientProfileForm.get('basicDetailForm');
+  }
+  get addressDetails() {
+    return this.patientProfileForm.get('addressDetailForm');
   }
 
   onSubmit() {
     this.isSubmitted = true;
+    if (this.patientProfileForm.controls['basicDetailForm'].invalid && this.step == 1) {
+      return
+    }
+
+    if (this.patientProfileForm.controls['addressDetailForm'].invalid && this.step == 2) {
+      return
+    }
+    this.step = this.step + 1;
 
 
-    if (this.patientProfileForm.valid) {
+    if (this.step == 4 && this.patientProfileForm.valid) {
       const patientData: Patient = this.patientProfileForm.value;
 
       this.profileService.addPatientProfile(patientData).subscribe(
@@ -43,7 +67,12 @@ export class ProfileComponent {
           console.log('Patient added successfully:', response);
         }
       );
+      this.route.navigate(['/index']);
 
     }
+  }
+
+  previous() {
+    this.step = this.step - 1;
   }
 }
