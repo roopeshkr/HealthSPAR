@@ -52,7 +52,7 @@
 
 @media (max-width: 992px) {
   #hero {
-    margin-bottom: 0;
+    margin-bottom: 10px;
     height: 100vh;
   }
 
@@ -78,28 +78,107 @@
   }
 }
 
-h1 {
-  font-size: 2.5rem;
-  font-weight: 300;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+.img-fluid {
+  padding-top: 20px;
+  height: 100%;
+  width: 100%;
 }
 
-form {
-  display: flex;
+/* #Appointments */
+.php-email-form {
   background-color: #C7D4E1;
+  width: 100%;
   padding: 20px;
 }
 
-.d-flex {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+.php-email-form .form-group {
+  padding-bottom: 8px;
 }
 
-.img-fluid {
-  padding-top: 20px;
+.php-email-form .validate {
+  display: none;
+  color: red;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.php-email-form .error-message br+br {
+  margin-top: 25px;
+}
+
+.php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  animation: animate-loading 1s linear infinite;
+}
+
+.php-email-form input,
+.php-email-form textarea,
+.php-email-form select {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  padding: 10px !important;
+}
+
+.php-email-form input:focus,
+.php-email-form textarea:focus,
+.php-email-form select:focus {
+  border-color: #1977cc;
+}
+
+.php-email-form input,
+.php-email-form select {
+  height: 44px;
+}
+
+.php-email-form textarea {
+  padding: 10px 12px;
+}
+
+.php-email-form button[type=submit] {
+  background: #1977cc;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.php-email-form button[type=submit]:hover {
+  background: #1c84e3;
 }
 
 /* Sections General */
@@ -154,10 +233,13 @@ section {
 
 /* Doctors */
 .doctors {
-  background: #fff;
+  background-color: #2A82F7;
+  color: white;
 }
 
 .doctors .member {
+  background: #fff;
+  color: black;
   position: relative;
   box-shadow: 0px 2px 15px rgba(44, 73, 100, 0.08);
   padding: 30px;
@@ -326,3 +408,4 @@ section {
     padding: 0;
   }
 }
+

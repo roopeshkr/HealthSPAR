@@ -1,7 +1,6 @@
 import { Specialty } from "./specialty";
 
 export interface Doctor {
-    doctorId: number;
     doctorName: string;
     specialization: Specialty[];
     qualification: string[];

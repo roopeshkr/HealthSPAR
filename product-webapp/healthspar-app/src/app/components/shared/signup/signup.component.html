@@ -1,112 +1,74 @@
-<div class="container">
+
+<img src="assets/images/login.jpg" alt="login background" style="height: 100vh;width:100vw"/>
+<div class="container-fluid">
+
+
     <div class="row">
       <div class="col-md-6">
         <div class="card">
           <div class="text-center">
-            <h1>Signup</h1>
-            <h6>Please enter emain & password!!</h6>
+            <h1>Registration</h1>
           </div>
-          
+
           <form>
-            <!-- Role selection buttons -->
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button
-                class="btn btn-primary"
-                type="button"
-                (click)="selectRole('PATIENT')"
-              >
+              <button class="btn btn-primary" type="button" (click)="selectRole('PATIENT')">
                 Patient
               </button>
-              <button
-                class="btn btn-primary"
-                type="button"
-                (click)="selectRole('HCP')"
-              >
+              <button class="btn btn-primary" type="button" (click)="selectRole('HCP')">
                 Hospital
               </button>
+             
+              
+
+
             </div>
-  
-            <!-- Form for signup -->
+           
+
             <form *ngIf="selectedRole === 'PATIENT'" (ngSubmit)="signup()">
               <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  [(ngModel)]="name"
-                  name="name"
-                />
+                <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" pattern="[A-Za-Z]+"
+                  required />
               </div>
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Email address</label
-                >
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  [(ngModel)]="email"
-                  name="email"
-                />
+                <label for="exampleInputEmail1" class="form-label">Email address<span
+                    class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="email" name="email"
+                  required />
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Password</label
-                >
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleInputPassword1"
-                  [(ngModel)]="password"
-                  name="password"
-                />
+                <label for="exampleInputPassword1" class="form-label">Password<span class="text-danger">*</span></label>
+                <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password"
+                  name="password" minlength="8" required />
               </div>
-              <!-- Include a hidden field to store the selectedRole -->
               <input type="hidden" [value]="selectedRole" name="role" />
-  
-              <button type="submit" class="btn btn-primary">Sign Up</button>
+
+              <button type="submit" class="btn btn-primary">Register</button>
             </form>
             <form *ngIf="selectedRole === 'HCP'" (ngSubmit)="signup()">
               <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  [(ngModel)]="name"
-                  name="name"
-                />
+                <label for="name" class="form-label">Name<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" pattern="[A-Za-Z]+"
+                  required />
               </div>
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Email address</label
-                >
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  [(ngModel)]="email"
-                  name="email"
-                />
+                <label for="exampleInputEmail1" class="form-label">Email address<span
+                    class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="email" name="email"
+                  required />
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Password</label
-                >
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleInputPassword1"
-                  [(ngModel)]="password"
-                  name="password"
-                />
+                <label for="exampleInputPassword1" class="form-label">Password<span class="text-danger">*</span></label>
+                <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password"
+                  name="password" minlength="8" required />
               </div>
-              <!-- Include a hidden field to store the selectedRole -->
               <input type="hidden" [value]="selectedRole" name="role" />
-  
-              <button type="submit" class="btn btn-primary">Sign Up</button>
+
+              <button type="submit" class="btn btn-primary">Register</button>
             </form>
+
+            <a routerLink="/login" style="color: white;">Already Register? click to login</a>
           </form>
         </div>
       </div>

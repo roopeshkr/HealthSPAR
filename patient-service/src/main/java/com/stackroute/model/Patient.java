@@ -27,4 +27,8 @@ public class Patient {
     private String state;
     private String country;
     private String zip;
+    private String medicalHistory;
+    private String medicineHistory;
+    private String treatmentHistory;
+
 }
