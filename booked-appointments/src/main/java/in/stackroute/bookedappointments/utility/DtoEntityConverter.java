@@ -10,10 +10,11 @@ public class DtoEntityConverter {
         return Appointments
                 .builder()
                 .appointmentId(dto.appointmentId())
-                .patientName(dto.patientName())
-                .doctorName(dto.doctorName())
+                .patientId(dto.patientId())
+                .hospitalId(dto.hospitalId())
                 .treatmentType(dto.treatmentType())
                 .localDate(dto.localDate())
+                .message(dto.message())
                 .action(dto.action())
                 .build();
     }
@@ -22,10 +23,11 @@ public class DtoEntityConverter {
         return AppointmentsDTO
                 .builder()
                 .appointmentId(appointments.getAppointmentId())
-                .patientName(appointments.getPatientName())
-                .doctorName(appointments.getDoctorName())
+                .patientId(appointments.getPatientId())
+                .hospitalId(appointments.getHospitalId())
                 .treatmentType(appointments.getTreatmentType())
                 .localDate(appointments.getLocalDate())
+                .message(appointments.getMessage())
                 .action(appointments.getAction())
                 .build();
     }
