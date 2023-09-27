@@ -18,7 +18,6 @@ export class HospitalPageComponent implements OnInit {
     hospitalRating: 0,
     hospitalReviews: [''],
     city: {
-      cityId: 0,
       name: '',
       district: '',
       state: '',
