@@ -1,0 +1,87 @@
+<div class="card">
+  <div class="card-body buttons">
+    <div class="row">
+      <div class="left col-md-4">
+        <img
+          src="assets/images/profile.svg"
+          alt="Profile Picture"
+          class="rounded-circle"
+          width="100"
+          height="100"
+        />
+      </div>
+      <div class="right col-md-8">
+        <a routerLink="/update-profile" class="card-link">
+          <button class="btn btn-danger">Update Profile</button></a
+        >
+        <a routerLink="/patient-profile" class="card-link">
+          <button class="btn btn-danger">Add Profile</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="card-body">
+    <h5 class="card-title text-primary">Basic Details</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <span class="name-list">Name : </span>
+      {{ patient.patientName }}
+    </li>
+    <li class="list-group-item">
+      <span class="dob-list">Date Of Birth : </span>
+      {{ patient.dob }}
+    </li>
+    <li class="list-group-item">
+      <span class="email-list">Email : </span>
+      {{ patient.email }}
+    </li>
+    <li class="list-group-item">
+      <span class="phone-list">Phone Number : </span>
+      {{ patient.phoneNumber }}
+    </li>
+    <li class="list-group-item">
+      <span class="blood-list">Blood Group : </span>
+      {{ patient.bloodGroup }}
+    </li>
+    <li class="list-group-item">
+      <span class="gender-list">Gender : </span>
+      {{ patient.gender }}
+    </li>
+  </ul>
+  <div class="card-body">
+    <h5 class="card-title text-primary">Address</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <span class="city-list">City : </span>
+      {{ patient.cityName }}
+    </li>
+    <li class="list-group-item">
+      <span class="district-list">District : </span>
+      {{ patient.district }}
+    </li>
+    <li class="list-group-item">
+      <span class="state-list">State : </span>
+      {{ patient.state }}
+    </li>
+    <li class="list-group-item">
+      <span class="country-list">Country : </span>
+      {{ patient.country }}
+    </li>
+    <li class="list-group-item">
+      <span class="zip-list">Zip : </span>
+      {{ patient.zip }}
+    </li>
+  </ul>
+
+  <div class="card-body">
+    <h5 class="card-title text-primary">Medical History</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Medical</li>
+    <li class="list-group-item">Medicine</li>
+    <li class="list-group-item">Treatment</li>
+  </ul>
+</div>

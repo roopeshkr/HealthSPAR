@@ -11,7 +11,7 @@ import org.springframework.data.neo4j.core.schema.Node;
 @NoArgsConstructor
 @Builder
 @Node
-public class Specialty {
+public class Department {
     @Id
     @GeneratedValue
     private Long id;

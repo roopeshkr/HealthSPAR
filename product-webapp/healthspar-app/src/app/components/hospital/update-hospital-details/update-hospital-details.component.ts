@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-patient-profile',
-  templateUrl: './patient-profile.component.html',
-  styleUrls: ['./patient-profile.component.css']
+  selector: 'app-update-hospital-details',
+  templateUrl: './update-hospital-details.component.html',
+  styleUrls: ['./update-hospital-details.component.css']
 })
-export class PatientProfileComponent {
-
+export class UpdateHospitalDetailsComponent {
   doctors: Array<{
     name: string;
     department: string;
@@ -31,6 +30,4 @@ export class PatientProfileComponent {
   clickEvent() {
     this.status = !this.status;
   }
-
-
 }

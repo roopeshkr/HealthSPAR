@@ -50,7 +50,7 @@ public class DoctorServiceImpl implements DoctorService {
         log.info("Updating an doctor with id :"+id+" in the database");
         Doctor existingDoctor=getDoctorById(id);
         existingDoctor.setDoctorName(doctor.getDoctorName());
-        existingDoctor.setSpecialization(doctor.getSpecialization());
+        existingDoctor.setDepartments(doctor.getDepartments());
         existingDoctor.setQualification(doctor.getQualification());
         existingDoctor.setLanguagesSpoken(doctor.getLanguagesSpoken());
         existingDoctor.setYearOfExperience(doctor.getYearOfExperience());

@@ -1,4 +1,4 @@
-import { Specialty } from "./specialty";
+import { Specialty } from "./department";
 
 export interface Doctor {
     doctorId: number;
@@ -7,7 +7,7 @@ export interface Doctor {
     qualification: string[];
     languagesSpoken: string[];
     yearOfExperience: number;
-    startTime: string; 
-    endTime: string; 
+    startTime: string;
+    endTime: string;
     bio: string;
   }

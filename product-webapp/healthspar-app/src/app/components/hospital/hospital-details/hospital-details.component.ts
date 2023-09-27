@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 export class HospitalDetailsComponent {
   doctors: Array<{
     name: string;
-    specialty: string;
+    department: string;
     experience: string;
     language: string;
   }> = [];
@@ -19,7 +19,7 @@ export class HospitalDetailsComponent {
   addDoctor() {
     this.doctors.push({
       name: '',
-      specialty: '',
+      department: '',
       experience: '',
       language: '',
     });

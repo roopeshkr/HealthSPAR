@@ -21,7 +21,7 @@ public class Doctor {
     private Long doctorId;
     private String doctorName;
     @Relationship(type = "SPECIALIZES_IN",direction = Relationship.Direction.OUTGOING)
-    private List<Specialty> specialization;
+    private List<Department> departments;
     private List<String> qualification;
     private List<String> languagesSpoken;
     private int yearOfExperience;
