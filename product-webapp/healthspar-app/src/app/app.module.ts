@@ -26,8 +26,6 @@ import { HospitalSidenavComponent } from './components/hospital/shared/hospital-
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './components/shared/login/login.component';
 import { SignupComponent } from './components/shared/signup/signup.component';
-// import { UpdateHospitalDetailsComponent } from './components/hospital/update-hospital-details/update-hospital-details.component';
-// import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
 import { UpdateHospitalDetailsComponent } from './components/hospital/update-hospital-details/update-hospital-details.component';
 import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
 import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
@@ -54,19 +52,20 @@ import { HospitalPageComponent } from './components/hospital/hospital-page/hospi
     // SidenavComponent,
     HospitalSidenavComponent,
     SignupComponent,
-    
+    LoginComponent,
     HospitalPageComponent,
     UpdateHospitalDetailsComponent,
     DisplayProfileComponent,
   ],
   imports: [
     CommonModule,
-    FormsModule,
+    BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     FormsModule,
-    BrowserModule
+    ReactiveFormsModule,
+    BrowserModule,
+    BrowserModule,
     // FontAwesomeModule,
   ],
   providers: [],
