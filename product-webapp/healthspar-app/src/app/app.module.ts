@@ -29,6 +29,7 @@ import { SignupComponent } from './components/shared/signup/signup.component';
 import { UpdateHospitalDetailsComponent } from './components/hospital/update-hospital-details/update-hospital-details.component';
 import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
 import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
+import { DisplayHospitalDetailsComponent } from './components/hospital/display-hospital-details/display-hospital-details.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { HospitalPageComponent } from './components/hospital/hospital-page/hospi
     HospitalPageComponent,
     UpdateHospitalDetailsComponent,
     DisplayProfileComponent,
+    DisplayHospitalDetailsComponent,
   ],
   imports: [
     CommonModule,

@@ -13,6 +13,7 @@ import { SignupComponent } from './components/shared/signup/signup.component';
 
 import { UpdateHospitalDetailsComponent } from './components/hospital/update-hospital-details/update-hospital-details.component';
 import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
+import { DisplayHospitalDetailsComponent } from './components/hospital/display-hospital-details/display-hospital-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -39,6 +40,10 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'hospital-sidenav', component: HospitalSidenavComponent },
   { path: 'display-profile', component: DisplayProfileComponent },
+  {
+    path: 'display-hospital-details',
+    component: DisplayHospitalDetailsComponent,
+  },
 ];
 
 @NgModule({

@@ -346,8 +346,10 @@
    line-height: 32px;
    text-align: center;
    opacity: 0;
-   -webkit-transform: translate3d(0, 0, 0);
-   -webkit-transition: all .35s ease-in-out;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
  }
 
  .hamburger.is-closed:hover:before {
@@ -389,12 +391,14 @@
 
  .hamburger.is-closed .hamb-bottom {
    bottom: 5px;
-   -webkit-transition: all .35s ease-in-out;
+  -webkit-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
  }
 
  .hamburger.is-closed:hover .hamb-top {
    top: 0;
-   -webkit-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
+  -webkit-transition: all .35s ease-in-out;
  }
 
  .hamburger.is-closed:hover .hamb-bottom {
