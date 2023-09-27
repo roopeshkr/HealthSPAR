@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/healthspar_appointments")
+@CrossOrigin("*")
 public class AppointmentsController {
 
     private final AppointmentsService service;
