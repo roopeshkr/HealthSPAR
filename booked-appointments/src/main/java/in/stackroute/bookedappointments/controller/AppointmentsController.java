@@ -55,13 +55,10 @@ public class AppointmentsController {
     }
 
     @DeleteMapping("/{appointmentId}")
-    public ResponseEntity<Void> cancelAppointment(@PathVariable int appointmentId){
-        boolean deleted=service.deleteAppointment(appointmentId);
-        if (deleted){
-            return ResponseEntity.noContent().build();
-        }else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<AppointmentsDTO> cancelAppointment(@PathVariable int appointmentId){
+        var appointment=service.deleteAppointment(appointmentId);
+        var appointmentDto=converter.toDto(appointment);
+        return ResponseEntity.ok(appointmentDto);
     }
 
     @PutMapping("/{appointmentId}")

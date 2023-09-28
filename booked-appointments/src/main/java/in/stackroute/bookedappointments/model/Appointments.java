@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "appointments_table")
@@ -22,7 +22,12 @@ public class Appointments {
     private Long hospitalId;
     private String treatmentType;
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private LocalDate localDate;
+    private LocalDateTime localDateTime;
     private String message;
-    private String action;          //reschedule/cancel
+    private String action;          //reschedule/cancel/book
+    private String department;
+    private String doctor;
+    private String patientName;
+    private String email;
+    private String phoneNumber;
 }

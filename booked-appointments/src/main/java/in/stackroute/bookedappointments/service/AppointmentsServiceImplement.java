@@ -26,23 +26,26 @@ public class AppointmentsServiceImplement implements AppointmentsService{
 
     @Override
     public Appointments updateAppointment(int appointmentId, Appointments appointments) {
-        Appointments existingPatient=findById(appointmentId);
-        existingPatient.setPatientId(appointments.getPatientId());
-        existingPatient.setHospitalId(appointments.getHospitalId());
-        existingPatient.setTreatmentType(appointments.getTreatmentType());
-        existingPatient.setLocalDate(appointments.getLocalDate());
-        existingPatient.setMessage(appointments.getMessage());
-        existingPatient.setAction(appointments.getAction());
-        return repository.save(existingPatient);
+        Appointments existingAppointment=findById(appointmentId);
+        existingAppointment.setAction("RESCHEDULE");
+        existingAppointment.setPatientId(appointments.getPatientId());
+        existingAppointment.setHospitalId(appointments.getHospitalId());
+        existingAppointment.setTreatmentType(appointments.getTreatmentType());
+        existingAppointment.setLocalDateTime(appointments.getLocalDateTime());
+        existingAppointment.setMessage(appointments.getMessage());
+        existingAppointment.setDepartment(appointments.getDepartment());
+        existingAppointment.setDoctor(appointments.getDoctor());
+        existingAppointment.setPatientName(appointments.getPatientName());
+        existingAppointment.setEmail(appointments.getEmail());
+        existingAppointment.setPhoneNumber(appointments.getPhoneNumber());
+        return repository.save(existingAppointment);
     }
 
     @Override
-    public boolean deleteAppointment(int appointmentId) {
-        if (repository.existsById(appointmentId)){
-            repository.deleteById(appointmentId);
-            return true;
-        }
-        return false;
+    public Appointments deleteAppointment(int appointmentId) {
+        Appointments existingAppointment=findById(appointmentId);
+        existingAppointment.setAction("CANCEL");
+        return repository.save(existingAppointment);
     }
 
 

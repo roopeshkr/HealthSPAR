@@ -8,7 +8,7 @@ public interface AppointmentsService {
     public Appointments findById(int appointmentId);
     public Appointments save(Appointments appointments);
     public Appointments updateAppointment(int appointmentId,Appointments appointments);
-    public boolean deleteAppointment(int appointmentId);
+    public Appointments deleteAppointment(int appointmentId);
 
     public List<Appointments> findAll();
     public List<Appointments> findByPatientId(String patientId);

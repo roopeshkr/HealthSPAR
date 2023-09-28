@@ -13,9 +13,14 @@ public class DtoEntityConverter {
                 .patientId(dto.patientId())
                 .hospitalId(dto.hospitalId())
                 .treatmentType(dto.treatmentType())
-                .localDate(dto.localDate())
+                .localDateTime(dto.localDateTime())
                 .message(dto.message())
                 .action(dto.action())
+                .department(dto.department())
+                .doctor(dto.doctor())
+                .patientName(dto.patientName())
+                .email(dto.email())
+                .phoneNumber(dto.phoneNumber())
                 .build();
     }
 
@@ -26,9 +31,14 @@ public class DtoEntityConverter {
                 .patientId(appointments.getPatientId())
                 .hospitalId(appointments.getHospitalId())
                 .treatmentType(appointments.getTreatmentType())
-                .localDate(appointments.getLocalDate())
+                .localDateTime(appointments.getLocalDateTime())
                 .message(appointments.getMessage())
                 .action(appointments.getAction())
+                .department(appointments.getDepartment())
+                .doctor(appointments.getDoctor())
+                .patientName(appointments.getPatientName())
+                .email(appointments.getEmail())
+                .phoneNumber(appointments.getPhoneNumber())
                 .build();
     }
 }
