@@ -16,23 +16,21 @@ export class ProfileComponent {
     this.patientProfileForm = this.formBuilder.group({
       patientName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', Validators.required,Validators.pattern('^[0-9]*$'),Validators.maxLength(10),Validators.minLength(10)],
+      phoneNumber: ['', Validators.required],
       dob: [new Date(), Validators.required],
-      bloodGroup: ['',Validators.required],
-      gender: ['',Validators.required],
-      cityName: ['',Validators.required],
-      district: ['',Validators.required],
-      state: ['',Validators.required],
-      country: ['',Validators.required],
-      zip: ['',Validators.pattern('^[0-9]*$'),Validators.minLength(6),Validators.maxLength(6)],
-      medicalHistory: [''],
-      medicineHistory: [''],
-      treatmentHistory: [''],
+      bloodGroup: [''],
+      gender: [''],
+      cityName: [''],
+      district: [''],
+      state: [''],
+      country: [''],
+      zip: ['']
     });
   }
 
   onSubmit() {
     this.isSubmitted = true;
+    console.log(this.patientProfileForm.value);
 
 
     if (this.patientProfileForm.valid) {
@@ -41,6 +39,9 @@ export class ProfileComponent {
       this.profileService.addPatientProfile(patientData).subscribe(
         (response) => {
           console.log('Patient added successfully:', response);
+        },
+        (error) => {
+          console.error('Error adding patient:', error);
         }
       );
 

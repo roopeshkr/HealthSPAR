@@ -1,6 +1,6 @@
 package com.stackroute.dto;
 
-import com.stackroute.model.Specialty;
+import com.stackroute.model.Department;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 
@@ -11,8 +11,7 @@ public record DoctorDto(
         Long doctorId,
         @NotBlank(message = "Doctor must have a name")
         String doctorName,
-        @NotEmpty(message = "Doctor must have at least one specialization")
-        List<Specialty> specialization,
+        List<Department> departments,
         @NotEmpty(message = "Doctor must have at least one qualification")
         List<String> qualification,
         @NotEmpty(message = "Doctor must have at least one qualification")

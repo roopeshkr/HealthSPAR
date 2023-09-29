@@ -1,4 +1,4 @@
-export interface Specialty{
+export interface Department{
     id: number;
     name: string;
     description: string;

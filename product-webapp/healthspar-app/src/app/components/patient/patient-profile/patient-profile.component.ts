@@ -9,7 +9,7 @@ export class PatientProfileComponent {
 
   doctors: Array<{
     name: string;
-    specialty: string;
+    department: string;
     experience: string;
     language: string;
   }> = [];
@@ -21,7 +21,7 @@ export class PatientProfileComponent {
   addDoctor() {
     this.doctors.push({
       name: '',
-      specialty: '',
+      department: '',
       experience: '',
       language: '',
     });

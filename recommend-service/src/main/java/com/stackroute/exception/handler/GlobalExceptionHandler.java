@@ -93,8 +93,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         apiError.setMessage(ex.getMessage());
         return buildResponseEntity(apiError);
     }
-    @ExceptionHandler(SpecialtyNotFoundException.class)
-    public ResponseEntity<Object> handleSpecialtyNotFoundException(SpecialtyNotFoundException ex) {
+    @ExceptionHandler(DepartmentNotFoundException.class)
+    public ResponseEntity<Object> handleSpecialtyNotFoundException(DepartmentNotFoundException ex) {
         ApiError apiError = new ApiError(NOT_FOUND);
         apiError.setMessage(ex.getMessage());
         return buildResponseEntity(apiError);

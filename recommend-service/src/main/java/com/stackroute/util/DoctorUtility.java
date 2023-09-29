@@ -11,7 +11,7 @@ public class DoctorUtility {
         return new DoctorDto(
                 doctor.getDoctorId(),
                 doctor.getDoctorName(),
-                doctor.getSpecialization(),
+                doctor.getDepartments(),
                 doctor.getQualification(),
                 doctor.getLanguagesSpoken(),
                 doctor.getYearOfExperience(),
@@ -27,7 +27,7 @@ public class DoctorUtility {
                 .builder()
                 .doctorId(dto.doctorId())
                 .doctorName(dto.doctorName())
-                .specialization(dto.specialization())
+                .departments(dto.departments())
                 .qualification(dto.qualification())
                 .languagesSpoken(dto.languagesSpoken())
                 .yearOfExperience(dto.yearOfExperience())

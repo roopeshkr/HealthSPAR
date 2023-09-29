@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,19 +16,16 @@ import { NavbarComponent } from './components/patient/shared/navbar/navbar.compo
 import { HeroComponent } from './components/patient/hero/hero.component';
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 import { HomeComponent } from './components/patient/home/home.component';
-import { HospitalDetailsComponent } from './components/hospital/hospital-details/hospital-details.component';
-import { ProfileComponent } from './components/patient/profile/profile.component';
-import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
-// import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
-import { HospitalSidenavComponent } from './components/hospital/shared/hospital-sidenav/hospital-sidenav.component';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './components/shared/login/login.component';
 import { SignupComponent } from './components/shared/signup/signup.component';
-// import { UpdateHospitalDetailsComponent } from './components/hospital/update-hospital-details/update-hospital-details.component';
-// import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
+import { PatientProfileComponent } from './components/patient/patient-profile/patient-profile.component';
+// import { ProfileSidenavComponent } from './components/patient/profile-sidenav/profile-sidenav.component';
+// import { ProfileMainComponent } from './components/patient/profile-main/profile-main.component';
+import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
 import { UpdateHospitalDetailsComponent } from './components/hospital/update-hospital-details/update-hospital-details.component';
 import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
-import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
+import { CommonModule } from '@angular/common';
+import { HospitalSidenavComponent } from './components/hospital/shared/hospital-sidenav/hospital-sidenav.component';
 
 @NgModule({
   declarations: [
@@ -44,17 +39,13 @@ import { HospitalPageComponent } from './components/hospital/hospital-page/hospi
     DoctorComponent,
     NavbarComponent,
     HeroComponent,
-    HospitalComponent,
-    HomeComponent,
     RecommendationComponent,
-    HospitalDetailsComponent,
-    ProfileComponent,
-    UpdateProfileComponent,
-    // SidenavComponent,
-    HospitalSidenavComponent,
+    HomeComponent,
+    LoginComponent,
     SignupComponent,
     LoginComponent,
-    
+    PatientProfileComponent,
+    HospitalSidenavComponent,
     HospitalPageComponent,
     UpdateHospitalDetailsComponent,
     DisplayProfileComponent,
@@ -69,8 +60,17 @@ import { HospitalPageComponent } from './components/hospital/hospital-page/hospi
     FormsModule,
     BrowserModule,
     // FontAwesomeModule,
+    // PatientProfileComponent,
+    // ProfileSidenavComponent,
+    // ProfileMainComponent
   ],
+  // imports: [
+  //   BrowserModule,
+  //   FormsModule,
+  //   HttpClientModule,
+  //   AppRoutingModule
+  // ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

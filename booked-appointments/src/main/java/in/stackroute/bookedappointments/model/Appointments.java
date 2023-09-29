@@ -1,13 +1,10 @@
 package in.stackroute.bookedappointments.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "appointments_table")
@@ -19,18 +16,18 @@ import java.time.LocalDate;
 public class Appointments {
 
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int appointmentId;
-
-    @Column(name = "patient_name")
-    private String patientName;
-    @Column(name = "doctor_name")
-    private String doctorName;
-    @Column(name = "treatment_type")
+    private String patientId;
+    private Long hospitalId;
     private String treatmentType;
-    @Column(name = "date")
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private LocalDate localDate;
-    @Column(name = "action")
-    private String action;          //reschedule OR cancel
+    private LocalDateTime localDateTime;
+    private String message;
+    private String action;          //reschedule/cancel/book
+    private String department;
+    private String doctor;
+    private String patientName;
+    private String email;
+    private String phoneNumber;
 }

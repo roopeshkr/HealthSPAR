@@ -28,6 +28,7 @@ export class RecommendationComponent implements OnInit{
         alert(error.message);
       }
     )
+    console.log(this.recommendedHospitals);
     
   }
   

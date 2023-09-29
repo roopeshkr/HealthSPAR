@@ -1,18 +1,32 @@
 package in.stackroute.bookedappointments.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Builder
 public record AppointmentsDTO(
     int appointmentId,
-    String patientName,
-    String doctorName,
+    @NotBlank(message = "Appointment must have patientId")
+    String patientId,
+    Long hospitalId,
+    @NotBlank(message = "Appointment must have treatmentType")
     String treatmentType,
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    LocalDate localDate,
-    String action
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    LocalDateTime localDateTime,
+    String message,
+    String action,
+    @NotBlank(message = "Appointment must have department name")
+    String department,
+    @NotBlank(message = "Appointment must have doctor name")
+    String doctor,
+    @NotBlank(message = "Appointment must have patient name")
+    String patientName,
+    @NotBlank(message = "Appointment must have patient email")
+    String email,
+    @NotBlank(message = "Appointment must have patient phone number")
+    String phoneNumber
 ) {
 }

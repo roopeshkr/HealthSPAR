@@ -21,7 +21,7 @@ public class HospitalUtility {
                 hospital.getHospitalAmenities(),
                 hospital.getNumberOfBeds(),
                 hospital.getDoctors(),
-                hospital.getSpecialty()
+                hospital.getDepartment()
         );
     }
 
@@ -40,7 +40,7 @@ public class HospitalUtility {
                 .hospitalAmenities(dto.hospitalAmenities())
                 .numberOfBeds(dto.numberOfBeds())
                 .doctors(dto.doctors())
-                .specialty(dto.specialty())
+                .department(dto.department())
                 .build();
     }
 }

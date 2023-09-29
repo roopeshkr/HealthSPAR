@@ -80,7 +80,7 @@
                   </div>
                   <div class="col-md-6 mb-4">
                     <input type="text" class="form-control" placeholder="Specialty" id="doctorSpecialty{{ i }}"
-                      name="doctorSpecialty{{ i }}" [(ngModel)]="doctor.specialty">
+                      name="doctorSpecialty{{ i }}" [(ngModel)]="doctor.department">
                   </div>
                 </div>
                 <div class="row">
@@ -117,7 +117,7 @@
                 <button type="button" class="btn btn-danger" (click)="removeDoctor(i)">Remove Doctor</button>
               </div>
               <button class="btn btn-primary" (click)="addDoctor()">Add Doctor</button>
-  
+
               <div class="d-flex align-items-center justify-content-center">
                 <button type="submit" class="btn btn-danger">Save</button>
               </div>

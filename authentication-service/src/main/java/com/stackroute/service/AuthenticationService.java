@@ -13,10 +13,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
-<<<<<<< HEAD
-
-=======
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,10 +20,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
@@ -38,23 +30,16 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
-<<<<<<< HEAD
-=======
         // Check if the email is already registered
         if (repository.findByEmail(request.getEmail()).isPresent()) {
             throw new RuntimeException("Email is already registered");
         }
 
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
         var user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-<<<<<<< HEAD
-                .role(request.getRole())
-=======
                 .role(request.getRole()) // Set the role based on the request
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76
                 .build();
         var savedUser = repository.save(user);
         var jwtToken = jwtService.generateToken(user);
@@ -134,8 +119,4 @@ public class AuthenticationService {
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 3375b44602b3cb3d86353a5be02bab390baf7f76

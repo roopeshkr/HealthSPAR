@@ -36,7 +36,7 @@ public class Hospital {
     private List<Doctor> doctors;
 
     @Relationship(type = "OFFERS_SPECIALITY",direction = Relationship.Direction.OUTGOING)
-    private List<Specialty> specialty;
+    private List<Department> department;
 
 
 }

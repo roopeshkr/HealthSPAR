@@ -3,18 +3,6 @@
   align-items: center;
 }
 
-.right
-{
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.buttons a{
-    padding: 6px;
-    text-decoration: none;
-    margin: auto 0;
-    margin-right: 23px;
-}
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
   font-size: 1rem;
   line-height: 2.15;

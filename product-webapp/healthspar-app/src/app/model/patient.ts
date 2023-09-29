@@ -5,13 +5,13 @@ export interface Patient {
   phoneNumber: string;
   dob: Date;
   bloodGroup: string;
-  gender: string;
+  gender: String;
   cityName: string;
   district: string; 
   state: string;
   country: string;
   zip: string;
-  medicalHistory:string;
-  medicineHistory:string;
-  treatmentHistory:string;
+  medicalHistory: string;
+  medicineHistory: string;
+  treatmentHistory: string;
 }
