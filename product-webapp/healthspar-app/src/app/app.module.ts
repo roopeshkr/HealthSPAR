@@ -53,18 +53,21 @@ import { HospitalPageComponent } from './components/hospital/hospital-page/hospi
     // SidenavComponent,
     HospitalSidenavComponent,
     SignupComponent,
+    LoginComponent,
     
     HospitalPageComponent,
     UpdateHospitalDetailsComponent,
     DisplayProfileComponent,
   ],
   imports: [
+
     CommonModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserModule,
     // FontAwesomeModule,
   ],
   providers: [],
