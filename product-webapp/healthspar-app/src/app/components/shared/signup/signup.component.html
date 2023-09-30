@@ -1,9 +1,9 @@
 <div class="logo">
     <img src="assets/images/logospra.png" class="logo">
-
-</div>
-<img src="assets/images/login.jpg" alt="login background" style="height: 100vh;width:100vw" />
-<div class="container-fluid">
+  
+  </div>
+  <img src="assets/images/login.jpg" alt="login background" style="height: 100vh;width:100vw" />
+  <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
             <div class="card">
@@ -15,7 +15,7 @@
                         <button class="btn btn-primary" type="button" (click)="selectRole('PATIENT')">Patient</button>
                         <button class="btn btn-primary" type="button" (click)="selectRole('HCP')">Hospital</button>
                     </div>
-
+  
                     <!-- Name -->
                     <div class="mb-3">
                         <label for="name" class="form-label">User name <span class="text-danger">*</span></label>
@@ -25,7 +25,7 @@
                             Name is required and should contain only alphabetic characters.
                         </div>
                     </div>
-
+  
                     <!-- Email -->
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address<span
@@ -40,7 +40,7 @@
                             Invalid email format.
                         </div>
                     </div>
-
+  
                     <!-- Password -->
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password<span
@@ -60,14 +60,14 @@
                             Password must contain at least one uppercase letter and one special character.
                         </div>
                     </div>
-
+  
                     <input type="hidden" [value]="selectedRole" name="role" />
-
+  
                     <button type="submit" class="btn btn-primary">Register</button>
                 </form>
-
+  
                 <a routerLink="/login" style="color: white;">Already Registered? Click to login</a>
             </div>
         </div>
     </div>
-</div>
+  </div>

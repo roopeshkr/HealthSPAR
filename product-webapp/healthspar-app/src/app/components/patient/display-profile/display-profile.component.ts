@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 import { Patient } from 'src/app/model/patient';
 import { PatientProfileService } from 'src/app/service/patient-profile.service';
 
@@ -8,7 +9,6 @@ import { PatientProfileService } from 'src/app/service/patient-profile.service';
   styleUrls: ['./display-profile.component.css']
 })
 export class DisplayProfileComponent implements OnInit {
-  selectedAvatarFile: File | null = null;
   patient: Patient = {
     patientName: '',
     email: '',
@@ -29,8 +29,33 @@ export class DisplayProfileComponent implements OnInit {
 
   constructor(private patientService: PatientProfileService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getPatientById('65112310a54f852dd3e07a79');
+    const trigger = $('.hamburger');
+    const overlay = $('.overlay');
+    let isClosed = false;
+
+    trigger.click(() => {
+      hamburger_cross();
+    });
+
+    function hamburger_cross() {
+      if (isClosed == true) {
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
+      }
+    }
+
+    $('[data-toggle="offcanvas"]').click(() => {
+      $('#wrapper').toggleClass('toggled');
+    });
   }
 
   public getPatientById(patientId: string): void {
@@ -42,10 +67,5 @@ export class DisplayProfileComponent implements OnInit {
     )
   }
 
-  onAvatarFileChanged(event: any) {
-    const files = event.target.files;
-    if (files && files.length > 0) {
-      this.selectedAvatarFile = files[0];
-    }
-  }
+
 }

@@ -12,7 +12,7 @@ export class RecommendationService {
 
     constructor(private http: HttpClient) { }
     
-    public getRecommendedHospitals(patientId:number): Observable<Hospital[]> {
-        return this.http.get<Hospital[]>(`${this.apiUrl}/recommendations/patient/${patientId}`);
+    public getRecommendedHospitals(cityName:string): Observable<Hospital[]> {
+        return this.http.get<Hospital[]>(`${this.apiUrl}/recommendations/patient/${cityName}`);
     }
 }
