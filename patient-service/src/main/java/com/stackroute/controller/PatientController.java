@@ -1,8 +1,10 @@
 package com.stackroute.controller;
 
-import com.stackroute.dto.PatientDto;
+import com.stackroute.dto.PatientRequestDto;
+import com.stackroute.dto.PatientResponseDto;
 import com.stackroute.service.PatientService;
-import com.stackroute.util.PatientUtility;
+import com.stackroute.util.PatientRequestUtility;
+import com.stackroute.util.PatientResponseUtility;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatusCode;
@@ -18,42 +20,43 @@ import java.util.stream.Collectors;
 @CrossOrigin("*")
 public class PatientController {
     private final PatientService patientService;
-    private final PatientUtility utility;
+    private final PatientRequestUtility requestUtility;
+    private final PatientResponseUtility responseUtility;
 
     @PostMapping
-    public ResponseEntity<PatientDto> addPatient(@Valid @RequestBody PatientDto dto)
+    public ResponseEntity<PatientRequestDto> addPatient(@Valid @RequestBody PatientRequestDto dto)
     {
-        var patient=utility.toEntity(dto);
+        var patient=requestUtility.toEntity(dto);
         var savedPatient=patientService.savePatient(patient);
-        var savedPatientDto=utility.toDto(savedPatient);
+        var savedPatientDto=requestUtility.toDto(savedPatient);
         return ResponseEntity.status(HttpStatusCode.valueOf(201)).body(savedPatientDto);
     }
 
     @GetMapping("/{patientId}")
-    public ResponseEntity<PatientDto> getPatientById(@PathVariable String patientId)
+    public ResponseEntity<PatientResponseDto> getPatientById(@PathVariable String patientId)
     {
         var patient=patientService.getPatientById(patientId);
-        var patientDto=utility.toDto(patient);
+        var patientDto=responseUtility.toDto(patient);
         return ResponseEntity.ok(patientDto);
     }
 
     @GetMapping
-    public ResponseEntity<List<PatientDto>> getAllPatients()
+    public ResponseEntity<List<PatientResponseDto>> getAllPatients()
     {
         var patients=patientService.getAllPatients();
         var patientsDto=patients.stream()
-                .map(utility::toDto)
+                .map(responseUtility::toDto)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(patientsDto);
     }
 
     @PutMapping("/{patientId}")
-    public ResponseEntity<PatientDto> updatePatient(@Valid @PathVariable String patientId,@RequestBody PatientDto dto)
+    public ResponseEntity<PatientRequestDto> updatePatient(@Valid @PathVariable String patientId,@RequestBody PatientRequestDto dto)
     {
-        var patient=utility.toEntity(dto);
+        var patient=requestUtility.toEntity(dto);
         patient.setPatientId(patientId);
         var updatedPatient=patientService.updatePatient(patientId,patient);
-        var updatedPatientDto=utility.toDto(updatedPatient);
+        var updatedPatientDto=requestUtility.toDto(updatedPatient);
         return ResponseEntity.ok(updatedPatientDto);
     }
 

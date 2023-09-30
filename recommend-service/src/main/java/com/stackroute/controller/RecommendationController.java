@@ -4,23 +4,21 @@ import com.stackroute.model.Hospital;
 import com.stackroute.service.RecommendationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/recommendations")
+@CrossOrigin("*")
 public class RecommendationController {
     private final RecommendationService recommendationService;
 
-    @GetMapping("/patient/{patientId}")
-    public ResponseEntity<List<Hospital>> getRecommendedHospitals(@PathVariable Long patientId)
+    @GetMapping("/patient/{cityName}")
+    public ResponseEntity<List<Hospital>> getRecommendedHospitals(@PathVariable String cityName)
     {
-        List<Hospital> recommendedHospitals=recommendationService.recommendHospitalsForPatient(patientId);
+        List<Hospital> recommendedHospitals=recommendationService.recommendHospitalsForPatient(cityName);
         return ResponseEntity.ok(recommendedHospitals);
     }
 

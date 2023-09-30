@@ -1,4 +1,4 @@
-2023-09-18 12:34:28 [main] INFO  i.s.b.BookedAppointmentsServiceApplication - Starting BookedAppointmentsServiceApplication using Java 20.0.2 with PID 14880 (D:\SpringBootProjects\booked-appointments\target\classes started by Asus in D:\SpringBootProjects\booked-appointments)
+2023-09-18 12:34:28 [main] INFO  i.s.b.BookedAppointmentsServiceApplication - Starting BookedAppointmentsServiceApplication using Java 20.0.2 with PID 14880 (D:\SpringBootProjects\booked-appointment\target\classes started by Asus in D:\SpringBootProjects\booked-appointment)
 2023-09-18 12:34:28 [main] INFO  i.s.b.BookedAppointmentsServiceApplication - No active profile set, falling back to 1 default profile: "default"
 2023-09-18 12:34:30 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 2023-09-18 12:34:31 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 325 ms. Found 1 JPA repository interfaces.
@@ -36,7 +36,7 @@ org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at in.stackroute.bookedappointments.BookedAppointmentsServiceApplication.main(BookedAppointmentsServiceApplication.java:10)
+	at com.stackroute.bookedappointments.BookedAppointmentsServiceApplication.main(BookedAppointmentsServiceApplication.java:10)
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: com.mysql.cj.jdbc.Driver
 	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:659)
 	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:647)

@@ -1,7 +1,8 @@
-package com.stackroute.exception.handler;
+package com.stackroute.bookedappointments.exception.handler;
 
 
-import com.stackroute.exception.*;
+
+import com.stackroute.bookedappointments.exception.AppointmentsNotFoundException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -68,12 +69,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
-    @ExceptionHandler(HospitalNotFoundException.class)
-    public ResponseEntity<Object> handleHospitalNotFoundException(HospitalNotFoundException ex) {
+    @ExceptionHandler(AppointmentsNotFoundException.class)
+    public ResponseEntity<Object> handlePatientNotFoundException(AppointmentsNotFoundException ex) {
         ApiError apiError = new ApiError(NOT_FOUND);
         apiError.setMessage(ex.getMessage());
         return buildResponseEntity(apiError);
     }
 
 }
-
