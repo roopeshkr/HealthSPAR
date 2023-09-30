@@ -1,6 +1,6 @@
 import { City } from "./city";
 import { Doctor } from "./doctor";
-import { Specialty } from "./department";
+import { Department } from "./department";
 
 export interface Hospital {
   hospitalId: number;
@@ -15,5 +15,5 @@ export interface Hospital {
   hospitalAmenities: string[];
   numberOfBeds: number;
   doctors: Doctor[];
-  department: Specialty[];
+  department: Department[];
 }
