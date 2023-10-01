@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from 'src/app/model/appointment';
 import { Hospital } from 'src/app/model/hospital';
 import { AppointmentService } from 'src/app/service/appointment.service';
@@ -45,6 +45,7 @@ export class HospitalPageComponent implements OnInit {
     private formBuilder: FormBuilder,
     private appointmentService: AppointmentService,
     private route: Router,
+    private router:ActivatedRoute
   
   ) {
 
@@ -80,7 +81,10 @@ export class HospitalPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getHospitalById(73)
+    this.router.params.subscribe((params) => {
+      const hospitalId = +params['id'];
+      this.getHospitalById(hospitalId);
+    });
   }
 
   public getHospitalById(hospitalId: number): void {

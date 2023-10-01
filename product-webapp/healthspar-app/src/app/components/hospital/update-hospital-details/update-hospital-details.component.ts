@@ -11,24 +11,24 @@ import { HospitalService } from 'src/app/service/hospital.service';
 })
 export class UpdateHospitalDetailsComponent implements OnInit {
   hospital: Hospital = {
+    hospitalId: 0,
     hospitalName: '',
     hospitalWebsite: '',
     hospitalEmail: '',
     hospitalPhoneNumber: '',
     hospitalImageURL: '',
     hospitalRating: 0,
-    hospitalReviews: [''],
+    hospitalReviews: [],
+    hospitalAmenities: '',
+    numberOfBeds: 0,
     city: {
       name: '',
       district: '',
       state: '',
       country: '',
-      zip: '',
+      zip: ''
     },
-    hospitalAmenities: '',
-    numberOfBeds: 0,
-    doctors: [],
-    hospitalId: 0,
+    doctors: []
   };
 
   hospitalProfileForm: FormGroup;
@@ -54,7 +54,7 @@ export class UpdateHospitalDetailsComponent implements OnInit {
             Validators.maxLength(10),
           ],
         ],
-        numberOfBeds: 0,
+        numberOfBeds: [0],
         hospitalAmenities: ['']
       }),
       addressDetailForm: this.formBuilder.group({
@@ -78,7 +78,7 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.getHospital(0);
+    this.getHospital(11);
   }
 
   get basicDetails() {
@@ -114,6 +114,7 @@ export class UpdateHospitalDetailsComponent implements OnInit {
 
     if (this.step === 4 && this.hospitalProfileForm.valid) {
       const hospitalData: Hospital = {
+        hospitalId: 3,
         hospitalName: this.basicDetails?.get('hospitalName')?.value,
         hospitalWebsite: this.basicDetails?.get('hospitalWebsite')?.value,
         hospitalEmail: this.basicDetails?.get('hospitalEmail')?.value,
@@ -128,14 +129,13 @@ export class UpdateHospitalDetailsComponent implements OnInit {
           zip: this.addressDetails?.get('city.zip')?.value
         },
         doctors: this.doctorDetails.value,
-        hospitalId: 0,
         hospitalImageURL: '',
         hospitalRating: 0,
-        hospitalReviews: [],
+        hospitalReviews: []
       }
-      
-      this.updateHospital(hospitalData.hospitalId,hospitalData);
-      
+
+      this.updateHospital(hospitalData.hospitalId, hospitalData);
+
     }
   }
 
@@ -143,7 +143,51 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     this.profileService.getHospitalProfile(hospitalId).subscribe(
       (response) => {
         this.hospital = response;
-        this.hospitalProfileForm.patchValue(this.hospital);
+        this.hospitalProfileForm.patchValue({
+          basicDetailForm: {
+            hospitalName: this.hospital.hospitalName,
+            hospitalWebsite: this.hospital.hospitalWebsite,
+            hospitalEmail: this.hospital.hospitalEmail,
+            hospitalPhoneNumber: this.hospital.hospitalPhoneNumber,
+            numberOfBeds: this.hospital.numberOfBeds,
+            hospitalAmenities: this.hospital.hospitalAmenities,
+          },
+          addressDetailForm: {
+            city: {
+              name: this.hospital.city.name,
+              district: this.hospital.city.district,
+              state: this.hospital.city.state,
+              country: this.hospital.city.country,
+              zip: this.hospital.city.zip,
+            }
+          }
+        });
+
+        const doctorsFormArray = this.hospitalProfileForm.get(
+          'doctorDetailForm'
+        ) as FormArray;
+
+        while (doctorsFormArray.length > 0) {
+          doctorsFormArray.removeAt(0);
+        }
+
+        for (const doctor of this.hospital.doctors) {
+          const doctorFormGroup = this.formBuilder.group({
+            doctorName: [doctor.doctorName, Validators.required],
+            department: [doctor.department, Validators.required],
+            qualification: [doctor.qualification, Validators.required],
+            languagesSpoken: [doctor.languagesSpoken, Validators.required],
+            yearOfExperience: [doctor.yearOfExperience, Validators.required],
+            startTime: [doctor.startTime, Validators.required],
+            endTime: [doctor.endTime, Validators.required],
+            bio: [doctor.bio],
+          });
+
+          doctorsFormArray.push(doctorFormGroup);
+        }
+
+
+
       },
       (error) => {
         console.error('Error fetching patient:', error);
@@ -151,13 +195,13 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     );
   }
 
-  public updateHospital(hospitalId:number,hospital:Hospital): void {
+  public updateHospital(hospitalId: number, hospital: Hospital): void {
     this.profileService
-      .updateHospitalProfile(this.hospital.hospitalId, this.hospital)
+      .updateHospitalProfile(hospitalId,hospital)
       .subscribe(
         (response: Hospital) => {
           console.log('Hospital profile updated successfully: ', response);
-          this.route.navigate(['/display-patient-profile']);
+          this.route.navigate(['/display-hospital-details']);
         },
         (error) => {
           console.error('Error updating hospital profile:', error);
@@ -187,6 +231,8 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     this.doctorDetails.push(newDoctor);
 
   }
+
+
 
   previous() {
     this.step = this.step - 1;

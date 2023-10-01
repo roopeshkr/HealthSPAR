@@ -30,7 +30,7 @@ export class DisplayProfileComponent implements OnInit {
   constructor(private patientService: PatientProfileService) { }
 
   ngOnInit() {
-    this.getPatientById('65112310a54f852dd3e07a79');
+    this.getPatientById('6518631ba32afb3213588881');
     const trigger = $('.hamburger');
     const overlay = $('.overlay');
     let isClosed = false;

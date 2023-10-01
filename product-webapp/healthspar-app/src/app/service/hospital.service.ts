@@ -26,7 +26,7 @@ export class HospitalService {
   }
 
   public updateHospitalProfile(hospitalId:number,hospital:Hospital):Observable<Hospital>{
-    return this.http.post<Hospital>(`${this.apiUrl}/hospitals/${hospitalId}`,hospital,this.httpOptions);
+    return this.http.put<Hospital>(`${this.apiUrl}/hospitals/${hospitalId}`,hospital,this.httpOptions);
   }
 
   public getHospitalProfile(hospitalId:number):Observable<Hospital>{

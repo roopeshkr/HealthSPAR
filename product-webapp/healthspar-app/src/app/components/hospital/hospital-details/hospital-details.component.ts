@@ -91,9 +91,9 @@ export class HospitalDetailsComponent {
 
 
     if (this.step === 4 && this.hospitalProfileForm.valid) {
-      console.log("form value: ",this.hospitalProfileForm.value);
-      
-      
+      console.log("form value: ", this.hospitalProfileForm.value);
+
+
       // const hospitalData: Hospital = this.hospitalProfileForm.value;
       const hospitalData: Hospital = {
         hospitalName: this.basicDetails?.get('hospitalName')?.value,
@@ -115,7 +115,7 @@ export class HospitalDetailsComponent {
         hospitalRating: 0,
         hospitalReviews: [],
       }
-      console.log("database value: ",hospitalData);
+      console.log("database value: ", hospitalData);
 
 
       this.profileService.addHospitalProfile(hospitalData).subscribe(

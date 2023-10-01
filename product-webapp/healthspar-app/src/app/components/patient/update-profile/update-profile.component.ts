@@ -31,7 +31,10 @@ export class UpdateProfileComponent implements OnInit {
   isSubmitted: boolean = false;
   step: any = 1;
 
-  constructor(private patientService: PatientProfileService, private formBuilder: FormBuilder, private route: Router) {
+  constructor(
+    private patientService: PatientProfileService, 
+    private formBuilder: FormBuilder, 
+    private route: Router) {
     this.patientProfileForm = this.formBuilder.group({
       basicDetailForm: this.formBuilder.group({
         patientName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
@@ -67,7 +70,7 @@ export class UpdateProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPatient('651832ee0599965ecf10f6c2');
+    this.getPatient('6518631ba32afb3213588881');
   }
 
   onSubmit() {

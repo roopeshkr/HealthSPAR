@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class RecommendationComponent implements OnInit{
   recommendedHospitals: Hospital[] = [];
 
-  constructor(private recommendService:RecommendationService){}
+  constructor(private recommendService:RecommendationService,private route:Router){}
 
 
   ngOnInit(): void {
@@ -27,6 +27,10 @@ export class RecommendationComponent implements OnInit{
       }
     )
     
+  }
+
+  onBookClick(hospitalId: number): void {
+    this.route.navigate(['/hospital-page', hospitalId]);
   }
 
   
