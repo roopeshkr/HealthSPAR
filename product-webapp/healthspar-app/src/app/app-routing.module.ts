@@ -13,6 +13,8 @@ import { SignupComponent } from './components/shared/signup/signup.component';
 import { UpdateHospitalDetailsComponent } from './components/hospital/update-hospital-details/update-hospital-details.component';
 import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
 import { DisplayHospitalDetailsComponent } from './components/hospital/display-hospital-details/display-hospital-details.component';
+import { AppointmentComponent } from './components/patient/appointment/appointment.component';
+import { RescheduleAppointmentComponent } from './components/patient/reschedule-appointment/reschedule-appointment.component';
 
 const routes: Routes = [
   { path: 'index', component: HomeComponent },
@@ -43,6 +45,8 @@ const routes: Routes = [
     component: DisplayHospitalDetailsComponent,
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {path:'patient-appointment',component:AppointmentComponent},
+  {path:'reschedule-patient-appointment',component:RescheduleAppointmentComponent}
 ];
 
 @NgModule({

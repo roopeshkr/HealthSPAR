@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hospital } from 'src/app/model/hospital';
 import { RecommendationService } from 'src/app/service/recommendation.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({

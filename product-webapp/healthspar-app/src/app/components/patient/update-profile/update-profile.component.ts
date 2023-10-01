@@ -151,9 +151,7 @@ export class UpdateProfileComponent implements OnInit {
     );
   }
 
-  public updatePatientProfile(): void {
-
-  }
+  
 
   previous() {
     this.step = this.step - 1;

@@ -7,7 +7,7 @@ public record AppointmentsResponseDTO(
         String patientId,
         Long hospitalId,
         String treatmentType,
-        LocalDateTime localDateTime,
+        LocalDateTime dateTime,
         String message,
         String status,
         String department,

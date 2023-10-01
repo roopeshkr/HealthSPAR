@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +30,7 @@ import { UpdateHospitalDetailsComponent } from './components/hospital/update-hos
 import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
 import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
 import { DisplayHospitalDetailsComponent } from './components/hospital/display-hospital-details/display-hospital-details.component';
+import { RescheduleAppointmentComponent } from './components/patient/reschedule-appointment/reschedule-appointment.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { DisplayHospitalDetailsComponent } from './components/hospital/display-h
     UpdateHospitalDetailsComponent,
     DisplayProfileComponent,
     DisplayHospitalDetailsComponent,
+    RescheduleAppointmentComponent,
   ],
   imports: [
     CommonModule,
@@ -70,7 +72,9 @@ import { DisplayHospitalDetailsComponent } from './components/hospital/display-h
     BrowserModule,
     // FontAwesomeModule,
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

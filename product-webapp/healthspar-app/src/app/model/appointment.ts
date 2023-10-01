@@ -3,9 +3,9 @@ export interface Appointment {
     patientId: string;
     hospitalId: number;
     treatmentType: string;
-    localDateTime: Date;
+    dateTime: Date;
     message: string;
-    action: string;
+    status: string;
     department: string;
     doctor: string;
     patientName: string;

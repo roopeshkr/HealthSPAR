@@ -13,7 +13,7 @@ public class AppointmentResponseUtility {
                 .patientId(dto.patientId())
                 .hospitalId(dto.hospitalId())
                 .treatmentType(dto.treatmentType())
-                .localDateTime(dto.localDateTime())
+                .dateTime(dto.dateTime())
                 .message(dto.message())
                 .status(dto.status())
                 .department(dto.department())
@@ -30,7 +30,7 @@ public class AppointmentResponseUtility {
                 appointment.getPatientId(),
                 appointment.getHospitalId(),
                 appointment.getTreatmentType(),
-                appointment.getLocalDateTime(),
+                appointment.getDateTime(),
                 appointment.getMessage(),
                 appointment.getStatus(),
                 appointment.getDepartment(),

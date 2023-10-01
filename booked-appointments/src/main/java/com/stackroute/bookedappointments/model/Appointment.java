@@ -21,8 +21,7 @@ public class Appointment {
     private String patientId;
     private Long hospitalId;
     private String treatmentType;
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    private LocalDateTime localDateTime;
+    private LocalDateTime dateTime;
     private String message;
     private String status;          //reschedule/cancel/book
     private String department;

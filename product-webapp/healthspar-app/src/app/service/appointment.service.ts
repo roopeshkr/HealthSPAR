@@ -35,10 +35,14 @@ export class AppointmentService {
     return this.http.delete<Appointment>(`${this.apiUrl}/appointments/cancel/${appointmentId}`)
   }
 
-  public getAppointmentsForPatient(patientId:string):Observable<Appointment>{
-    return this.http.get<Appointment>(`${this.apiUrl}/appointments/patient/${patientId}`);
+  public getAppointmentsForPatient(patientId:string):Observable<Appointment[]>{
+    return this.http.get<Appointment[]>(`${this.apiUrl}/appointments/patient/${patientId}`);
   }
-  public getAppointmentsForHospital(hospitaLId:number):Observable<Appointment>{
-    return this.http.get<Appointment>(`${this.apiUrl}/appointments/patient/${hospitaLId}`);
+  public getAppointmentsForHospital(hospitaLId:number):Observable<Appointment[]>{
+    return this.http.get<Appointment[]>(`${this.apiUrl}/appointments/patient/${hospitaLId}`);
+  }
+ 
+  public getAppointmentsbyId(appointmentId:number):Observable<Appointment>{
+    return this.http.get<Appointment>(`${this.apiUrl}/appointments/${appointmentId}`);
   }
 }

@@ -39,6 +39,12 @@ public class AppointmentsController {
                 .collect(Collectors.toList());
         return ResponseEntity.ok(appointmentsDto);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<AppointmentsResponseDTO> getAppointmentsById(@PathVariable int id){
+        var appointment=service.findById(id);
+        var appointmentDto=appointmentResponseUtility.toDto(appointment);
+        return ResponseEntity.ok(appointmentDto);
+    }
     @GetMapping("/hospital/{hospitalId}")
     public ResponseEntity<List<AppointmentsResponseDTO>> getAppointmentsByHospitalId(@PathVariable Long hospitalId){
         var appointments=service.findByHospitalId(hospitalId);

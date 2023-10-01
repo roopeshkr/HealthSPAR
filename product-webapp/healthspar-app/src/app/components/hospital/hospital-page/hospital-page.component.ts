@@ -59,7 +59,7 @@ export class HospitalPageComponent implements OnInit {
         [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(10), Validators.maxLength(10)],
       ],
       treatmentType: ['', Validators.required],
-      localDateTime: ['', Validators.required],
+      dateTime: ['', Validators.required],
       message: [''],
       department: ['', Validators.required],
       doctor: ['', Validators.required]
@@ -102,7 +102,7 @@ export class HospitalPageComponent implements OnInit {
     console.log("submited");
 
     if (this.appointmentForm.valid) {
-      const localDateTimeValue = this.appointmentForm.get('localDateTime')?.value;
+      const localDateTimeValue = this.appointmentForm.get('dateTime')?.value;
       const isoDateTime = new Date(localDateTimeValue).toISOString();
 
       const appointmentData: Appointment = {
@@ -110,7 +110,7 @@ export class HospitalPageComponent implements OnInit {
         patientId: '650fe161ef773a225c7d37bd',
         hospitalId: this.hospital.hospitalId,
         action: 'INITIALIZED',
-        localDateTime: isoDateTime,
+        dateTime: isoDateTime,
       };
 
       this.appointmentService.addAppointment(appointmentData).subscribe(

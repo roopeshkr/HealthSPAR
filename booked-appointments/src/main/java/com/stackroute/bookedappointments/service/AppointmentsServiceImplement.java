@@ -32,7 +32,7 @@ public class AppointmentsServiceImplement implements AppointmentsService{
         existingAppointment.setPatientId(appointment.getPatientId());
         existingAppointment.setHospitalId(appointment.getHospitalId());
         existingAppointment.setTreatmentType(appointment.getTreatmentType());
-        existingAppointment.setLocalDateTime(appointment.getLocalDateTime());
+        existingAppointment.setDateTime(appointment.getDateTime());
         existingAppointment.setMessage(appointment.getMessage());
         existingAppointment.setDepartment(appointment.getDepartment());
         existingAppointment.setDoctor(appointment.getDoctor());

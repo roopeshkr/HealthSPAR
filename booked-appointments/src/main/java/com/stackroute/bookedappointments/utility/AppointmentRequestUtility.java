@@ -12,7 +12,7 @@ public class AppointmentRequestUtility {
                 .patientId(dto.patientId())
                 .hospitalId(dto.hospitalId())
                 .treatmentType(dto.treatmentType())
-                .localDateTime(dto.localDateTime())
+                .dateTime(dto.dateTime())
                 .message(dto.message())
                 .department(dto.department())
                 .doctor(dto.doctor())
@@ -27,7 +27,7 @@ public class AppointmentRequestUtility {
                 appointment.getPatientId(),
                 appointment.getHospitalId(),
                 appointment.getTreatmentType(),
-                appointment.getLocalDateTime(),
+                appointment.getDateTime(),
                 appointment.getMessage(),
                 appointment.getDepartment(),
                 appointment.getDoctor(),

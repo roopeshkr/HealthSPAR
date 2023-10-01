@@ -11,8 +11,8 @@ public record AppointmentsRequestDTO(
         Long hospitalId,
         @NotBlank(message = "Appointment must have treatmentType")
         String treatmentType,
-        @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-        LocalDateTime localDateTime,
+        @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+        LocalDateTime dateTime,
         String message,
         @NotBlank(message = "Appointment must have department name")
         String department,
