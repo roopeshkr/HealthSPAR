@@ -33,6 +33,9 @@ import { DisplayHospitalDetailsComponent } from './components/hospital/display-h
 import { RescheduleAppointmentComponent } from './components/patient/reschedule-appointment/reschedule-appointment.component';
 import { AppointmentsListComponent } from './components/hospital/appointments-list/appointments-list.component';
 import { RescheduleHospitalAppointmentComponent } from './components/hospital/reschedule-hospital-appointment/reschedule-hospital-appointment.component';
+import { HcpDSidebarComponent } from './components/HospitalDashboard/hcp-d-sidebar/hcp-d-sidebar.component';
+import { HcpDHeaderComponent } from './components/HospitalDashboard/hcp-d-header/hcp-d-header.component';
+import { HospitalDashboardComponent } from './components/HospitalDashboard/hospital-dashboard/hospital-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +67,9 @@ import { RescheduleHospitalAppointmentComponent } from './components/hospital/re
     RescheduleAppointmentComponent,
     AppointmentsListComponent,
     RescheduleHospitalAppointmentComponent,
+    HospitalDashboardComponent,
+    HcpDSidebarComponent,
+    HcpDHeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -76,9 +82,7 @@ import { RescheduleHospitalAppointmentComponent } from './components/hospital/re
     BrowserModule,
     // FontAwesomeModule,
   ],
-  providers: [
-    DatePipe
-  ],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

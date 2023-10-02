@@ -17,6 +17,9 @@ import { AppointmentComponent } from './components/patient/appointment/appointme
 import { RescheduleAppointmentComponent } from './components/patient/reschedule-appointment/reschedule-appointment.component';
 import { AppointmentsListComponent } from './components/hospital/appointments-list/appointments-list.component';
 import { RescheduleHospitalAppointmentComponent } from './components/hospital/reschedule-hospital-appointment/reschedule-hospital-appointment.component';
+import { HcpDHeaderComponent } from './components/HospitalDashboard/hcp-d-header/hcp-d-header.component';
+import { HcpDSidebarComponent } from './components/HospitalDashboard/hcp-d-sidebar/hcp-d-sidebar.component';
+import { HospitalDashboardComponent } from './components/HospitalDashboard/hospital-dashboard/hospital-dashboard.component';
 
 const routes: Routes = [
   { path: 'index', component: HomeComponent },
@@ -50,7 +53,13 @@ const routes: Routes = [
   {path:'patient-appointment',component:AppointmentComponent},
   {path:'hospital-appointment',component:AppointmentsListComponent},
   {path:'reschedule-patient-appointment/:id',component:RescheduleAppointmentComponent},
-  {path:'reschedule-hospital-appointment/:id',component:RescheduleHospitalAppointmentComponent}
+  {path:'reschedule-hospital-appointment/:id',component:RescheduleHospitalAppointmentComponent},
+  { path: 'patient-appointment', component: AppointmentComponent },
+  
+  { path: 'hospital-dashboard', component: HospitalDashboardComponent },
+
+  { path: 'hp-d-header', component: HcpDHeaderComponent },
+  { path: 'hp-d-sidebar', component: HcpDSidebarComponent },
 ];
 
 @NgModule({
