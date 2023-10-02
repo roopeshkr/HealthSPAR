@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from 'src/app/model/appointment';
 import { AppointmentService } from 'src/app/service/appointment.service';
 
@@ -12,10 +12,15 @@ import { AppointmentService } from 'src/app/service/appointment.service';
 export class AppointmentsListComponent {
   appointments: Appointment[] = [];
 
-  constructor(private appointmentService: AppointmentService, private datePipe: DatePipe, private route: Router) { }
+  constructor(private appointmentService: AppointmentService, private datePipe: DatePipe, private route: Router,private router:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getAppointmentForHospital(19)
+    this.router.params.subscribe(
+      (params)=>{
+        const hospitalId= +params['id'];
+        this.getAppointmentForHospital(hospitalId)
+      }
+    );
     const trigger = $('.hamburger');
     const overlay = $('.overlay');
     let isClosed = false;

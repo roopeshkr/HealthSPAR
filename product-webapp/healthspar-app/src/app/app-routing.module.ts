@@ -51,7 +51,7 @@ const routes: Routes = [
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path:'patient-appointment',component:AppointmentComponent},
-  {path:'hospital-appointment',component:AppointmentsListComponent},
+  {path:'hospital-appointment/:id',component:AppointmentsListComponent},
   {path:'reschedule-patient-appointment/:id',component:RescheduleAppointmentComponent},
   {path:'reschedule-hospital-appointment/:id',component:RescheduleHospitalAppointmentComponent},
   { path: 'patient-appointment', component: AppointmentComponent },
