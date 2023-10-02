@@ -34,4 +34,6 @@ public class Hospital {
     @Relationship(type = "HAS_DOCTOR",direction = Relationship.Direction.OUTGOING)
     private List<Doctor> doctors;
 
+    private List<AskedQuestion> frequentlyAskedQuestion;
+
 }
