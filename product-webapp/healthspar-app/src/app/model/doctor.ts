@@ -1,13 +1,11 @@
-import { Department } from "./department";
-
 export interface Doctor {
-    doctorId: number;
-    doctorName: string;
-    specialization: Department[];
-    qualification: string[];
-    languagesSpoken: string[];
-    yearOfExperience: number;
-    startTime: string;
-    endTime: string;
-    bio: string;
-  }
+  doctorName: string;
+  doctorImageUrl:string;
+  department: string;
+  qualification: string;
+  languagesSpoken: string;
+  yearOfExperience: number;
+  startTime: Date; 
+  endTime: Date; 
+  bio: string;
+}

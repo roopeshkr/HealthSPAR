@@ -68,36 +68,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
-
-    @ExceptionHandler(DoctorNotFoundException.class)
-    public ResponseEntity<Object> handleDoctorNotFoundException(DoctorNotFoundException ex) {
-        ApiError apiError = new ApiError(NOT_FOUND);
-        apiError.setMessage(ex.getMessage());
-        return buildResponseEntity(apiError);
-    }
-    @ExceptionHandler(PatientNotFoundException.class)
-    public ResponseEntity<Object> handlePatientNotFoundException(PatientNotFoundException ex) {
-        ApiError apiError = new ApiError(NOT_FOUND);
-        apiError.setMessage(ex.getMessage());
-        return buildResponseEntity(apiError);
-    }
-    @ExceptionHandler(CityNotFoundException.class)
-    public ResponseEntity<Object> handleCityNotFoundException(CityNotFoundException ex) {
-        ApiError apiError = new ApiError(NOT_FOUND);
-        apiError.setMessage(ex.getMessage());
-        return buildResponseEntity(apiError);
-    }
     @ExceptionHandler(HospitalNotFoundException.class)
     public ResponseEntity<Object> handleHospitalNotFoundException(HospitalNotFoundException ex) {
         ApiError apiError = new ApiError(NOT_FOUND);
         apiError.setMessage(ex.getMessage());
         return buildResponseEntity(apiError);
     }
-    @ExceptionHandler(DepartmentNotFoundException.class)
-    public ResponseEntity<Object> handleSpecialtyNotFoundException(DepartmentNotFoundException ex) {
-        ApiError apiError = new ApiError(NOT_FOUND);
-        apiError.setMessage(ex.getMessage());
-        return buildResponseEntity(apiError);
-    }
+
 }
 

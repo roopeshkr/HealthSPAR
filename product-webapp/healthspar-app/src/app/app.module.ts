@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +21,7 @@ import { HomeComponent } from './components/patient/home/home.component';
 import { HospitalDetailsComponent } from './components/hospital/hospital-details/hospital-details.component';
 import { ProfileComponent } from './components/patient/profile/profile.component';
 import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
-import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
+// import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
 import { HospitalSidenavComponent } from './components/hospital/shared/hospital-sidenav/hospital-sidenav.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './components/shared/login/login.component';
@@ -30,9 +30,10 @@ import { UpdateHospitalDetailsComponent } from './components/hospital/update-hos
 import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
 import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
 import { DisplayHospitalDetailsComponent } from './components/hospital/display-hospital-details/display-hospital-details.component';
-import { HospitalDashboardComponent } from './components/HospitalDashboard/hospital-dashboard/hospital-dashboard.component';
-import { HcpDHeaderComponent } from './components/HospitalDashboard/hcp-d-header/hcp-d-header.component';
+import { RescheduleAppointmentComponent } from './components/patient/reschedule-appointment/reschedule-appointment.component';
 import { HcpDSidebarComponent } from './components/HospitalDashboard/hcp-d-sidebar/hcp-d-sidebar.component';
+import { HcpDHeaderComponent } from './components/HospitalDashboard/hcp-d-header/hcp-d-header.component';
+import { HospitalDashboardComponent } from './components/HospitalDashboard/hospital-dashboard/hospital-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { HcpDSidebarComponent } from './components/HospitalDashboard/hcp-d-sideb
     HospitalDetailsComponent,
     ProfileComponent,
     UpdateProfileComponent,
-    SidenavComponent,
+    // SidenavComponent,
     HospitalSidenavComponent,
     SignupComponent,
     LoginComponent,
@@ -61,9 +62,10 @@ import { HcpDSidebarComponent } from './components/HospitalDashboard/hcp-d-sideb
     UpdateHospitalDetailsComponent,
     DisplayProfileComponent,
     DisplayHospitalDetailsComponent,
+    RescheduleAppointmentComponent,
     HospitalDashboardComponent,
-    HcpDHeaderComponent,
     HcpDSidebarComponent,
+    HcpDHeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -76,7 +78,7 @@ import { HcpDSidebarComponent } from './components/HospitalDashboard/hcp-d-sideb
     BrowserModule,
     // FontAwesomeModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

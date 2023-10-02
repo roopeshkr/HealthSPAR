@@ -25,18 +25,13 @@ public class Hospital {
     private String hospitalImageURL;
     private Double hospitalRating;
     private List<String> hospitalReviews;
+    private String hospitalAmenities; //parking/cafeteria
+    private int numberOfBeds;
 
     @Relationship(type = "LOCATED_IN",direction=Relationship.Direction.OUTGOING)
     private City city;
 
-    private List<String> hospitalAmenities; //parking/cafeteria
-    private int numberOfBeds;
-
     @Relationship(type = "HAS_DOCTOR",direction = Relationship.Direction.OUTGOING)
     private List<Doctor> doctors;
-
-    @Relationship(type = "OFFERS_SPECIALITY",direction = Relationship.Direction.OUTGOING)
-    private List<Department> department;
-
 
 }

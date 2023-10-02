@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hospital } from 'src/app/model/hospital';
 import { RecommendationService } from 'src/app/service/recommendation.service';
-import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recommendation',
@@ -11,26 +11,27 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class RecommendationComponent implements OnInit{
   recommendedHospitals: Hospital[] = [];
 
-  constructor(private recommendService:RecommendationService){}
+  constructor(private recommendService:RecommendationService,private route:Router){}
 
 
   ngOnInit(): void {
-    this.getRecommendations(7);
+    this.getRecommendations('chennai');
   }
 
-  public getRecommendations(patientId:number):void{
-    this.recommendService.getRecommendedHospitals(patientId).subscribe(
+  public getRecommendations(cityName:string):void{
+    this.recommendService.getRecommendedHospitals(cityName).subscribe(
       (response:Hospital[])=>{
         this.recommendedHospitals=response;
         console.log(this.recommendedHospitals);
-      },
-      (error:HttpErrorResponse)=>{
-        alert(error.message);
       }
     )
-    console.log(this.recommendedHospitals);
     
   }
+
+  onBookClick(hospitalId: number): void {
+    this.route.navigate(['/hospital-page', hospitalId]);
+  }
+
   
   
 

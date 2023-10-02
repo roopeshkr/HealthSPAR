@@ -1,45 +1,45 @@
 <div class="logo">
-  <img src="assets/images/logospra.png" class="logo">
-</div>
-<img src="assets/images/login.jpg" alt="login background">
-<div class="container">
-  <div class="row">
-      <div class="col-md-6">
-          <div class="card">
-              <div class="text-center">
-                  <h1>Login</h1>
-              </div>
-              <form [formGroup]="loginForm" (ngSubmit)="login()">
-                  <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address<span class="text-danger">*</span></label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                          formControlName="email" placeholder="Enter your email" />
-                      <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched"
-                          class="text-danger">
-                          Email is required.
-                      </div>
-                      <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched"
-                          class="text-danger">
-                          Invalid email format.
-                      </div>
-                  </div>
-                  <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password<span
-                              class="text-danger">*</span></label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="Enter your password" />
-                      <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
-                          class="text-danger">
-                          Password is required.
-                      </div>
-                  </div>
-                  <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
-              </form>
-              <a routerLink="/signup" style="color: white;">New user? Click to Registration!!</a>
-              <div class="text-center mt-3">
-                  <p class="text-danger">{{ errorMessage }}</p>
-                  <p class="text-success">{{ successMessage }}</p>
-              </div>
-          </div>
-      </div>
+    <img src="assets/images/logospra.png" class="logo">
   </div>
-</div>
+  <img src="assets/images/login.jpg" alt="login background">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Login</h1>
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address<span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            formControlName="email" placeholder="Enter your email" />
+                        <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched"
+                            class="text-danger">
+                            Email is required.
+                        </div>
+                        <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched"
+                            class="text-danger">
+                            Invalid email format.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password<span
+                                class="text-danger">*</span></label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="Enter your password" />
+                        <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+                            class="text-danger">
+                            Password is required.
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+                </form>
+                <a routerLink="/signup" style="color: white;">New user? Click to Registration!!</a>
+                <div class="text-center mt-3">
+                    <p class="text-danger">{{ errorMessage }}</p>
+                    <p class="text-success">{{ successMessage }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

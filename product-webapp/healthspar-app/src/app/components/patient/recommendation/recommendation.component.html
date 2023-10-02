@@ -1,5 +1,8 @@
 <div class="row my-5">
-  <div class="d-flex">
+  <div
+    class="d-flex"
+    *ngIf="recommendedHospitals && recommendedHospitals[0]?.city"
+  >
     <img
       src="assets/images/location.svg"
       width="30"
@@ -7,12 +10,26 @@
       class="d-inline-block align-text-top"
     />
 
-    <h4 class="text-primary d-inline-block align-text-top">
+    <h4
+      class="text-primary d-inline-block align-text-top"
+      *ngIf="recommendedHospitals && recommendedHospitals[0]?.city"
+    >
       {{ recommendedHospitals[0].city.name }}
     </h4>
   </div>
+  <h2
+    class="display-5 col-12 py-2"
+    *ngIf="
+      recommendedHospitals && recommendedHospitals[0]?.city;
+      else noHospitals
+    "
+  >
+    Recommendations By Your Location
+  </h2>
 
-  <h2 class="display-5 col-12 py-2">Recommendations By Your Location</h2>
+  <ng-template #noHospitals>
+    <h2 class="display-5 col-12 py-2">We couldn't find any nearby your city</h2>
+  </ng-template>
   <div
     *ngFor="let recommendation of recommendedHospitals"
     class="col-md-6 col-xl-3 py-2"
@@ -51,7 +68,10 @@
           </a>
         </div>
         <div class="col-12 text-center my-2">
-          <a href="" class="my-2">
+          <a
+            [routerLink]="['/hospital-page', recommendation.hospitalId]"
+            class="my-2"
+          >
             <button class="btn btn-danger">Book</button>
           </a>
         </div>

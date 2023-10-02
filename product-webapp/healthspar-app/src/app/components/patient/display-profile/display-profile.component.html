@@ -1,87 +1,113 @@
-<div class="card">
-  <div class="card-body buttons">
-    <div class="row">
-      <div class="left col-md-4">
-        <img
-          src="assets/images/profile.svg"
-          alt="Profile Picture"
-          class="rounded-circle"
-          width="100"
-          height="100"
-        />
+<div id="wrapper">
+  <!-- Sidebar -->
+  <nav
+    class="navbar navbar-inverse fixed-top"
+    id="sidebar-wrapper"
+    role="navigation"
+  >
+    <ul class="nav sidebar-nav">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <a href="#">Brand</a>
+        </div>
       </div>
-      <div class="right col-md-8">
-        <a routerLink="/update-profile" class="card-link">
-          <button class="btn btn-danger">Update Profile</button></a
-        >
-        <a routerLink="/patient-profile" class="card-link">
-          <button class="btn btn-danger">Add Profile</button>
-        </a>
+      <li><a href="#home">Home</a></li>
+      <li><a routerLink="#">My Profile</a></li>
+      <li><a routerLink="/update-profile">Update Profile</a></li>
+      <li><a href="#team">Logout</a></li>
+    </ul>
+  </nav>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <button
+      type="button"
+      class="hamburger animated fadeInLeft is-closed"
+      data-toggle="offcanvas"
+    >
+      <span class="hamb-top"></span>
+      <span class="hamb-middle"></span>
+      <span class="hamb-bottom"></span>
+    </button>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card mb-4">
+            <div class="card-body text-left">
+              <h2><span>Basic Details</span></h2>
+              <hr />
+              <div class="centered-image">
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                  alt="avatar"
+                  class="img-fluid"
+                />
+              </div>
+
+              <h5 class="my-3">
+                Name : <span class="mx-2">{{ patient.patientName }}</span>
+              </h5>
+              <h5 class="my-3">
+                Email : <span class="mx-2">{{ patient.email }}</span>
+              </h5>
+              <h5 class="my-3">
+                Phone Number :
+                <span class="mx-2">{{ patient.phoneNumber }}</span>
+              </h5>
+              <h5 class="my-3">
+                Date Of Birth : <span class="mx-2">{{ patient.dob }}</span>
+              </h5>
+              <h5 class="my-3">
+                Blood Group : <span class="mx-2">{{ patient.bloodGroup }}</span>
+              </h5>
+              <h5 class="my-3">
+                Gender : <span class="mx-2">{{ patient.gender }}</span>
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h2><span>Address</span></h2>
+              <hr />
+              <h5 class="my-3">
+                City : <span class="mx-2">{{ patient.cityName }}</span>
+              </h5>
+              <h5 class="my-3">
+                District : <span class="mx-2">{{ patient.district }}</span>
+              </h5>
+              <h5 class="my-3">
+                State : <span class="mx-2">{{ patient.state }}</span>
+              </h5>
+              <h5 class="my-3">
+                Country : <span class="mx-2">{{ patient.country }}</span>
+              </h5>
+              <h5 class="my-3">
+                Zip Code : <span class="mx-2">{{ patient.zip }}</span>
+              </h5>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-body">
+              <h2><span>Medical History</span></h2>
+              <hr />
+              <h5 class="my-3">
+                City : <span class="mx-2">{{ patient.medicalHistory }}</span>
+              </h5>
+              <h5 class="my-3">
+                District :
+                <span class="mx-2">{{ patient.medicineHistory }}</span>
+              </h5>
+              <h5 class="my-3">
+                State : <span class="mx-2">{{ patient.treatmentHistory }}</span>
+              </h5>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <hr />
-  <div class="card-body">
-    <h5 class="card-title text-primary">Basic Details</h5>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-      <span class="name-list">Name : </span>
-      {{ patient.patientName }}
-    </li>
-    <li class="list-group-item">
-      <span class="dob-list">Date Of Birth : </span>
-      {{ patient.dob }}
-    </li>
-    <li class="list-group-item">
-      <span class="email-list">Email : </span>
-      {{ patient.email }}
-    </li>
-    <li class="list-group-item">
-      <span class="phone-list">Phone Number : </span>
-      {{ patient.phoneNumber }}
-    </li>
-    <li class="list-group-item">
-      <span class="blood-list">Blood Group : </span>
-      {{ patient.bloodGroup }}
-    </li>
-    <li class="list-group-item">
-      <span class="gender-list">Gender : </span>
-      {{ patient.gender }}
-    </li>
-  </ul>
-  <div class="card-body">
-    <h5 class="card-title text-primary">Address</h5>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-      <span class="city-list">City : </span>
-      {{ patient.cityName }}
-    </li>
-    <li class="list-group-item">
-      <span class="district-list">District : </span>
-      {{ patient.district }}
-    </li>
-    <li class="list-group-item">
-      <span class="state-list">State : </span>
-      {{ patient.state }}
-    </li>
-    <li class="list-group-item">
-      <span class="country-list">Country : </span>
-      {{ patient.country }}
-    </li>
-    <li class="list-group-item">
-      <span class="zip-list">Zip : </span>
-      {{ patient.zip }}
-    </li>
-  </ul>
-
-  <div class="card-body">
-    <h5 class="card-title text-primary">Medical History</h5>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Medical</li>
-    <li class="list-group-item">Medicine</li>
-    <li class="list-group-item">Treatment</li>
-  </ul>
 </div>
+<!-- /#wrapper -->
