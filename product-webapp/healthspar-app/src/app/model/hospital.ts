@@ -1,5 +1,6 @@
 import { City } from "./city";
 import { Doctor } from "./doctor";
+import { AskedQuestion } from "./questions";
 
 export interface Hospital {
   hospitalId: number;
@@ -14,4 +15,5 @@ export interface Hospital {
   numberOfBeds: number;
   city: City;
   doctors: Doctor[];
+  frequentlyAskedQuestion:AskedQuestion[];
 }

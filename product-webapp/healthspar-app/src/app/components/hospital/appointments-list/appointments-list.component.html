@@ -11,7 +11,7 @@
           <a href="#">Brand</a>
         </div>
       </div>
-      <li><a routerLink="/index">Home</a></li>
+      <li><a href="#home">Home</a></li>
       <li><a href="#team">Logout</a></li>
     </ul>
   </nav>
@@ -34,7 +34,6 @@
           <tr>
             <th scope="col">S.No</th>
             <th scope="col">Patient</th>
-            <th scope="col">Hospital</th>
             <th scope="col">Doctor</th>
             <th scope="col">Date</th>
             <th scope="col">Treatment For</th>
@@ -43,31 +42,30 @@
         </thead>
         <tbody>
           <tr *ngFor="let appointment of appointments; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td>{{ appointment.patientName }}</td>
-            <ng-container *ngIf="hospitals[i]?.hospitalName">
-              <td>{{ hospitals[i].hospitalName }}</td>
-            </ng-container>
-            <td>{{ appointment.doctor }}</td>
-            <td>{{ appointment.dateTime | date : "dd-MMM-yyyy HH:mm a" }}</td>
-            <td>{{ appointment.treatmentType }}</td>
-            <td
+            <ng-container
               *ngIf="
                 appointment.status == 'BOOKED' ||
                 appointment.status === 'RESCHEDULE'
               "
             >
-              <a
-                [routerLink]="['/reschedule-patient-appointment', appointment.appointmentId]"
-                class="my-2"
-              >
-                <button class="btn btn-success mx-2">Reschedule</button>
-              </a>
-              <button class="btn btn-danger mx-2">Cancel</button>
-            </td>
-            <td *ngIf="appointment.status === 'INITIALIZED'">
-              <button class="btn btn-success mx-2">Pay</button>
-            </td>
+              <td>{{ i + 1 }}</td>
+              <td>{{ appointment.patientName }}</td>
+              <td>{{ appointment.doctor }}</td>
+              <td>{{ appointment.dateTime | date : "dd-MMM-yyyy HH:mm a" }}</td>
+              <td>{{ appointment.treatmentType }}</td>
+              <td>
+                <a
+                  [routerLink]="[
+                    '/reschedule-hospital-appointment',
+                    appointment.appointmentId
+                  ]"
+                  class="my-2"
+                >
+                  <button class="btn btn-success mx-2">Reschedule</button>
+                </a>
+                <button class="btn btn-danger mx-2">Cancel</button>
+              </td>
+            </ng-container>
           </tr>
         </tbody>
       </table>

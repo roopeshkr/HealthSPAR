@@ -15,6 +15,8 @@ import { DisplayProfileComponent } from './components/patient/display-profile/di
 import { DisplayHospitalDetailsComponent } from './components/hospital/display-hospital-details/display-hospital-details.component';
 import { AppointmentComponent } from './components/patient/appointment/appointment.component';
 import { RescheduleAppointmentComponent } from './components/patient/reschedule-appointment/reschedule-appointment.component';
+import { AppointmentsListComponent } from './components/hospital/appointments-list/appointments-list.component';
+import { RescheduleHospitalAppointmentComponent } from './components/hospital/reschedule-hospital-appointment/reschedule-hospital-appointment.component';
 
 const routes: Routes = [
   { path: 'index', component: HomeComponent },
@@ -46,7 +48,9 @@ const routes: Routes = [
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path:'patient-appointment',component:AppointmentComponent},
-  {path:'reschedule-patient-appointment',component:RescheduleAppointmentComponent}
+  {path:'hospital-appointment',component:AppointmentsListComponent},
+  {path:'reschedule-patient-appointment/:id',component:RescheduleAppointmentComponent},
+  {path:'reschedule-hospital-appointment/:id',component:RescheduleHospitalAppointmentComponent}
 ];
 
 @NgModule({

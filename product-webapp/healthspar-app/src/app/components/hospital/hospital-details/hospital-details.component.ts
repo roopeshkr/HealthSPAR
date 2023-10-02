@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Hospital } from 'src/app/model/hospital';
@@ -13,10 +13,6 @@ export class HospitalDetailsComponent {
   hospitalProfileForm: FormGroup;
   isSubmitted: boolean = false;
   step: number = 1;
-
-
-
-
 
   constructor(private formBuilder: FormBuilder, private profileService: HospitalService, private route: Router) {
     this.hospitalProfileForm = this.formBuilder.group({
@@ -54,6 +50,7 @@ export class HospitalDetailsComponent {
         }),
       }),
       doctorDetailForm: this.formBuilder.array([]),
+      questionDetailForm:this.formBuilder.array([])
     });
   }
 
@@ -66,9 +63,16 @@ export class HospitalDetailsComponent {
   get doctorDetails() {
     return this.hospitalProfileForm.get('doctorDetailForm') as FormArray;
   }
+  get questionDetails() {
+    return this.hospitalProfileForm.get('questionDetailForm') as FormArray;
+  }
 
   getDoctorFormGroup(index: number) {
     return this.doctorDetails.at(index) as FormGroup;
+  }
+  
+  getQuestionFormGroup(index: number) {
+    return this.questionDetails.at(index) as FormGroup;
   }
 
   onSubmit() {
@@ -90,11 +94,11 @@ export class HospitalDetailsComponent {
     this.step = this.step + 1;
 
 
-    if (this.step === 4 && this.hospitalProfileForm.valid) {
+    if (this.step === 5 && this.hospitalProfileForm.valid) {
       console.log("form value: ", this.hospitalProfileForm.value);
+      
 
 
-      // const hospitalData: Hospital = this.hospitalProfileForm.value;
       const hospitalData: Hospital = {
         hospitalName: this.basicDetails?.get('hospitalName')?.value,
         hospitalWebsite: this.basicDetails?.get('hospitalWebsite')?.value,
@@ -114,6 +118,7 @@ export class HospitalDetailsComponent {
         hospitalImageURL: '',
         hospitalRating: 0,
         hospitalReviews: [],
+        frequentlyAskedQuestion: this.questionDetails.value
       }
       console.log("database value: ", hospitalData);
 
@@ -139,6 +144,11 @@ export class HospitalDetailsComponent {
 
   }
 
+  removeQuestion(index: number) {
+    this.questionDetails.removeAt(index)
+
+  }
+
   addDoctor() {
     const newDoctor = this.formBuilder.group(
       {
@@ -155,5 +165,15 @@ export class HospitalDetailsComponent {
 
     this.doctorDetails.push(newDoctor);
 
+  }
+  addQuestion() {
+    const newQuestion = this.formBuilder.group(
+      {
+        question: [''],
+        answer: [''],
+      }
+    );
+
+    this.questionDetails.push(newQuestion);
   }
 }

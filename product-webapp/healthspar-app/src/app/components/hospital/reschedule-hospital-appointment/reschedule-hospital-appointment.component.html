@@ -1,14 +1,38 @@
-<main id="main">
-  <section id="hero" class="hero">
+<div id="wrapper">
+  <!-- Sidebar -->
+  <nav
+    class="navbar navbar-inverse fixed-top"
+    id="sidebar-wrapper"
+    role="navigation"
+  >
+    <ul class="nav sidebar-nav">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <a href="#">Brand</a>
+        </div>
+      </div>
+      <li><a href="#home">Home</a></li>
+      <li><a routerLink="/hospital-appointment">Appointments</a></li>
+      <li><a href="#team">Logout</a></li>
+    </ul>
+  </nav>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <button
+      type="button"
+      class="hamburger animated fadeInLeft is-closed"
+      data-toggle="offcanvas"
+    >
+      <span class="hamb-top"></span>
+      <span class="hamb-middle"></span>
+      <span class="hamb-bottom"></span>
+    </button>
     <div class="container">
       <div class="row">
         <!-- Left Column with Image -->
-          
-        <div *ngIf="hospital" class="col-md-12 p-0 text-center mb-2">
-          <h1 class="display-3">{{hospital.hospitalName}},{{hospital.city.name}}</h1>
-          
-        </div>
-        <div class="col-md-6 p-0 my-2">
+        <div class="col-md-6 p-0">
           <img
             src="assets/images/hospital-page/hero.png"
             alt="Hero Image"
@@ -16,14 +40,16 @@
           />
         </div>
 
-        <div class="col-md-6 d-flex align-items-center justify-content-center my-4">
+        <div
+          class="col-md-6 d-flex align-items-center justify-content-center box"
+        >
           <form
             class="row g-3 php-email-form"
             [formGroup]="appointmentForm"
             id="appointment-form"
             (ngSubmit)="onSubmit()"
           >
-            <h2 class="text-center">Make An Appointment</h2>
+            <h1 class="display-5">Reschedule An Appointment</h1>
             <div class="row mt-2">
               <div class="col-md-4 form-group">
                 <label for="name"
@@ -36,8 +62,9 @@
                   id="name"
                   placeholder="Your Name"
                   required
+                  [disabled]="isDisabled"
                   formControlName="patientName"
-                  [value]="patientName"
+                  [(ngModel)]="appointment.patientName"
                 />
                 <span
                   class="text-danger"
@@ -46,7 +73,7 @@
                 >
               </div>
               <div class="col-md-4 form-group mt-3 mt-md-0">
-                <label for="name"
+                <label for="email"
                   >Email <span class="text-danger">*</span></label
                 >
                 <input
@@ -56,8 +83,9 @@
                   id="email"
                   placeholder="Your Email"
                   required
+                  [disabled]="isDisabled"
                   formControlName="email"
-                  [value]="email"
+                  [(ngModel)]="appointment.email"
                 />
                 <span
                   class="text-danger"
@@ -71,7 +99,7 @@
                 >
               </div>
               <div class="col-md-4 form-group mt-3 mt-md-0">
-                <label for="name"
+                <label for="phone"
                   >Phone Number <span class="text-danger">*</span></label
                 >
                 <input
@@ -81,8 +109,9 @@
                   id="phone"
                   placeholder="Your Phone"
                   required
+                  [disabled]="isDisabled"
                   formControlName="phoneNumber"
-                  [value]="phoneNumber"
+                  [value]="appointment.phoneNumber"
                 />
                 <span
                   class="text-danger"
@@ -108,7 +137,7 @@
             </div>
             <div class="row">
               <div class="col-md-4 form-group mt-3">
-                <label for="name"
+                <label for="date"
                   >Date and Time <span class="text-danger">*</span></label
                 >
                 <input
@@ -118,6 +147,7 @@
                   id="date"
                   required
                   formControlName="dateTime"
+                  [(ngModel)]="appointment.dateTime"
                 />
                 <span
                   class="text-danger"
@@ -126,7 +156,7 @@
                 >
               </div>
               <div class="col-md-4 form-group mt-3">
-                <label for="name"
+                <label for="department"
                   >Department <span class="text-danger">*</span></label
                 >
                 <select
@@ -134,6 +164,7 @@
                   id="department"
                   class="form-select"
                   formControlName="department"
+                  [(ngModel)]="appointment.department"
                   required
                 >
                   <option value="">Select Department</option>
@@ -150,7 +181,7 @@
                 >
               </div>
               <div class="col-md-4 form-group mt-3">
-                <label for="name"
+                <label for="doctor"
                   >Doctor <span class="text-danger">*</span></label
                 >
                 <select
@@ -158,12 +189,14 @@
                   id="doctor"
                   formControlName="doctor"
                   class="form-select"
+                  [disabled]="isDisabled"
+                  [(ngModel)]="appointment.doctor"
                   required
                 >
                   <option value="">Select Doctor</option>
-                  <ng-container *ngFor="let doctor of hospital.doctors">
-                    <option [value]="doctor.doctorName">
-                      {{ doctor.doctorName }}
+                  <ng-container *ngFor="let doctor1 of hospital.doctors">
+                    <option [value]="doctor1?.doctorName">
+                      {{ doctor1.doctorName }}
                     </option>
                   </ng-container>
                 </select>
@@ -185,9 +218,11 @@
                   name="treatment"
                   class="form-control"
                   id="treatment"
+                  [disabled]="isDisabled"
                   placeholder="Enter treatment type"
                   required
                   formControlName="treatmentType"
+                  [(ngModel)]="appointment.treatmentType"
                 />
                 <span
                   class="text-danger"
@@ -202,93 +237,19 @@
                   rows="4"
                   placeholder="Message (Optional)"
                   formControlName="message"
+                  [disabled]="isDisabled"
+                  [(ngModel)]="appointment.message"
                 ></textarea>
               </div>
             </div>
 
             <div class="text-center">
-              <button type="submit">Book</button>
+              <button type="submit" class="btn btn-primary">Reschedule</button>
             </div>
           </form>
         </div>
       </div>
     </div>
-  </section>
-
-  <section id="doctors" class="doctors">
-    <div class="container">
-      <div class="section-title">
-        <h2>Doctors</h2>
-        <p>
-          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
-          aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
-          quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-          fugiat sit in iste officiis commodi quidem hic quas.
-        </p>
-      </div>
-
-      <div class="row">
-        <div
-          class="col-lg-6 mt-4 mt-lg-0"
-          *ngFor="let doctor of hospital.doctors"
-        >
-          <div class="member d-flex align-items-start my-2">
-            <div class="pic">
-              <img
-                src="assets/images/doctors/doctors-1.jpg"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
-            <div class="member-info">
-              <h4>Dr. {{ doctor.doctorName }}</h4>
-              <p><span style="display: inline-block">Specialization : </span> {{doctor.department}}</p>
-              <p><span style="display: inline-block">Degree : </span> {{doctor.qualification}}</p>
-              <p><span style="display: inline-block">Experience : </span> {{doctor.yearOfExperience}} years</p>
-              <p><span style="display: inline-block">Known Language : </span> {{doctor.languagesSpoken}}</p>
-              <p><span style="display: inline-block">Working time : </span> {{doctor.startTime}} - {{doctor.endTime}}</p>
-              <p><span style="display: inline-block" *ngIf="doctor.bio">About : </span> {{doctor.bio}}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <ng-container *ngIf="hospital.frequentlyAskedQuestion">
-  <section id="faq" class="faq section-bg">
-    <div class="container">
-      <div class="section-title">
-        <h2>Frequently Asked Questions</h2>
-      </div>
-
-      <div class="faq-list">
-        <ul *ngFor="let askedQuestion of hospital.frequentlyAskedQuestion">
-          <li data-aos="fade-up">
-            <i class="bx bx-help-circle icon-help"></i>
-            <a
-              data-bs-toggle="collapse"
-              class="collapse"
-              data-bs-target="#faq-list-1"
-              >{{askedQuestion.question}}?
-              <i class="bx bx-chevron-down icon-show"></i
-              ><i class="bx bx-chevron-up icon-close"></i
-            ></a>
-            <div
-              id="faq-list-1"
-              class="collapse show"
-              data-bs-parent=".faq-list"
-            >
-              <p>
-                {{askedQuestion.answer}}
-              </p>
-            </div>
-          </li>
-
-          
-        </ul>
-      </div>
-    </div>
-  </section>
-</ng-container>
-</main>
+  </div>
+</div>
+<!-- /#wrapper -->

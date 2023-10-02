@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import * as $ from 'jquery';
 import { Hospital } from 'src/app/model/hospital';
 import { HospitalService } from 'src/app/service/hospital.service';
@@ -27,13 +28,17 @@ export class DisplayHospitalDetailsComponent implements OnInit {
       country: '',
       zip: ''
     },
-    doctors: []
+    doctors: [],
+    frequentlyAskedQuestion: []
   }
 
-  constructor(private hospitalService:HospitalService){}
+  constructor(private hospitalService:HospitalService,private router:ActivatedRoute){}
 
   ngOnInit() {
-    this.getHospitalById(3);
+    this.router.params.subscribe((params)=>{
+      const hospitalId= +params['id'];
+      this.getHospitalById(hospitalId);
+    })
     const trigger = $('.hamburger');
     const overlay = $('.overlay');
     let isClosed = false;

@@ -31,6 +31,8 @@ import { DisplayProfileComponent } from './components/patient/display-profile/di
 import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
 import { DisplayHospitalDetailsComponent } from './components/hospital/display-hospital-details/display-hospital-details.component';
 import { RescheduleAppointmentComponent } from './components/patient/reschedule-appointment/reschedule-appointment.component';
+import { AppointmentsListComponent } from './components/hospital/appointments-list/appointments-list.component';
+import { RescheduleHospitalAppointmentComponent } from './components/hospital/reschedule-hospital-appointment/reschedule-hospital-appointment.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { RescheduleAppointmentComponent } from './components/patient/reschedule-
     DisplayProfileComponent,
     DisplayHospitalDetailsComponent,
     RescheduleAppointmentComponent,
+    AppointmentsListComponent,
+    RescheduleHospitalAppointmentComponent,
   ],
   imports: [
     CommonModule,
