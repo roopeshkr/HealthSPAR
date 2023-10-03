@@ -1,10 +1,6 @@
 <div id="wrapper">
   <!-- Sidebar -->
-  <nav
-    class="navbar navbar-inverse fixed-top"
-    id="sidebar-wrapper"
-    role="navigation"
-  >
+  <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
     <ul class="nav sidebar-nav">
       <div class="sidebar-header">
         <div class="sidebar-brand">
@@ -21,11 +17,7 @@
 
   <!-- Page Content -->
   <div id="page-content-wrapper">
-    <button
-      type="button"
-      class="hamburger animated fadeInLeft is-closed"
-      data-toggle="offcanvas"
-    >
+    <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
       <span class="hamb-top"></span>
       <span class="hamb-middle"></span>
       <span class="hamb-bottom"></span>
@@ -47,7 +39,7 @@
           <tr *ngFor="let appointment of appointments; let i = index">
             <td>{{i+1}}</td>
             <td>{{appointment.patientName}}</td>
-            <td>{{ hospitals[i]?.hospitalName }}</td>
+            <td>{{ hospitals[i].hospitalName }}</td>
             <td>{{appointment.doctor}}</td>
             <td>{{ appointment.dateTime | date: 'dd-MMM-yyyy HH:mm a' }}</td>
             <td>{{appointment.treatmentType}}</td>

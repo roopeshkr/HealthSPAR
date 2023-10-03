@@ -18,6 +18,10 @@ import { RescheduleAppointmentComponent } from './components/patient/reschedule-
 import { HcpDHeaderComponent } from './components/HospitalDashboard/hcp-d-header/hcp-d-header.component';
 import { HcpDSidebarComponent } from './components/HospitalDashboard/hcp-d-sidebar/hcp-d-sidebar.component';
 import { HospitalDashboardComponent } from './components/HospitalDashboard/hospital-dashboard/hospital-dashboard.component';
+import { DoctorsListComponent } from './components/hospital/doctors-list/doctors-list.component';
+import { AddDoctorComponent } from './components/HospitalDashboard/add-doctor/add-doctor.component';
+import { DoctorComponent } from './components/hospital/doctor/doctor.component';
+import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/edit-doctor.component';
 
 const routes: Routes = [
   { path: 'index', component: HomeComponent },
@@ -57,6 +61,10 @@ const routes: Routes = [
 
   { path: 'hp-d-header', component: HcpDHeaderComponent },
   { path: 'hp-d-sidebar', component: HcpDSidebarComponent },
+  { path: 'doctors-list', component: DoctorsListComponent },
+  { path: 'add-doctor', component: AddDoctorComponent },
+  { path: 'doctor', component: DoctorComponent },
+  { path: 'edit-doctor', component: EditDoctorComponent },
 ];
 
 @NgModule({
