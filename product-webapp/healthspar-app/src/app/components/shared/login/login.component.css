@@ -181,7 +181,7 @@ input[type="radio"] {
 }
 
 .form-inner form .field input:focus {
-  border-color: #12e8f0;
+  border-color: #042E5F;
 }
 
 .form-inner form .field input::placeholder {
