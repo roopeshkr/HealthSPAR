@@ -76,7 +76,7 @@ import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/
     DoctorsListComponent,
     AddDoctorComponent,
     EditDoctorComponent,
-  ],
+      ],
   imports: [
     CommonModule,
     BrowserModule,

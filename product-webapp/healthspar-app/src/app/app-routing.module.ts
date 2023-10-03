@@ -25,6 +25,7 @@ import { AddDoctorComponent } from './components/HospitalDashboard/add-doctor/ad
 import { DoctorComponent } from './components/hospital/doctor/doctor.component';
 import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/edit-doctor.component';
 
+
 const routes: Routes = [
   { path: 'index', component: HomeComponent },
   {
@@ -67,7 +68,7 @@ const routes: Routes = [
   { path: 'doctors-list', component: DoctorsListComponent },
   { path: 'add-doctor', component: AddDoctorComponent },
   { path: 'doctor', component: DoctorComponent },
-  { path: 'edit-doctor', component: EditDoctorComponent },
+  { path: 'edit-doctor/:hospitalId/:index', component: EditDoctorComponent },
 ];
 
 @NgModule({

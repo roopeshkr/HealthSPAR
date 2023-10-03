@@ -49,7 +49,12 @@
                 />
               </div>
               <div class="card-info">
-                <h3>{{ filterAppointmentsByStatus('BOOKED') + filterAppointmentsByStatus('RESCHEDULE') }}</h3>
+                <h3>
+                  {{
+                    filterAppointmentsByStatus("BOOKED") +
+                      filterAppointmentsByStatus("RESCHEDULE")
+                  }}
+                </h3>
                 <span class="widget-title1">Bookings</span>
               </div>
             </div>
@@ -64,70 +69,44 @@
               <a
                 [routerLink]="['/hospital-appointment', hospital.hospitalId]"
                 class="btn btn-primary float-right"
-              >View all
+                >View all
               </a>
             </div>
             <div class="card-body p-0">
               <div class="table-responsive">
-                
                 <table class="table mb-0">
                   <tbody>
                     <tr *ngFor="let appointment of appointments">
-                      <td style="min-width: 200px">
-                        <a class="avatar" href="profile.html">B</a>
-                        <h2>
-                          <a href="profile.html"
-                            >{{ appointment.patientName }}
-                            </a
+                      <ng-container
+                        *ngIf="
+                          appointment.status === 'CANCEL' ||
+                          appointment.status === 'INITIALIZED'
+                        "
+                      >
+                        <td style="min-width: 200px">
+                          <a class="avatar" href="profile.html">B</a>
+                          <h2>
+                            <a href="profile.html"
+                              >{{ appointment.patientName }}
+                            </a>
+                          </h2>
+                        </td>
+                        <td>
+                          <h5 class="time-title p-0">Appointment With</h5>
+                          <p>Dr. {{ appointment.doctor }}</p>
+                        </td>
+                        <td>
+                          <h5 class="time-title p-0">Date</h5>
+                          <p>{{ appointment.dateTime | date }}</p>
+                        </td>
+                        <td class="text-right">
+                          <a
+                            href="appointments.html"
+                            class="btn btn-outline-primary take-btn"
+                            >Take up</a
                           >
-                        </h2>
-                      </td>
-                      <td>
-                        <h5 class="time-title p-0">Appointment With</h5>
-                        <p>Dr. {{ appointment.doctor }}</p>
-                      </td>
-                      <td>
-                        <h5 class="time-title p-0">Timing</h5>
-                        <p>{{ appointment.dateTime | date : "shortTime" }}</p>
-                      </td>
-                      <td class="text-right">
-                        <a
-                          href="appointments.html"
-                          class="btn btn-outline-primary take-btn"
-                          >Take up</a
-                        >
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-10 col-lg-12 col-xl-12">
-          <div class="card">
-            <div class="card-header">
-              <h4 class="card-title d-inline-block">New Patients</h4>
-            </div>
-            <div class="card-block">
-              <div class="table-responsive">
-                <table class="table mb-0 new-patient-table">
-                  <tbody>
-                    <tr *ngFor="let appointment of appointments">
-                      <td>
-                        <h2>{{ appointment.patientName }}</h2>
-                      </td>
-                      <td>{{ appointment.email }}</td>
-                      <td>{{ appointment.phoneNumber }}</td>
-                      <td>{{ appointment.dateTime | date }}</td>
-                      <td>
-                        <button
-                          class="btn btn-primary btn-primary-one float-right"
-                        >
-                          {{ appointment.treatmentType }}
-                        </button>
-                      </td>
-                    
+                        </td>
+                      </ng-container>
                     </tr>
                   </tbody>
                 </table>
