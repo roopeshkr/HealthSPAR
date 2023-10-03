@@ -7,6 +7,7 @@ spring:
     url: jdbc:mysql://localhost:3306/authentication_db
     username: root
     password: Rkr@04jan2001Rkr
+
     driver-class-name: com.mysql.cj.jdbc.Driver # MySQL driver
   jpa:
     hibernate:
@@ -34,4 +35,10 @@ application:
       expiration: 86400000 # a day
       refresh-token:
         expiration: 604800000 # 7 days
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8076/eureka/
+
 

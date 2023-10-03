@@ -73,7 +73,6 @@ export class RescheduleAppointmentComponent implements OnInit {
       (params)=>{
         const appointmentId=+params['id'];
         this.getAppointmentById(appointmentId);
-        this.getHospitalById(this.appointment.hospitalId)
       }
     );
     const trigger = $('.hamburger');
@@ -115,6 +114,7 @@ export class RescheduleAppointmentComponent implements OnInit {
         hospitalId:this.appointment.hospitalId,
         dateTime: isoDateTime,
       };
+
   
       this.appointmentService.rescheduleAppointment(this.appointment.appointmentId, appointmentData).subscribe(
         (response: Appointment) => {
@@ -158,6 +158,7 @@ export class RescheduleAppointmentComponent implements OnInit {
       (response: Appointment) => {
         this.appointment = response;
         this.patchFormWithAppointment(this.appointment);
+        this.getHospitalById(this.appointment.hospitalId)
         console.log(this.appointment);
 
       }

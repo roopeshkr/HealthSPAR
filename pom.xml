@@ -19,6 +19,7 @@
 		<module>recommend-service</module>
 		<module>authentication-service</module>
 		<module>patient-service</module>
+        <module>email-service</module>
 		<module>booked-appointments</module>
 		<module>eureka-server</module>
 		<module>payment-gateway</module>
