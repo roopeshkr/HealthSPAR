@@ -20,19 +20,5 @@ public class Main {
     }
 
 
-    @Bean
-    public CommandLineRunner commandLineRunner(
-            AuthenticationService service
-    ) {
-        return args -> {
-            var admin = RegisterRequest.builder()
-                    .name("Admin")
-                    .email("admin@mail.com")
-                    .password("password")
-                    .role(ADMIN)
-                    .build();
-            System.out.println("Admin token: " + service.register(admin).getAccessToken());
 
-        };
-    }
 }

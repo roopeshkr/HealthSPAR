@@ -1,5 +1,6 @@
 package com.stackroute.auth;
 
+import com.stackroute.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,12 +1,12 @@
 server:
-  port: 8000 # Port of the application will be assigned dynamically
+  port: 8023 # Port of the application will be assigned dynamically
 spring:
   application:
     name: booked-appointments
   datasource:
-    url: jdbc:mysql://localhost:3306/health_spar_appointments_db
+    url: jdbc:mysql://localhost:3306/appointment_db
     username: root
-    password: Mn!SN777
+    password: Rkr@04jan2001Rkr
     driver-class-name: com.mysql.cj.jdbc.Driver # MySQL driver
   jpa:
     hibernate:

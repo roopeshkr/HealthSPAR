@@ -56,23 +56,3 @@ public class SecurityConfiguration {
     }
 }
 
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-//        http.csrf().disable();
-//        http.sessionManagement().sessionCreationPolicy(STATELESS);
-//        http.authorizeRequests()
-//                .requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
-//                .requestMatchers("/api/v1/auth/**").permitAll()
-//                .requestMatchers("/demo/hcp/**").hasAnyAuthority("ROLE_HCP")
-//                .requestMatchers("/demo/patient/**").hasAnyAuthority("ROLE_PATIENT","ROLE_HCP")
-//                .and()
-//                .csrf().disable()
-//                .cors(Customizer.withDefaults())
-//                .authorizeRequests()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .authenticationProvider(authenticationProvider)
-//                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-//        return http.build();
-//    }

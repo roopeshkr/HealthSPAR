@@ -1,0 +1,120 @@
+<div id="wrapper">
+  <!-- Sidebar -->
+  <nav
+    class="navbar navbar-inverse fixed-top"
+    id="sidebar-wrapper"
+    role="navigation"
+  >
+    <ul class="nav sidebar-nav">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <a href="#">Hospital Name</a>
+        </div>
+      </div>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#events">My Profile</a></li>
+      <li><a routerLink="/update-hospital-details">Update Profile</a></li>
+      <li><a href="#team">Logout</a></li>
+    </ul>
+  </nav>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <button
+      type="button"
+      class="hamburger animated fadeInLeft is-closed"
+      data-toggle="offcanvas"
+    >
+      <span class="hamb-top"></span>
+      <span class="hamb-middle"></span>
+      <span class="hamb-bottom"></span>
+    </button>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card mb-4">
+            <div class="card-body text-left">
+              <h2><span>Basic Details</span></h2>
+              <hr />
+              <div class="centered-image">
+                <img
+                  src="assets/images/hospital.svg"
+                  alt="avatar"
+                  class="img-fluid"
+                />
+              </div>
+              <h5 class="my-3">
+                Name : <span class="mx-2">{{ hospital.hospitalName }}</span>
+              </h5>
+              <h5 class="my-3">
+                Website :
+                <span class="mx-2">{{ hospital.hospitalWebsite }}</span>
+              </h5>
+              <h5 class="my-3">
+                Email : <span class="mx-2">{{ hospital.hospitalEmail }}</span>
+              </h5>
+              <h5 class="my-3">
+                Phone Number :
+                <span class="mx-2">{{ hospital.hospitalPhoneNumber }}</span>
+              </h5>
+              <h5 class="my-3">
+                Available Beds :
+                <span class="mx-2">{{ hospital.numberOfBeds }}</span>
+              </h5>
+              <h5 class="my-3">
+                Amenities :
+                <span class="mx-2">{{ hospital.hospitalAmenities }}</span>
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h2><span>Address</span></h2>
+              <hr />
+              <h5 class="my-3">
+                City : <span class="mx-2">{{ hospital.city.name }}</span>
+              </h5>
+              <h5 class="my-3">
+                District :
+                <span class="mx-2">{{ hospital.city.district }}</span>
+              </h5>
+              <h5 class="my-3">
+                State : <span class="mx-2">{{ hospital.city.state }}</span>
+              </h5>
+              <h5 class="my-3">
+                Country : <span class="mx-2">{{ hospital.city.country }}</span>
+              </h5>
+              <h5 class="my-3">
+                Zip Code : <span class="mx-2">{{ hospital.city.zip }}</span>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="container col-md-12 mb-4">
+      <div class="row">
+        <div class="col-lg-4" *ngFor="let doctor of hospital.doctors">
+          <div class="member d-flex align-items-start">
+            <div class="pic">
+              <img
+                src="assets/images/doctors/doctors-1.jpg"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+            <div class="member-info">
+              <h4>{{doctor.doctorName}}</h4>
+              <span>{{doctor.department}}</span>
+              <p>{{doctor.bio}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

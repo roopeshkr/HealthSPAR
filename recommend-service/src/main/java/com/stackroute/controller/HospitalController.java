@@ -1,10 +1,11 @@
 package com.stackroute.controller;
 
-import com.stackroute.dto.HospitalDto;
+import com.stackroute.dto.HospitalRequestDto;
+import com.stackroute.dto.HospitalResponseDto;
 import com.stackroute.model.Hospital;
 import com.stackroute.service.HospitalService;
-import com.stackroute.util.HospitalUtility;
-import jakarta.validation.Valid;
+import com.stackroute.util.HospitalRequestUtility;
+import com.stackroute.util.HospitalResponseUtility;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -16,43 +17,45 @@ import java.util.stream.Collectors;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/hospitals")
+@CrossOrigin("*")
 public class HospitalController {
     private final HospitalService hospitalService;
-    private final HospitalUtility utility;
+    private final HospitalRequestUtility hospitalRequestUtility;
+    private final HospitalResponseUtility hospitalResponseUtility;
 
     @PostMapping
-    public ResponseEntity<HospitalDto> createHospital(@Valid @RequestBody HospitalDto dto)
+    public ResponseEntity<HospitalRequestDto> createHospital(@RequestBody HospitalRequestDto dto)
     {
-        var hospital=utility.toEntity(dto);
+        var hospital=hospitalRequestUtility.toEntity(dto);
         var savedHospital=hospitalService.createHospital(hospital);
-        var savedHospitalDto=utility.toDto(savedHospital);
+        var savedHospitalDto=hospitalRequestUtility.toDto(savedHospital);
         return ResponseEntity.status(HttpStatusCode.valueOf(201)).body(savedHospitalDto);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<HospitalDto> getHospitalById(@PathVariable Long id)
+    public ResponseEntity<HospitalResponseDto> getHospitalById(@PathVariable Long id)
     {
         var hospital=hospitalService.getHospitalById(id);
-        var hospitalDto=utility.toDto(hospital);
+        var hospitalDto=hospitalResponseUtility.toDto(hospital);
         return ResponseEntity.ok(hospitalDto);
     }
 
     @GetMapping
-    public ResponseEntity<List<HospitalDto>> getAllHospitals(){
+    public ResponseEntity<List<HospitalResponseDto>> getAllHospitals(){
         List<Hospital> hospitals=hospitalService.getAllHospitals();
         var hospitalsDto=hospitals
                 .stream()
-                .map((utility::toDto))
+                .map((hospitalResponseUtility::toDto))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(hospitalsDto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<HospitalDto> updateHospital(@Valid @PathVariable Long id,@RequestBody HospitalDto dto){
-        Hospital newHospital=utility.toEntity(dto);
+    public ResponseEntity<HospitalRequestDto> updateHospital( @PathVariable Long id,@RequestBody HospitalRequestDto dto){
+        Hospital newHospital=hospitalRequestUtility.toEntity(dto);
         newHospital.setHospitalId(id);
         var updatedHospital=hospitalService.updateHospital(id,newHospital);
-        var updatedHospitalDto=utility.toDto(updatedHospital);
+        var updatedHospitalDto=hospitalRequestUtility.toDto(updatedHospital);
         return ResponseEntity.ok(updatedHospitalDto);
     }
 

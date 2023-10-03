@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +18,27 @@ import { NavbarComponent } from './components/patient/shared/navbar/navbar.compo
 import { HeroComponent } from './components/patient/hero/hero.component';
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 import { HomeComponent } from './components/patient/home/home.component';
+import { HospitalDetailsComponent } from './components/hospital/hospital-details/hospital-details.component';
+import { ProfileComponent } from './components/patient/profile/profile.component';
+import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
+// import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
+import { HospitalSidenavComponent } from './components/hospital/shared/hospital-sidenav/hospital-sidenav.component';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LoginComponent } from './components/shared/login/login.component';
+import { SignupComponent } from './components/shared/signup/signup.component';
+import { UpdateHospitalDetailsComponent } from './components/hospital/update-hospital-details/update-hospital-details.component';
+import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
+import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
+import { DisplayHospitalDetailsComponent } from './components/hospital/display-hospital-details/display-hospital-details.component';
+import { RescheduleAppointmentComponent } from './components/patient/reschedule-appointment/reschedule-appointment.component';
+import { AppointmentsListComponent } from './components/hospital/appointments-list/appointments-list.component';
+import { RescheduleHospitalAppointmentComponent } from './components/hospital/reschedule-hospital-appointment/reschedule-hospital-appointment.component';
+import { HcpDSidebarComponent } from './components/HospitalDashboard/hcp-d-sidebar/hcp-d-sidebar.component';
+import { HcpDHeaderComponent } from './components/HospitalDashboard/hcp-d-header/hcp-d-header.component';
+import { HospitalDashboardComponent } from './components/HospitalDashboard/hospital-dashboard/hospital-dashboard.component';
+import { DoctorsListComponent } from './components/hospital/doctors-list/doctors-list.component';
+import { AddDoctorComponent } from './components/HospitalDashboard/add-doctor/add-doctor.component';
+import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/edit-doctor.component';
 
 @NgModule({
   declarations: [
@@ -29,16 +52,43 @@ import { HomeComponent } from './components/patient/home/home.component';
     DoctorComponent,
     NavbarComponent,
     HeroComponent,
+    HospitalComponent,
+    HomeComponent,
+    LoginComponent,
     RecommendationComponent,
-    HomeComponent
+    HospitalDetailsComponent,
+    ProfileComponent,
+    UpdateProfileComponent,
+    // SidenavComponent,
+    HospitalSidenavComponent,
+    SignupComponent,
+    LoginComponent,
+    HospitalPageComponent,
+    UpdateHospitalDetailsComponent,
+    DisplayProfileComponent,
+    DisplayHospitalDetailsComponent,
+    RescheduleAppointmentComponent,
+    AppointmentsListComponent,
+    RescheduleHospitalAppointmentComponent,
+    HospitalDashboardComponent,
+    HcpDSidebarComponent,
+    HcpDHeaderComponent,
+    DoctorsListComponent,
+    AddDoctorComponent,
+    EditDoctorComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
-    FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserModule,
+    BrowserModule,
+    // FontAwesomeModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [DatePipe],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

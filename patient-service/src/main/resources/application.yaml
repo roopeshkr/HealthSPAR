@@ -1,5 +1,5 @@
 server:
-  port: 8000 # Port on which the application will run
+  port: 8090
 spring:
   application:
     name: patient-service
@@ -7,22 +7,11 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      database: patients_db
-#logging:
-#  level:
-#    root: info # Logging level of the application
-#    in.stackroute.patient-service: debug # Logging level of the application
-#    org.springframework.web.client.RestTemplate: debug # Logging requests made by the application to other services
-#  pattern:
-#    console: "%d{dd/MM/yyy HH:mm:ss} %-5level - %msg%n" # Pattern of the console logs
-#    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n" # Pattern of the file logs
-#  file:
-#    name: logs\patient-service.log # Name of the log file
-#  logback:
-#    rollingpolicy:
-#      max-file-size: 10MB # Maximum size of the log file
-#eureka:
-#  client:
-#    service-url:
-#      defaultZone: http://localhost:8761/eureka/ # URL of the Eureka server
-#
+      database: patient_db
+logging:
+  file:
+    name: logs/patient-service.log
+  level:
+    root: info
+    org.springframework.data.mongodb.core.MongoTemplate: debug
+    com.stackroute: debug
