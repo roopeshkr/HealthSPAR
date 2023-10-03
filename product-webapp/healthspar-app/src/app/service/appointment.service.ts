@@ -39,7 +39,7 @@ export class AppointmentService {
     return this.http.get<Appointment[]>(`${this.apiUrl}/appointments/patient/${patientId}`);
   }
   public getAppointmentsForHospital(hospitaLId:number):Observable<Appointment[]>{
-    return this.http.get<Appointment[]>(`${this.apiUrl}/appointments/patient/${hospitaLId}`);
+    return this.http.get<Appointment[]>(`${this.apiUrl}/appointments/hospital/${hospitaLId}`);
   }
  
   public getAppointmentsbyId(appointmentId:number):Observable<Appointment>{

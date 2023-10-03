@@ -60,6 +60,7 @@ public class HospitalServiceImpl implements HospitalService {
         existingHospital.setHospitalAmenities(hospital.getHospitalAmenities());
         existingHospital.setNumberOfBeds(hospital.getNumberOfBeds());
         existingHospital.setDoctors(hospital.getDoctors());
+        existingHospital.setFrequentlyAskedQuestion(hospital.getFrequentlyAskedQuestion());
         return hospitalRepository.save(existingHospital);
     }
 }

@@ -28,7 +28,8 @@ export class UpdateHospitalDetailsComponent implements OnInit {
       country: '',
       zip: ''
     },
-    doctors: []
+    doctors: [],
+    frequentlyAskedQuestion: []
   };
 
   hospitalProfileForm: FormGroup;
@@ -75,10 +76,11 @@ export class UpdateHospitalDetailsComponent implements OnInit {
         }),
       }),
       doctorDetailForm: this.formBuilder.array([]),
+      questionDetailForm:this.formBuilder.array([])
     });
   }
   ngOnInit(): void {
-    this.getHospital(11);
+    this.getHospital(40);
   }
 
   get basicDetails() {
@@ -90,10 +92,18 @@ export class UpdateHospitalDetailsComponent implements OnInit {
   get doctorDetails() {
     return this.hospitalProfileForm.get('doctorDetailForm') as FormArray;
   }
+  get questionDetails() {
+    return this.hospitalProfileForm.get('questionDetailForm') as FormArray;
+  }
 
   getDoctorFormGroup(index: number) {
     return this.doctorDetails.at(index) as FormGroup;
   }
+
+  getQuestionFormGroup(index: number) {
+    return this.questionDetails.at(index) as FormGroup;
+  }
+  
 
   onSubmit() {
     this.isSubmitted = true;
@@ -112,9 +122,10 @@ export class UpdateHospitalDetailsComponent implements OnInit {
 
     this.step = this.step + 1;
 
-    if (this.step === 4 && this.hospitalProfileForm.valid) {
+    if (this.step === 6 && this.hospitalProfileForm.valid) {
+      console.log("form value: ", this.hospitalProfileForm.value);
       const hospitalData: Hospital = {
-        hospitalId: 3,
+        hospitalId: 40,
         hospitalName: this.basicDetails?.get('hospitalName')?.value,
         hospitalWebsite: this.basicDetails?.get('hospitalWebsite')?.value,
         hospitalEmail: this.basicDetails?.get('hospitalEmail')?.value,
@@ -131,8 +142,11 @@ export class UpdateHospitalDetailsComponent implements OnInit {
         doctors: this.doctorDetails.value,
         hospitalImageURL: '',
         hospitalRating: 0,
-        hospitalReviews: []
+        hospitalReviews: [],
+        frequentlyAskedQuestion: this.questionDetails.value
       }
+      console.log("database value : ",hospitalData);
+      
 
       this.updateHospital(hospitalData.hospitalId, hospitalData);
 
@@ -186,8 +200,22 @@ export class UpdateHospitalDetailsComponent implements OnInit {
           doctorsFormArray.push(doctorFormGroup);
         }
 
+        const questionFormArray = this.hospitalProfileForm.get(
+          'questionDetailForm'
+        ) as FormArray;
 
+        while (questionFormArray.length > 0) {
+          questionFormArray.removeAt(0);
+        }
 
+        for (const askedQuestion of this.hospital.frequentlyAskedQuestion) {
+          const questionFormGroup = this.formBuilder.group({
+            question: [askedQuestion.question],
+            answer: [askedQuestion.answer]
+          });
+
+          questionFormArray.push(questionFormGroup);
+        }
       },
       (error) => {
         console.error('Error fetching patient:', error);
@@ -201,7 +229,7 @@ export class UpdateHospitalDetailsComponent implements OnInit {
       .subscribe(
         (response: Hospital) => {
           console.log('Hospital profile updated successfully: ', response);
-          this.route.navigate(['/display-hospital-details']);
+          this.route.navigate(['/display-hospital-details',hospitalId]);
         },
         (error) => {
           console.error('Error updating hospital profile:', error);
@@ -211,6 +239,22 @@ export class UpdateHospitalDetailsComponent implements OnInit {
 
   removeDoctor(index: number) {
     this.doctorDetails.removeAt(index)
+
+  }
+
+  addQuestion() {
+    const newQuestion = this.formBuilder.group(
+      {
+        question: [''],
+        answer: [''],
+      }
+    );
+
+    this.questionDetails.push(newQuestion);
+  }
+
+  removeQuestion(index: number) {
+    this.questionDetails.removeAt(index)
 
   }
 

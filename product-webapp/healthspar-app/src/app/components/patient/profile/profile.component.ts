@@ -49,6 +49,8 @@ export class ProfileComponent implements AfterViewInit {
     dateInputElement.max = currentDate.toISOString().split('T')[0];
   }
 
+  
+
   get basicDetails() {
     return this.patientProfileForm.get('basicDetailForm');
   }

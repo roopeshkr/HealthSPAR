@@ -4,51 +4,53 @@
   <div class="page-wrapper">
     <div class="content">
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <div class="card">
             <div class="card-body d-flex align-items-start">
-              <div class="pic"><img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" class="img-fluid"
-                  alt=""></div>
+              <div class="pic">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
               <div class="card-info">
-                <h3>98</h3>
+                <h3>{{ hospital.doctors.length }}</h3>
                 <span class="widget-title1">Doctors</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <div class="card">
             <div class="card-body d-flex align-items-start">
-              <div class="pic"><img src="https://cdn-icons-png.flaticon.com/512/1430/1430453.png" class="img-fluid"
-                  alt=""></div>
+              <div class="pic">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/1430/1430453.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
               <div class="card-info">
-                <h3>250</h3>
+                <h3>{{ getUniquePatientCount() }}</h3>
                 <span class="widget-title1">Patients</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <div class="card">
             <div class="card-body d-flex align-items-start">
-              <div class="pic"><img src="https://cdn-icons-png.flaticon.com/512/4326/4326320.png" class="img-fluid"
-                  alt=""></div>
-              <div class="card-info">
-                <h3>72</h3>
-                <span class="widget-title1">Bookings</span>
+              <div class="pic">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/4326/4326320.png"
+                  class="img-fluid"
+                  alt=""
+                />
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="card">
-            <div class="card-body d-flex align-items-start">
-              <div class="pic"><img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Schedule_or_Calendar_Flat_Icon.svg/1024px-Schedule_or_Calendar_Flat_Icon.svg.png"
-                  class="img-fluid" alt=""></div>
               <div class="card-info">
-                <h3>23</h3>
-                <span class="widget-title1">Schedule</span>
+                <h3>{{ filterAppointmentsByStatus('BOOKED') + filterAppointmentsByStatus('RESCHEDULE') }}</h3>
+                <span class="widget-title1">Bookings</span>
               </div>
             </div>
           </div>
@@ -58,96 +60,42 @@
         <div class="col-12 col-md-10 col-lg-12 col-xl-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title d-inline-block">Upcoming Appointments</h4> <a href="#"
-                class="btn btn-primary float-right">View all</a>
+              <h4 class="card-title d-inline-block">Appointments</h4>
+              <a
+                [routerLink]="['/hospital-appointment', hospital.hospitalId]"
+                class="btn btn-primary float-right"
+              >View all
+              </a>
             </div>
             <div class="card-body p-0">
               <div class="table-responsive">
+                
                 <table class="table mb-0">
                   <tbody>
-                    <tr>
-                      <td style="min-width: 200px;">
+                    <tr *ngFor="let appointment of appointments">
+                      <td style="min-width: 200px">
                         <a class="avatar" href="profile.html">B</a>
-                        <h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
+                        <h2>
+                          <a href="profile.html"
+                            >{{ appointment.patientName }}
+                            </a
+                          >
+                        </h2>
                       </td>
                       <td>
                         <h5 class="time-title p-0">Appointment With</h5>
-                        <p>Dr. Cristina Groves</p>
+                        <p>Dr. {{ appointment.doctor }}</p>
                       </td>
                       <td>
                         <h5 class="time-title p-0">Timing</h5>
-                        <p>7.00 PM</p>
+                        <p>{{ appointment.dateTime | date : "shortTime" }}</p>
                       </td>
                       <td class="text-right">
-                        <a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="min-width: 200px;">
-                        <a class="avatar" href="profile.html">B</a>
-                        <h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
-                      </td>
-                      <td>
-                        <h5 class="time-title p-0">Appointment With</h5>
-                        <p>Dr. Cristina Groves</p>
-                      </td>
-                      <td>
-                        <h5 class="time-title p-0">Timing</h5>
-                        <p>7.00 PM</p>
-                      </td>
-                      <td class="text-right">
-                        <a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="min-width: 200px;">
-                        <a class="avatar" href="profile.html">B</a>
-                        <h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
-                      </td>
-                      <td>
-                        <h5 class="time-title p-0">Appointment With</h5>
-                        <p>Dr. Cristina Groves</p>
-                      </td>
-                      <td>
-                        <h5 class="time-title p-0">Timing</h5>
-                        <p>7.00 PM</p>
-                      </td>
-                      <td class="text-right">
-                        <a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="min-width: 200px;">
-                        <a class="avatar" href="profile.html">B</a>
-                        <h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
-                      </td>
-                      <td>
-                        <h5 class="time-title p-0">Appointment With</h5>
-                        <p>Dr. Cristina Groves</p>
-                      </td>
-                      <td>
-                        <h5 class="time-title p-0">Timing</h5>
-                        <p>7.00 PM</p>
-                      </td>
-                      <td class="text-right">
-                        <a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="min-width: 200px;">
-                        <a class="avatar" href="profile.html">B</a>
-                        <h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
-                      </td>
-                      <td>
-                        <h5 class="time-title p-0">Appointment With</h5>
-                        <p>Dr. Cristina Groves</p>
-                      </td>
-                      <td>
-                        <h5 class="time-title p-0">Timing</h5>
-                        <p>7.00 PM</p>
-                      </td>
-                      <td class="text-right">
-                        <a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
+                        <a
+                          href="appointments.html"
+                          class="btn btn-outline-primary take-btn"
+                          >Take up</a
+                        >
                       </td>
                     </tr>
                   </tbody>
@@ -159,48 +107,27 @@
         <div class="col-12 col-md-10 col-lg-12 col-xl-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title d-inline-block">New Patients </h4> <a href="#"
-                class="btn btn-primary float-right">View all</a>
+              <h4 class="card-title d-inline-block">New Patients</h4>
             </div>
             <div class="card-block">
               <div class="table-responsive">
                 <table class="table mb-0 new-patient-table">
                   <tbody>
-                    <tr>
+                    <tr *ngFor="let appointment of appointments">
                       <td>
-                        <img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt="">
-                        <h2>John Doe</h2>
+                        <h2>{{ appointment.patientName }}</h2>
                       </td>
-                      <td>Johndoe21@gmail.com</td>
-                      <td>+1-202-555-0125</td>
-                      <td><button class="btn btn-primary btn-primary-one float-right">Fever</button></td>
-                    </tr>
-                    <tr>
+                      <td>{{ appointment.email }}</td>
+                      <td>{{ appointment.phoneNumber }}</td>
+                      <td>{{ appointment.dateTime | date }}</td>
                       <td>
-                        <img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt="">
-                        <h2>Richard</h2>
+                        <button
+                          class="btn btn-primary btn-primary-one float-right"
+                        >
+                          {{ appointment.treatmentType }}
+                        </button>
                       </td>
-                      <td>Richard123@yahoo.com</td>
-                      <td>202-555-0127</td>
-                      <td><button class="btn btn-primary btn-primary-two float-right">Cancer</button></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt="">
-                        <h2>Villiam</h2>
-                      </td>
-                      <td>Richard123@yahoo.com</td>
-                      <td>+1-202-555-0106</td>
-                      <td><button class="btn btn-primary btn-primary-three float-right">Eye</button></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt="">
-                        <h2>Martin</h2>
-                      </td>
-                      <td>Richard123@yahoo.com</td>
-                      <td>776-2323 89562015</td>
-                      <td><button class="btn btn-primary btn-primary-four float-right">Fever</button></td>
+                    
                     </tr>
                   </tbody>
                 </table>

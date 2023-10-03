@@ -15,6 +15,8 @@ import { DisplayProfileComponent } from './components/patient/display-profile/di
 import { DisplayHospitalDetailsComponent } from './components/hospital/display-hospital-details/display-hospital-details.component';
 import { AppointmentComponent } from './components/patient/appointment/appointment.component';
 import { RescheduleAppointmentComponent } from './components/patient/reschedule-appointment/reschedule-appointment.component';
+import { AppointmentsListComponent } from './components/hospital/appointments-list/appointments-list.component';
+import { RescheduleHospitalAppointmentComponent } from './components/hospital/reschedule-hospital-appointment/reschedule-hospital-appointment.component';
 import { HcpDHeaderComponent } from './components/HospitalDashboard/hcp-d-header/hcp-d-header.component';
 import { HcpDSidebarComponent } from './components/HospitalDashboard/hcp-d-sidebar/hcp-d-sidebar.component';
 import { HospitalDashboardComponent } from './components/HospitalDashboard/hospital-dashboard/hospital-dashboard.component';
@@ -52,19 +54,24 @@ const routes: Routes = [
     component: DisplayHospitalDetailsComponent,
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {path:'patient-appointment',component:AppointmentComponent},
+  {path:'hospital-appointment/:id',component:AppointmentsListComponent},
+  {path:'reschedule-patient-appointment/:id',component:RescheduleAppointmentComponent},
+  {path:'reschedule-hospital-appointment/:id',component:RescheduleHospitalAppointmentComponent},
   { path: 'patient-appointment', component: AppointmentComponent },
-  {
-    path: 'reschedule-patient-appointment',
-    component: RescheduleAppointmentComponent,
-  },
+  
   { path: 'hospital-dashboard', component: HospitalDashboardComponent },
 
   { path: 'hp-d-header', component: HcpDHeaderComponent },
+<<<<<<< HEAD
   { path: 'hp-d-sidebar', component: HcpDSidebarComponent },
   { path: 'doctors-list', component: DoctorsListComponent },
   { path: 'add-doctor', component: AddDoctorComponent },
   { path: 'doctor', component: DoctorComponent },
   { path: 'edit-doctor', component: EditDoctorComponent },
+=======
+  { path: 'hp-d-sidebar', component: HcpDSidebarComponent }
+>>>>>>> ae9d8c85d827cfd08b89d5a5e4584d28e03f40e7
 ];
 
 @NgModule({

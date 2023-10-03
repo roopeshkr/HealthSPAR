@@ -1,5 +1,6 @@
 package com.stackroute.dto;
 
+import com.stackroute.model.AskedQuestion;
 import com.stackroute.model.City;
 import com.stackroute.model.Doctor;
 
@@ -17,6 +18,7 @@ public record HospitalResponseDto(
         String hospitalAmenities,
         int numberOfBeds,
         City city,
-        List<Doctor> doctors
+        List<Doctor> doctors,
+        List<AskedQuestion> frequentlyAskedQuestion
 ) {
 }

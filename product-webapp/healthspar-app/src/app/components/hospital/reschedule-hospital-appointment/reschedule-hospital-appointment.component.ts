@@ -7,11 +7,11 @@ import { AppointmentService } from 'src/app/service/appointment.service';
 import { HospitalService } from 'src/app/service/hospital.service';
 
 @Component({
-  selector: 'app-reschedule-appointment',
-  templateUrl: './reschedule-appointment.component.html',
-  styleUrls: ['./reschedule-appointment.component.css']
+  selector: 'app-reschedule-hospital-appointment',
+  templateUrl: './reschedule-hospital-appointment.component.html',
+  styleUrls: ['./reschedule-hospital-appointment.component.css']
 })
-export class RescheduleAppointmentComponent implements OnInit {
+export class RescheduleHospitalAppointmentComponent implements OnInit {
   appointment: Appointment = {
     appointmentId: 0,
     patientId: '',
@@ -50,10 +50,11 @@ export class RescheduleAppointmentComponent implements OnInit {
   };
 
   isSubmitted: boolean = false;
+  isDisabled: boolean = false;
   appointmentForm: FormGroup;
 
-  constructor(private appointmentService: AppointmentService, private formBuilder: FormBuilder, private hospitalService: HospitalService,private route: Router,
-    private router:ActivatedRoute) {
+  constructor(private appointmentService: AppointmentService, private formBuilder: FormBuilder, private hospitalService: HospitalService, private route: Router,
+    private router: ActivatedRoute) {
     this.appointmentForm = this.formBuilder.group({
       patientName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
       email: ['', [Validators.required, Validators.email]],
@@ -70,8 +71,8 @@ export class RescheduleAppointmentComponent implements OnInit {
   }
   ngOnInit(): void {
     this.router.params.subscribe(
-      (params)=>{
-        const appointmentId=+params['id'];
+      (params) => {
+        const appointmentId = +params['id'];
         this.getAppointmentById(appointmentId);
         this.getHospitalById(this.appointment.hospitalId)
       }
@@ -105,22 +106,23 @@ export class RescheduleAppointmentComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true;
+    this.isDisabled = true;
     if (this.appointmentForm.valid) {
       const localDateTimeValue = this.appointmentForm.get('dateTime')?.value;
       const isoDateTime = new Date(localDateTimeValue).toISOString().slice(0, 19);
-  
+
       const appointmentData: Appointment = {
         ...this.appointmentForm.value,
-        patientId:this.appointment.patientId,
-        hospitalId:this.appointment.hospitalId,
+        patientId: this.appointment.patientId,
+        hospitalId: this.appointment.hospitalId,
         dateTime: isoDateTime,
       };
-  
+
       this.appointmentService.rescheduleAppointment(this.appointment.appointmentId, appointmentData).subscribe(
         (response: Appointment) => {
           this.appointment = response;
           console.log(this.appointment);
-          this.route.navigate(['patient-appointment']);
+          this.route.navigate(['hospital-appointment']);
         },
         (error) => {
           console.error("Error rescheduling appointment:", error);
@@ -128,7 +130,7 @@ export class RescheduleAppointmentComponent implements OnInit {
       );
     }
   }
-  
+
 
   public getHospitalById(hospitalId: number): void {
     this.hospitalService.getHospitalProfile(hospitalId).subscribe(
@@ -163,5 +165,4 @@ export class RescheduleAppointmentComponent implements OnInit {
       }
     )
   }
-
 }

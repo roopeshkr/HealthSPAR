@@ -31,6 +31,8 @@ import { DisplayProfileComponent } from './components/patient/display-profile/di
 import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
 import { DisplayHospitalDetailsComponent } from './components/hospital/display-hospital-details/display-hospital-details.component';
 import { RescheduleAppointmentComponent } from './components/patient/reschedule-appointment/reschedule-appointment.component';
+import { AppointmentsListComponent } from './components/hospital/appointments-list/appointments-list.component';
+import { RescheduleHospitalAppointmentComponent } from './components/hospital/reschedule-hospital-appointment/reschedule-hospital-appointment.component';
 import { HcpDSidebarComponent } from './components/HospitalDashboard/hcp-d-sidebar/hcp-d-sidebar.component';
 import { HcpDHeaderComponent } from './components/HospitalDashboard/hcp-d-header/hcp-d-header.component';
 import { HospitalDashboardComponent } from './components/HospitalDashboard/hospital-dashboard/hospital-dashboard.component';
@@ -66,6 +68,8 @@ import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/
     DisplayProfileComponent,
     DisplayHospitalDetailsComponent,
     RescheduleAppointmentComponent,
+    AppointmentsListComponent,
+    RescheduleHospitalAppointmentComponent,
     HospitalDashboardComponent,
     HcpDSidebarComponent,
     HcpDHeaderComponent,

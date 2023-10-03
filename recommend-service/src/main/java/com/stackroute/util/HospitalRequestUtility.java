@@ -17,7 +17,8 @@ public class HospitalRequestUtility {
                 hospital.getHospitalAmenities(),
                 hospital.getNumberOfBeds(),
                 hospital.getCity(),
-                hospital.getDoctors()
+                hospital.getDoctors(),
+                hospital.getFrequentlyAskedQuestion()
         );
     }
 
@@ -33,6 +34,7 @@ public class HospitalRequestUtility {
                 .numberOfBeds(dto.numberOfBeds())
                 .city(dto.city())
                 .doctors(dto.doctors())
+                .frequentlyAskedQuestion(dto.frequentlyAskedQuestion())
                 .build();
     }
 }

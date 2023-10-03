@@ -1,5 +1,6 @@
 package com.stackroute.dto;
 
+import com.stackroute.model.AskedQuestion;
 import com.stackroute.model.City;
 import com.stackroute.model.Doctor;
 import jakarta.validation.constraints.Email;
@@ -27,6 +28,7 @@ public record HospitalRequestDto(
         @NotNull(message = "Hospital must have city")
          City city,
         @NotBlank(message = "Hospital must have doctor")
-         List<Doctor> doctors
+         List<Doctor> doctors,
+        List<AskedQuestion> frequentlyAskedQuestion
 ) {
 }

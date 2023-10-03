@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { Appointment } from 'src/app/model/appointment';
 import { Hospital } from 'src/app/model/hospital';
@@ -15,7 +16,7 @@ export class AppointmentComponent implements OnInit {
   appointments: Appointment[]=[];
   hospitals: Hospital[] = []; 
 
-  constructor(private appointmentService: AppointmentService, private hospitalService: HospitalService,private datePipe: DatePipe) { }
+  constructor(private appointmentService: AppointmentService, private hospitalService: HospitalService,private datePipe: DatePipe,private route:Router) { }
 
   ngOnInit(): void {
     this.getAppointmentForPatients('6519988daa8def7a7e12fb1b');
@@ -62,13 +63,16 @@ export class AppointmentComponent implements OnInit {
           this.hospitalService.getHospitalProfile(appointment.hospitalId).subscribe(
             (response: Hospital) => {
               this.hospitals.push(response);
-              console.log(response);
             }
           );
         }
         console.log(this.appointments);
       }
     )
+  }
+
+  onBookClick(appointmentId: number): void {
+    this.route.navigate(['/reschedule-patient-appointment', appointmentId]);
   }
 
   

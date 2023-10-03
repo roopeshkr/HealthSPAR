@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import * as $ from 'jquery';
 import { Patient } from 'src/app/model/patient';
 import { PatientProfileService } from 'src/app/service/patient-profile.service';
@@ -27,9 +28,10 @@ export class DisplayProfileComponent implements OnInit {
     treatmentHistory: '',
   };
 
-  constructor(private patientService: PatientProfileService) { }
+  constructor(private patientService: PatientProfileService,private router:ActivatedRoute) { }
 
   ngOnInit() {
+    
     this.getPatientById('6518631ba32afb3213588881');
     const trigger = $('.hamburger');
     const overlay = $('.overlay');

@@ -32,6 +32,7 @@ export class HospitalPageComponent implements OnInit {
     hospitalAmenities: '',
     numberOfBeds: 0,
     doctors: [],
+    frequentlyAskedQuestion: []
   };
   isSubmitted: boolean = false;
   appointmentForm: FormGroup;
@@ -103,7 +104,7 @@ export class HospitalPageComponent implements OnInit {
 
     if (this.appointmentForm.valid) {
       const localDateTimeValue = this.appointmentForm.get('dateTime')?.value;
-      const isoDateTime = new Date(localDateTimeValue).toISOString();
+      const isoDateTime = new Date(localDateTimeValue).toISOString().slice(0, 19);
 
       const appointmentData: Appointment = {
         ...this.appointmentForm.value,
