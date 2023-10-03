@@ -24,6 +24,7 @@ import { DoctorsListComponent } from './components/hospital/doctors-list/doctors
 import { AddDoctorComponent } from './components/HospitalDashboard/add-doctor/add-doctor.component';
 import { DoctorComponent } from './components/hospital/doctor/doctor.component';
 import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/edit-doctor.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
   { path: 'index', component: HomeComponent },
@@ -54,24 +55,28 @@ const routes: Routes = [
     component: DisplayHospitalDetailsComponent,
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  {path:'patient-appointment',component:AppointmentComponent},
-  {path:'hospital-appointment/:id',component:AppointmentsListComponent},
-  {path:'reschedule-patient-appointment/:id',component:RescheduleAppointmentComponent},
-  {path:'reschedule-hospital-appointment/:id',component:RescheduleHospitalAppointmentComponent},
   { path: 'patient-appointment', component: AppointmentComponent },
-  
+  { path: 'hospital-appointment/:id', component: AppointmentsListComponent },
+  {
+    path: 'reschedule-patient-appointment/:id',
+    component: RescheduleAppointmentComponent,
+  },
+  {
+    path: 'reschedule-hospital-appointment/:id',
+    component: RescheduleHospitalAppointmentComponent,
+  },
+  { path: 'patient-appointment', component: AppointmentComponent },
+
   { path: 'hospital-dashboard', component: HospitalDashboardComponent },
 
   { path: 'hp-d-header', component: HcpDHeaderComponent },
-<<<<<<< HEAD
   { path: 'hp-d-sidebar', component: HcpDSidebarComponent },
   { path: 'doctors-list', component: DoctorsListComponent },
   { path: 'add-doctor', component: AddDoctorComponent },
   { path: 'doctor', component: DoctorComponent },
   { path: 'edit-doctor', component: EditDoctorComponent },
-=======
-  { path: 'hp-d-sidebar', component: HcpDSidebarComponent }
->>>>>>> ae9d8c85d827cfd08b89d5a5e4584d28e03f40e7
+  { path: 'hp-d-sidebar', component: HcpDSidebarComponent },
+  { path: 'home-page', component: HomePageComponent },
 ];
 
 @NgModule({
