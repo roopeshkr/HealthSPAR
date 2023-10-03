@@ -36,6 +36,9 @@ import { RescheduleHospitalAppointmentComponent } from './components/hospital/re
 import { HcpDSidebarComponent } from './components/HospitalDashboard/hcp-d-sidebar/hcp-d-sidebar.component';
 import { HcpDHeaderComponent } from './components/HospitalDashboard/hcp-d-header/hcp-d-header.component';
 import { HospitalDashboardComponent } from './components/HospitalDashboard/hospital-dashboard/hospital-dashboard.component';
+import { DoctorsListComponent } from './components/hospital/doctors-list/doctors-list.component';
+import { AddDoctorComponent } from './components/HospitalDashboard/add-doctor/add-doctor.component';
+import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/edit-doctor.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +73,9 @@ import { HospitalDashboardComponent } from './components/HospitalDashboard/hospi
     HospitalDashboardComponent,
     HcpDSidebarComponent,
     HcpDHeaderComponent,
+    DoctorsListComponent,
+    AddDoctorComponent,
+    EditDoctorComponent,
   ],
   imports: [
     CommonModule,
