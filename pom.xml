@@ -19,10 +19,16 @@
 		<module>recommend-service</module>
 		<module>authentication-service</module>
 		<module>patient-service</module>
+<<<<<<< HEAD
+<!--		<module>email-confirmation</module>-->
+        <module>email-service</module>
+    </modules>
+=======
 		<module>booked-appointments</module>
 		<module>eureka-server</module>
 		<module>payment-gateway</module>
 	</modules>
+>>>>>>> c17f62a82ed0cf050f6f905ed4647cb39d54c6cd
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
