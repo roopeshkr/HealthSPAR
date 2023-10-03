@@ -39,6 +39,7 @@ import { HospitalDashboardComponent } from './components/HospitalDashboard/hospi
 import { DoctorsListComponent } from './components/hospital/doctors-list/doctors-list.component';
 import { AddDoctorComponent } from './components/HospitalDashboard/add-doctor/add-doctor.component';
 import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/edit-doctor.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/
     DoctorsListComponent,
     AddDoctorComponent,
     EditDoctorComponent,
-      ],
+    HomePageComponent,
+  ],
   imports: [
     CommonModule,
     BrowserModule,

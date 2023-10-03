@@ -1,4 +1,4 @@
-<div class="logo">
+<!-- <div class="logo">
   <img src="assets/images/logospra.png" class="logo">
 </div>
 <img src="assets/images/login.jpg" alt="login background">
@@ -39,6 +39,62 @@
           <p class="text-danger">{{ errorMessage }}</p>
           <p class="text-success">{{ successMessage }}</p>
         </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="main">
+  <div class="wrapper">
+    <div class="title-text">
+      <div class="title login">
+        Account
+      </div>
+      <div class="title signup">
+        Account
+      </div>
+    </div>
+    <div class="form-container">
+      <div class="slide-controls">
+        <input type="radio" name="slide" id="login" checked>
+        <input type="radio" name="slide" id="signup">
+        <label for="login" class="slide login">Login</label>
+        <label for="signup" class="slide signup">SignUp</label>
+        <div class="slider-tab"></div>
+      </div>
+      <div class="form-inner">
+        <form action="#" class="login">
+          <div class="field">
+            <input type="text" placeholder="Email Address" required>
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Password" required>
+          </div>
+          <div class="pass-link">
+            <a href="#">Reset password?</a>
+          </div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Login">
+          </div>
+          <div class="signup-link">
+            Don't Have Account? <a href="">Create A New</a>
+          </div>
+        </form>
+        <form action="#" class="signup">
+          <div class="field">
+            <input type="text" placeholder="Email Address" required>
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Password" required>
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Confirm Password" required>
+          </div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="SignUp">
+          </div>
+        </form>
       </div>
     </div>
   </div>
