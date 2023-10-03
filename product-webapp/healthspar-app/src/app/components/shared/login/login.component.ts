@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
 
@@ -7,45 +7,35 @@ import { AuthService } from 'src/app/service/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
-  email = '';
-  password = '';
-  selectedRole = 'PATIENT';
-  errorMessage = '';
-  successMessage = '';
-  loginForm: FormGroup; // Define a FormGroup
+export class LoginComponent implements AfterViewInit {
+  constructor(private renderer: Renderer2) {}
 
-  constructor(
-    private authService: AuthService,
-    private formBuilder: FormBuilder
-  ) {
-    // Initialize the login form with form controls and validators
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]], // Email is required and should be a valid email format
-      password: ['', Validators.required], // Password is required
-    });
-  }
+  ngAfterViewInit() {
+    // Create a script element
+    const script = this.renderer.createElement('script');
 
-  selectRole(role: string) {
-    this.selectedRole = role;
-  }
+    // Set the inner HTML of the script element to your script code
+    script.innerHTML = `
+      const loginText = document.querySelector(".title-text .login");
+      const loginForm = document.querySelector("form.login");
+      const loginBtn = document.querySelector("label.login");
+      const signupBtn = document.querySelector("label.signup");
+      const signupLink = document.querySelector("form .signup-link a");
+      signupBtn.onclick = (() => {
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+      });
+      loginBtn.onclick = (() => {
+        loginForm.style.marginLeft = "0%";
+        loginText.style.marginLeft = "0%";
+      });
+      signupLink.onclick = (() => {
+        signupBtn.click();
+        return false;
+      });
+    `;
 
-  login(): void {
-    if (this.loginForm.valid) {
-      this.authService
-        .login(this.loginForm.value.email, this.loginForm.value.password)
-        .subscribe(
-          (response) => {
-            this.successMessage = 'Login successful';
-            this.errorMessage = '';
-          },
-          (error) => {
-            this.errorMessage = 'Login failed. Please check your credentials.';
-            this.successMessage = '';
-          }
-        );
-    } else {
-      // Form is invalid, you can handle this case as needed
-    }
+    // Append the script element to the component's HTML
+    this.renderer.appendChild(document.body, script);
   }
 }

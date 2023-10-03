@@ -75,11 +75,8 @@ const routes: Routes = [
   { path: 'add-doctor', component: AddDoctorComponent },
   { path: 'doctor', component: DoctorComponent },
   { path: 'edit-doctor', component: EditDoctorComponent },
-<<<<<<< HEAD
   { path: 'hp-d-sidebar', component: HcpDSidebarComponent },
   { path: 'home-page', component: HomePageComponent },
-=======
->>>>>>> 537a2f8db97fec049698328a35425fc983beefb1
 ];
 
 @NgModule({
