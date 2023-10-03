@@ -319,3 +319,8 @@ table.table td h2 span {
     padding-right: 0;
   }
 }
+
+
+a{
+  text-decoration: none;
+}

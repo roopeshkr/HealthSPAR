@@ -75,7 +75,9 @@ export class HospitalDashboardComponent {
 
   ngOnInit(): void {
     this.getAppointmentForHospital(19);
+    
     this.getHospitalDetails(19);
+    
     this.filterTodayAppointments(); 
   }
 
@@ -116,6 +118,8 @@ export class HospitalDashboardComponent {
       const appointmentDate = new Date(appointment.dateTime);
       return appointmentDate.getTime() >= today.getTime() && appointmentDate.getTime() < today.getTime() + 24 * 60 * 60 * 1000;
     });
+    console.log("todays appointment ",this.todayAppointments);
+    
   }
 
  

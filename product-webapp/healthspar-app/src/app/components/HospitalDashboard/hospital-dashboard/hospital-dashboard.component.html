@@ -60,7 +60,7 @@
         <div class="col-12 col-md-10 col-lg-12 col-xl-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title d-inline-block">Todays Appointment</h4>
+              <h4 class="card-title d-inline-block">Appointments</h4>
               <a
                 [routerLink]="['/hospital-appointment', hospital.hospitalId]"
                 class="btn btn-primary float-right"
@@ -69,21 +69,16 @@
             </div>
             <div class="card-body p-0">
               <div class="table-responsive">
-                <h4
-                  *ngIf="todayAppointments.length == 0"
-                  class="p-2 text-center"
-                >
-                  No appointments scheduled today
-                </h4>
+                
                 <table class="table mb-0">
                   <tbody>
-                    <tr *ngFor="let appointment of todayAppointments">
+                    <tr *ngFor="let appointment of appointments">
                       <td style="min-width: 200px">
                         <a class="avatar" href="profile.html">B</a>
                         <h2>
                           <a href="profile.html"
                             >{{ appointment.patientName }}
-                            <span>New York, USA</span></a
+                            </a
                           >
                         </h2>
                       </td>

@@ -59,7 +59,7 @@ const routes: Routes = [
   { path: 'hospital-dashboard', component: HospitalDashboardComponent },
 
   { path: 'hp-d-header', component: HcpDHeaderComponent },
-  { path: 'hp-d-sidebar', component: HcpDSidebarComponent },
+  { path: 'hp-d-sidebar', component: HcpDSidebarComponent }
 ];
 
 @NgModule({
