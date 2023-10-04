@@ -221,3 +221,57 @@ form .btn input[type="submit"] {
   font-weight: 500;
   cursor: pointer;
 }
+
+
+/* Text Logo */
+
+.logo {
+  font-size: 24px;
+  margin: 30px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease 0s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.logo:hover {
+  color: #ff6600;
+  transition: all 0.3s ease 0s;
+}
+
+.text-logo {
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: all 0.3s ease 0s;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    top: 10px;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
