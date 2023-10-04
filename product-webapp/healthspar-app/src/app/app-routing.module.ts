@@ -26,6 +26,7 @@ import { DoctorComponent } from './components/hospital/doctor/doctor.component';
 import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/edit-doctor.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HospitalRegisterComponent } from './components/shared/hospital-register/hospital-register.component';
+import { HospitalDashboardHomeComponent } from './components/HospitalDashboard/hospital-dashboard-home/hospital-dashboard-home.component';
 
 
 const routes: Routes = [
@@ -40,7 +41,7 @@ const routes: Routes = [
   { path: 'update-profile', component: UpdateProfileComponent },
   { path: 'display-patient-profile', component: DisplayProfileComponent },
   { path: 'login', component: LoginComponent },
-  {path:'hospital-login',component:HospitalRegisterComponent},
+  { path: 'hospital-login', component: HospitalRegisterComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'hospital-details', component: HospitalDetailsComponent },
   {
@@ -54,12 +55,9 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'hospital-sidenav', component: HospitalSidenavComponent },
   { path: 'display-profile', component: DisplayProfileComponent },
-  {
-    path: 'display-hospital-details',
-    component: DisplayHospitalDetailsComponent,
-  },
+  
   { path: 'patient-appointment', component: AppointmentComponent },
-  { path: 'hospital-appointment/:id', component: AppointmentsListComponent },
+
   {
     path: 'reschedule-patient-appointment/:id',
     component: RescheduleAppointmentComponent,
@@ -75,15 +73,34 @@ const routes: Routes = [
   { path: 'hp-d-header', component: HcpDHeaderComponent },
   { path: 'hp-d-sidebar', component: HcpDSidebarComponent },
   { path: 'doctors-list', component: DoctorsListComponent },
-  { path: 'add-doctor', component: AddDoctorComponent },
+
   { path: 'doctor', component: DoctorComponent },
   { path: 'edit-doctor/:hospitalId/:index', component: EditDoctorComponent },
   { path: 'hp-d-sidebar', component: HcpDSidebarComponent },
   { path: 'home-page', component: HomePageComponent },
+  { path: 'hospital-appointment', component: AppointmentsListComponent },
+  {
+    path: 'hospital-home', component: HospitalDashboardHomeComponent,
+    children: [
+      { path: '', redirectTo: '/hospital-dashboard', pathMatch: 'full' },
+      { path: 'hospital-dashboard', component: HospitalDashboardComponent },
+      {
+        path: 'doctors-list', component: DoctorsListComponent,
+        children: [
+          { path: 'add-doctor', component: AddDoctorComponent },
+          { path: '', redirectTo: '/doctors-list', pathMatch: 'full' },
+        ]
+      },
+      { path: 'hospital-appointment', component: AppointmentsListComponent },
+      {
+        path: 'display-hospital-details',component: DisplayHospitalDetailsComponent,
+      },
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

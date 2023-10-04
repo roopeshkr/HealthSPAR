@@ -5,8 +5,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
 
-server:
-  port: 8086
+
 
 spring:
   application:
@@ -14,41 +13,42 @@ spring:
   main:
     web-application-type: reactive
 
-spring.cloud.gateway:
-  routes:
-    - id: authentication-service-auth-route
-      uri: lb://authentication-service
-      predicates:
-        - Path=/api/v1/auth/**
-    - id: authentication-service-admin-route
-      uri: lb://authentication-service
-      predicates:
-        - Path=/api/v1/admin/**
-    - id: authentication-service-hcp-route
-      uri: lb://authentication-service
-      predicates:
-        - Path=/api/v1/hcp/**
-    - id: booked-appointments-appointments-route
-      uri: lb://booked-appointments
-      predicates:
-        - Path=/appointments/**
-    - id: email-service-sendemail-route
-      uri: lb://email-service
-      predicates:
-        - Path=/sendemail/**
-    - id: patient-service-patients-route
-      uri: lb://patient-service
-      predicates:
-        - Path=/patients/**
-    - id: payment-gateway-pg-route
-      uri: lb://payment-gateway
-      predicates:
-        - Path=/pg/**
-    - id: recommend-service-hospitals-route
-      uri: lb://recommend-service
-      predicates:
-        - Path=/hospitals/**
-    - id: recommend-service-recommendations-route
-      uri: lb://recommend-service
-      predicates:
-        - Path=/recommendations/**
+  cloud:
+    gateway:
+      routes:
+        - id: authentication-service-auth-route
+          uri: lb://authentication-service
+          predicates:
+            - Path=/api/v1/auth/**
+        - id: authentication-service-admin-route
+          uri: lb://authentication-service
+          predicates:
+            - Path=/api/v1/admin/**
+        - id: authentication-service-hcp-route
+          uri: lb://authentication-service
+          predicates:
+            - Path=/api/v1/hcp/**
+        - id: booked-appointments-appointments-route
+          uri: lb://booked-appointments
+          predicates:
+            - Path=/appointments/**
+        - id: email-service-sendemail-route
+          uri: lb://email-service
+          predicates:
+            - Path=/sendemail/**
+        - id: patient-service-patients-route
+          uri: lb://patient-service
+          predicates:
+            - Path=/patients/**
+        - id: payment-gateway-pg-route
+          uri: lb://payment-gateway
+          predicates:
+            - Path=/pg/**
+        - id: recommend-service-hospitals-route
+          uri: lb://recommend-service
+          predicates:
+            - Path=/hospitals/**
+        - id: recommend-service-recommendations-route
+          uri: lb://recommend-service
+          predicates:
+            - Path=/recommendations/**

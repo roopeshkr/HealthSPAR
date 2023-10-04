@@ -12,7 +12,6 @@ public record HospitalResponseDto(
         String hospitalWebsite,
         String hospitalEmail,
         String hospitalPhoneNumber,
-        String hospitalImageURL,
         Double hospitalRating,
         List<String> hospitalReviews,
         String hospitalAmenities,

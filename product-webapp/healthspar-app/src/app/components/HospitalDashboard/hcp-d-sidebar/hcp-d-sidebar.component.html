@@ -1,29 +1,46 @@
 <body>
+  <app-hcp-d-header></app-hcp-d-header>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-inner slimscroll">
       <div id="sidebar-menu" class="sidebar-menu">
         <ul>
           <li class="menu-title">Main</li>
           <li class="active">
-            <a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+            <a routerLink="/hospital-home/hospital-dashboard"
+              ><i class="fa fa-dashboard"></i> <span>Dashboard</span></a
+            >
           </li>
           <li>
-            <a routerLink="doctors-list"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+            <a routerLink="/hospital-home/doctors-list"
+              ><i class="fa fa-user-md"></i> <span>Doctors</span></a
+            >
+            <ul>
+              <li>
+                <a routerLink="/hospital-home/doctors-list"
+                  ><i class="fa fa-list"></i> <span>Doctor List</span></a
+                >
+              </li>
+              <li>
+                <a routerLink="/hospital-home/doctors-list/add-doctor"
+                  ><i class="fa fa-plus-circle"></i> <span>Add Doctor</span></a
+                >
+              </li>
+            </ul>
           </li>
           <li>
-            <a href="#"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
+            <a routerLink="/hospital-home/hospital-appointment"
+              ><i class="fa fa-calendar"></i> <span>Appointments</span></a
+            >
           </li>
           <li>
-            <a href="#"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
+            <a routerLink="/hospital-home/display-hospital-details"
+              ><i class="fa fa-user"></i> <span>Profile</span></a
+            >
           </li>
           <li>
-            <a href="#"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-plus-square-o"></i> <span>Logout</span></a>
+            <a (click)="logout()"
+              ><i class="fa fa-plus-square-o"></i> <span>Logout</span></a
+            >
           </li>
         </ul>
       </div>

@@ -24,7 +24,6 @@ public class Hospital {
     private String hospitalWebsite;
     private String hospitalEmail;
     private String hospitalPhoneNumber;
-    private String hospitalImageURL;
     private Double hospitalRating;
     private List<String> hospitalReviews;
     private String hospitalAmenities; //parking/cafeteria
@@ -38,7 +37,6 @@ public class Hospital {
 
     private List<AskedQuestion> frequentlyAskedQuestion;
 
-    private HospitalImage hospitalImage;
 
 
     private String fileName;

@@ -20,8 +20,7 @@ public record HospitalRequestDto(
          String hospitalEmail,
         @NotBlank(message = "Hospital must have phone number")
          String hospitalPhoneNumber,
-        @NotBlank(message = "Hospital must have image")
-         String hospitalImageURL,
+
          String hospitalAmenities,
         @NotNull(message = "numberOfBeds is required")
         @Min(value = 1, message = "numberOfBeds should be greater than or equal to 1")

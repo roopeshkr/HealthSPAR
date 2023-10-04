@@ -53,7 +53,6 @@ public class HospitalServiceImpl implements HospitalService {
         existingHospital.setHospitalWebsite(hospital.getHospitalWebsite());
         existingHospital.setHospitalEmail(hospital.getHospitalEmail());
         existingHospital.setHospitalPhoneNumber(hospital.getHospitalPhoneNumber());
-        existingHospital.setHospitalImageURL(hospital.getHospitalImageURL());
         existingHospital.setHospitalRating(hospital.getHospitalRating());
         existingHospital.setHospitalReviews(hospital.getHospitalReviews());
         existingHospital.setCity(hospital.getCity());

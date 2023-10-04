@@ -15,7 +15,6 @@ public class HospitalResponseUtility {
                 hospital.getHospitalWebsite(),
                 hospital.getHospitalEmail(),
                 hospital.getHospitalPhoneNumber(),
-                hospital.getHospitalImageURL(),
                 hospital.getHospitalRating(),
                 hospital.getHospitalReviews(),
                 hospital.getHospitalAmenities(),
@@ -36,7 +35,6 @@ public class HospitalResponseUtility {
                 .hospitalWebsite(dto.hospitalWebsite())
                 .hospitalEmail(dto.hospitalEmail())
                 .hospitalPhoneNumber(dto.hospitalPhoneNumber())
-                .hospitalImageURL(dto.hospitalImageURL())
                 .hospitalRating(dto.hospitalRating())
                 .hospitalReviews(dto.hospitalReviews())
                 .hospitalAmenities(dto.hospitalAmenities())

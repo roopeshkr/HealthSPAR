@@ -11,7 +11,10 @@ public record DoctorDto(
         int yearOfExperience,
         LocalTime startTime,
         LocalTime endTime,
-        String bio
+        String bio,
+        String fileName,
+        String fileType,
+        byte[] imageData
 
 ) {
 }

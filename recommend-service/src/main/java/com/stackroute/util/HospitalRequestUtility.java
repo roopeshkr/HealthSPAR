@@ -13,7 +13,6 @@ public class HospitalRequestUtility {
                 hospital.getHospitalWebsite(),
                 hospital.getHospitalEmail(),
                 hospital.getHospitalPhoneNumber(),
-                hospital.getHospitalImageURL(),
                 hospital.getHospitalAmenities(),
                 hospital.getNumberOfBeds(),
                 hospital.getCity(),
@@ -29,7 +28,6 @@ public class HospitalRequestUtility {
                 .hospitalWebsite(dto.hospitalWebsite())
                 .hospitalEmail(dto.hospitalEmail())
                 .hospitalPhoneNumber(dto.hospitalPhoneNumber())
-                .hospitalImageURL(dto.hospitalImageURL())
                 .hospitalAmenities(dto.hospitalAmenities())
                 .numberOfBeds(dto.numberOfBeds())
                 .city(dto.city())

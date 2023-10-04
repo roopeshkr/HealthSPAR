@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hospital } from 'src/app/model/hospital';
 import { RecommendationService } from 'src/app/service/recommendation.service';
 import { Router } from '@angular/router';
+import { HospitalImageService } from 'src/app/service/hospital-image.service';
 
 @Component({
   selector: 'app-recommendation',
@@ -10,8 +11,9 @@ import { Router } from '@angular/router';
 })
 export class RecommendationComponent implements OnInit{
   recommendedHospitals: Hospital[] = [];
+  image:any
 
-  constructor(private recommendService:RecommendationService,private route:Router){}
+  constructor(private recommendService:RecommendationService,private route:Router,private imageService:HospitalImageService){}
 
 
   ngOnInit(): void {
@@ -30,6 +32,11 @@ export class RecommendationComponent implements OnInit{
 
   onBookClick(hospitalId: number): void {
     this.route.navigate(['/hospital-page', hospitalId]);
+  }
+
+
+  showHospital(fileName:string):void{
+    this.imageService.showHospitalImage(fileName);
   }
 
   

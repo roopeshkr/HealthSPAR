@@ -44,7 +44,7 @@ export class DoctorsListComponent implements OnInit {
     this.router.params.subscribe((params) => {
       const hospitalId = +params['id'];
     });
-    this.getHospitalById(40);
+    this.getHospitalById(0);
   }
 
   public getHospitalById(hospitalId: number): void {
