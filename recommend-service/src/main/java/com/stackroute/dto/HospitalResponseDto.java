@@ -19,6 +19,9 @@ public record HospitalResponseDto(
         int numberOfBeds,
         City city,
         List<Doctor> doctors,
-        List<AskedQuestion> frequentlyAskedQuestion
+        List<AskedQuestion> frequentlyAskedQuestion,
+        String fileName,
+        String fileType,
+        byte[] imageData
 ) {
 }

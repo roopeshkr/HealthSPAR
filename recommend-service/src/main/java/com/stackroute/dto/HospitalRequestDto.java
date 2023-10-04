@@ -23,7 +23,8 @@ public record HospitalRequestDto(
         @NotBlank(message = "Hospital must have image")
          String hospitalImageURL,
          String hospitalAmenities,
-        @Min(message = "Hospital must have at least one bed",value = 1)
+        @NotNull(message = "numberOfBeds is required")
+        @Min(value = 1, message = "numberOfBeds should be greater than or equal to 1")
          int numberOfBeds,
         @NotNull(message = "Hospital must have city")
          City city,

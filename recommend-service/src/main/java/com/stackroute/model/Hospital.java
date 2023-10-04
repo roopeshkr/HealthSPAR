@@ -6,6 +6,8 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Relationship;
 
+import javax.persistence.Column;
+import javax.persistence.Lob;
 import java.util.List;
 
 @Getter
@@ -35,5 +37,14 @@ public class Hospital {
     private List<Doctor> doctors;
 
     private List<AskedQuestion> frequentlyAskedQuestion;
+
+    private HospitalImage hospitalImage;
+
+
+    private String fileName;
+    private String fileType;
+
+    @Column(name = "imageData",unique = false, nullable = false, length = 100000)
+    private byte[] imageData;
 
 }

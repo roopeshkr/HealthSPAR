@@ -1,6 +1,10 @@
 <div id="wrapper">
   <!-- Sidebar -->
-  <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
+  <nav
+    class="navbar navbar-inverse fixed-top"
+    id="sidebar-wrapper"
+    role="navigation"
+  >
     <ul class="nav sidebar-nav">
       <div class="sidebar-header">
         <div class="sidebar-brand">
@@ -15,7 +19,11 @@
 
   <!-- Page Content -->
   <div id="page-content-wrapper">
-    <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+    <button
+      type="button"
+      class="hamburger animated fadeInLeft is-closed"
+      data-toggle="offcanvas"
+    >
       <span class="hamb-top"></span>
       <span class="hamb-middle"></span>
       <span class="hamb-bottom"></span>
@@ -35,31 +43,47 @@
         </thead>
         <tbody>
           <tr *ngFor="let appointment of appointments; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td>{{ appointment.patientName }}</td>
-            <ng-container *ngIf="hospitals[i]?.hospitalName">
-              <td>{{ hospitals[i].hospitalName }}</td>
-            </ng-container>
-            <td>{{ appointment.doctor }}</td>
-            <td>{{ appointment.dateTime | date : "dd-MMM-yyyy HH:mm a" }}</td>
-            <td>{{ appointment.treatmentType }}</td>
-            <td
-              *ngIf="
-                appointment.status == 'BOOKED' ||
-                appointment.status === 'RESCHEDULE'
-              "
-            >
-              <a
-                [routerLink]="['/reschedule-patient-appointment', appointment.appointmentId]"
-                class="my-2"
+            <ng-container *ngIf="appointment.status != 'CANCEL'">
+              <td>{{ i + 1 }}</td>
+              <td>{{ appointment.patientName }}</td>
+              <ng-container *ngIf="hospitals[i]?.hospitalName">
+                <td>{{ hospitals[i].hospitalName }}</td>
+              </ng-container>
+              <td>{{ appointment.doctor }}</td>
+              <td>{{ appointment.dateTime | date : "dd-MMM-yyyy HH:mm a" }}</td>
+              <td>{{ appointment.treatmentType }}</td>
+              <td
+                *ngIf="
+                  appointment.status == 'BOOKED' ||
+                  appointment.status === 'RESCHEDULE'
+                "
               >
-                <button class="btn btn-success mx-2">Reschedule</button>
-              </a>
-              <button class="btn btn-danger mx-2">Cancel</button>
-            </td>
-            <td *ngIf="appointment.status === 'INITIALIZED'">
-              <button class="btn btn-success mx-2">Pay</button>
-            </td>
+                <a
+                  [routerLink]="[
+                    '/reschedule-patient-appointment',
+                    appointment.appointmentId
+                  ]"
+                  class="my-2"
+                >
+                  <button class="btn btn-success mx-2">Reschedule</button>
+                </a>
+                <button
+                  class="btn btn-danger mx-2"
+                  (click)="cancelAppointment(appointment.appointmentId)"
+                >
+                  Cancel
+                </button>
+              </td>
+              <td *ngIf="appointment.status === 'INITIALIZED'">
+                <button class="btn btn-success mx-2">Pay</button>
+                <button
+                  class="btn btn-danger mx-2"
+                  (click)="cancelAppointment(appointment.appointmentId)"
+                >
+                  Cancel
+                </button>
+              </td>
+            </ng-container>
           </tr>
         </tbody>
       </table>

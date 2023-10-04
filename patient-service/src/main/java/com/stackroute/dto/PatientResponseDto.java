@@ -20,6 +20,9 @@ public record PatientResponseDto(
         String zip,
         String medicalHistory,
         String medicineHistory,
-        String treatmentHistory
+        String treatmentHistory,
+        String fileName,
+        String fileType,
+        byte[] imageData
 ) {
 }

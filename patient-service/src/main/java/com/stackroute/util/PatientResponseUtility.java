@@ -23,7 +23,10 @@ public class PatientResponseUtility {
                 patient.getZip(),
                 patient.getMedicalHistory(),
                 patient.getMedicineHistory(),
-                patient.getTreatmentHistory()
+                patient.getTreatmentHistory(),
+                patient.getFileName(),
+                patient.getFileType(),
+                patient.getImageData()
         );
     }
 
@@ -45,6 +48,9 @@ public class PatientResponseUtility {
                 .medicalHistory(dto.medicalHistory())
                 .medicineHistory(dto.medicineHistory())
                 .treatmentHistory(dto.treatmentHistory())
+                .fileName(dto.fileName())
+                .fileType(dto.fileType())
+                .imageData(dto.imageData())
                 .build();
     }
 }

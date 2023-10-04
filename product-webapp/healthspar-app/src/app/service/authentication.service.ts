@@ -10,8 +10,8 @@ export class AuthenticationService {
 
   constructor(private http:HttpClient) { }
 
-  public login(email:string,password:string,role:string):Observable<any>{
-    return this.http.post(`${this.apiUrl}/authenticate`,{email,password,role}).pipe(
+  public login(email:string,password:string):Observable<any>{
+    return this.http.post(`${this.apiUrl}/authenticate`,{email,password}).pipe(
       tap(
         (response)=>{}
       ),

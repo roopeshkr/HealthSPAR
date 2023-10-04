@@ -25,9 +25,11 @@ import { AddDoctorComponent } from './components/HospitalDashboard/add-doctor/ad
 import { DoctorComponent } from './components/hospital/doctor/doctor.component';
 import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/edit-doctor.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { HospitalRegisterComponent } from './components/shared/hospital-register/hospital-register.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home-page', pathMatch: 'full' },
   { path: 'index', component: HomeComponent },
   {
     path: 'hospital-page/:id',
@@ -38,6 +40,7 @@ const routes: Routes = [
   { path: 'update-profile', component: UpdateProfileComponent },
   { path: 'display-patient-profile', component: DisplayProfileComponent },
   { path: 'login', component: LoginComponent },
+  {path:'hospital-login',component:HospitalRegisterComponent},
   { path: 'signup', component: SignupComponent },
   { path: 'hospital-details', component: HospitalDetailsComponent },
   {
@@ -55,7 +58,6 @@ const routes: Routes = [
     path: 'display-hospital-details',
     component: DisplayHospitalDetailsComponent,
   },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'patient-appointment', component: AppointmentComponent },
   { path: 'hospital-appointment/:id', component: AppointmentsListComponent },
   {

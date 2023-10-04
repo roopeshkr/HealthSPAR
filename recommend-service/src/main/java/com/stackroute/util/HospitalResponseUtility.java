@@ -22,7 +22,10 @@ public class HospitalResponseUtility {
                 hospital.getNumberOfBeds(),
                 hospital.getCity(),
                 hospital.getDoctors(),
-                hospital.getFrequentlyAskedQuestion()
+                hospital.getFrequentlyAskedQuestion(),
+                hospital.getFileName(),
+                hospital.getFileType(),
+                hospital.getImageData()
         );
     }
 
@@ -41,6 +44,9 @@ public class HospitalResponseUtility {
                 .city(dto.city())
                 .doctors(dto.doctors())
                 .frequentlyAskedQuestion(dto.frequentlyAskedQuestion())
+                .fileName(dto.fileName())
+                .fileType(dto.fileType())
+                .imageData(dto.imageData())
                 .build();
     }
 }

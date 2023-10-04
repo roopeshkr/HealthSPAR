@@ -1,18 +1,17 @@
-import { Component, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, Renderer2 } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-hospital-register',
+  templateUrl: './hospital-register.component.html',
+  styleUrls: ['./hospital-register.component.css']
 })
-export class LoginComponent implements AfterViewInit {
+export class HospitalRegisterComponent implements AfterViewInit {
   email = '';
   password = '';
-  selectedRole = 'PATIENT';
+  selectedRole = 'HCP';
   errorMessage = '';
   successMessage = '';
   loginForm: FormGroup; 
@@ -37,7 +36,7 @@ export class LoginComponent implements AfterViewInit {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
         (response) => {
           this.successMessage = 'Login successful';
-          this.route.navigate(['/index']);
+          this.route.navigate(['/hospital-dashboard']);
           this.errorMessage = '';
         },
         (error) => {
@@ -59,7 +58,7 @@ export class LoginComponent implements AfterViewInit {
         )
         .subscribe(
           (response) => {
-            this.route.navigate(['/patient-profile']);
+            this.route.navigate(['/hospital-details']);
           },
           (error) => {
             console.error(error);

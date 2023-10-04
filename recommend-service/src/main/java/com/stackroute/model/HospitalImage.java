@@ -6,7 +6,6 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 
 import javax.persistence.Column;
-import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -14,20 +13,10 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Builder
 @Node
-public class Doctor {
+public class HospitalImage {
     @Id
     @GeneratedValue
-    private Long doctorId;
-    private String doctorName;
-    private String doctorImageUrl;
-    private String department;
-    private String qualification;
-    private String languagesSpoken;
-    private int yearOfExperience;
-    private LocalTime startTime;
-    private LocalTime endTime;
-    private String bio;
-
+    private Long hospitalImageId;
     private String fileName;
     private String fileType;
 

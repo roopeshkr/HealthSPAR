@@ -31,4 +31,7 @@ public class Patient {
     private String medicineHistory;
     private String treatmentHistory;
 
+    private String fileName;
+    private String fileType;
+    private byte[] imageData;
 }

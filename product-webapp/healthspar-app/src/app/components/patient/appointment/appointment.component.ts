@@ -75,6 +75,25 @@ export class AppointmentComponent implements OnInit {
     this.route.navigate(['/reschedule-patient-appointment', appointmentId]);
   }
 
+  cancelAppointment(appointmentId:number):void{
+    const isConfirmed=window.confirm('Are you sure you want to remove this appointment?');
+    if(isConfirmed){
+      this.appointmentService.cancelAppointment(appointmentId).subscribe(
+        (response:Appointment)=>{
+          console.log('Appointment canceled successfully:', response);
+          this.refreshAppointments();
+        },
+        (error) => {
+          console.error('Error cancelling appointment:', error);
+        }
+      );
+      
+    }
+  }
+
+  refreshAppointments() {
+    this.getAppointmentForPatients('650fe161ef773a225c7d37bd');
+}
   
 
   

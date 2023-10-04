@@ -40,6 +40,7 @@ import { DoctorsListComponent } from './components/hospital/doctors-list/doctors
 import { AddDoctorComponent } from './components/HospitalDashboard/add-doctor/add-doctor.component';
 import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/edit-doctor.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { HospitalRegisterComponent } from './components/shared/hospital-register/hospital-register.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     AddDoctorComponent,
     EditDoctorComponent,
     HomePageComponent,
+    HospitalRegisterComponent,
   ],
   imports: [
     CommonModule,
