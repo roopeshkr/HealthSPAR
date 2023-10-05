@@ -62,8 +62,8 @@ export class DisplayHospitalDetailsComponent implements OnInit {
     });
   }
 
-  onEdit(hospitalId:number){
-    this.route.navigate(['/hospital-home/update-hospital-details',hospitalId])
+  onEdit(){
+    this.route.navigate(['/hospital/update'])
   }
 
   public getHospitalById(hospitalId:number):void{

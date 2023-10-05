@@ -116,7 +116,7 @@ export class HospitalPageComponent implements OnInit {
       this.appointmentService.addAppointment(appointmentData).subscribe(
         (response) => {
           console.log("Appointment Initialized : ", response);
-          this.route.navigate(['/index']);
+          this.route.navigate(['/patient/index']);
         }
       );
 

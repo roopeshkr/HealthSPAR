@@ -113,7 +113,7 @@ export class UpdateProfileComponent implements OnInit {
         }
       );
 
-      this.route.navigate(['/display-patient-profile',this.patient.patientId]);
+      this.route.navigate(['/patient/display']);
     }
   }
 

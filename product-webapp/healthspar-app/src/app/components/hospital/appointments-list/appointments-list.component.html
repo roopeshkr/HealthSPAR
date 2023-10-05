@@ -29,14 +29,14 @@
               <td>
                 <a
                   [routerLink]="[
-                    '/reschedule-hospital-appointment',
+                    '/hospital/reschedule',
                     appointment.appointmentId
                   ]"
                   class="my-2"
                 >
                   <button class="btn btn-success mx-2">Reschedule</button>
                 </a>
-                <button class="btn btn-danger mx-2">Cancel</button>
+                <button class="btn btn-danger mx-2" (click)="cancelAppointment(appointment.appointmentId)">Cancel</button>
               </td>
             </ng-container>
           </tr>
