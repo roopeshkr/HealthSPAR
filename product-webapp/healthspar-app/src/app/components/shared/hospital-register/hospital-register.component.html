@@ -1,4 +1,5 @@
 <div class="main">
+  <h1 class="logo me-auto"><a class="text-logo" href="index.html">HealthSPAR</a></h1>
   <div class="wrapper">
     <div class="title-text">
       <div class="title login">Login as a Hospital</div>
@@ -15,45 +16,26 @@
       <div class="form-inner">
         <form class="login" [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="field my-6">
-            <input
-              type="email"
-              placeholder="Email Address"
-              formControlName="email"
-              required
-            />
-            <div
-              *ngIf="
+            <input type="email" placeholder="Email Address" formControlName="email" required />
+            <div *ngIf="
                 loginForm.get('email')?.hasError('required') &&
                 loginForm.get('email')?.touched
-              "
-              class="text-danger"
-            >
+              " class="text-danger">
               Email is required.
             </div>
-            <div
-              *ngIf="
+            <div *ngIf="
                 loginForm.get('email')?.hasError('email') &&
                 loginForm.get('email')?.touched
-              "
-              class="text-danger"
-            >
+              " class="text-danger">
               Invalid email format.
             </div>
           </div>
           <div class="field my-6">
-            <input
-              type="password"
-              placeholder="Password"
-              formControlName="password"
-              required
-            />
-            <div
-              *ngIf="
+            <input type="password" placeholder="Password" formControlName="password" required />
+            <div *ngIf="
                 loginForm.get('password')?.hasError('required') &&
                 loginForm.get('password')?.touched
-              "
-              class="text-danger"
-            >
+              " class="text-danger">
               Password is required.
             </div>
           </div>
@@ -62,11 +44,7 @@
           </div> -->
           <div class="field btn my-6">
             <div class="btn-layer"></div>
-            <button
-              type="submit"
-              class="btn text-white"
-              [disabled]="loginForm.invalid"
-            >
+            <button type="submit" class="btn text-white" [disabled]="loginForm.invalid">
               Login
             </button>
           </div>
@@ -81,97 +59,60 @@
         </form>
         <form class="signup" [formGroup]="signupForm" (ngSubmit)="signup()">
           <div class="field my-6">
-            <input
-              type="text"
-              placeholder="Name"
-              formControlName="name"
-              required
-            />
-            <div
-              *ngIf="
+            <input type="text" placeholder="Name" formControlName="name" required />
+            <div *ngIf="
                 signupForm.get('name')?.invalid &&
                 (signupForm.get('name')?.dirty ||
                   signupForm.get('name')?.touched)
-              "
-              class="text-danger"
-            >
+              " class="text-danger">
               Name is required and should contain only alphabetic characters.
             </div>
           </div>
           <div class="field  my-6">
-            <input
-              type="email"
-              placeholder="Email Address"
-              formControlName="email"
-              required
-            />
-            <div
-              *ngIf="
+            <input type="email" placeholder="Email Address" formControlName="email" required />
+            <div *ngIf="
                 signupForm.get('email')?.hasError('required') &&
                 (signupForm.get('email')?.dirty ||
                   signupForm.get('email')?.touched)
-              "
-              class="text-danger"
-            >
+              " class="text-danger">
               Email is required.
             </div>
-            <div
-              *ngIf="
+            <div *ngIf="
                 signupForm.get('email')?.hasError('email') &&
                 (signupForm.get('email')?.dirty ||
                   signupForm.get('email')?.touched)
-              "
-              class="text-danger"
-            >
+              " class="text-danger">
               Invalid email format.
             </div>
           </div>
           <div class="field  my-6">
-            <input
-              type="password"
-              placeholder="Password"
-              formControlName="password"
-              required
-            />
-            <div
-              *ngIf="
+            <input type="password" placeholder="Password" formControlName="password" required />
+            <div *ngIf="
                 signupForm.get('password')?.hasError('required') &&
                 (signupForm.get('password')?.dirty ||
                   signupForm.get('password')?.touched)
-              "
-              class="text-danger"
-            >
+              " class="text-danger">
               Password is required.
             </div>
-            <div
-              *ngIf="
+            <div *ngIf="
                 signupForm.get('password')?.hasError('minlength') &&
                 (signupForm.get('password')?.dirty ||
                   signupForm.get('password')?.touched)
-              "
-              class="text-danger"
-            >
+              " class="text-danger">
               Password must be at least 8 characters long.
             </div>
-            <div
-              *ngIf="
+            <div *ngIf="
                 signupForm.get('password')?.hasError('invalidPassword') &&
                 (signupForm.get('password')?.dirty ||
                   signupForm.get('password')?.touched)
-              "
-              class="text-danger"
-            >
+              " class="text-danger">
               Password must contain at least one uppercase letter and one
               special character.
             </div>
           </div>
           <div class="field btn my-6">
             <div class="btn-layer"></div>
-            <button
-              type="submit"
-              class="btn text-white"
-              [disabled]="signupForm.invalid"
-            >
+            <button type="submit" class="btn text-white" [disabled]="signupForm.invalid">
               Register
             </button>
           </div>

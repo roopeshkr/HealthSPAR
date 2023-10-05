@@ -6,7 +6,6 @@ import { HospitalDetailsComponent } from './components/hospital/hospital-details
 import { HospitalPageComponent } from './components/hospital/hospital-page/hospital-page.component';
 import { ProfileComponent } from './components/patient/profile/profile.component';
 import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
-import { HospitalSidenavComponent } from './components/hospital/shared/hospital-sidenav/hospital-sidenav.component';
 import { LoginComponent } from './components/shared/login/login.component';
 import { SignupComponent } from './components/shared/signup/signup.component';
 
@@ -27,6 +26,9 @@ import { HospitalRegisterComponent } from './components/shared/hospital-register
 import { HospitalDashboardHomeComponent } from './components/HospitalDashboard/hospital-dashboard-home/hospital-dashboard-home.component';
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 
+import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
+import { PatientSidenavComponent } from './components/PatientDashboard/patient-sidenav/patient-sidenav.component';
+import { PatientHomeComponent } from './components/PatientDashboard/patient-home/patient-home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home-page', pathMatch: 'full' },
@@ -90,7 +92,14 @@ const routes: Routes = [
         component: RescheduleHospitalAppointmentComponent,
       },
     ]
-  }
+  },
+  { path: 'patient-profile-sidenav', component: SidenavComponent },
+  {
+    path: 'patient-sidenav',
+    component: PatientSidenavComponent,
+  },
+
+  { path: 'patient-home', component: PatientHomeComponent },
 ];
 
 @NgModule({

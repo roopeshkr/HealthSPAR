@@ -43,6 +43,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HospitalRegisterComponent } from './components/shared/hospital-register/hospital-register.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 import { HospitalDashboardHomeComponent } from './components/HospitalDashboard/hospital-dashboard-home/hospital-dashboard-home.component';
+import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
+import { PatientSidenavComponent } from './components/PatientDashboard/patient-sidenav/patient-sidenav.component';
+import { PatientHomeComponent } from './components/PatientDashboard/patient-home/patient-home.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +87,9 @@ import { HospitalDashboardHomeComponent } from './components/HospitalDashboard/h
     HospitalRegisterComponent,
     PageNotFoundComponent,
     HospitalDashboardHomeComponent,
+    SidenavComponent,
+    PatientSidenavComponent,
+    PatientHomeComponent,
   ],
   imports: [
     CommonModule,
