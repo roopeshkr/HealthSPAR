@@ -32,10 +32,17 @@ public class PatientController {
         return ResponseEntity.status(HttpStatusCode.valueOf(201)).body(savedPatientDto);
     }
 
-    @GetMapping("/{patientId}")
+    @GetMapping("/id/{patientId}")
     public ResponseEntity<PatientResponseDto> getPatientById(@PathVariable String patientId)
     {
         var patient=patientService.getPatientById(patientId);
+        var patientDto=responseUtility.toDto(patient);
+        return ResponseEntity.ok(patientDto);
+    }
+    @GetMapping("/email/{email}")
+    public ResponseEntity<PatientResponseDto> getPatientByEmail(@PathVariable String email)
+    {
+        var patient=patientService.getPatientByEmail(email);
         var patientDto=responseUtility.toDto(patient);
         return ResponseEntity.ok(patientDto);
     }

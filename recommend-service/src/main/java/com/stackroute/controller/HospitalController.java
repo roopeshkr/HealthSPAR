@@ -32,10 +32,18 @@ public class HospitalController {
         return ResponseEntity.status(HttpStatusCode.valueOf(201)).body(savedHospitalDto);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<HospitalResponseDto> getHospitalById(@PathVariable Long id)
     {
         var hospital=hospitalService.getHospitalById(id);
+        var hospitalDto=hospitalResponseUtility.toDto(hospital);
+        return ResponseEntity.ok(hospitalDto);
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<HospitalResponseDto> getHospitalByEmail(@PathVariable String email)
+    {
+        var hospital=hospitalService.getHospitalByEmail(email);
         var hospitalDto=hospitalResponseUtility.toDto(hospital);
         return ResponseEntity.ok(hospitalDto);
     }

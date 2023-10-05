@@ -29,6 +29,11 @@ public class HospitalServiceImpl implements HospitalService {
     }
 
     @Override
+    public Hospital getHospitalByEmail(String email) {
+        return hospitalRepository.findByHospitalEmail(email);
+    }
+
+    @Override
     public List<Hospital> getAllHospitals() {
         log.info("Fetching all hospitals in the database");
         return hospitalRepository.findAll();

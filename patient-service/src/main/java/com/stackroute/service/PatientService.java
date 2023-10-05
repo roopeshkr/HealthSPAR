@@ -10,5 +10,6 @@ public interface PatientService {
     public boolean deletePatient(String patientId);
     public List<Patient> getAllPatients();
     public Patient getPatientById(String patientId);
+    public Patient getPatientByEmail(String email);
 
 }

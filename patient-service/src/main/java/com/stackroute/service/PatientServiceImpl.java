@@ -55,7 +55,12 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public Patient getPatientById(String patientId) {
         return patientRepository.findById(patientId).orElseThrow(
-                ()->new PatientNotFoundException("Hospital not found with id : "+patientId)
+                ()->new PatientNotFoundException("Patient not found with id : "+patientId)
         );
+    }
+
+    @Override
+    public Patient getPatientByEmail(String email) {
+        return patientRepository.findByEmail(email);
     }
 }

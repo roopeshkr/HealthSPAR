@@ -19,7 +19,6 @@ public class Doctor {
     @GeneratedValue
     private Long doctorId;
     private String doctorName;
-    private String doctorImageUrl;
     private String department;
     private String qualification;
     private String languagesSpoken;

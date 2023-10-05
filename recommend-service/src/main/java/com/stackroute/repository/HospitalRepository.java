@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface HospitalRepository extends Neo4jRepository<Hospital,Long> {
     Optional<Hospital> findByFileName(String fileName);
+    Hospital findByHospitalEmail(String hospitalEmail);
 }
