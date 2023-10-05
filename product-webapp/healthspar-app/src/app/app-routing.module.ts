@@ -25,11 +25,11 @@ import { EditDoctorComponent } from './components/HospitalDashboard/edit-doctor/
 import { HomePageComponent } from './home-page/home-page.component';
 import { HospitalRegisterComponent } from './components/shared/hospital-register/hospital-register.component';
 import { HospitalDashboardHomeComponent } from './components/HospitalDashboard/hospital-dashboard-home/hospital-dashboard-home.component';
+import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home-page', pathMatch: 'full' },
-  { path: 'index', component: HomeComponent },
   {
     path: 'hospital-page/:id',
     component: HospitalPageComponent,
@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'display-profile', component: DisplayProfileComponent },
 
-
+  
   {
     path: 'reschedule-patient-appointment/:id',
     component: RescheduleAppointmentComponent,
@@ -56,6 +56,13 @@ const routes: Routes = [
   
   
   { path: 'home-page', component: HomePageComponent },
+  {
+    path:'patient-home',component:HomeComponent,
+    children:[
+      {path:'',redirectTo:'/index',pathMatch:'full'},
+      { path: 'index', component: RecommendationComponent },
+    ]
+  },
   
   {
     path: 'hospital-home', component: HospitalDashboardHomeComponent,
