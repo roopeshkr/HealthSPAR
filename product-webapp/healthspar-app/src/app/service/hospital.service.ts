@@ -7,7 +7,7 @@ import { Hospital } from '../model/hospital';
   providedIn: 'root'
 })
 export class HospitalService {
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'http://localhost:8070';
 
   constructor(private http:HttpClient) { }
   
@@ -30,6 +30,10 @@ export class HospitalService {
   }
 
   public getHospitalProfile(hospitalId:number):Observable<Hospital>{
-    return this.http.get<Hospital>(`${this.apiUrl}/hospitals/${hospitalId}`);
+    return this.http.get<Hospital>(`${this.apiUrl}/hospitals/id/${hospitalId}`);
+  }
+  
+  public getHospitalProfileByEmail(email:string):Observable<Hospital>{
+    return this.http.get<Hospital>(`${this.apiUrl}/hospitals/email/${email}`);
   }
 }

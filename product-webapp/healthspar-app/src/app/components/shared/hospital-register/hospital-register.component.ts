@@ -2,6 +2,8 @@ import { AfterViewInit, Component, Renderer2 } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { HospitalService } from 'src/app/service/hospital.service';
+import { PatientProfileService } from 'src/app/service/patient-profile.service';
 
 @Component({
   selector: 'app-hospital-register',
@@ -9,15 +11,16 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
   styleUrls: ['./hospital-register.component.css']
 })
 export class HospitalRegisterComponent implements AfterViewInit {
-  email = '';
-  password = '';
-  selectedRole = 'HCP';
-  errorMessage = '';
-  successMessage = '';
+  email:string = '';
+  password:string = '';
+  selectedRole:string = 'HCP';
+  errorMessage:string = '';
+  hospitalId:number=0;
+  successMessage:string = '';
   loginForm: FormGroup; 
   signupForm: FormGroup;
 
-  constructor(private renderer: Renderer2, private authService: AuthenticationService, private formBuilder: FormBuilder,private route:Router) {
+  constructor(private renderer: Renderer2, private authService: AuthenticationService, private formBuilder: FormBuilder,private route:Router,private hospitalService:HospitalService) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]], // Email is required and should be a valid email format
       password: ['', Validators.required] // Password is required
@@ -30,13 +33,22 @@ export class HospitalRegisterComponent implements AfterViewInit {
     });
   }
 
+  public getHospitalByEmail(email:string):void{
+    this.hospitalService.getHospitalProfileByEmail(email).subscribe(
+      (response)=>{
+        this.hospitalId=response.hospitalId;
+      }
+    )
+  }
+
 
   login(): void {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
         (response) => {
           this.successMessage = 'Login successful';
-          this.route.navigate(['/hospital-dashboard']);
+          this.getHospitalByEmail(this.loginForm.value.email);
+          this.route.navigate(['/hospital-home/hospital-dashboard',this.hospitalId]);
           this.errorMessage = '';
         },
         (error) => {

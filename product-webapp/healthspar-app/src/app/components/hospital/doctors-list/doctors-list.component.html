@@ -7,7 +7,9 @@
           <h4 class="page-title">Doctors</h4>
         </div>
         <div class="col-sm-8 col-9 text-right m-b-20">
-          <a href="/hospital-home/doctors-list/add-doctor" class="btn btn-primary btn-rounded float-right"
+          <a
+            routerLink="/hospital-home/add-doctor"
+            class="btn btn-primary btn-rounded float-right"
             ><i class="fa fa-plus"></i> Add Doctor</a
           >
         </div>
@@ -15,12 +17,17 @@
       <div class="row doctor-grid">
         <div
           class="col-md-4 col-sm-4 col-lg-3"
-          *ngFor="let doctor of hospital.doctors;let i = index"
+          *ngFor="let doctor of hospital.doctors; let i = index"
         >
           <div class="profile-widget">
             <div class="doctor-img">
-              <a class="avatar" href="/doctor"
-                ><img alt="" src="assets/img/doctor-thumb-03.jpg"
+              <a class="avatar" [routerLink]="['/hospital-home/doctor',hospital.hospitalId,i]"
+                ><img
+                  alt=""
+                  [src]="
+                    'http://localhost:8070/api/v1/hospital/get/doctor/image/' +
+                    doctor.fileName
+                  "
               /></a>
             </div>
             <div class="dropdown profile-action">
@@ -32,8 +39,10 @@
                 ><i class="fa fa-ellipsis-v"></i
               ></a>
               <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="/edit-doctor"
-                [routerLink]="['/edit-doctor', hospital.hospitalId,i]"
+                <a
+                  class="dropdown-item"
+                  href="/edit-doctor"
+                  [routerLink]="['/edit-doctor', hospital.hospitalId, i]"
                   ><i class="fa fa-pencil m-r-5"></i> Edit</a
                 >
                 <a
@@ -49,9 +58,8 @@
             <h4 class="doctor-name text-ellipsis">
               Dr. {{ doctor.doctorName }}
             </h4>
-            <div class="doc-prof">{{ doctor.department }}</div>
             <div class="user-country">
-              <i class="fa fa-map-marker"></i> {{ doctor.qualification }}
+              {{ doctor.department }}
             </div>
           </div>
         </div>

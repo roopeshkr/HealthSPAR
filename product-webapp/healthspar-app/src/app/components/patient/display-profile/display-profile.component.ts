@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as $ from 'jquery';
@@ -27,12 +28,15 @@ export class DisplayProfileComponent implements OnInit {
     medicineHistory: '',
     treatmentHistory: '',
   };
+  dbImage: any;
 
-  constructor(private patientService: PatientProfileService,private router:ActivatedRoute) { }
+  constructor(private patientService: PatientProfileService, private router: ActivatedRoute, private httpClient: HttpClient) { }
 
   ngOnInit() {
-    
+
     this.getPatientById('6518631ba32afb3213588881');
+
+
     const trigger = $('.hamburger');
     const overlay = $('.overlay');
     let isClosed = false;
@@ -64,10 +68,10 @@ export class DisplayProfileComponent implements OnInit {
     this.patientService.getPatientProfile(patientId).subscribe(
       (response: Patient) => {
         this.patient = response
+        this.dbImage = `http://localhost:8090/get/image/${this.patient.fileName}`;
         console.log(this.patient);
       }
     )
   }
-
 
 }

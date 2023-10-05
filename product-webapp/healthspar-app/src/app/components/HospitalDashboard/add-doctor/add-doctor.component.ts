@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Hospital } from 'src/app/model/hospital';
 import { HospitalService } from 'src/app/service/hospital.service';
@@ -16,7 +16,6 @@ export class AddDoctorComponent implements OnInit {
     hospitalWebsite: '',
     hospitalEmail: '',
     hospitalPhoneNumber: '',
-    hospitalImageURL: '',
     hospitalRating: 0,
     hospitalReviews: [],
     hospitalAmenities: '',
@@ -52,35 +51,28 @@ export class AddDoctorComponent implements OnInit {
     });
 
   }
+  
   ngOnInit(): void {
-    this.getHospital(40);
+    this.getHospital(40); 
   }
-
-
-
 
   onSubmit() {
     this.isSubmitted = true;
-
-
-
 
     const newDoctor = this.doctorDetailForm.value;
     this.hospital.doctors.push(newDoctor);
 
     this.updateHospital(this.hospital.hospitalId, this.hospital);
-    this.route.navigate(['/doctors-list'])
+    this.route.navigate(['/hospital-home/doctors-list']);
   }
 
   public getHospital(hospitalId: number): void {
     this.profileService.getHospitalProfile(hospitalId).subscribe(
       (response) => {
         this.hospital = response;
-        console.log(this.hospital);
-        
       },
       (error) => {
-        console.error('Error fetching patient:', error);
+        console.error('Error fetching hospital:', error);
       }
     );
   }
@@ -97,5 +89,4 @@ export class AddDoctorComponent implements OnInit {
         }
       );
   }
-
 }

@@ -21,11 +21,15 @@ export class PatientProfileService {
     return this.http.post<Patient>(`${this.apiUrl}/patients`, patient, this.httpOptions);
   }
 
-  public updatePatientProfile(patientId:string,patient: Patient): Observable<Patient> {
+  public updatePatientProfile(patientId: string, patient: Patient): Observable<Patient> {
     return this.http.put<Patient>(`${this.apiUrl}/patients/${patientId}`, patient, this.httpOptions);
   }
 
-  public getPatientProfile(patientId:string):Observable<Patient>{
-    return this.http.get<Patient>(`${this.apiUrl}/patients/${patientId}`);
+  public getPatientProfile(patientId: string): Observable<Patient> {
+    return this.http.get<Patient>(`${this.apiUrl}/patients/id/${patientId}`);
+  }
+
+  public getPatientByEmail(email: string): Observable<Patient> {
+    return this.http.get<Patient>(`${this.apiUrl}/patients/email/${email}`);
   }
 }

@@ -11,7 +11,6 @@ import { HospitalImageService } from 'src/app/service/hospital-image.service';
 })
 export class RecommendationComponent implements OnInit{
   recommendedHospitals: Hospital[] = [];
-  image:any
 
   constructor(private recommendService:RecommendationService,private route:Router,private imageService:HospitalImageService){}
 
@@ -35,9 +34,7 @@ export class RecommendationComponent implements OnInit{
   }
 
 
-  showHospital(fileName:string):void{
-    this.imageService.showHospitalImage(fileName);
-  }
+ 
 
   
   

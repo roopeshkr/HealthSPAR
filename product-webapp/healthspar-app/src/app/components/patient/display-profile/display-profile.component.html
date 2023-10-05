@@ -37,13 +37,10 @@
             <div class="card-body text-left">
               <h2><span>Basic Details</span></h2>
               <hr />
-              <div class="centered-image">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                  alt="avatar"
-                  class="img-fluid"
-                />
+              <div *ngIf="dbImage">
+                <img [src]="dbImage" alt="Profile Image" class="img-fluid" />
               </div>
+              
 
               <h5 class="my-3">
                 Name : <span class="mx-2">{{ patient.patientName }}</span>

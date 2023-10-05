@@ -16,7 +16,6 @@ export class EditDoctorComponent implements OnInit {
     hospitalWebsite: '',
     hospitalEmail: '',
     hospitalPhoneNumber: '',
-    hospitalImageURL: '',
     hospitalRating: 0,
     hospitalReviews: [],
     hospitalAmenities: '',

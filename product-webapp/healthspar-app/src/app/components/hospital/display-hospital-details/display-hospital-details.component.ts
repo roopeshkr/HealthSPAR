@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as $ from 'jquery';
 import { Hospital } from 'src/app/model/hospital';
 import { HospitalService } from 'src/app/service/hospital.service';
@@ -16,7 +16,6 @@ export class DisplayHospitalDetailsComponent implements OnInit {
     hospitalWebsite: '',
     hospitalEmail: '',
     hospitalPhoneNumber: '',
-    hospitalImageURL: '',
     hospitalRating: 0,
     hospitalReviews: [],
     hospitalAmenities: '',
@@ -32,13 +31,10 @@ export class DisplayHospitalDetailsComponent implements OnInit {
     frequentlyAskedQuestion: []
   }
 
-  constructor(private hospitalService:HospitalService,private router:ActivatedRoute){}
+  constructor(private hospitalService:HospitalService,private router:ActivatedRoute,private route:Router){}
 
   ngOnInit() {
-    this.router.params.subscribe((params)=>{
-      const hospitalId= +params['id'];
-      this.getHospitalById(hospitalId);
-    })
+    this.getHospitalById(0);
     const trigger = $('.hamburger');
     const overlay = $('.overlay');
     let isClosed = false;
@@ -64,6 +60,10 @@ export class DisplayHospitalDetailsComponent implements OnInit {
     $('[data-toggle="offcanvas"]').click(() => {
       $('#wrapper').toggleClass('toggled');
     });
+  }
+
+  onEdit(hospitalId:number){
+    this.route.navigate(['/hospital-home/update-hospital-details',hospitalId])
   }
 
   public getHospitalById(hospitalId:number):void{

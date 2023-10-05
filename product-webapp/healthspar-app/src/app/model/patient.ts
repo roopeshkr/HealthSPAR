@@ -7,11 +7,14 @@ export interface Patient {
   bloodGroup: string;
   gender: string;
   cityName: string;
-  district: string; 
+  district: string;
   state: string;
   country: string;
   zip: string;
-  medicalHistory:string;
-  medicineHistory:string;
-  treatmentHistory:string;
+  medicalHistory: string;
+  medicineHistory: string;
+  treatmentHistory: string;
+  fileName?: string;
+  fileType?: string;
+  imageData?: Uint8Array;
 }

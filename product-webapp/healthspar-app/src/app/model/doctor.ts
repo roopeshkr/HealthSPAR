@@ -1,6 +1,5 @@
 export interface Doctor {
   doctorName: string;
-  doctorImageUrl:string;
   department: string;
   qualification: string;
   languagesSpoken: string;
@@ -8,4 +7,7 @@ export interface Doctor {
   startTime: Date; 
   endTime: Date; 
   bio: string;
+  fileName?: string;
+  fileType?: string;
+  imageData?: Uint8Array;
 }

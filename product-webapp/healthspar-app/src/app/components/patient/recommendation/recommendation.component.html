@@ -28,7 +28,9 @@
   </h2>
 
   <ng-template #noHospitals>
-    <h2 class="display-5 col-12 py-2">We couldn't find any hospital nearby your city</h2>
+    <h2 class="display-5 col-12 py-2">
+      We couldn't find any hospital nearby your city
+    </h2>
   </ng-template>
   <div
     *ngFor="let recommendation of recommendedHospitals"
@@ -60,7 +62,9 @@
         <div class="col-12 my-2">
           <a href="">
             <img
-              [src]="recommendation"
+              [src]="
+                'http://localhost:8070/get/image/' + recommendation.fileName
+              "
               alt=""
               class="img-fluid custom-image"
               style="height: 30vh; width: 100vh"

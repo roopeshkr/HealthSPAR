@@ -15,7 +15,6 @@ export class DoctorsListComponent implements OnInit {
     hospitalWebsite: '',
     hospitalEmail: '',
     hospitalPhoneNumber: '',
-    hospitalImageURL: '',
     hospitalRating: 0,
     hospitalReviews: [''],
     city: {
@@ -30,12 +29,13 @@ export class DoctorsListComponent implements OnInit {
     doctors: [],
     frequentlyAskedQuestion: []
   };
+  dbImage:string='http://localhost:8070/api/v1/hospital/get/doctor/image/';
   
 
   constructor(
     private hospitalService: HospitalService,
     private route: Router,
-    private router:ActivatedRoute
+    private router:ActivatedRoute,
   
   ) {
   }
@@ -76,6 +76,10 @@ export class DoctorsListComponent implements OnInit {
         );
       }
     }
+  }
+
+  onClickDoctor(hospitalId:number,index:number): void {
+    this.route.navigate(['/hospital-page', hospitalId,index]);
   }
   
 

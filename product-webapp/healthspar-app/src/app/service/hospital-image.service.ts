@@ -8,34 +8,48 @@ export class HospitalImageService {
 
   constructor(private httpClient: HttpClient) { }
 
-  uploadedImage!: File;
+  uploadedImage: File | null = null; 
   dbImage: any;
   postResponse: any;
-  successResponse!: string;
-  image: any;
+  successResponse: string='';
+  image: any; 
 
-  public onImageUpload(event: { target: { files: File[]; }; }) {
+  public onImageUpload(event: any) {
     this.uploadedImage = event.target.files[0];
   }
 
   imageUploadAction() {
-    const imageFormData = new FormData();
-    imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
+    if (this.uploadedImage) {
+      const imageFormData = new FormData();
+      imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
 
-    this.httpClient.post('http://localhost:8080/upload/image/', imageFormData, { observe: 'response' })
-      .subscribe((response) => {
-        if (response.status === 200) {
-          this.postResponse = response;
-          this.successResponse = this.postResponse.body.message;
-        } else {
-          this.successResponse = 'Image not uploaded due to some error!';
-        }
-      });
+      const patientId = '123'; 
+      const uploadUrl = `http://localhost:8070/upload/image/${patientId}`;
+
+      this.httpClient.post(uploadUrl, imageFormData, { observe: 'response' })
+        .subscribe((response) => {
+          if (response.status === 200) {
+            this.postResponse = response;
+            this.successResponse = this.postResponse.body.message;
+          } else {
+            this.successResponse = 'Image not uploaded due to some error!';
+          }
+        });
+    }
   }
 
+  viewImage() {
+    if (this.image) {
+      const imageUrl = `http://localhost:8070/get/image/info/${this.image}`;
+
+      this.httpClient.get(imageUrl)
+        .subscribe(
+          res => {
+            this.postResponse = res;
+            this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+          }
+        );
+    }
+  }
   
-
-  showHospitalImage(fileName: string) {
-    this.httpClient.get(`http://localhost:8080/get/image/${fileName}`);
-  }
 }

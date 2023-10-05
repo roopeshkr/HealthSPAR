@@ -90,7 +90,7 @@ export class ProfileComponent implements AfterViewInit {
         zip: this.addressDetails?.get('zip')?.value,
         medicalHistory: this.medicalDetails?.get('medicalHistory')?.value,
         medicineHistory: this.medicalDetails?.get('medicineHistory')?.value,
-        treatmentHistory: this.medicalDetails?.get('treatmentHistory')?.value
+        treatmentHistory: this.medicalDetails?.get('treatmentHistory')?.value,
       }
       console.log("Database value : ",patientData);
       

@@ -17,8 +17,6 @@ import { AppointmentComponent } from './components/patient/appointment/appointme
 import { RescheduleAppointmentComponent } from './components/patient/reschedule-appointment/reschedule-appointment.component';
 import { AppointmentsListComponent } from './components/hospital/appointments-list/appointments-list.component';
 import { RescheduleHospitalAppointmentComponent } from './components/hospital/reschedule-hospital-appointment/reschedule-hospital-appointment.component';
-import { HcpDHeaderComponent } from './components/HospitalDashboard/hcp-d-header/hcp-d-header.component';
-import { HcpDSidebarComponent } from './components/HospitalDashboard/hcp-d-sidebar/hcp-d-sidebar.component';
 import { HospitalDashboardComponent } from './components/HospitalDashboard/hospital-dashboard/hospital-dashboard.component';
 import { DoctorsListComponent } from './components/hospital/doctors-list/doctors-list.component';
 import { AddDoctorComponent } from './components/HospitalDashboard/add-doctor/add-doctor.component';
@@ -43,57 +41,46 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'hospital-login', component: HospitalRegisterComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'hospital-details', component: HospitalDetailsComponent },
-  {
-    path: 'update-hospital-details',
-    component: UpdateHospitalDetailsComponent,
-  },
-  {
-    path: 'hospital-page',
-    component: HospitalPageComponent,
-  },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'hospital-sidenav', component: HospitalSidenavComponent },
-  { path: 'display-profile', component: DisplayProfileComponent },
   
-  { path: 'patient-appointment', component: AppointmentComponent },
+
+  { path: 'profile', component: ProfileComponent },
+  { path: 'display-profile', component: DisplayProfileComponent },
+
 
   {
     path: 'reschedule-patient-appointment/:id',
     component: RescheduleAppointmentComponent,
   },
-  {
-    path: 'reschedule-hospital-appointment/:id',
-    component: RescheduleHospitalAppointmentComponent,
-  },
   { path: 'patient-appointment', component: AppointmentComponent },
-
-  { path: 'hospital-dashboard', component: HospitalDashboardComponent },
-
-  { path: 'hp-d-header', component: HcpDHeaderComponent },
-  { path: 'hp-d-sidebar', component: HcpDSidebarComponent },
-  { path: 'doctors-list', component: DoctorsListComponent },
-
-  { path: 'doctor', component: DoctorComponent },
-  { path: 'edit-doctor/:hospitalId/:index', component: EditDoctorComponent },
-  { path: 'hp-d-sidebar', component: HcpDSidebarComponent },
+  
+  
+  
   { path: 'home-page', component: HomePageComponent },
-  { path: 'hospital-appointment', component: AppointmentsListComponent },
+  
   {
     path: 'hospital-home', component: HospitalDashboardHomeComponent,
     children: [
-      { path: '', redirectTo: '/hospital-dashboard', pathMatch: 'full' },
-      { path: 'hospital-dashboard', component: HospitalDashboardComponent },
+      { path: '', redirectTo: '/hospital-dashboard:id', pathMatch: 'full' },
+      { path: 'hospital-dashboard/:id', component: HospitalDashboardComponent },
       {
-        path: 'doctors-list', component: DoctorsListComponent,
-        children: [
-          { path: 'add-doctor', component: AddDoctorComponent },
-          { path: '', redirectTo: '/doctors-list', pathMatch: 'full' },
-        ]
+        path: 'doctors-list', component: DoctorsListComponent
       },
+      { path: 'add-doctor', component: AddDoctorComponent },
       { path: 'hospital-appointment', component: AppointmentsListComponent },
       {
-        path: 'display-hospital-details',component: DisplayHospitalDetailsComponent,
+        path: 'display-hospital-details', component: DisplayHospitalDetailsComponent,
+      },
+      {
+        path: 'update-hospital-details/:id',
+        component: UpdateHospitalDetailsComponent,
+      },
+      { path: 'doctor/:hospitalId/:id', component: DoctorComponent },
+      { path: 'edit-doctor/:hospitalId/:index', component: EditDoctorComponent },
+      { path: 'hospital-details', component: HospitalDetailsComponent },
+      { path: 'hospital-appointment', component: AppointmentsListComponent },
+      {
+        path: 'reschedule-hospital-appointment/:id',
+        component: RescheduleHospitalAppointmentComponent,
       },
     ]
   }

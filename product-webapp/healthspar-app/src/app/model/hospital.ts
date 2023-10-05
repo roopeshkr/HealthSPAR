@@ -8,7 +8,6 @@ export interface Hospital {
   hospitalWebsite: string;
   hospitalEmail: string;
   hospitalPhoneNumber: string;
-  hospitalImageURL: string;
   hospitalRating: number;
   hospitalReviews: string[];
   hospitalAmenities: string;
@@ -16,4 +15,7 @@ export interface Hospital {
   city: City;
   doctors: Doctor[];
   frequentlyAskedQuestion:AskedQuestion[];
+  fileName?: string;
+  fileType?: string;
+  imageData?: Uint8Array;
 }

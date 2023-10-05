@@ -19,7 +19,6 @@ export class HospitalPageComponent implements OnInit {
     hospitalWebsite: '',
     hospitalEmail: '',
     hospitalPhoneNumber: '',
-    hospitalImageURL: '',
     hospitalRating: 0,
     hospitalReviews: [''],
     city: {

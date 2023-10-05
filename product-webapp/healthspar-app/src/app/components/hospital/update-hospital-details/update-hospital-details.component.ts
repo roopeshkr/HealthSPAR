@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Hospital } from 'src/app/model/hospital';
 import { HospitalService } from 'src/app/service/hospital.service';
 
@@ -16,7 +16,6 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     hospitalWebsite: '',
     hospitalEmail: '',
     hospitalPhoneNumber: '',
-    hospitalImageURL: '',
     hospitalRating: 0,
     hospitalReviews: [],
     hospitalAmenities: '',
@@ -40,6 +39,7 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     private profileService: HospitalService,
     private formBuilder: FormBuilder,
     private route: Router
+    ,private router:ActivatedRoute
   ) {
     this.hospitalProfileForm = this.formBuilder.group({
       basicDetailForm: this.formBuilder.group({
@@ -80,7 +80,10 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.getHospital(40);
+    this.router.params.subscribe((params)=>{
+      const hospitalId = +params['id'];
+      this.getHospital(hospitalId);
+    })
   }
 
   get basicDetails() {
@@ -119,13 +122,16 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     if (this.doctorDetails?.invalid && this.step === 3) {
       return;
     }
+    
 
-    this.step = this.step + 1;
+    if (this.step < 4) {
+      this.step += 1;
+    }
 
-    if (this.step === 6 && this.hospitalProfileForm.valid) {
+    if (this.step === 4 && this.hospitalProfileForm.valid) {
       console.log("form value: ", this.hospitalProfileForm.value);
       const hospitalData: Hospital = {
-        hospitalId: 40,
+        hospitalId: this.hospital.hospitalId,
         hospitalName: this.basicDetails?.get('hospitalName')?.value,
         hospitalWebsite: this.basicDetails?.get('hospitalWebsite')?.value,
         hospitalEmail: this.basicDetails?.get('hospitalEmail')?.value,
@@ -140,7 +146,6 @@ export class UpdateHospitalDetailsComponent implements OnInit {
           zip: this.addressDetails?.get('city.zip')?.value
         },
         doctors: this.doctorDetails.value,
-        hospitalImageURL: '',
         hospitalRating: 0,
         hospitalReviews: [],
         frequentlyAskedQuestion: this.questionDetails.value
@@ -229,7 +234,7 @@ export class UpdateHospitalDetailsComponent implements OnInit {
       .subscribe(
         (response: Hospital) => {
           console.log('Hospital profile updated successfully: ', response);
-          this.route.navigate(['/display-hospital-details',hospitalId]);
+          this.route.navigate(['hospital-home/display-hospital-details']);
         },
         (error) => {
           console.error('Error updating hospital profile:', error);

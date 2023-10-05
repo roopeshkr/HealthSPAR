@@ -13,6 +13,7 @@ export class HospitalDetailsComponent {
   hospitalProfileForm: FormGroup;
   isSubmitted: boolean = false;
   step: number = 1;
+  hospitalId:number=0;
 
   constructor(private formBuilder: FormBuilder, private profileService: HospitalService, private route: Router) {
     this.hospitalProfileForm = this.formBuilder.group({
@@ -114,8 +115,7 @@ export class HospitalDetailsComponent {
           zip: this.addressDetails?.get('city.zip')?.value
         },
         doctors: this.doctorDetails.value,
-        hospitalId: 0,
-        hospitalImageURL: '',
+        hospitalId: this.hospitalId,
         hospitalRating: 0,
         hospitalReviews: [],
         frequentlyAskedQuestion: this.questionDetails.value
@@ -126,12 +126,13 @@ export class HospitalDetailsComponent {
       this.profileService.addHospitalProfile(hospitalData).subscribe(
         (response) => {
           console.log('Hospital added successfully:', response);
+          this.hospitalId=response.hospitalId
         },
         (error) => {
           console.error('Error adding hospital:', error);
         }
       );
-      this.route.navigate(['/index']);
+      this.route.navigate(['/hospital-home/hospital-dashboard',this.hospitalId]);
     }
   }
 

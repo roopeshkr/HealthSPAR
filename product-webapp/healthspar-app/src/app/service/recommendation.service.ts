@@ -8,7 +8,7 @@ import { Hospital } from '../model/hospital';
 })
 
 export class RecommendationService {
-    private apiUrl = 'http://localhost:8080';
+    private apiUrl = 'http://localhost:8070';
 
     constructor(private http: HttpClient) { }
     

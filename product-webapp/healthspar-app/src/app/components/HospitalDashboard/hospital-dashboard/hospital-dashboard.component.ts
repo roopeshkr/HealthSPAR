@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
-import { Component, Renderer2, ViewChild, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Renderer2, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from 'src/app/model/appointment';
 import { Hospital } from 'src/app/model/hospital';
 import { AppointmentService } from 'src/app/service/appointment.service';
@@ -11,7 +11,7 @@ import { HospitalService } from 'src/app/service/hospital.service';
   templateUrl: './hospital-dashboard.component.html',
   styleUrls: ['./hospital-dashboard.component.css'],
 })
-export class HospitalDashboardComponent {
+export class HospitalDashboardComponent implements OnInit{
   appointments: Appointment[] = [];
   todayAppointments: Appointment[] = [];
   
@@ -22,7 +22,6 @@ export class HospitalDashboardComponent {
     hospitalWebsite: '',
     hospitalEmail: '',
     hospitalPhoneNumber: '',
-    hospitalImageURL: '',
     hospitalRating: 0,
     hospitalReviews: [],
     hospitalAmenities: '',
@@ -46,6 +45,7 @@ export class HospitalDashboardComponent {
     private appointmentService: AppointmentService,
     private datePipe: DatePipe,
     private route: Router,
+    private router:ActivatedRoute,
     private hospitalService: HospitalService) { }
 
   ngAfterViewInit() {
@@ -74,10 +74,13 @@ export class HospitalDashboardComponent {
   }
 
   ngOnInit(): void {
-    this.getAppointmentForHospital(19);
-    
-    this.getHospitalDetails(19);
-    
+    this.router.params.subscribe(
+      (params)=>{
+        const hospitalId= +params['id'];
+        this.getAppointmentForHospital(hospitalId);
+        this.getHospitalDetails(hospitalId);
+      }
+    )
     this.filterTodayAppointments(); 
   }
 
