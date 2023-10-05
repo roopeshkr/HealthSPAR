@@ -48,7 +48,7 @@ export class HospitalRegisterComponent implements AfterViewInit {
         (response) => {
           this.successMessage = 'Login successful';
           this.getHospitalByEmail(this.loginForm.value.email);
-          this.route.navigate(['/hospital-home/hospital-dashboard',this.hospitalId]);
+          this.route.navigate(['/hospital/dashboard',this.hospitalId]);
           this.errorMessage = '';
         },
         (error) => {
@@ -70,7 +70,7 @@ export class HospitalRegisterComponent implements AfterViewInit {
         )
         .subscribe(
           (response) => {
-            this.route.navigate(['/hospital-details']);
+            this.route.navigate(['/hospital/profile']);
           },
           (error) => {
             console.error(error);
