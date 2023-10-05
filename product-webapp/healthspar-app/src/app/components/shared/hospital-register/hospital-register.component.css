@@ -33,6 +33,7 @@ background: rgb(133, 137, 184);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
   margin: 20px;
+  margin-top: 50px;
 }
 
 .wrapper .title-text {
@@ -238,6 +239,8 @@ form .btn input[type="submit"] {
   top: 0;
   left: 0;
   z-index: 999;
+  padding-top: 30px;
+  padding-bottom: 40px;
 }
 
 .logo:hover {
@@ -266,12 +269,10 @@ form .btn input[type="submit"] {
 @media screen and (max-width: 768px) {
   .logo {
     position: fixed;
-    top: 0;
-    left: 0;
+    text-align: center;
     z-index: 999;
     top: 10px;
-    left: 50%;
-    right: 50%;
+    left: 40%;
     transform: translate(-50%, -50%);
   }
 }

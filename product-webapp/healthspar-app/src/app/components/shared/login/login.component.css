@@ -7,9 +7,9 @@
   font-family: "Raleway", sans-serif;
 }
 
-.main{
+.main {
   /* background-image: url("/assets/images/login-bg(1).jpg"); */
-background: rgb(133, 137, 184);
+  background: rgb(133, 137, 184);
   background: linear-gradient(90deg, rgba(133, 137, 184, 1) 0%, rgba(4, 46, 95, 1) 100%);
   background-size: cover;
   background-position: center;
@@ -19,7 +19,6 @@ background: rgb(133, 137, 184);
   justify-content: center;
   align-items: center;
   padding: 0;
-  position: relative;
 }
 
 .wrapper {
@@ -33,6 +32,7 @@ background: rgb(133, 137, 184);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
   margin: 20px;
+  margin-top: 50px;
 }
 
 .wrapper .title-text {
@@ -149,7 +149,7 @@ input[type="radio"] {
 }
 
 .form-inner form .field input:focus {
-  border-color: #042E5F;
+  border-color: #12e8f0;
 }
 
 .form-inner form .field input::placeholder {
@@ -222,6 +222,7 @@ form .btn input[type="submit"] {
   cursor: pointer;
 }
 
+
 /* Text Logo */
 
 .logo {
@@ -237,6 +238,8 @@ form .btn input[type="submit"] {
   top: 0;
   left: 0;
   z-index: 999;
+  padding-top: 30px;
+  padding-bottom: 40px;
 }
 
 .logo:hover {
@@ -265,12 +268,10 @@ form .btn input[type="submit"] {
 @media screen and (max-width: 768px) {
   .logo {
     position: fixed;
-    top: 0;
-    left: 0;
+    text-align: center;
     z-index: 999;
     top: 10px;
-    left: 50%;
-    right: 50%;
+    left: 40%;
     transform: translate(-50%, -50%);
   }
 }
