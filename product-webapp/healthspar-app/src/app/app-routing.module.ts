@@ -64,9 +64,9 @@ const routes: Routes = [
       {path: 'display', component: DisplayHospitalDetailsComponent},
       { path: 'update/:id', component: UpdateHospitalDetailsComponent },
       { path: 'doctors', component: DoctorsListComponent},
-      { path: 'add-doctor', component: AddDoctorComponent },
-      { path: 'edit-doctor/:index', component: EditDoctorComponent },
-      { path: 'doctor/:id', component: DoctorComponent },
+      { path: 'add-doctor/:id', component: AddDoctorComponent },
+      { path: 'edit-doctor/:hospitalId/:index', component: EditDoctorComponent },
+      { path: 'doctor/:hospitalId/:index', component: DoctorComponent },
     ]
   },
 

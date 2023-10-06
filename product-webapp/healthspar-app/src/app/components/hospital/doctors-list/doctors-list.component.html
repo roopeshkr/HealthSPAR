@@ -8,7 +8,7 @@
         </div>
         <div class="col-sm-8 col-9 text-right m-b-20">
           <a
-            routerLink="/hospital/add-doctor"
+            [routerLink]="['/hospital/add-doctor',hospital.hospitalId]"
             class="btn btn-primary btn-rounded float-right"
             ><i class="fa fa-plus"></i> Add Doctor</a
           >
@@ -21,7 +21,7 @@
         >
           <div class="profile-widget">
             <div class="doctor-img">
-              <a class="avatar" [routerLink]="['/hospital/doctor',i]"
+              <a class="avatar" [routerLink]="['/hospital/doctor',hospital.hospitalId,i]"
                 ><img
                   alt=""
                   [src]="
@@ -42,7 +42,7 @@
                 <a
                   class="dropdown-item"
                   href="/edit-doctor"
-                  [routerLink]="['/hospital/edit-doctor',i]"
+                  [routerLink]="['/hospital/edit-doctor',hospital.hospitalId,i]"
                   ><i class="fa fa-pencil m-r-5"></i> Edit</a
                 >
                 <a
