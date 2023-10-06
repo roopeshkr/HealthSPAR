@@ -25,11 +25,6 @@ import { HospitalDashboardHomeComponent } from './components/HospitalDashboard/h
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 
 import { PatientHomeComponent } from './components/PatientDashboard/patient-home/patient-home.component';
-import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
-import { SignupComponent } from './components/shared/signup/signup.component';
-import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
-import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
-import { PatientSidenavComponent } from './components/PatientDashboard/patient-sidenav/patient-sidenav.component';
 
 const routes: Routes = [
   // common routes
@@ -37,67 +32,49 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'patient-login', component: LoginComponent },
   { path: 'hospital-login', component: HospitalRegisterComponent },
-  { path: 'signup', component: SignupComponent },
 
-  { path: 'profile', component: ProfileComponent },
-  { path: 'display-profile', component: DisplayProfileComponent },
-
+  // patient routes
   {
-    path: 'reschedule-patient-appointment/:id',
-    component: RescheduleAppointmentComponent,
-  },
-  { path: 'patient-appointment', component: AppointmentComponent },
-
-  { path: 'home-page', component: HomePageComponent },
-  {
-    path: 'patient-home',
+    path: 'patient',
     component: HomeComponent,
     children: [
+      { path: 'profile', component: ProfileComponent },
       { path: '', redirectTo: '/index', pathMatch: 'full' },
       { path: 'index', component: RecommendationComponent },
+      { path: 'hospital-page/:id', component: HospitalPageComponent },
+      { path: 'appointment', component: AppointmentComponent },
+      { path: 'reschedule/:id', component: RescheduleAppointmentComponent },
+      { path: 'display', component: PatientHomeComponent },
+      { path: 'update', component: UpdateProfileComponent },
+      { path: 'hospital', component: HospitalComponent },
     ],
   },
 
+  // hospital routes
   {
-    path: 'hospital-home',
+    path: 'hospital',
     component: HospitalDashboardHomeComponent,
     children: [
-      { path: '', redirectTo: '/hospital-dashboard:id', pathMatch: 'full' },
-      { path: 'hospital-dashboard/:id', component: HospitalDashboardComponent },
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: HospitalDashboardComponent },
+      { path: 'appointment', component: AppointmentsListComponent },
       {
-        path: 'doctors-list',
-        component: DoctorsListComponent,
+        path: 'reschedule/:id',
+        component: RescheduleHospitalAppointmentComponent,
       },
-      { path: 'add-doctor', component: AddDoctorComponent },
-      { path: 'hospital-appointment', component: AppointmentsListComponent },
-      {
-        path: 'display-hospital-details',
-        component: DisplayHospitalDetailsComponent,
-      },
-      {
-        path: 'update-hospital-details/:id',
-        component: UpdateHospitalDetailsComponent,
-      },
-      { path: 'doctor/:hospitalId/:id', component: DoctorComponent },
+      { path: 'profile', component: HospitalDetailsComponent },
+      { path: 'display', component: DisplayHospitalDetailsComponent },
+      { path: 'update/:id', component: UpdateHospitalDetailsComponent },
+      { path: 'doctors', component: DoctorsListComponent },
+      { path: 'add-doctor/:id', component: AddDoctorComponent },
       {
         path: 'edit-doctor/:hospitalId/:index',
         component: EditDoctorComponent,
       },
-      { path: 'hospital-details', component: HospitalDetailsComponent },
-      { path: 'hospital-appointment', component: AppointmentsListComponent },
-      {
-        path: 'reschedule-hospital-appointment/:id',
-        component: RescheduleHospitalAppointmentComponent,
-      },
+      { path: 'doctor/:hospitalId/:index', component: DoctorComponent },
     ],
+    // canActivate: [AuthGuard]
   },
-  { path: 'patient-profile-sidenav', component: SidenavComponent },
-  {
-    path: 'patient-sidenav',
-    component: PatientSidenavComponent,
-  },
-
-  { path: 'patient-home', component: PatientHomeComponent },
 ];
 
 @NgModule({

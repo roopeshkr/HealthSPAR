@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Hospital } from 'src/app/model/hospital';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Doctor } from 'src/app/model/doctor';
 import { HospitalService } from 'src/app/service/hospital.service';
 
 @Component({
@@ -10,34 +10,15 @@ import { HospitalService } from 'src/app/service/hospital.service';
   styleUrls: ['./add-doctor.component.css']
 })
 export class AddDoctorComponent implements OnInit {
-  hospital: Hospital = {
-    hospitalId: 0,
-    hospitalName: '',
-    hospitalWebsite: '',
-    hospitalEmail: '',
-    hospitalPhoneNumber: '',
-    hospitalRating: 0,
-    hospitalReviews: [],
-    hospitalAmenities: '',
-    numberOfBeds: 0,
-    city: {
-      name: '',
-      district: '',
-      state: '',
-      country: '',
-      zip: ''
-    },
-    doctors: [],
-    frequentlyAskedQuestion: []
-  };
-
+  hospitalId: number = 0;
   doctorDetailForm: FormGroup;
   isSubmitted: boolean = false;
 
   constructor(
     private profileService: HospitalService,
     private formBuilder: FormBuilder,
-    private route: Router
+    private route: Router,
+    private router: ActivatedRoute
   ) {
     this.doctorDetailForm = this.formBuilder.group({
       doctorName: ['', Validators.required],
@@ -49,44 +30,44 @@ export class AddDoctorComponent implements OnInit {
       endTime: ['', Validators.required],
       bio: [''],
     });
-
   }
-  
+
   ngOnInit(): void {
-    this.getHospital(40); 
+    this.router.params.subscribe(
+      (params) => {
+        this.hospitalId = +params['id'];
+      }
+    );
   }
 
   onSubmit() {
     this.isSubmitted = true;
 
-    const newDoctor = this.doctorDetailForm.value;
-    this.hospital.doctors.push(newDoctor);
+    if (this.doctorDetailForm.valid) {
+      const newDoctor: Doctor = {
+        doctorName: this.doctorDetailForm.value.doctorName,
+        department: this.doctorDetailForm.value.department,
+        qualification: this.doctorDetailForm.value.qualification,
+        languagesSpoken: this.doctorDetailForm.value.languagesSpoken,
+        yearOfExperience: this.doctorDetailForm.value.yearOfExperience,
+        startTime: new Date(this.doctorDetailForm.value.startTime),
+        endTime: new Date(this.doctorDetailForm.value.endTime),
+        bio: this.doctorDetailForm.value.bio,
+      };
 
-    this.updateHospital(this.hospital.hospitalId, this.hospital);
-    this.route.navigate(['/hospital-home/doctors-list']);
+      this.addDoctor(this.hospitalId, newDoctor);
+    }
   }
 
-  public getHospital(hospitalId: number): void {
-    this.profileService.getHospitalProfile(hospitalId).subscribe(
+  addDoctor(hospitalId: number, doctor: Doctor): void {
+    this.profileService.addDoctor(hospitalId, doctor).subscribe(
       (response) => {
-        this.hospital = response;
+        console.log('Successfully added doctor:', response);
+        this.route.navigate(['/hospital/doctors']);
       },
       (error) => {
-        console.error('Error fetching hospital:', error);
+        console.error("Error while adding doctor ", error);
       }
     );
-  }
-
-  public updateHospital(hospitalId: number, hospital: Hospital): void {
-    this.profileService
-      .updateHospitalProfile(hospitalId, hospital)
-      .subscribe(
-        (response: Hospital) => {
-          console.log('Hospital profile updated successfully: ', response);
-        },
-        (error) => {
-          console.error('Error updating hospital profile:', error);
-        }
-      );
   }
 }

@@ -1,7 +1,9 @@
 package com.stackroute.service;
 
 import com.stackroute.exception.HospitalNotFoundException;
+import com.stackroute.model.Doctor;
 import com.stackroute.model.Hospital;
+import com.stackroute.repository.DoctorRepository;
 import com.stackroute.repository.HospitalRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +16,7 @@ import java.util.List;
 @Slf4j
 public class HospitalServiceImpl implements HospitalService {
     private final HospitalRepository hospitalRepository;
+    private final DoctorRepository doctorRepository;
     @Override
     public Hospital createHospital(Hospital hospital) {
         log.info("Creating an hospital :"+hospital+" in the database");
@@ -67,4 +70,6 @@ public class HospitalServiceImpl implements HospitalService {
         existingHospital.setFrequentlyAskedQuestion(hospital.getFrequentlyAskedQuestion());
         return hospitalRepository.save(existingHospital);
     }
+
+
 }
