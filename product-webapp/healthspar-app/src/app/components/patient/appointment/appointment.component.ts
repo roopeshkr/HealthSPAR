@@ -21,7 +21,7 @@ export class AppointmentComponent implements OnInit {
   constructor(private appointmentService: AppointmentService, private hospitalService: HospitalService, private datePipe: DatePipe, private route: Router,private patientService:PatientProfileService) { }
 
   ngOnInit(): void {
-    this.getAppointmentForPatients(this.patientId);
+    this.getPatient();
     const trigger = $('.hamburger');
     const overlay = $('.overlay');
     let isClosed = false;
@@ -54,7 +54,7 @@ export class AppointmentComponent implements OnInit {
     if(patientId!==null){
       this.patientService.getPatientProfile(patientId).subscribe(
         (response)=>{
-          this.patientId=response.patientId;
+          this.getAppointmentForPatients(response.patientId);
         }
       )
     }
