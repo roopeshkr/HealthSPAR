@@ -12,15 +12,11 @@ import { AppointmentService } from 'src/app/service/appointment.service';
 export class AppointmentsListComponent {
   appointments: Appointment[] = [];
 
-  constructor(private appointmentService: AppointmentService, private datePipe: DatePipe, private route: Router,private router:ActivatedRoute) { }
+  constructor(private appointmentService: AppointmentService, private datePipe: DatePipe, private route: Router) { }
 
   ngOnInit(): void {
-    this.router.params.subscribe(
-      (params)=>{
-        const hospitalId= +params['id'];
-        this.getAppointmentForHospital(hospitalId)
-      }
-    );
+
+    this.getAppointmentForHospital(0)
     const trigger = $('.hamburger');
     const overlay = $('.overlay');
     let isClosed = false;
@@ -48,12 +44,12 @@ export class AppointmentsListComponent {
     });
   }
 
-  
 
-  public getAppointmentForHospital(hospitalId:number){
+
+  public getAppointmentForHospital(hospitalId: number) {
     this.appointmentService.getAppointmentsForHospital(hospitalId).subscribe(
-      (response:Appointment[])=>{
-        this.appointments=response;
+      (response: Appointment[]) => {
+        this.appointments = response;
         this.appointments.sort(
           (a, b) => {
             const dateA = new Date(a.dateTime);
@@ -66,7 +62,27 @@ export class AppointmentsListComponent {
   }
 
   onBookClick(appointmentId: number): void {
-    this.route.navigate(['/reschedule-hospital-appointment', appointmentId]);
+    this.route.navigate(['/hospital/reschedule', appointmentId]);
+  }
+
+  cancelAppointment(appointmentId: number): void {
+    const isConfirmed = window.confirm('Are you sure you want to remove this appointment?');
+    if (isConfirmed) {
+      this.appointmentService.cancelAppointment(appointmentId).subscribe(
+        (response: Appointment) => {
+          console.log('Appointment canceled successfully:', response);
+          this.refreshAppointments();
+        },
+        (error) => {
+          console.error('Error cancelling appointment:', error);
+        }
+      );
+
+    }
+  }
+
+  refreshAppointments() {
+    this.getAppointmentForHospital(0);
   }
 
 

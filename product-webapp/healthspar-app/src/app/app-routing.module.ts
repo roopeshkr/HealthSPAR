@@ -7,10 +7,8 @@ import { HospitalPageComponent } from './components/hospital/hospital-page/hospi
 import { ProfileComponent } from './components/patient/profile/profile.component';
 import { UpdateProfileComponent } from './components/patient/update-profile/update-profile.component';
 import { LoginComponent } from './components/shared/login/login.component';
-import { SignupComponent } from './components/shared/signup/signup.component';
 
 import { UpdateHospitalDetailsComponent } from './components/hospital/update-hospital-details/update-hospital-details.component';
-import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
 import { DisplayHospitalDetailsComponent } from './components/hospital/display-hospital-details/display-hospital-details.component';
 import { AppointmentComponent } from './components/patient/appointment/appointment.component';
 import { RescheduleAppointmentComponent } from './components/patient/reschedule-appointment/reschedule-appointment.component';
@@ -26,26 +24,16 @@ import { HospitalRegisterComponent } from './components/shared/hospital-register
 import { HospitalDashboardHomeComponent } from './components/HospitalDashboard/hospital-dashboard-home/hospital-dashboard-home.component';
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 
-import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
-import { PatientSidenavComponent } from './components/PatientDashboard/patient-sidenav/patient-sidenav.component';
 import { PatientHomeComponent } from './components/PatientDashboard/patient-home/patient-home.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home-page', pathMatch: 'full' },
-  {
-    path: 'hospital-page/:id',
-    component: HospitalPageComponent,
-  },
-  { path: 'hospital', component: HospitalComponent },
-  { path: 'patient-profile', component: ProfileComponent },
-  { path: 'update-profile', component: UpdateProfileComponent },
-  { path: 'display-patient-profile', component: DisplayProfileComponent },
-  { path: 'login', component: LoginComponent },
+  // common routes
+  { path: 'home', component: HomePageComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'patient-login', component: LoginComponent },
   { path: 'hospital-login', component: HospitalRegisterComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'hospital', component: HospitalComponent },
-  { path: 'page-404', component: PageNotFoundComponent },
 
   { path: 'profile', component: ProfileComponent },
   { path: 'display-profile', component: DisplayProfileComponent },
@@ -105,7 +93,7 @@ const routes: Routes = [
     component: PatientSidenavComponent,
   },
 
-  { path: 'patient-home2', component: PatientHomeComponent },
+  { path: 'patient-home', component: PatientHomeComponent },
 ];
 
 @NgModule({

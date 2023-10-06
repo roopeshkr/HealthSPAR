@@ -4,7 +4,7 @@ spring:
   application:
     name: booked-appointments
   datasource:
-    url: jdbc:mysql://localhost:3306/appointment_db
+    url: jdbc:mysql://localhost:3306/appointments_db
     username: root
     password: shivam
     driver-class-name: com.mysql.cj.jdbc.Driver # MySQL driver

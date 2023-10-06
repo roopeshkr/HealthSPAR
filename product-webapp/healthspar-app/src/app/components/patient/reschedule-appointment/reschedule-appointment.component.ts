@@ -119,7 +119,7 @@ export class RescheduleAppointmentComponent implements OnInit {
         (response: Appointment) => {
           this.appointment = response;
           console.log(this.appointment);
-          this.route.navigate(['patient-appointment']);
+          this.route.navigate(['patient/appointment']);
         },
         (error) => {
           console.error("Error rescheduling appointment:", error);

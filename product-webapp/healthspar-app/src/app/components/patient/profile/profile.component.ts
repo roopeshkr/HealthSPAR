@@ -100,7 +100,7 @@ export class ProfileComponent implements AfterViewInit {
           console.log('Patient added successfully:', response);
         }
       );
-      this.route.navigate(['/index']);
+      this.route.navigate(['/patient/index']);
     }
   }
 

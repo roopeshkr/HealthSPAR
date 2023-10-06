@@ -11,10 +11,10 @@ import { HospitalService } from 'src/app/service/hospital.service';
   templateUrl: './hospital-dashboard.component.html',
   styleUrls: ['./hospital-dashboard.component.css'],
 })
-export class HospitalDashboardComponent implements OnInit{
+export class HospitalDashboardComponent implements OnInit {
   appointments: Appointment[] = [];
   todayAppointments: Appointment[] = [];
-  
+
 
   hospital: Hospital = {
     hospitalId: 0,
@@ -45,7 +45,7 @@ export class HospitalDashboardComponent implements OnInit{
     private appointmentService: AppointmentService,
     private datePipe: DatePipe,
     private route: Router,
-    private router:ActivatedRoute,
+    private router: ActivatedRoute,
     private hospitalService: HospitalService) { }
 
   ngAfterViewInit() {
@@ -74,14 +74,10 @@ export class HospitalDashboardComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.router.params.subscribe(
-      (params)=>{
-        const hospitalId= +params['id'];
-        this.getAppointmentForHospital(hospitalId);
-        this.getHospitalDetails(hospitalId);
-      }
-    )
-    this.filterTodayAppointments(); 
+
+    this.getAppointmentForHospital(0);
+    this.getHospitalDetails(0);
+    this.filterTodayAppointments();
   }
 
   public getAppointmentForHospital(hospitalId: number) {
@@ -121,11 +117,11 @@ export class HospitalDashboardComponent implements OnInit{
       const appointmentDate = new Date(appointment.dateTime);
       return appointmentDate.getTime() >= today.getTime() && appointmentDate.getTime() < today.getTime() + 24 * 60 * 60 * 1000;
     });
-    console.log("todays appointment ",this.todayAppointments);
-    
+    console.log("todays appointment ", this.todayAppointments);
+
   }
 
- 
+
 
   public getHospitalDetails(hospitalId: number) {
     this.hospitalService.getHospitalProfile(hospitalId).subscribe(
@@ -137,9 +133,9 @@ export class HospitalDashboardComponent implements OnInit{
     )
   }
 
-  onViewClick(hospitalId: number):void{
-    this.route.navigate(['/hospital-appointment',hospitalId]);
+  onViewClick(): void {
+    this.route.navigate(['/hospital/appointment']);
   }
 
-  
+
 }

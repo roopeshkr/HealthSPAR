@@ -37,7 +37,7 @@ export class LoginComponent implements AfterViewInit {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
         (response) => {
           this.successMessage = 'Login successful';
-          this.route.navigate(['/index']);
+          this.route.navigate(['/patient/index']);
           this.errorMessage = '';
         },
         (error) => {
@@ -59,7 +59,7 @@ export class LoginComponent implements AfterViewInit {
         )
         .subscribe(
           (response) => {
-            this.route.navigate(['/patient-profile']);
+            this.route.navigate(['/patient/profile']);
           },
           (error) => {
             console.error(error);

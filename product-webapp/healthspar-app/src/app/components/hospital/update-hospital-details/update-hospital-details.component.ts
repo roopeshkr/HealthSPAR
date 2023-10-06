@@ -234,7 +234,7 @@ export class UpdateHospitalDetailsComponent implements OnInit {
       .subscribe(
         (response: Hospital) => {
           console.log('Hospital profile updated successfully: ', response);
-          this.route.navigate(['hospital-home/display-hospital-details']);
+          this.route.navigate(['hospital/display']);
         },
         (error) => {
           console.error('Error updating hospital profile:', error);

@@ -62,7 +62,7 @@ export class RecommendationComponent implements OnInit {
   }
 
   onBookClick(hospitalId: number): void {
-    this.route.navigate(['/hospital-page', hospitalId]);
+    this.route.navigate(['/patient/hospital-page', hospitalId]);
   }
 
 

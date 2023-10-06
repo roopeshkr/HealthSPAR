@@ -13,10 +13,10 @@ import { HospitalService } from 'src/app/service/hospital.service';
   styleUrls: ['./appointment.component.css']
 })
 export class AppointmentComponent implements OnInit {
-  appointments: Appointment[]=[];
-  hospitals: Hospital[] = []; 
+  appointments: Appointment[] = [];
+  hospitals: Hospital[] = [];
 
-  constructor(private appointmentService: AppointmentService, private hospitalService: HospitalService,private datePipe: DatePipe,private route:Router) { }
+  constructor(private appointmentService: AppointmentService, private hospitalService: HospitalService, private datePipe: DatePipe, private route: Router) { }
 
   ngOnInit(): void {
     this.getAppointmentForPatients('650fe161ef773a225c7d37bd');
@@ -49,13 +49,13 @@ export class AppointmentComponent implements OnInit {
 
   public getAppointmentForPatients(patientId: string) {
     this.appointmentService.getAppointmentsForPatient(patientId).subscribe(
-      (response:Appointment[])=>{
-        this.appointments=response;
+      (response: Appointment[]) => {
+        this.appointments = response;
         this.appointments.sort(
-          (a,b)=>{
-            const dateA=new Date(a.dateTime);
-            const dateB=new Date(b.dateTime);
-            return dateA.getTime()-dateB.getTime();
+          (a, b) => {
+            const dateA = new Date(a.dateTime);
+            const dateB = new Date(b.dateTime);
+            return dateA.getTime() - dateB.getTime();
           }
         );
 
@@ -72,14 +72,14 @@ export class AppointmentComponent implements OnInit {
   }
 
   onBookClick(appointmentId: number): void {
-    this.route.navigate(['/reschedule-patient-appointment', appointmentId]);
+    this.route.navigate(['/patient/reschedule', appointmentId]);
   }
 
-  cancelAppointment(appointmentId:number):void{
-    const isConfirmed=window.confirm('Are you sure you want to remove this appointment?');
-    if(isConfirmed){
+  cancelAppointment(appointmentId: number): void {
+    const isConfirmed = window.confirm('Are you sure you want to remove this appointment?');
+    if (isConfirmed) {
       this.appointmentService.cancelAppointment(appointmentId).subscribe(
-        (response:Appointment)=>{
+        (response: Appointment) => {
           console.log('Appointment canceled successfully:', response);
           this.refreshAppointments();
         },
@@ -87,16 +87,16 @@ export class AppointmentComponent implements OnInit {
           console.error('Error cancelling appointment:', error);
         }
       );
-      
+
     }
   }
 
   refreshAppointments() {
     this.getAppointmentForPatients('650fe161ef773a225c7d37bd');
-}
-  
+  }
 
-  
+
+
 
 
 }

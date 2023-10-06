@@ -51,14 +51,26 @@
                 />
               </div>
               <div class="card-info">
-                <p><i class="fas fa-globe"></i>  {{recommendation.hospitalWebsite}}</p><hr>
-                <p><i class="far fa-envelope"></i>  {{recommendation.hospitalEmail}}</p><hr>
-                <p><i class="fas fa-phone"></i>  {{recommendation.hospitalPhoneNumber}}</p><hr>
+                <p>
+                  <i class="fas fa-globe"></i>
+                  {{ recommendation.hospitalWebsite }}
+                </p>
+                <hr />
+                <p>
+                  <i class="far fa-envelope"></i>
+                  {{ recommendation.hospitalEmail }}
+                </p>
+                <hr />
+                <p>
+                  <i class="fas fa-phone"></i>
+                  {{ recommendation.hospitalPhoneNumber }}
+                </p>
+                <hr />
               </div>
             </div>
             <div class="col-12 text-center my-2">
               <a
-                [routerLink]="['/hospital-page', recommendation.hospitalId]"
+                [routerLink]="['/patient/hospital-page', recommendation.hospitalId]"
                 class="my-2"
               >
                 <button class="btn btn-danger">Book</button>
@@ -73,10 +85,7 @@
             <div class="card-header">
               <h4 class="card-title d-inline-block">Appointments</h4>
               <a
-                [routerLink]="[
-                  '/hospital-appointment',
-                  recommendedHospitals[0].city
-                ]"
+                [routerLink]="['/patient/appointment']"
                 class="btn btn-primary float-right"
                 >View all
               </a>
