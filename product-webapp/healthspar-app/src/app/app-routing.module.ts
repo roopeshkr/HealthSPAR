@@ -25,6 +25,7 @@ import { HospitalDashboardHomeComponent } from './components/HospitalDashboard/h
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 
 import { PatientHomeComponent } from './components/PatientDashboard/patient-home/patient-home.component';
+import { AuthGuard } from './Authentication/auth.guard';
 
 const routes: Routes = [
 
@@ -48,7 +49,8 @@ const routes: Routes = [
       { path: 'display', component: PatientHomeComponent },
       { path: 'update', component: UpdateProfileComponent },
       { path: 'hospital', component: HospitalComponent },
-    ]
+    ],
+    // canActivate: [AuthGuard],
   },
 
 
@@ -67,7 +69,8 @@ const routes: Routes = [
       { path: 'add-doctor/:id', component: AddDoctorComponent },
       { path: 'edit-doctor/:hospitalId/:index', component: EditDoctorComponent },
       { path: 'doctor/:hospitalId/:index', component: DoctorComponent },
-    ]
+    ],
+    // canActivate: [AuthGuard]
   },
 
 ];

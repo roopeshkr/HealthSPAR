@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { HospitalImageService } from 'src/app/service/hospital-image.service';
 import { Appointment } from 'src/app/model/appointment';
 import { AppointmentService } from 'src/app/service/appointment.service';
+import { PatientProfileService } from 'src/app/service/patient-profile.service';
+import { Patient } from 'src/app/model/patient';
 
 @Component({
   selector: 'app-recommendation',
@@ -16,10 +18,11 @@ export class RecommendationComponent implements OnInit {
   appointments: Appointment[] = [];
   todayAppointments: Appointment[] = [];
 
-  constructor(private recommendService: RecommendationService, private appointmentService: AppointmentService, private route: Router, private imageService: HospitalImageService) { }
 
-  public getAppointmentForHospital(hospitalId: number) {
-    this.appointmentService.getAppointmentsForHospital(hospitalId).subscribe(
+  constructor(private recommendService: RecommendationService, private appointmentService: AppointmentService, private route: Router, private imageService: HospitalImageService,private patientService:PatientProfileService) { }
+
+  public getAppointmentForPatient(patientId: string) {
+    this.appointmentService.getAppointmentsForPatient(patientId).subscribe(
       (response: Appointment[]) => {
         this.appointments = response;
         this.appointments.sort(
@@ -35,6 +38,20 @@ export class RecommendationComponent implements OnInit {
     )
   }
 
+  public getPatientCity(): void {
+    const patientId = localStorage.getItem('patientId');
+  
+    if (patientId !== null) {
+      this.patientService.getPatientProfile(patientId).subscribe(
+        (response: Patient) => {
+          this.getRecommendations(response.cityName);
+          this.getAppointmentForPatient(response.patientId);
+        }
+      );
+    } 
+  }
+  
+
   filterTodayAppointments() {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -48,7 +65,7 @@ export class RecommendationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getRecommendations('chennai');
+    this.getPatientCity();
   }
 
   public getRecommendations(cityName: string): void {

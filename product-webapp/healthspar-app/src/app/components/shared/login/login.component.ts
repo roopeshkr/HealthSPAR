@@ -1,7 +1,9 @@
 import { Component, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Patient } from 'src/app/model/patient';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { PatientProfileService } from 'src/app/service/patient-profile.service';
 
 
 @Component({
@@ -13,12 +15,14 @@ export class LoginComponent implements AfterViewInit {
   email = '';
   password = '';
   selectedRole = 'PATIENT';
-  errorMessage = '';
+  patientId='';
+  errorMessage= '';
   successMessage = '';
   loginForm: FormGroup; 
   signupForm: FormGroup;
 
-  constructor(private renderer: Renderer2, private authService: AuthenticationService, private formBuilder: FormBuilder,private route:Router) {
+
+  constructor(private renderer: Renderer2, private authService: AuthenticationService, private formBuilder: FormBuilder,private route:Router,private patientService:PatientProfileService) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]], // Email is required and should be a valid email format
       password: ['', Validators.required] // Password is required
@@ -37,6 +41,10 @@ export class LoginComponent implements AfterViewInit {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
         (response) => {
           this.successMessage = 'Login successful';
+          this.getPatientByEmail(this.loginForm.value.email);
+          localStorage.setItem('access_token',response.access_token)
+          localStorage.setItem("patientId",this.patientId);
+          this.loginForm.reset();
           this.route.navigate(['/patient/index']);
           this.errorMessage = '';
         },
@@ -59,6 +67,9 @@ export class LoginComponent implements AfterViewInit {
         )
         .subscribe(
           (response) => {
+            localStorage.setItem('access_token', response.access_token);
+            localStorage.setItem('email', this.signupForm.value.email);
+            localStorage.setItem('name', this.signupForm.value.name);
             this.route.navigate(['/patient/profile']);
           },
           (error) => {
@@ -66,6 +77,14 @@ export class LoginComponent implements AfterViewInit {
           }
         );
     } 
+  }
+
+  getPatientByEmail(email:string):void{
+    this.patientService.getPatientByEmail(email).subscribe(
+      (response)=>{
+        this.patientId=response.patientId;
+      }
+    )
   }
 
   ngAfterViewInit() {

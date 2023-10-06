@@ -7,11 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  
-  constructor(private router:Router){}
+
+  constructor(private router: Router) { }
 
   logout() {
-    localStorage.clear();
+    localStorage.removeItem('access_token');
     this.router.navigate(['/']);
   }
 }
