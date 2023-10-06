@@ -26,6 +26,10 @@ import { RecommendationComponent } from './components/patient/recommendation/rec
 
 import { PatientHomeComponent } from './components/PatientDashboard/patient-home/patient-home.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
+import { SignupComponent } from './components/shared/signup/signup.component';
+import { DisplayProfileComponent } from './components/patient/display-profile/display-profile.component';
+import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
+import { PatientSidenavComponent } from './components/PatientDashboard/patient-sidenav/patient-sidenav.component';
 
 const routes: Routes = [
   // common routes
