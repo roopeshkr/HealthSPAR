@@ -40,17 +40,17 @@ const routes: Routes = [
   {
     path: 'patient', component: HomeComponent,
     children: [
+      { path: 'profile', component: ProfileComponent },
       { path: '', redirectTo: '/index', pathMatch: 'full' },
       { path: 'index', component: RecommendationComponent },
       { path: 'hospital-page/:id', component: HospitalPageComponent },
       { path: 'appointment', component: AppointmentComponent },
       { path: 'reschedule/:id', component: RescheduleAppointmentComponent },
-      { path: 'profile', component: ProfileComponent },
       { path: 'display', component: PatientHomeComponent },
       { path: 'update', component: UpdateProfileComponent },
       { path: 'hospital', component: HospitalComponent },
     ],
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
 
 
@@ -58,19 +58,19 @@ const routes: Routes = [
   {
     path: 'hospital', component: HospitalDashboardHomeComponent,
     children: [
+      { path: 'profile', component: HospitalDetailsComponent },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: HospitalDashboardComponent },
       { path: 'appointment', component: AppointmentsListComponent },
       { path: 'reschedule/:id', component: RescheduleHospitalAppointmentComponent },
-      { path: 'profile', component: HospitalDetailsComponent },
       {path: 'display', component: DisplayHospitalDetailsComponent},
-      { path: 'update/:id', component: UpdateHospitalDetailsComponent },
+      { path: 'update', component: UpdateHospitalDetailsComponent },
       { path: 'doctors', component: DoctorsListComponent},
-      { path: 'add-doctor/:id', component: AddDoctorComponent },
-      { path: 'edit-doctor/:hospitalId/:index', component: EditDoctorComponent },
-      { path: 'doctor/:hospitalId/:index', component: DoctorComponent },
+      { path: 'add-doctor', component: AddDoctorComponent },
+      { path: 'edit-doctor/:index', component: EditDoctorComponent },
+      { path: 'doctor/:index', component: DoctorComponent },
     ],
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
 
 ];

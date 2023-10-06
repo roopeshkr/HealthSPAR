@@ -6,6 +6,7 @@ import { Appointment } from 'src/app/model/appointment';
 import { Hospital } from 'src/app/model/hospital';
 import { AppointmentService } from 'src/app/service/appointment.service';
 import { HospitalService } from 'src/app/service/hospital.service';
+import { PatientProfileService } from 'src/app/service/patient-profile.service';
 
 @Component({
   selector: 'app-appointment',
@@ -15,11 +16,12 @@ import { HospitalService } from 'src/app/service/hospital.service';
 export class AppointmentComponent implements OnInit {
   appointments: Appointment[] = [];
   hospitals: Hospital[] = [];
+  patientId:string='';
 
-  constructor(private appointmentService: AppointmentService, private hospitalService: HospitalService, private datePipe: DatePipe, private route: Router) { }
+  constructor(private appointmentService: AppointmentService, private hospitalService: HospitalService, private datePipe: DatePipe, private route: Router,private patientService:PatientProfileService) { }
 
   ngOnInit(): void {
-    this.getAppointmentForPatients('650fe161ef773a225c7d37bd');
+    this.getAppointmentForPatients(this.patientId);
     const trigger = $('.hamburger');
     const overlay = $('.overlay');
     let isClosed = false;
@@ -45,6 +47,17 @@ export class AppointmentComponent implements OnInit {
     $('[data-toggle="offcanvas"]').click(() => {
       $('#wrapper').toggleClass('toggled');
     });
+  }
+
+  public getPatient():void{
+    const patientId = localStorage.getItem('patientId');
+    if(patientId!==null){
+      this.patientService.getPatientProfile(patientId).subscribe(
+        (response)=>{
+          this.patientId=response.patientId;
+        }
+      )
+    }
   }
 
   public getAppointmentForPatients(patientId: string) {
@@ -92,7 +105,7 @@ export class AppointmentComponent implements OnInit {
   }
 
   refreshAppointments() {
-    this.getAppointmentForPatients('650fe161ef773a225c7d37bd');
+    this.getAppointmentForPatients(this.patientId);
   }
 
 

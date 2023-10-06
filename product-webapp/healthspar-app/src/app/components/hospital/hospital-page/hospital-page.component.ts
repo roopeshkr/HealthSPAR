@@ -38,6 +38,7 @@ export class HospitalPageComponent implements OnInit {
   patientName: string = '';
   email: string = '';
   phoneNumber: string = '';
+  patientId:string='';
 
   constructor(
     private hospitalService: HospitalService,
@@ -52,10 +53,10 @@ export class HospitalPageComponent implements OnInit {
    
 
     this.appointmentForm = this.formBuilder.group({
-      patientName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
-      email: ['', [Validators.required, Validators.email]],
+      patientName: [this.patientName, [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
+      email: [this.email, [Validators.required, Validators.email]],
       phoneNumber: [
-        '',
+        this.phoneNumber,
         [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(10), Validators.maxLength(10)],
       ],
       treatmentType: ['', Validators.required],
@@ -65,22 +66,10 @@ export class HospitalPageComponent implements OnInit {
       doctor: ['', Validators.required]
     });
 
-    this.patientService.getPatientProfile("650fe161ef773a225c7d37bd").subscribe(
-      (patientData) => {
-        this.patientName = patientData.patientName;
-        this.email = patientData.email;
-        this.phoneNumber = patientData.phoneNumber;
-
-        this.appointmentForm.patchValue({
-          patientName: this.patientName,
-          email: this.email,
-          phoneNumber: this.phoneNumber
-        });
-      }
-    );
   }
 
   ngOnInit(): void {
+    this.getPatient();
     this.router.params.subscribe((params) => {
       const hospitalId = +params['id'];
       this.getHospitalById(hospitalId);
@@ -97,6 +86,20 @@ export class HospitalPageComponent implements OnInit {
     )
   }
 
+  public getPatient():void{
+    const patientId = localStorage.getItem('patientId');
+    if(patientId!==null){
+      this.patientService.getPatientProfile(patientId).subscribe(
+        (response)=>{
+          this.patientId=response.patientId;
+          this.patientName=response.patientName;
+          this.email=response.email;
+          this.phoneNumber=response.phoneNumber;
+        }
+      )
+    }
+  }
+
   onSubmit() {
     this.isSubmitted = true;
     console.log("submited");
@@ -107,7 +110,7 @@ export class HospitalPageComponent implements OnInit {
 
       const appointmentData: Appointment = {
         ...this.appointmentForm.value,
-        patientId: '650fe161ef773a225c7d37bd',
+        patientId: this.patientId,
         hospitalId: this.hospital.hospitalId,
         action: 'INITIALIZED',
         dateTime: isoDateTime,

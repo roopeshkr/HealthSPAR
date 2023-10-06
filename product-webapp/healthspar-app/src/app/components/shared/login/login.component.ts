@@ -41,9 +41,8 @@ export class LoginComponent implements AfterViewInit {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
         (response) => {
           this.successMessage = 'Login successful';
-          this.getPatientByEmail(this.loginForm.value.email);
           localStorage.setItem('access_token',response.access_token)
-          localStorage.setItem("patientId",this.patientId);
+          this.getPatientByEmail(this.loginForm.value.email);
           this.loginForm.reset();
           this.route.navigate(['/patient/index']);
           this.errorMessage = '';
@@ -79,12 +78,16 @@ export class LoginComponent implements AfterViewInit {
     } 
   }
 
-  getPatientByEmail(email:string):void{
+  getPatientByEmail(email: string): void {
     this.patientService.getPatientByEmail(email).subscribe(
-      (response)=>{
-        this.patientId=response.patientId;
+      (response) => {
+        this.patientId = response.patientId;  
+        localStorage.setItem("patientId", this.patientId);
+      },
+      (error) => {
+        console.error(error);
       }
-    )
+    );
   }
 
   ngAfterViewInit() {

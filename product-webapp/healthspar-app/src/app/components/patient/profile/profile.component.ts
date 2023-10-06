@@ -15,7 +15,7 @@ export class ProfileComponent implements AfterViewInit {
   step: any = 1;
   email = localStorage.getItem('email');
   name = localStorage.getItem('name');
-  
+
   @ViewChild('dateInput', { static: false }) dateInput!: ElementRef<HTMLInputElement>;
 
   constructor(private profileService: PatientProfileService, private formBuilder: FormBuilder, private route: Router) {
@@ -51,7 +51,7 @@ export class ProfileComponent implements AfterViewInit {
     dateInputElement.max = currentDate.toISOString().split('T')[0];
   }
 
-  
+
 
   get basicDetails() {
     return this.patientProfileForm.get('basicDetailForm');
@@ -75,8 +75,8 @@ export class ProfileComponent implements AfterViewInit {
     this.step = this.step + 1;
 
     if (this.step == 4 && this.patientProfileForm.valid) {
-      
-      const patientData:Patient={
+
+      const patientData: Patient = {
         patientId: '',
         patientName: this.basicDetails?.get('patientName')?.value,
         email: this.basicDetails?.get('email')?.value,
@@ -93,16 +93,24 @@ export class ProfileComponent implements AfterViewInit {
         medicineHistory: this.medicalDetails?.get('medicineHistory')?.value,
         treatmentHistory: this.medicalDetails?.get('treatmentHistory')?.value,
       }
-      
+
 
       this.profileService.addPatientProfile(patientData).subscribe(
         (response) => {
           console.log('Patient added successfully:', response);
-          localStorage.setItem("patientId",response.patientId);
+          this.getPatientByEmail(response.email)
           this.route.navigate(['/patient/index']);
         }
       );
     }
+  }
+
+  getPatientByEmail(email: string): void {
+    this.profileService.getPatientByEmail(email).subscribe(
+      (response) => {
+        localStorage.setItem("patientId", response.patientId);
+      }
+    )
   }
 
   previous() {

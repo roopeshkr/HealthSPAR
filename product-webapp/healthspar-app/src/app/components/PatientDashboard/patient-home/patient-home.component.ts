@@ -32,10 +32,7 @@ export class PatientHomeComponent implements OnInit {
   constructor(private patientService: PatientProfileService, private router: ActivatedRoute, private httpClient: HttpClient) { }
 
   ngOnInit() {
-
-    this.getPatientById('651e784659ba85041f27f26c');
-
-
+    this.getPatient();
     const trigger = $('.hamburger');
     const overlay = $('.overlay');
     let isClosed = false;
@@ -63,14 +60,19 @@ export class PatientHomeComponent implements OnInit {
     });
   }
 
-  public getPatientById(patientId: string): void {
-    this.patientService.getPatientProfile(patientId).subscribe(
-      (response: Patient) => {
-        this.patient = response
-        this.dbImage = `http://localhost:8090/get/image/${this.patient.fileName}`;
-        console.log(this.patient);
-      }
-    )
+  
+
+  public getPatient(): void {
+    const patientId = localStorage.getItem('patientId');
+    if (patientId !== null) {
+      this.patientService.getPatientProfile(patientId).subscribe(
+        (response) => {
+          this.patient = response
+          this.dbImage = `http://localhost:8090/get/image/${this.patient.fileName}`;
+          console.log(this.patient);
+        }
+      )
+    }
   }
 
 }

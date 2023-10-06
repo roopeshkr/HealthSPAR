@@ -56,15 +56,37 @@ export class EditDoctorComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.params.subscribe((params) => {
-      this.hospitalId = +params['hospitalId'];
       this.index = +params['index'];
-
-      this.getHospital(this.hospitalId);
-
-      if (this.hospitalId !== null && this.index !== null) {
-        this.getDoctor(this.hospitalId, this.index);
-      }
     });
+    this.getHospital();
+  }
+  
+  private getHospital(): void {
+    const hospitalIdString = localStorage.getItem("hospitalId");
+    
+    if (hospitalIdString !== null) {
+      const hospitalId = parseInt(hospitalIdString, 10);
+      
+      if (!isNaN(hospitalId)) {
+        this.profileService.getHospitalProfile(hospitalId).subscribe(
+          (response) => {
+            if (response.hospitalId !== null && this.index !== null) {
+              this.getDoctor(response.hospitalId, this.index);
+            }
+            this.hospital = response;
+            this.hospitalId=response.hospitalId;
+            console.log("hospital : ", this.hospital);
+          },
+          (error) => {
+            console.error("Error fetching hospital profile:", error);
+          }
+        );
+      } else {
+        console.error("Invalid hospitalId in localStorage:", hospitalIdString);
+      }
+    } else {
+      console.error("hospitalId not found in localStorage");
+    }
   }
 
   onSubmit() {
@@ -99,16 +121,7 @@ export class EditDoctorComponent implements OnInit {
     );
   }
 
-  getHospital(hospitalId: number): void {
-    this.profileService.getHospitalProfile(hospitalId).subscribe(
-      (response: Hospital) => {
-        this.hospital = response;
-      },
-      (error) => {
-        console.error('Error fetching hospital:', error);
-      }
-    );
-  }
+ 
 
   populateFormWithDoctor(doctorData: Doctor) {
     this.doctorDetailForm.patchValue(doctorData);

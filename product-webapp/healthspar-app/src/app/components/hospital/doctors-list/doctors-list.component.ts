@@ -41,24 +41,37 @@ export class DoctorsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.params.subscribe((params) => {
-      const hospitalId = +params['id'];
-    });
-    this.getHospitalById(0);
+    this.getHospital();
   }
 
-  public getHospitalById(hospitalId: number): void {
-    this.hospitalService.getHospitalProfile(hospitalId).subscribe(
-      (response: Hospital) => {
-        this.hospital = response;
-        console.log(this.hospital);
-
+  private getHospital(): void {
+    const hospitalIdString = localStorage.getItem("hospitalId");
+  
+    if (hospitalIdString !== null) {
+      const hospitalId = parseInt(hospitalIdString, 10);
+  
+      if (!isNaN(hospitalId)) {
+        this.hospitalService.getHospitalProfile(hospitalId).subscribe(
+          (response) => {
+            this.hospital = response;
+            console.log("hospital : ", this.hospital);
+          },
+          (error) => {
+            console.error("Error fetching hospital profile:", error);
+          }
+        );
+      } else {
+        console.error("Invalid hospitalId in localStorage:", hospitalIdString);
       }
-    )
+    } else {
+      console.error("hospitalId not found in localStorage");
+    }
   }
 
-  onEditClick(hospitalId: number,index:number): void {
-    this.route.navigate(['/edit-doctor', hospitalId,index]);
+  
+
+  onEditClick(index:number): void {
+    this.route.navigate(['/hospital/edit-doctor',index]);
   }
 
   removeDoctor(index:number):void{
@@ -78,8 +91,8 @@ export class DoctorsListComponent implements OnInit {
     }
   }
 
-  onClickDoctor(hospitalId:number,index:number): void {
-    this.route.navigate(['/hospital-page', hospitalId,index]);
+  onClickDoctor(index:number): void {
+    this.route.navigate(['/hospital/doctor',index]);
   }
   
 

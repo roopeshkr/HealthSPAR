@@ -10,10 +10,10 @@ import { HospitalService } from 'src/app/service/hospital.service';
   templateUrl: './doctor.component.html',
   styleUrls: ['./doctor.component.css']
 })
-export class DoctorComponent implements OnInit{
-  index:number=0;
-  hospitalId:number=0;
-  doctor:Doctor={
+export class DoctorComponent implements OnInit {
+  index: number = 0;
+  hospitalId: number = 0;
+  doctor: Doctor = {
     doctorName: '',
     department: '',
     qualification: '',
@@ -25,28 +25,49 @@ export class DoctorComponent implements OnInit{
   }
   appointments: Appointment[] = [];
 
-  onClickEdit(hospitalId:number,index:number): void {
-    this.route.navigate(['/hospital/edit-doctor', hospitalId,index]);
+  onClickEdit(hospitalId: number, index: number): void {
+    this.route.navigate(['/hospital/edit-doctor', hospitalId, index]);
   }
 
-  constructor(private hospitalService:HospitalService,private router:ActivatedRoute,private route:Router,private appointmentService: AppointmentService,){}
+  constructor(private hospitalService: HospitalService, private router: ActivatedRoute, private route: Router, private appointmentService: AppointmentService,) { }
 
   ngOnInit(): void {
     this.router.params.subscribe(
-      (params)=>{
-        this.index= +params['index'];
-        this.hospitalId= +params['hospitalId'];
-        this.getDoctor(this.hospitalId,this.index);
-        this.getAppointmentForHospital(this.hospitalId);
+      (params) => {
+        this.index = +params['index'];
       }
     )
+    this.getHospital();
   }
-  
+
+  private getHospital(): void {
+    const hospitalIdString = localStorage.getItem("hospitalId");
+
+    if (hospitalIdString !== null) {
+      const hospitalId = parseInt(hospitalIdString, 10);
+
+      if (!isNaN(hospitalId)) {
+        this.hospitalService.getHospitalProfile(hospitalId).subscribe(
+          (response) => {
+            this.getDoctor(response.hospitalId, this.index);
+            this.getAppointmentForHospital(response.hospitalId);
+          },
+          (error) => {
+            console.error("Error fetching hospital profile:", error);
+          }
+        );
+      } else {
+        console.error("Invalid hospitalId in localStorage:", hospitalIdString);
+      }
+    } else {
+      console.error("hospitalId not found in localStorage");
+    }
+  }
 
   getDoctor(hospitalId: number, index: number): void {
     this.hospitalService.getDoctorByIndex(hospitalId, index).subscribe(
       (response) => {
-        this.doctor=response
+        this.doctor = response
       },
       (error) => {
         console.error('Error fetching doctor:', error);
@@ -71,7 +92,7 @@ export class DoctorComponent implements OnInit{
     )
   }
 
- 
 
- 
+
+
 }

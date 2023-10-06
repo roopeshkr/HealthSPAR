@@ -11,16 +11,16 @@ import { PatientProfileService } from 'src/app/service/patient-profile.service';
   styleUrls: ['./hospital-register.component.css']
 })
 export class HospitalRegisterComponent implements AfterViewInit {
-  email:string = '';
-  password:string = '';
-  selectedRole:string = 'HCP';
-  errorMessage:string = '';
-  hospitalId:number=0;
-  successMessage:string = '';
-  loginForm: FormGroup; 
+  email: string = '';
+  password: string = '';
+  selectedRole: string = 'HCP';
+  errorMessage: string = '';
+  hospitalId: number = 0;
+  successMessage: string = '';
+  loginForm: FormGroup;
   signupForm: FormGroup;
 
-  constructor(private renderer: Renderer2, private authService: AuthenticationService, private formBuilder: FormBuilder,private route:Router,private hospitalService:HospitalService) {
+  constructor(private renderer: Renderer2, private authService: AuthenticationService, private formBuilder: FormBuilder, private route: Router, private hospitalService: HospitalService) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]], // Email is required and should be a valid email format
       password: ['', Validators.required] // Password is required
@@ -33,10 +33,14 @@ export class HospitalRegisterComponent implements AfterViewInit {
     });
   }
 
-  public getHospitalByEmail(email:string):void{
+  public getHospitalByEmail(email: string): void {
     this.hospitalService.getHospitalProfileByEmail(email).subscribe(
-      (response)=>{
-        this.hospitalId=response.hospitalId;
+      (response) => {
+        this.hospitalId = response.hospitalId;
+        localStorage.setItem("hospitalId", `${this.hospitalId}`);
+      },
+      (error) => {
+        console.error(error);
       }
     )
   }
@@ -47,8 +51,10 @@ export class HospitalRegisterComponent implements AfterViewInit {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
         (response) => {
           this.successMessage = 'Login successful';
+          localStorage.setItem('access_token', response.access_token);
           this.getHospitalByEmail(this.loginForm.value.email);
-          this.route.navigate(['/hospital/dashboard',this.hospitalId]);
+          this.loginForm.reset();
+          this.route.navigate(['/hospital/dashboard']);
           this.errorMessage = '';
         },
         (error) => {
@@ -70,13 +76,16 @@ export class HospitalRegisterComponent implements AfterViewInit {
         )
         .subscribe(
           (response) => {
+            localStorage.setItem('access_token', response.access_token);
+            localStorage.setItem('email', this.signupForm.value.email);
+            localStorage.setItem('name', this.signupForm.value.name);
             this.route.navigate(['/hospital/profile']);
           },
           (error) => {
             console.error(error);
           }
         );
-    } 
+    }
   }
 
   ngAfterViewInit() {

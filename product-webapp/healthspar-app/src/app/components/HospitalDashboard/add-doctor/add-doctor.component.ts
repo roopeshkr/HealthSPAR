@@ -33,11 +33,30 @@ export class AddDoctorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.params.subscribe(
-      (params) => {
-        this.hospitalId = +params['id'];
+    this.getHospital();
+  }
+  
+  private getHospital(): void {
+    const hospitalIdString = localStorage.getItem("hospitalId");
+  
+    if (hospitalIdString !== null) {
+      const hospitalId = parseInt(hospitalIdString, 10);
+  
+      if (!isNaN(hospitalId)) {
+        this.profileService.getHospitalProfile(hospitalId).subscribe(
+          (response) => {
+            this.hospitalId = response.hospitalId;
+          },
+          (error) => {
+            console.error("Error fetching hospital profile:", error);
+          }
+        );
+      } else {
+        console.error("Invalid hospitalId in localStorage:", hospitalIdString);
       }
-    );
+    } else {
+      console.error("hospitalId not found in localStorage");
+    }
   }
 
   onSubmit() {
