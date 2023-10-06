@@ -90,6 +90,7 @@ import { PatientHomeComponent } from './components/PatientDashboard/patient-home
     SidenavComponent,
     PatientSidenavComponent,
     PatientHomeComponent,
+    HospitalComponent,
   ],
   imports: [
     CommonModule,

@@ -29,6 +29,7 @@ import { RecommendationComponent } from './components/patient/recommendation/rec
 import { SidenavComponent } from './components/patient/sidenav/sidenav.component';
 import { PatientSidenavComponent } from './components/PatientDashboard/patient-sidenav/patient-sidenav.component';
 import { PatientHomeComponent } from './components/PatientDashboard/patient-home/patient-home.component';
+import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home-page', pathMatch: 'full' },
@@ -43,55 +44,60 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'hospital-login', component: HospitalRegisterComponent },
   { path: 'signup', component: SignupComponent },
-  
+  { path: 'hospital', component: HospitalComponent },
+  { path: 'page-404', component: PageNotFoundComponent },
 
   { path: 'profile', component: ProfileComponent },
   { path: 'display-profile', component: DisplayProfileComponent },
 
-  
   {
     path: 'reschedule-patient-appointment/:id',
     component: RescheduleAppointmentComponent,
   },
   { path: 'patient-appointment', component: AppointmentComponent },
-  
-  
-  
+
   { path: 'home-page', component: HomePageComponent },
   {
-    path:'patient-home',component:HomeComponent,
-    children:[
-      {path:'',redirectTo:'/index',pathMatch:'full'},
+    path: 'patient-home',
+    component: HomeComponent,
+    children: [
+      { path: '', redirectTo: '/index', pathMatch: 'full' },
       { path: 'index', component: RecommendationComponent },
-    ]
+    ],
   },
-  
+
   {
-    path: 'hospital-home', component: HospitalDashboardHomeComponent,
+    path: 'hospital-home',
+    component: HospitalDashboardHomeComponent,
     children: [
       { path: '', redirectTo: '/hospital-dashboard:id', pathMatch: 'full' },
       { path: 'hospital-dashboard/:id', component: HospitalDashboardComponent },
       {
-        path: 'doctors-list', component: DoctorsListComponent
+        path: 'doctors-list',
+        component: DoctorsListComponent,
       },
       { path: 'add-doctor', component: AddDoctorComponent },
       { path: 'hospital-appointment', component: AppointmentsListComponent },
       {
-        path: 'display-hospital-details', component: DisplayHospitalDetailsComponent,
+        path: 'display-hospital-details',
+        component: DisplayHospitalDetailsComponent,
       },
       {
         path: 'update-hospital-details/:id',
         component: UpdateHospitalDetailsComponent,
       },
       { path: 'doctor/:hospitalId/:id', component: DoctorComponent },
-      { path: 'edit-doctor/:hospitalId/:index', component: EditDoctorComponent },
+      {
+        path: 'edit-doctor/:hospitalId/:index',
+        component: EditDoctorComponent,
+      },
       { path: 'hospital-details', component: HospitalDetailsComponent },
       { path: 'hospital-appointment', component: AppointmentsListComponent },
       {
         path: 'reschedule-hospital-appointment/:id',
         component: RescheduleHospitalAppointmentComponent,
       },
-    ]
+    ],
   },
   { path: 'patient-profile-sidenav', component: SidenavComponent },
   {
@@ -99,11 +105,11 @@ const routes: Routes = [
     component: PatientSidenavComponent,
   },
 
-  { path: 'patient-home', component: PatientHomeComponent },
+  { path: 'patient-home2', component: PatientHomeComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
