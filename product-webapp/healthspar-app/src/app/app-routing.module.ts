@@ -26,12 +26,14 @@ import { RecommendationComponent } from './components/patient/recommendation/rec
 
 import { PatientHomeComponent } from './components/PatientDashboard/patient-home/patient-home.component';
 import { AuthGuard } from './Authentication/auth.guard';
+import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 
 const routes: Routes = [
 
   // common routes 
   { path: 'home', component: HomePageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent },
   { path: 'patient-login', component: LoginComponent },
   { path: 'hospital-login', component: HospitalRegisterComponent },
 
@@ -63,9 +65,9 @@ const routes: Routes = [
       { path: 'dashboard', component: HospitalDashboardComponent },
       { path: 'appointment', component: AppointmentsListComponent },
       { path: 'reschedule/:id', component: RescheduleHospitalAppointmentComponent },
-      {path: 'display', component: DisplayHospitalDetailsComponent},
+      { path: 'display', component: DisplayHospitalDetailsComponent },
       { path: 'update', component: UpdateHospitalDetailsComponent },
-      { path: 'doctors', component: DoctorsListComponent},
+      { path: 'doctors', component: DoctorsListComponent },
       { path: 'add-doctor', component: AddDoctorComponent },
       { path: 'edit-doctor/:index', component: EditDoctorComponent },
       { path: 'doctor/:index', component: DoctorComponent },
