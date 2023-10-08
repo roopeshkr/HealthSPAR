@@ -32,8 +32,8 @@ export class UpdateProfileComponent implements OnInit {
   step: any = 1;
 
   constructor(
-    private patientService: PatientProfileService, 
-    private formBuilder: FormBuilder, 
+    private patientService: PatientProfileService,
+    private formBuilder: FormBuilder,
     private route: Router) {
     this.patientProfileForm = this.formBuilder.group({
       basicDetailForm: this.formBuilder.group({
@@ -70,7 +70,7 @@ export class UpdateProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPatient('6518631ba32afb3213588881');
+    this.getPatient();
   }
 
   onSubmit() {
@@ -117,41 +117,43 @@ export class UpdateProfileComponent implements OnInit {
     }
   }
 
-  public getPatient(patientId: string): void {
-    this.patientService.getPatientProfile(patientId).subscribe(
-      (response) => {
-        this.patient = response;
 
-        this.basicDetails?.patchValue({
-          patientName: this.patient.patientName,
-          email: this.patient.email,
-          phoneNumber: this.patient.phoneNumber,
-          dob: this.patient.dob,
-          bloodGroup: this.patient.bloodGroup,
-          gender: this.patient.gender,
-        });
 
-        this.addressDetails?.patchValue({
-          cityName: this.patient.cityName,
-          district: this.patient.district,
-          state: this.patient.state,
-          country: this.patient.country,
-          zip: this.patient.zip,
-        });
+  public getPatient(): void {
+    const patientId = localStorage.getItem('patientId');
+    if (patientId !== null) {
+      this.patientService.getPatientProfile(patientId).subscribe(
+        (response) => {
+          this.patient = response;
 
-        this.medicalDetails?.patchValue({
-          medicalHistory: this.patient.medicalHistory,
-          medicineHistory: this.patient.medicineHistory,
-          treatmentHistory: this.patient.treatmentHistory,
-        });
-      },
-      (error) => {
-        // console.error('Error fetching patient:', error);
-      }
-    );
+          this.basicDetails?.patchValue({
+            patientName: this.patient.patientName,
+            email: this.patient.email,
+            phoneNumber: this.patient.phoneNumber,
+            dob: this.patient.dob,
+            bloodGroup: this.patient.bloodGroup,
+            gender: this.patient.gender,
+          });
+
+          this.addressDetails?.patchValue({
+            cityName: this.patient.cityName,
+            district: this.patient.district,
+            state: this.patient.state,
+            country: this.patient.country,
+            zip: this.patient.zip,
+          });
+
+          this.medicalDetails?.patchValue({
+            medicalHistory: this.patient.medicalHistory,
+            medicineHistory: this.patient.medicineHistory,
+            treatmentHistory: this.patient.treatmentHistory,
+          });
+        }
+      )
+    }
   }
 
-  
+
 
   previous() {
     this.step = this.step - 1;

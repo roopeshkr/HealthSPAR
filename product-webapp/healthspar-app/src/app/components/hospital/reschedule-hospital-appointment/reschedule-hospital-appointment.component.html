@@ -62,7 +62,7 @@
                   id="name"
                   placeholder="Your Name"
                   required
-                  [disabled]="isDisabled"
+                  
                   formControlName="patientName"
                   [(ngModel)]="appointment.patientName"
                 />
@@ -83,7 +83,7 @@
                   id="email"
                   placeholder="Your Email"
                   required
-                  [disabled]="isDisabled"
+                  
                   formControlName="email"
                   [(ngModel)]="appointment.email"
                 />
@@ -109,7 +109,7 @@
                   id="phone"
                   placeholder="Your Phone"
                   required
-                  [disabled]="isDisabled"
+                  
                   formControlName="phoneNumber"
                   [value]="appointment.phoneNumber"
                 />
@@ -189,7 +189,7 @@
                   id="doctor"
                   formControlName="doctor"
                   class="form-select"
-                  [disabled]="isDisabled"
+                  
                   [(ngModel)]="appointment.doctor"
                   required
                 >
@@ -218,7 +218,7 @@
                   name="treatment"
                   class="form-control"
                   id="treatment"
-                  [disabled]="isDisabled"
+                  
                   placeholder="Enter treatment type"
                   required
                   formControlName="treatmentType"
@@ -237,7 +237,7 @@
                   rows="4"
                   placeholder="Message (Optional)"
                   formControlName="message"
-                  [disabled]="isDisabled"
+                  
                   [(ngModel)]="appointment.message"
                 ></textarea>
               </div>

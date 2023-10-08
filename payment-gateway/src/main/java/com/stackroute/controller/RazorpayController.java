@@ -14,7 +14,7 @@ import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
 
 @RestController
-@RequestMapping("/pg")
+@RequestMapping("/api/v1/payment")
 public class RazorpayController {
 
     private RazorpayClient client;

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from 'src/app/model/appointment';
 import { AppointmentService } from 'src/app/service/appointment.service';
+import { HospitalService } from 'src/app/service/hospital.service';
 
 @Component({
   selector: 'app-appointments-list',
@@ -12,11 +13,10 @@ import { AppointmentService } from 'src/app/service/appointment.service';
 export class AppointmentsListComponent {
   appointments: Appointment[] = [];
 
-  constructor(private appointmentService: AppointmentService, private datePipe: DatePipe, private route: Router) { }
+  constructor(private appointmentService: AppointmentService, private datePipe: DatePipe, private route: Router,private hospitalService:HospitalService) { }
 
   ngOnInit(): void {
-
-    this.getAppointmentForHospital(0)
+    this.getHospital();    
     const trigger = $('.hamburger');
     const overlay = $('.overlay');
     let isClosed = false;
@@ -43,6 +43,28 @@ export class AppointmentsListComponent {
       $('#wrapper').toggleClass('toggled');
     });
   }
+  private getHospital(): void {
+    const hospitalIdString = localStorage.getItem("hospitalId");
+  
+    if (hospitalIdString !== null) {
+      const hospitalId = parseInt(hospitalIdString, 10);
+  
+      if (!isNaN(hospitalId)) {
+        this.hospitalService.getHospitalProfile(hospitalId).subscribe(
+          (response) => {
+            this.getAppointmentForHospital(response.hospitalId)
+          },
+          (error) => {
+            console.error("Error fetching hospital profile:", error);
+          }
+        );
+      } else {
+        console.error("Invalid hospitalId in localStorage:", hospitalIdString);
+      }
+    } else {
+      console.error("hospitalId not found in localStorage");
+    }
+  }
 
 
 
@@ -50,6 +72,8 @@ export class AppointmentsListComponent {
     this.appointmentService.getAppointmentsForHospital(hospitalId).subscribe(
       (response: Appointment[]) => {
         this.appointments = response;
+        console.log(this.appointments);
+        
         this.appointments.sort(
           (a, b) => {
             const dateA = new Date(a.dateTime);

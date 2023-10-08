@@ -4,6 +4,7 @@
     <div class="content">
       <div class="row">
         <div class="col-sm-4 col-3">
+<<<<<<< HEAD
           <h4 class="page-title">Recomended Hospital</h4>
         </div>
         <div class="col-sm-8 col-9 text-right m-b-20">
@@ -15,10 +16,19 @@
               <option>Mumbai</option>
               <option>Kolkata</option>
               <option>Haydrabad</option>
+=======
+          <h4 class="page-title">Recommended Hospitals</h4>
+        </div>
+        <div class="col-sm-8 col-9 text-right m-b-20">
+          <div class="form-group form-focus select-focus float-right">
+            <select class="select-floating" (change)="onCitySelect($event)">
+              <option *ngFor="let city of cityOptions">{{ city }}</option>
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
             </select>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       <div class="row doctor-grid">
         <div class="col-md-4 col-sm-4 col-lg-3" *ngFor="let doctor of hospital.doctors; let i = index">
           <div class="profile-widget">
@@ -35,10 +45,59 @@
             </h4>
             <div class="user-country">
               {{ doctor.department }}
+=======
+      <div class="row">
+        <div
+          class="col-sm-4"
+          *ngFor="let recommendation of recommendedHospitals"
+        >
+          <div class="card">
+            <h2 class="text-center">{{ recommendation.hospitalName }}</h2>
+            <div class="card-body d-flex align-items-start">
+              <div class="pic">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="card-info">
+                <p>
+                  <i class="fas fa-globe"></i>
+                  {{ recommendation.hospitalWebsite }}
+                </p>
+                <hr />
+                <p>
+                  <i class="far fa-envelope"></i>
+                  {{ recommendation.hospitalEmail }}
+                </p>
+                <hr />
+                <p>
+                  <i class="fas fa-phone"></i>
+                  {{ recommendation.hospitalPhoneNumber }}
+                </p>
+                <hr />
+              </div>
+            </div>
+            <div class="col-12 text-center my-2">
+              <a
+                [routerLink]="[
+                  '/patient/hospital-page',
+                  recommendation.hospitalId
+                ]"
+                class="my-2"
+              >
+                <button class="btn btn-danger">Book</button>
+              </a>
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7

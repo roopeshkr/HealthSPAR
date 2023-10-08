@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/appointments")
+@RequestMapping("/api/v1/appointment")
 @CrossOrigin("*")
 public class AppointmentsController {
 

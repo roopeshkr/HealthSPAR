@@ -14,13 +14,15 @@ export class HospitalDetailsComponent {
   isSubmitted: boolean = false;
   step: number = 1;
   hospitalId:number=0;
+  email = localStorage.getItem('email');
+  name = localStorage.getItem('name');
 
   constructor(private formBuilder: FormBuilder, private profileService: HospitalService, private route: Router) {
     this.hospitalProfileForm = this.formBuilder.group({
       basicDetailForm: this.formBuilder.group({
-        hospitalName: ['', Validators.required],
+        hospitalName: [this.name, Validators.required],
         hospitalWebsite: [''],
-        hospitalEmail: ['', [Validators.required, Validators.email]],
+        hospitalEmail: [this.email, [Validators.required, Validators.email]],
         hospitalPhoneNumber: [
           '',
           [
@@ -126,14 +128,26 @@ export class HospitalDetailsComponent {
       this.profileService.addHospitalProfile(hospitalData).subscribe(
         (response) => {
           console.log('Hospital added successfully:', response);
-          this.hospitalId=response.hospitalId
+          this.getHospitalByEmail(response.hospitalEmail);
+          this.route.navigate(['/hospital/dashboard']);
         },
         (error) => {
           console.error('Error adding hospital:', error);
         }
       );
-      this.route.navigate(['/hospital-home/hospital-dashboard',this.hospitalId]);
     }
+  }
+
+  public getHospitalByEmail(email: string): void {
+    this.profileService.getHospitalProfileByEmail(email).subscribe(
+      (response) => {
+        this.hospitalId = response.hospitalId;
+        localStorage.setItem("hospitalId", `${this.hospitalId}`);
+      },
+      (error) => {
+        console.error(error);
+      }
+    )
   }
 
   previous() {

@@ -70,7 +70,10 @@
             </div>
             <div class="col-12 text-center my-2">
               <a
-                [routerLink]="['/patient/hospital-page', recommendation.hospitalId]"
+                [routerLink]="[
+                  '/patient/hospital-page',
+                  recommendation.hospitalId
+                ]"
                 class="my-2"
               >
                 <button class="btn btn-danger">Book</button>
@@ -97,8 +100,8 @@
                     <tr *ngFor="let appointment of appointments">
                       <ng-container
                         *ngIf="
-                          appointment.status === 'CANCEL' ||
-                          appointment.status === 'INITIALIZED'
+                          appointment.status != 'CANCEL' &&
+                          appointment.status != 'INITIALIZED'
                         "
                       >
                         <td style="min-width: 200px">

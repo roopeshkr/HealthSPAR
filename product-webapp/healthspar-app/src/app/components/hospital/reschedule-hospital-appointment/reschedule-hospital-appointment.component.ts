@@ -49,8 +49,9 @@ export class RescheduleHospitalAppointmentComponent implements OnInit {
   };
 
   isSubmitted: boolean = false;
-  isDisabled: boolean = false;
   appointmentForm: FormGroup;
+  hospitalId: number = 0;
+
 
   constructor(private appointmentService: AppointmentService, private formBuilder: FormBuilder, private hospitalService: HospitalService, private route: Router,
     private router: ActivatedRoute) {
@@ -73,7 +74,6 @@ export class RescheduleHospitalAppointmentComponent implements OnInit {
       (params) => {
         const appointmentId = +params['id'];
         this.getAppointmentById(appointmentId);
-        this.getHospitalById(this.appointment.hospitalId)
       }
     );
     const trigger = $('.hamburger');
@@ -105,7 +105,6 @@ export class RescheduleHospitalAppointmentComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true;
-    this.isDisabled = true;
     if (this.appointmentForm.valid) {
       const localDateTimeValue = this.appointmentForm.get('dateTime')?.value;
       const isoDateTime = new Date(localDateTimeValue).toISOString().slice(0, 19);
@@ -117,11 +116,12 @@ export class RescheduleHospitalAppointmentComponent implements OnInit {
         dateTime: isoDateTime,
       };
 
+
       this.appointmentService.rescheduleAppointment(this.appointment.appointmentId, appointmentData).subscribe(
         (response: Appointment) => {
           this.appointment = response;
           console.log(this.appointment);
-          this.route.navigate(['hospital-appointment']);
+          this.route.navigate(['hospital/appointment']);
         },
         (error) => {
           console.error("Error rescheduling appointment:", error);
@@ -130,16 +130,6 @@ export class RescheduleHospitalAppointmentComponent implements OnInit {
     }
   }
 
-
-  public getHospitalById(hospitalId: number): void {
-    this.hospitalService.getHospitalProfile(hospitalId).subscribe(
-      (response: Hospital) => {
-        this.hospital = response;
-        console.log(this.hospital);
-
-      }
-    )
-  }
 
   patchFormWithAppointment(appointment: Appointment) {
     this.appointmentForm.patchValue({
@@ -154,14 +144,41 @@ export class RescheduleHospitalAppointmentComponent implements OnInit {
     });
   }
 
+  private getHospital(): void {
+    const hospitalIdString = localStorage.getItem("hospitalId");
+  
+    if (hospitalIdString !== null) {
+      const hospitalId = parseInt(hospitalIdString, 10);
+  
+      if (!isNaN(hospitalId)) {
+        this.hospitalService.getHospitalProfile(hospitalId).subscribe(
+          (response) => {
+            this.hospital = response;
+            this.hospitalId = response.hospitalId;
+            console.log("hospital : ", this.hospital);
+          },
+          (error) => {
+            console.error("Error fetching hospital profile:", error);
+          }
+        );
+      } else {
+        console.error("Invalid hospitalId in localStorage:", hospitalIdString);
+      }
+    } else {
+      console.error("hospitalId not found in localStorage");
+    }
+  }
+
   public getAppointmentById(appointmentId: number): void {
     this.appointmentService.getAppointmentsbyId(appointmentId).subscribe(
       (response: Appointment) => {
         this.appointment = response;
         this.patchFormWithAppointment(this.appointment);
+        this.getHospital();
         console.log(this.appointment);
 
       }
     )
   }
+
 }

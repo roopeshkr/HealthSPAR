@@ -5,6 +5,7 @@ import { Appointment } from 'src/app/model/appointment';
 import { Hospital } from 'src/app/model/hospital';
 import { AppointmentService } from 'src/app/service/appointment.service';
 import { HospitalService } from 'src/app/service/hospital.service';
+import { PatientProfileService } from 'src/app/service/patient-profile.service';
 
 @Component({
   selector: 'app-reschedule-appointment',
@@ -50,8 +51,10 @@ export class RescheduleAppointmentComponent implements OnInit {
 
   isSubmitted: boolean = false;
   appointmentForm: FormGroup;
+  patientId:string='';
+  
 
-  constructor(private appointmentService: AppointmentService, private formBuilder: FormBuilder, private hospitalService: HospitalService,private route: Router,
+  constructor(private appointmentService: AppointmentService, private formBuilder: FormBuilder, private hospitalService: HospitalService,private route: Router,private patientService:PatientProfileService,
     private router:ActivatedRoute) {
     this.appointmentForm = this.formBuilder.group({
       patientName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
@@ -68,6 +71,7 @@ export class RescheduleAppointmentComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    this.getPatient();
     this.router.params.subscribe(
       (params)=>{
         const appointmentId=+params['id'];
@@ -150,6 +154,17 @@ export class RescheduleAppointmentComponent implements OnInit {
       department: appointment.department,
       doctor: appointment.doctor,
     });
+  }
+
+  public getPatient():void{
+    const patientId = localStorage.getItem('patientId');
+    if(patientId!==null){
+      this.patientService.getPatientProfile(patientId).subscribe(
+        (response)=>{
+          this.patientId=response.patientId;
+        }
+      )
+    }
   }
 
   public getAppointmentById(appointmentId: number): void {

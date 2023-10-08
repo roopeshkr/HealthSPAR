@@ -6,7 +6,11 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/appointments_db
     username: root
+<<<<<<< HEAD
     password: shivam
+=======
+    password: password
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
     driver-class-name: com.mysql.cj.jdbc.Driver # MySQL driver
   jpa:
     hibernate:

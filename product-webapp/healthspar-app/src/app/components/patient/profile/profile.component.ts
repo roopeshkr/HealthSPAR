@@ -13,14 +13,16 @@ export class ProfileComponent implements AfterViewInit {
   patientProfileForm: FormGroup;
   isSubmitted: boolean = false;
   step: any = 1;
-  
+  email = localStorage.getItem('email');
+  name = localStorage.getItem('name');
+
   @ViewChild('dateInput', { static: false }) dateInput!: ElementRef<HTMLInputElement>;
 
   constructor(private profileService: PatientProfileService, private formBuilder: FormBuilder, private route: Router) {
     this.patientProfileForm = this.formBuilder.group({
       basicDetailForm: this.formBuilder.group({
-        patientName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
-        email: ['', [Validators.required, Validators.email]],
+        patientName: [this.name, [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
+        email: [this.email, [Validators.required, Validators.email]],
         phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(10), Validators.maxLength(10)]],
         dob: [new Date(), Validators.required],
         bloodGroup: ['null', Validators.required],
@@ -49,7 +51,7 @@ export class ProfileComponent implements AfterViewInit {
     dateInputElement.max = currentDate.toISOString().split('T')[0];
   }
 
-  
+
 
   get basicDetails() {
     return this.patientProfileForm.get('basicDetailForm');
@@ -73,9 +75,8 @@ export class ProfileComponent implements AfterViewInit {
     this.step = this.step + 1;
 
     if (this.step == 4 && this.patientProfileForm.valid) {
-      console.log("Form value : ",this.patientProfileForm.value);
-      
-      const patientData:Patient={
+
+      const patientData: Patient = {
         patientId: '',
         patientName: this.basicDetails?.get('patientName')?.value,
         email: this.basicDetails?.get('email')?.value,
@@ -92,16 +93,24 @@ export class ProfileComponent implements AfterViewInit {
         medicineHistory: this.medicalDetails?.get('medicineHistory')?.value,
         treatmentHistory: this.medicalDetails?.get('treatmentHistory')?.value,
       }
-      console.log("Database value : ",patientData);
-      
+
 
       this.profileService.addPatientProfile(patientData).subscribe(
         (response) => {
           console.log('Patient added successfully:', response);
+          this.getPatientByEmail(response.email)
+          this.route.navigate(['/patient/index']);
         }
       );
-      this.route.navigate(['/patient/index']);
     }
+  }
+
+  getPatientByEmail(email: string): void {
+    this.profileService.getPatientByEmail(email).subscribe(
+      (response) => {
+        localStorage.setItem("patientId", response.patientId);
+      }
+    )
   }
 
   previous() {

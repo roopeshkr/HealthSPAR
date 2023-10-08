@@ -34,7 +34,7 @@ export class DisplayHospitalDetailsComponent implements OnInit {
   constructor(private hospitalService:HospitalService,private router:ActivatedRoute,private route:Router){}
 
   ngOnInit() {
-    this.getHospitalById(0);
+    this.getHospital();
     const trigger = $('.hamburger');
     const overlay = $('.overlay');
     let isClosed = false;
@@ -66,12 +66,28 @@ export class DisplayHospitalDetailsComponent implements OnInit {
     this.route.navigate(['/hospital/update'])
   }
 
-  public getHospitalById(hospitalId:number):void{
-    this.hospitalService.getHospitalProfile(hospitalId).subscribe(
-      (response:Hospital)=>{
-        this.hospital=response;
-        console.log(this.hospital);
+ 
+  private getHospital(): void {
+    const hospitalIdString = localStorage.getItem("hospitalId");
+  
+    if (hospitalIdString !== null) {
+      const hospitalId = parseInt(hospitalIdString, 10);
+  
+      if (!isNaN(hospitalId)) {
+        this.hospitalService.getHospitalProfile(hospitalId).subscribe(
+          (response) => {
+            this.hospital = response;
+            console.log("hospital : ", this.hospital);
+          },
+          (error) => {
+            console.error("Error fetching hospital profile:", error);
+          }
+        );
+      } else {
+        console.error("Invalid hospitalId in localStorage:", hospitalIdString);
       }
-    )
+    } else {
+      console.error("hospitalId not found in localStorage");
+    }
   }
 }

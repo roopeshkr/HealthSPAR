@@ -80,10 +80,30 @@ export class UpdateHospitalDetailsComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.router.params.subscribe((params)=>{
-      const hospitalId = +params['id'];
-      this.getHospital(hospitalId);
-    })
+    this.getHospitals();
+  }
+  
+  private getHospitals(): void {
+    const hospitalIdString = localStorage.getItem("hospitalId");
+    
+    if (hospitalIdString !== null) {
+      const hospitalId = parseInt(hospitalIdString, 10);
+      
+      if (!isNaN(hospitalId)) {
+        this.profileService.getHospitalProfile(hospitalId).subscribe(
+          (response) => {
+            this.getHospital(response.hospitalId);
+          },
+          (error) => {
+            console.error("Error fetching hospital profile:", error);
+          }
+        );
+      } else {
+        console.error("Invalid hospitalId in localStorage:", hospitalIdString);
+      }
+    } else {
+      console.error("hospitalId not found in localStorage");
+    }
   }
 
   get basicDetails() {

@@ -25,6 +25,8 @@ import { HospitalDashboardHomeComponent } from './components/HospitalDashboard/h
 import { RecommendationComponent } from './components/patient/recommendation/recommendation.component';
 
 import { PatientHomeComponent } from './components/PatientDashboard/patient-home/patient-home.component';
+import { AuthGuard } from './Authentication/auth.guard';
+import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   // common routes
@@ -48,6 +50,10 @@ const routes: Routes = [
       { path: 'update', component: UpdateProfileComponent },
       { path: 'hospital', component: HospitalComponent },
     ],
+<<<<<<< HEAD
+=======
+    canActivate: [AuthGuard],
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
   },
 
   // hospital routes
@@ -55,9 +61,11 @@ const routes: Routes = [
     path: 'hospital',
     component: HospitalDashboardHomeComponent,
     children: [
+      { path: 'profile', component: HospitalDetailsComponent },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: HospitalDashboardComponent },
       { path: 'appointment', component: AppointmentsListComponent },
+<<<<<<< HEAD
       {
         path: 'reschedule/:id',
         component: RescheduleHospitalAppointmentComponent,
@@ -75,6 +83,20 @@ const routes: Routes = [
     ],
     // canActivate: [AuthGuard]
   },
+=======
+      { path: 'reschedule/:id', component: RescheduleHospitalAppointmentComponent },
+      { path: 'display', component: DisplayHospitalDetailsComponent },
+      { path: 'update', component: UpdateHospitalDetailsComponent },
+      { path: 'doctors', component: DoctorsListComponent },
+      { path: 'add-doctor', component: AddDoctorComponent },
+      { path: 'edit-doctor/:index', component: EditDoctorComponent },
+      { path: 'doctor/:index', component: DoctorComponent },
+    ],
+    canActivate: [AuthGuard]
+  },
+
+  { path: '**', component: PageNotFoundComponent },
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
 ];
 
 @NgModule({

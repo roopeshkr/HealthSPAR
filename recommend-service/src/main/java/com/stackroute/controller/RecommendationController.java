@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/recommendations")
+@RequestMapping("/api/v1/hospital")
 @CrossOrigin("*")
 public class RecommendationController {
     private final RecommendationService recommendationService;
