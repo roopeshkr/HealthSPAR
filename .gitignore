@@ -37,6 +37,7 @@ build/
 
 *.log
 
+
 recommend-service/logs/recommend-service.log
 authentication-service/logs/authentication-service.log
 patient-service/logs/patient-service.log
