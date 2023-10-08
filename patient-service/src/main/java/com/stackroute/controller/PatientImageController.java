@@ -17,6 +17,7 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api/v1/patient")
 public class PatientImageController {
     private final PatientRepository patientRepository;
     private final PatientService patientService;

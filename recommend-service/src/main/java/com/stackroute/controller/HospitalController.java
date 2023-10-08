@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/hospitals")
+@RequestMapping("/api/v1/hospital")
 @CrossOrigin("*")
 public class HospitalController {
     private final HospitalService hospitalService;
@@ -66,6 +66,23 @@ public class HospitalController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    //delete doctor by hospital id and index
+    @DeleteMapping("/{hospitalId}/doctors/{doctorIndex}")
+    public ResponseEntity<Void> deleteDoctor(
+            @PathVariable Long hospitalId,
+            @PathVariable int doctorIndex
+    ){
+        Hospital hospital=hospitalService.getHospitalById(hospitalId);
+        if (hospital!=null && doctorIndex >=0 && doctorIndex<hospital.getDoctors().size()){
+            hospital.getDoctors().remove(doctorIndex);
+            hospitalService.updateHospital(hospitalId,hospital);
+            return ResponseEntity.noContent().build();
+        }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
     @PutMapping("/{hospitalId}/doctors/{doctorIndex}")
     public ResponseEntity<DoctorRequestDto> updateDoctorByHospitalIdAndIndex(

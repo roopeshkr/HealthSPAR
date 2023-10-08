@@ -33,7 +33,6 @@ const routes: Routes = [
   // common routes 
   { path: 'home', component: HomePageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent },
   { path: 'patient-login', component: LoginComponent },
   { path: 'hospital-login', component: HospitalRegisterComponent },
 
@@ -75,6 +74,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
 
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

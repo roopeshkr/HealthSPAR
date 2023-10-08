@@ -2,6 +2,7 @@ package in.stackroute.controller;
 
 import in.stackroute.model.EmailRequest;
 import in.stackroute.service.EmailService;
+import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,15 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 public class EmailController {
-    @Autowired
-    private EmailService emailService;
-    @RequestMapping("/welcome")
-    public String welcome()
-    {
-        return "hello this is my email api";
-    }
-    @RequestMapping(value = "/sendemail", method = RequestMethod.POST)
+    private final EmailService emailService;
+
+//    @RequestMapping("/welcome")
+//    public String welcome()
+//    {
+//        return "hello this is my email api";
+//    }
+    @RequestMapping(value = "/api/v1/email", method = RequestMethod.POST)
     public ResponseEntity<?> sendEmail(@RequestBody EmailRequest request) {
 
         System.out.println(request);
