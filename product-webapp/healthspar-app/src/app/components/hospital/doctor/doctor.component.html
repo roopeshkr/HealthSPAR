@@ -8,11 +8,8 @@
         </div>
 
         <div class="col-sm-5 col-6 text-right m-b-30">
-          <a
-            [routerLink]="['/hospital/edit-doctor',hospitalId,index]"
-            class="btn btn-primary btn-rounded"
-            ><i class="fa fa-plus"></i> Edit Profile</a
-          >
+          <a [routerLink]="['/hospital/edit-doctor',hospitalId,index]" class="btn btn-primary btn-rounded"><i
+              class="fa fa-plus"></i> Edit Profile</a>
         </div>
       </div>
       <div class="card-box profile-header">
@@ -21,9 +18,12 @@
             <div class="profile-view">
               <div class="profile-img-wrap">
                 <div class="profile-img">
-                  <a href="#"
-                    ><img class="avatar" src="assets/img/doctor-03.jpg" alt=""
-                  /></a>
+                  <a href="#"><img class="avatar" src="assets/img/doctor-03.jpg" alt="" /></a>
+                </div>
+                <img class="inline-block" src="assets/img/user.jpg" alt="user">
+                <div class="fileupload btn">
+                  <span class="btn-text">Edit Profile</span>
+                  <input class="upload" type="file">
                 </div>
               </div>
               <div class="profile-basic">
@@ -51,15 +51,11 @@
                       </li>
                       <li>
                         <span class="title">Experience:</span>
-                        <span class="text"
-                          >{{ doctor.yearOfExperience }} years</span
-                        >
+                        <span class="text">{{ doctor.yearOfExperience }} years</span>
                       </li>
                       <li>
                         <span class="title">Duty Time:</span>
-                        <span class="text"
-                          >{{ doctor.startTime }} - {{ doctor.endTime }}</span
-                        >
+                        <span class="text">{{ doctor.startTime }} - {{ doctor.endTime }}</span>
                       </li>
                       <li>
                         <span class="title">Bio:</span>
@@ -77,8 +73,7 @@
         <ul class="nav nav-tabs nav-tabs-bottom">
           <li class="nav-item">
             <a class="nav-link active" href="#about-cont" data-toggle="tab">
-              Appointments</a
-            >
+              Appointments</a>
           </li>
         </ul>
 
