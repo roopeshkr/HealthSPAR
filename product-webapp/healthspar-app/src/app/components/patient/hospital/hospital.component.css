@@ -1,5 +1,6 @@
 .page-wrapper {
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-color: #E6E6E6;
 }
 
@@ -69,6 +70,8 @@ option{
   display: block;
 }
 =======
+=======
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
     background-color: #E6E6E6;
   }
   
@@ -136,5 +139,9 @@ option{
   .profile>img {
     width: 100%;
     display: block;
+<<<<<<< HEAD
+  }
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
+=======
   }
 >>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7

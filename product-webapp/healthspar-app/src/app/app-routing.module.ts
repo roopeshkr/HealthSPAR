@@ -51,6 +51,10 @@ const routes: Routes = [
       { path: 'hospital', component: HospitalComponent },
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    canActivate: [AuthGuard],
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
 =======
     canActivate: [AuthGuard],
 >>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
@@ -65,6 +69,7 @@ const routes: Routes = [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: HospitalDashboardComponent },
       { path: 'appointment', component: AppointmentsListComponent },
+<<<<<<< HEAD
 <<<<<<< HEAD
       {
         path: 'reschedule/:id',
@@ -84,6 +89,8 @@ const routes: Routes = [
     // canActivate: [AuthGuard]
   },
 =======
+=======
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
       { path: 'reschedule/:id', component: RescheduleHospitalAppointmentComponent },
       { path: 'display', component: DisplayHospitalDetailsComponent },
       { path: 'update', component: UpdateHospitalDetailsComponent },
@@ -96,6 +103,9 @@ const routes: Routes = [
   },
 
   { path: '**', component: PageNotFoundComponent },
+<<<<<<< HEAD
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
+=======
 >>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
 ];
 

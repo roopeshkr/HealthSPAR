@@ -1,5 +1,6 @@
 .btn{
 <<<<<<< HEAD
+<<<<<<< HEAD
   border-radius: 25px;
   width: 1auto;
   background: transparent;
@@ -51,6 +52,8 @@
   text-shadow: 0 1px 0 #040404;
 }
 =======
+=======
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
     border-radius: 25px;
     width: 1auto;
     background: transparent;
@@ -100,5 +103,9 @@
   .fa {
     color: #ff0a0a;
     text-shadow: 0 1px 0 #040404;
+<<<<<<< HEAD
+  }
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
+=======
   }
 >>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7

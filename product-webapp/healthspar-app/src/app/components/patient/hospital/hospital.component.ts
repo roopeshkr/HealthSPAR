@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Hospital } from 'src/app/model/hospital';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import { RecommendationService } from 'src/app/service/recommendation.service';
+import { HospitalImageService } from 'src/app/service/hospital-image.service';
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
 =======
 import { RecommendationService } from 'src/app/service/recommendation.service';
 import { HospitalImageService } from 'src/app/service/hospital-image.service';
@@ -14,6 +19,7 @@ import { HospitalService } from 'src/app/service/hospital.service';
   styleUrls: ['./hospital.component.css'],
 })
 export class HospitalComponent implements OnInit {
+<<<<<<< HEAD
 <<<<<<< HEAD
   hospital: Hospital = {
     hospitalId: 0,
@@ -49,11 +55,22 @@ export class HospitalComponent implements OnInit {
     private hospitalService: HospitalService,
     private recommendService:RecommendationService,
 >>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
+=======
+  allHospitals:Hospital[]=[];
+  recommendedHospitals: Hospital[] = [];
+  selectedCity:string="Select City";
+  cityOptions:Set<string>=new Set();
+
+  constructor(
+    private hospitalService: HospitalService,
+    private recommendService:RecommendationService,
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
     private route: Router,
     private router: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+<<<<<<< HEAD
 <<<<<<< HEAD
     this.router.params.subscribe((params) => {
       const hospitalId = +params['id'];
@@ -99,6 +116,8 @@ export class HospitalComponent implements OnInit {
     this.route.navigate(['/hospital-page', hospitalId, index]);
   }
 =======
+=======
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
     this.getAllHospitals();
   }
 
@@ -132,6 +151,9 @@ export class HospitalComponent implements OnInit {
     } else {
       this.getRecommendations(selectedValue);
     }
+<<<<<<< HEAD
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
+=======
 >>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
 }
 

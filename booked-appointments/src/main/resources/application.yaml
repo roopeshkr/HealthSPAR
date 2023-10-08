@@ -7,7 +7,11 @@ spring:
     url: jdbc:mysql://localhost:3306/appointments_db
     username: root
 <<<<<<< HEAD
+<<<<<<< HEAD
     password: shivam
+=======
+    password: password
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
 =======
     password: password
 >>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
