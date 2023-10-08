@@ -50,14 +50,7 @@ const routes: Routes = [
       { path: 'update', component: UpdateProfileComponent },
       { path: 'hospital', component: HospitalComponent },
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     canActivate: [AuthGuard],
->>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
-=======
-    canActivate: [AuthGuard],
->>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
   },
 
   // hospital routes
@@ -69,29 +62,10 @@ const routes: Routes = [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: HospitalDashboardComponent },
       { path: 'appointment', component: AppointmentsListComponent },
-<<<<<<< HEAD
-<<<<<<< HEAD
       {
         path: 'reschedule/:id',
         component: RescheduleHospitalAppointmentComponent,
       },
-      { path: 'profile', component: HospitalDetailsComponent },
-      { path: 'display', component: DisplayHospitalDetailsComponent },
-      { path: 'update/:id', component: UpdateHospitalDetailsComponent },
-      { path: 'doctors', component: DoctorsListComponent },
-      { path: 'add-doctor/:id', component: AddDoctorComponent },
-      {
-        path: 'edit-doctor/:hospitalId/:index',
-        component: EditDoctorComponent,
-      },
-      { path: 'doctor/:hospitalId/:index', component: DoctorComponent },
-    ],
-    // canActivate: [AuthGuard]
-  },
-=======
-=======
->>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
-      { path: 'reschedule/:id', component: RescheduleHospitalAppointmentComponent },
       { path: 'display', component: DisplayHospitalDetailsComponent },
       { path: 'update', component: UpdateHospitalDetailsComponent },
       { path: 'doctors', component: DoctorsListComponent },
@@ -99,14 +73,10 @@ const routes: Routes = [
       { path: 'edit-doctor/:index', component: EditDoctorComponent },
       { path: 'doctor/:index', component: DoctorComponent },
     ],
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
 
   { path: '**', component: PageNotFoundComponent },
-<<<<<<< HEAD
->>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
-=======
->>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
 ];
 
 @NgModule({
