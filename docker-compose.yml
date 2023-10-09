@@ -29,14 +29,16 @@ services:
       NEO4J_AUTH: neo4j/password
 
   eureka-server:
-    build: eureka-server/
+    build:
+      context: ./eureka-server
     container_name: eureka-server
     restart: always
     ports:
-      - "8761:8761"
+      - "8762:8761"
 
   api-gateway:
-    build: api-gateway/
+    build:
+      context: ./api-gateway
     container_name: api-gateway
     depends_on:
       - eureka-server
@@ -45,8 +47,9 @@ services:
       - "8080:8080"
 
   authentication-service:
+    build:
+      context: ./authentication-service
     container_name: authentication-service
-    build: authentication-service/
     ports:
       - "8003:8003"
     depends_on:
@@ -55,8 +58,9 @@ services:
     restart: always
 
   booked-appointments:
+    build:
+      context: ./booked-appointments
     container_name: booked-appointments
-    build: booked-appointments/
     ports:
       - "8004:8004"
     depends_on:
@@ -65,8 +69,9 @@ services:
     restart: always
 
   patient-service:
+    build:
+      context: ./patient-service
     container_name: patient-service
-    build: patient-service/
     ports:
       - "8001:8001"
     depends_on:
@@ -75,8 +80,9 @@ services:
     restart: always
 
   recommend-service:
+    build:
+      context: ./recommend-service
     container_name: recommend-service
-    build: recommend-service/
     ports:
       - "8002:8002"
     depends_on:
@@ -85,8 +91,9 @@ services:
     restart: always
 
   email-service:
+    build:
+      context: ./email-service
     container_name: email-service
-    build: email-service/
     ports:
       - "8085:8085"
     depends_on:
@@ -94,8 +101,9 @@ services:
     restart: always
 
   payment-gateway:
+    build:
+      context: ./payment-gateway
     container_name: payment-gateway
-    build: payment-gateway/
     ports:
       - "8086:8086"
     depends_on:
@@ -103,8 +111,9 @@ services:
     restart: always
 
   product-webapp:
-    build: product-webapp/
+    build:
+      context: ./product-webapp
     restart: always
     container_name: product-webapp
     ports:
-      - "4200:4200"
+      - "4201:4200"
