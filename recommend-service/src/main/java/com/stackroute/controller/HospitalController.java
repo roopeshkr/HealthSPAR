@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/hospital")
-@CrossOrigin("*")
 public class HospitalController {
     private final HospitalService hospitalService;
     private final HospitalRequestUtility hospitalRequestUtility;

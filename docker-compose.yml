@@ -33,8 +33,8 @@ services:
       context: ./eureka-server
     container_name: eureka-server
     restart: always
-    network_mode: "host"
-    hostname: localhost
+#    network_mode: "host"
+#    hostname: localhost
     ports:
       - "8761:8761"
 

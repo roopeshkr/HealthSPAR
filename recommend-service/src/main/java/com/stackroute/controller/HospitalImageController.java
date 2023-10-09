@@ -20,7 +20,6 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/hospital")
-@CrossOrigin("*")
 public class HospitalImageController {
     private final HospitalRepository hospitalRepository;
     private final HospitalService hospitalService;

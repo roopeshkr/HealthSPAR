@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/patient")
-@CrossOrigin("*")
 public class PatientController {
     private final PatientService patientService;
     private final PatientRequestUtility requestUtility;

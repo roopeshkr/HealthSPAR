@@ -34,6 +34,13 @@ spring:
           uri: lb://product-webapp
           predicates:
             - Path=/**
+      globalcors:
+        cors-configurations:
+            '[/**]':
+                allowedOrigins: "*"
+                allowedMethods: "*"
+                allowedHeaders: "*"
+                exposedHeaders: "*"
 
   application:
     name: api-gateway
@@ -44,15 +51,8 @@ spring:
 server:
   port: 8086
 
-cloud:
-  gateway:
-    globalcors:
-      corsConfigurations:
-        '[/**]':
-          allowedOrigins: "*"
-          allowedMethods: "*"
-          allowedHeaders: "*"
-          exposedHeaders: "*"
+
+
 
 eureka:
   client:
