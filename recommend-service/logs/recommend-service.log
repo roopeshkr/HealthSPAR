@@ -80,3 +80,141 @@
 2023-10-09 12:45:33 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
 2023-10-09 12:50:33 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
 2023-10-09 12:55:33 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 13:11:19 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-09 13:11:19 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-09 13:11:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2023-10-09 13:11:32 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2208 ms. Found 0 Neo4j repository interfaces.
+2023-10-09 13:11:32 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2023-10-09 13:11:32 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 230 ms. Found 2 Neo4j repository interfaces.
+2023-10-09 13:11:36 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=1b7b88bc-6e86-394b-92b4-913c05aae00b
+2023-10-09 13:11:53 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8070 (http)
+2023-10-09 13:11:53 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-09 13:11:53 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-10-09 13:11:55 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-09 13:11:55 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 36021 ms
+2023-10-09 13:12:02 [restartedMain] INFO  o.n.driver.internal.DriverFactory - Routing driver instance 13051464 created for server address fed47e86.databases.neo4j.io:7687
+2023-10-09 13:12:07 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.City is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-10-09 13:12:08 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-09 13:12:09 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.Doctor is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-10-09 13:12:10 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.AskedQuestion is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-10-09 13:12:10 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.Hospital is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-10-09 13:12:24 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2023-10-09 13:12:28 [restartedMain] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-10-09 13:12:28 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2023-10-09 13:12:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2023-10-09 13:12:29 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 13:12:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2023-10-09 13:12:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2023-10-09 13:12:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2023-10-09 13:12:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2023-10-09 13:12:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2023-10-09 13:12:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2023-10-09 13:12:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2023-10-09 13:12:31 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2023-10-09 13:12:31 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2023-10-09 13:12:31 [restartedMain] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-10-09 13:12:31 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1696837351727 with initial instances count: 5
+2023-10-09 13:12:31 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application RECOMMEND-SERVICE with eureka with status UP
+2023-10-09 13:12:31 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1696837351775, current=UP, previous=STARTING]
+2023-10-09 13:12:31 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_RECOMMEND-SERVICE/192.168.1.5:recommend-service:8070: registering service...
+2023-10-09 13:12:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8070 (http) with context path ''
+2023-10-09 13:12:31 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8070
+2023-10-09 13:12:32 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_RECOMMEND-SERVICE/192.168.1.5:recommend-service:8070 - registration status: 204
+2023-10-09 13:17:29 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 13:22:29 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 13:27:29 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 13:32:30 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 14:23:05 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-09 14:23:05 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-09 14:23:06 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2023-10-09 14:23:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 331 ms. Found 0 Neo4j repository interfaces.
+2023-10-09 14:23:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2023-10-09 14:23:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 2 Neo4j repository interfaces.
+2023-10-09 14:23:08 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=1b7b88bc-6e86-394b-92b4-913c05aae00b
+2023-10-09 14:23:10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8070 (http)
+2023-10-09 14:23:10 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-09 14:23:10 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-10-09 14:23:10 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-09 14:23:10 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5489 ms
+2023-10-09 14:23:11 [restartedMain] INFO  o.n.driver.internal.DriverFactory - Routing driver instance 1509453928 created for server address fed47e86.databases.neo4j.io:7687
+2023-10-09 14:23:11 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.City is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-10-09 14:23:11 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-09 14:23:11 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.AskedQuestion is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-10-09 14:23:11 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.Doctor is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-10-09 14:23:11 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.Hospital is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-10-09 14:23:13 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2023-10-09 14:23:14 [restartedMain] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-10-09 14:23:14 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2023-10-09 14:23:14 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2023-10-09 14:23:14 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 14:23:14 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2023-10-09 14:23:14 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2023-10-09 14:23:14 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2023-10-09 14:23:14 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2023-10-09 14:23:14 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2023-10-09 14:23:14 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2023-10-09 14:23:14 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2023-10-09 14:23:14 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2023-10-09 14:23:14 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2023-10-09 14:23:14 [restartedMain] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-10-09 14:23:14 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1696841594819 with initial instances count: 1
+2023-10-09 14:23:14 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application RECOMMEND-SERVICE with eureka with status UP
+2023-10-09 14:23:14 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1696841594825, current=UP, previous=STARTING]
+2023-10-09 14:23:14 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_RECOMMEND-SERVICE/192.168.1.5:recommend-service:8070: registering service...
+2023-10-09 14:23:14 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8070 (http) with context path ''
+2023-10-09 14:23:14 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8070
+2023-10-09 14:23:14 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_RECOMMEND-SERVICE/192.168.1.5:recommend-service:8070 - registration status: 204
+2023-10-09 14:28:14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 15:36:21 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-09 15:36:21 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-09 15:36:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2023-10-09 15:36:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 243 ms. Found 0 Neo4j repository interfaces.
+2023-10-09 15:36:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2023-10-09 15:36:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 2 Neo4j repository interfaces.
+2023-10-09 15:36:24 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=1b7b88bc-6e86-394b-92b4-913c05aae00b
+2023-10-09 15:36:25 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8070 (http)
+2023-10-09 15:36:25 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-09 15:36:25 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-10-09 15:36:26 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-09 15:36:26 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4361 ms
+2023-10-09 15:36:26 [restartedMain] INFO  o.n.driver.internal.DriverFactory - Routing driver instance 2039029810 created for server address fed47e86.databases.neo4j.io:7687
+2023-10-09 15:36:26 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.AskedQuestion is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-10-09 15:36:26 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-09 15:36:26 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.City is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-10-09 15:36:26 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.Doctor is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-10-09 15:36:26 [restartedMain] WARN  o.s.d.n.c.m.Neo4jPersistentEntity - The entity com.stackroute.model.Hospital is using a Long value for storing internally generated Neo4j ids. The Neo4j internal Long Ids are deprecated, please consider using an external ID generator.
+2023-10-09 15:36:28 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2023-10-09 15:36:28 [restartedMain] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-10-09 15:36:28 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2023-10-09 15:36:28 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2023-10-09 15:36:28 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 15:36:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2023-10-09 15:36:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2023-10-09 15:36:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2023-10-09 15:36:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2023-10-09 15:36:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2023-10-09 15:36:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2023-10-09 15:36:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2023-10-09 15:36:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2023-10-09 15:36:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2023-10-09 15:36:29 [restartedMain] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-10-09 15:36:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1696845989332 with initial instances count: 0
+2023-10-09 15:36:29 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application RECOMMEND-SERVICE with eureka with status UP
+2023-10-09 15:36:29 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1696845989340, current=UP, previous=STARTING]
+2023-10-09 15:36:29 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_RECOMMEND-SERVICE/MSI:recommend-service:8070: registering service...
+2023-10-09 15:36:29 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8070 (http) with context path ''
+2023-10-09 15:36:29 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8070
+2023-10-09 15:36:29 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_RECOMMEND-SERVICE/MSI:recommend-service:8070 - registration status: 204
+2023-10-09 15:36:59 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2023-10-09 15:36:59 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2023-10-09 15:36:59 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2023-10-09 15:36:59 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2023-10-09 15:36:59 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2023-10-09 15:36:59 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: false
+2023-10-09 15:36:59 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2023-10-09 15:36:59 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2023-10-09 15:41:29 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 15:46:29 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 15:51:29 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 15:56:29 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2023-10-09 16:01:29 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
