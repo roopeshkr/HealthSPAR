@@ -29,17 +29,16 @@ import { AuthGuard } from './Authentication/auth.guard';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-
-  // common routes 
+  // common routes
   { path: 'home', component: HomePageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'patient-login', component: LoginComponent },
   { path: 'hospital-login', component: HospitalRegisterComponent },
 
-
-  // patient routes 
+  // patient routes
   {
-    path: 'patient', component: HomeComponent,
+    path: 'patient',
+    component: HomeComponent,
     children: [
       { path: 'profile', component: ProfileComponent },
       { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -54,16 +53,23 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
 
-
-  // hospital routes 
+  // hospital routes
   {
-    path: 'hospital', component: HospitalDashboardHomeComponent,
+    path: 'hospital',
+    component: HospitalDashboardHomeComponent,
     children: [
       { path: 'profile', component: HospitalDetailsComponent },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: HospitalDashboardComponent },
       { path: 'appointment', component: AppointmentsListComponent },
+<<<<<<< HEAD
+      {
+        path: 'reschedule/:id',
+        component: RescheduleHospitalAppointmentComponent,
+      },
+=======
       { path: 'reschedule/:id', component: RescheduleHospitalAppointmentComponent },
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
       { path: 'display', component: DisplayHospitalDetailsComponent },
       { path: 'update', component: UpdateHospitalDetailsComponent },
       { path: 'doctors', component: DoctorsListComponent },
@@ -71,7 +77,11 @@ const routes: Routes = [
       { path: 'edit-doctor/:index', component: EditDoctorComponent },
       { path: 'doctor/:index', component: DoctorComponent },
     ],
+<<<<<<< HEAD
+    canActivate: [AuthGuard],
+=======
     canActivate: [AuthGuard]
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
   },
 
   { path: '**', component: PageNotFoundComponent },
@@ -81,4 +91,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

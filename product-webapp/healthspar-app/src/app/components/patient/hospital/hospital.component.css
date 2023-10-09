@@ -1,7 +1,78 @@
 .page-wrapper {
+<<<<<<< HEAD
+  background-color: #E6E6E6;
+}
+
+.focus-label{
+  padding: 10px 0;
+  transition: all 0.3s ease;
+  opacity: 0;
+  font-weight: 400;
+  font-size: 16px;
+  color: #999;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.select-floating{
+  top: 0;
+  left: 0;
+  padding: 10px;
+  transition: all 0.3s ease;
+  font-weight: 400;
+  font-size: 16px;
+  color: #999;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-size-adjust: 100%;
+}
+
+option{
+  font-weight: 400;
+  font-size: 16px;
+  color: #999;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-size-adjust: 100%;
+}
+
+/* .profile {
+  vertical-align: middle;
+  height: 10vh;
+  padding: 20px;
+  border-radius: 0;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+} */
+
+.profile {
+  vertical-align: middle;
+  height: 100%;
+  padding: 20px;
+  border-radius: 0;
+  width: 100;
+  display: block;
+  margin: 0 auto;
+  background-color: #aaa;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.profile:hover {
+  color: #fff;
+}
+
+.profile>img {
+  width: 100%;
+  display: block;
+}
+=======
     background-color: #E6E6E6;
   }
   
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
   .focus-label{
     padding: 10px 0;
     transition: all 0.3s ease;
@@ -12,7 +83,11 @@
     letter-spacing: 0.5px;
     text-transform: uppercase;
   }
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
   .select-floating{
     top: 0;
     left: 0;
@@ -25,7 +100,11 @@
     text-transform: uppercase;
     text-size-adjust: 100%;
   }
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
   option{
     font-weight: 400;
     font-size: 16px;
@@ -34,7 +113,11 @@
     text-transform: uppercase;
     text-size-adjust: 100%;
   }
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
   /* .profile {
     vertical-align: middle;
     height: 10vh;
@@ -44,7 +127,11 @@
     display: block;
     margin: 0 auto;
   } */
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
   .profile {
     vertical-align: middle;
     height: 100%;
@@ -58,6 +145,17 @@
     overflow: hidden;
     white-space: nowrap;
   }
+<<<<<<< HEAD
+
+  .profile:hover {
+    color: #fff;
+  }
+
+  .profile>img {
+    width: 100%;
+    display: block;
+  }
+=======
   
   .profile:hover {
     color: #fff;
@@ -67,3 +165,4 @@
     width: 100%;
     display: block;
   }
+>>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7

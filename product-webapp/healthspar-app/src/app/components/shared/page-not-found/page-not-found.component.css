@@ -14,13 +14,13 @@
     text-transform: uppercase;
     transition: all 0.3s ease 0s;
   }
-  
+
   .error-box{
     margin: 0 auto;
     text-align: center;
     padding: 50px 0;
   }
-  
+
   .error-box h1{
     color: #525571;
     font-size: 100px;
@@ -28,7 +28,7 @@
     line-height: 1;
     text-shadow: 0 1px 0 #ffffff;
   }
-  
+
   .error-box h3{
     color: #525571;
     font-size: 24px;
@@ -36,7 +36,7 @@
     line-height: 1;
     text-shadow: 0 1px 0 #ffffff;
   }
-  
+
   .error-box p{
     color: #525571;
     font-size: 14px;
@@ -44,7 +44,7 @@
     line-height: 1.5;
     margin: 0 0 15px;
   }
-  
+
   .fa {
     color: #ff0a0a;
     text-shadow: 0 1px 0 #040404;
