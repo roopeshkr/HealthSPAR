@@ -26,8 +26,8 @@ spring:
           uri: lb://recommend-service
           predicates:
             - Path=/api/v1/hospital/**
-        - id: appointment-service-route
-          uri: lb://appointment-service
+        - id: booked-appointments-route
+          uri: lb://booked-appointments
           predicates:
             - Path=/api/v1/appointment/**
         - id: product-webapp-route

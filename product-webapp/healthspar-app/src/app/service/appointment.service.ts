@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AppointmentService {
 
-  private apiUrl='http://localhost:8023';
+  private apiUrl='http://localhost:8086/api/v1/appointment';
 
 
   private httpOptions = {
@@ -20,29 +20,29 @@ export class AppointmentService {
   constructor(private http: HttpClient) { }
 
   public addAppointment(appointment:Appointment):Observable<Appointment>{
-    return this.http.post<Appointment>(`${this.apiUrl}/appointments`,appointment,this.httpOptions)
+    return this.http.post<Appointment>(`${this.apiUrl}`,appointment,this.httpOptions)
   }
 
   public rescheduleAppointment(appointmentId:number,appointment:Appointment):Observable<Appointment>{
-    return this.http.put<Appointment>(`${this.apiUrl}/appointments/reschedule/${appointmentId}`,appointment,this.httpOptions)
+    return this.http.put<Appointment>(`${this.apiUrl}/reschedule/${appointmentId}`,appointment,this.httpOptions)
   }
   
   public confirmAppointment(appointmentId:number):Observable<Appointment>{
-    return this.http.put<Appointment>(`${this.apiUrl}/appointments/confirm/${appointmentId}`,this.httpOptions)
+    return this.http.put<Appointment>(`${this.apiUrl}/confirm/${appointmentId}`,this.httpOptions)
   }
 
   public cancelAppointment(appointmentId:number):Observable<Appointment>{
-    return this.http.delete<Appointment>(`${this.apiUrl}/appointments/cancel/${appointmentId}`)
+    return this.http.delete<Appointment>(`${this.apiUrl}/cancel/${appointmentId}`)
   }
 
   public getAppointmentsForPatient(patientId:string):Observable<Appointment[]>{
-    return this.http.get<Appointment[]>(`${this.apiUrl}/appointments/patient/${patientId}`);
+    return this.http.get<Appointment[]>(`${this.apiUrl}/patient/${patientId}`);
   }
   public getAppointmentsForHospital(hospitaLId:number):Observable<Appointment[]>{
-    return this.http.get<Appointment[]>(`${this.apiUrl}/appointments/hospital/${hospitaLId}`);
+    return this.http.get<Appointment[]>(`${this.apiUrl}/hospital/${hospitaLId}`);
   }
  
   public getAppointmentsbyId(appointmentId:number):Observable<Appointment>{
-    return this.http.get<Appointment>(`${this.apiUrl}/appointments/${appointmentId}`);
+    return this.http.get<Appointment>(`${this.apiUrl}/${appointmentId}`);
   }
 }

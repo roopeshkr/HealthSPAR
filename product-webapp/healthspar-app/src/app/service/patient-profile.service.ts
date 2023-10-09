@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PatientProfileService {
-  private apiUrl = 'http://localhost:8090';
+  private apiUrl = 'http://localhost:8086/api/v1/patient';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -18,18 +18,18 @@ export class PatientProfileService {
   constructor(private http: HttpClient) { }
 
   public addPatientProfile(patient: Patient): Observable<Patient> {
-    return this.http.post<Patient>(`${this.apiUrl}/patients`, patient, this.httpOptions);
+    return this.http.post<Patient>(`${this.apiUrl}`, patient, this.httpOptions);
   }
 
   public updatePatientProfile(patientId: string, patient: Patient): Observable<Patient> {
-    return this.http.put<Patient>(`${this.apiUrl}/patients/${patientId}`, patient, this.httpOptions);
+    return this.http.put<Patient>(`${this.apiUrl}/${patientId}`, patient, this.httpOptions);
   }
 
   public getPatientProfile(patientId: string): Observable<Patient> {
-    return this.http.get<Patient>(`${this.apiUrl}/patients/id/${patientId}`);
+    return this.http.get<Patient>(`${this.apiUrl}/id/${patientId}`);
   }
 
   public getPatientByEmail(email: string): Observable<Patient> {
-    return this.http.get<Patient>(`${this.apiUrl}/patients/email/${email}`);
+    return this.http.get<Patient>(`${this.apiUrl}/email/${email}`);
   }
 }

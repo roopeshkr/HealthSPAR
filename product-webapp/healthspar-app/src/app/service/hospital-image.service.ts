@@ -24,7 +24,7 @@ export class HospitalImageService {
       imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
 
       const patientId = '123'; 
-      const uploadUrl = `http://localhost:8070/upload/image/${patientId}`;
+      const uploadUrl = `http://localhost:8086/api/v1/hospital/upload/image/${patientId}`;
 
       this.httpClient.post(uploadUrl, imageFormData, { observe: 'response' })
         .subscribe((response) => {
@@ -40,7 +40,7 @@ export class HospitalImageService {
 
   viewImage() {
     if (this.image) {
-      const imageUrl = `http://localhost:8070/get/image/info/${this.image}`;
+      const imageUrl = `http://localhost:8086/api/v1/hospital/get/image/info/${this.image}`;
 
       this.httpClient.get(imageUrl)
         .subscribe(
