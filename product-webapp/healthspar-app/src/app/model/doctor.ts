@@ -7,7 +7,7 @@ export interface Doctor {
   startTime: Date; 
   endTime: Date; 
   bio: string;
-  fileName?: string;
+  fileName: string;
   fileType?: string;
   imageData?: Uint8Array;
 }

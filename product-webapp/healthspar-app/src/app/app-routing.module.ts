@@ -71,9 +71,9 @@ const routes: Routes = [
       { path: 'doctors', component: DoctorsListComponent },
       { path: 'add-doctor', component: AddDoctorComponent },
       { path: 'edit-doctor/:index', component: EditDoctorComponent },
-      { path: 'doctor', component: DoctorComponent },
+      { path: 'doctor/:index', component: DoctorComponent },
     ],
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
 
   { path: '**', component: PageNotFoundComponent },

@@ -17,7 +17,9 @@
             <div class="profile-view">
               <div class="profile-img-wrap">
                 <div class="profile-img">
-                  <a href="#"><img class="avatar" src="assets/img/doctor-03.jpg" alt=""></a>
+                  <a href="#"><img class="avatar" [src]="
+                    'http://localhost:8086/api/v1/patient/get/image/'+patient.fileName
+                  " alt=""></a>
                 </div>
               </div>
               <div class="profile-basic">
@@ -28,6 +30,18 @@
                     </div>
                     <div class="profile-info-left mt-2">
                       <p class="user-name m-t-0 mb-0">Patient Id: <span>{{patient.patientId}}</span></p>
+                    </div>
+                    <div class="profile-info-left mt-4">
+                      <div class="form-group">
+                        <div class="profile-upload">
+                          <div class="upload-img">
+                            <input type="file" (change)="obFileSelected($event)" class="form-control" width="400"/>
+                          </div>
+                          <div class="upload-input">
+                            <button type="button" (click)="uploadImage()" class="btn btn-outline-primary btn-sm btn-upload">Upload</button>
+                          </div>
+                        </div>
+                      </div>
                       
                     </div>
                   </div>
@@ -53,6 +67,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>

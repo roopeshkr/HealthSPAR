@@ -130,13 +130,13 @@
               </div>
               <div class="col-md-6 mb-4">
                 <div class="form-group">
-                  <label>Avatar</label>
+                  <label>Picture</label>
                   <div class="profile-upload">
                     <div class="upload-img">
-                      <img alt="" src="assets/img/user.jpg" />
+                      <input type="file" (change)="obFileSelected($event)" class="form-control" width="400"/>
                     </div>
                     <div class="upload-input">
-                      <input type="file" class="form-control" />
+                      <button type="button" (click)="uploadImage()" class="btn btn-outline-primary btn-sm btn-upload">Upload</button>
                     </div>
                   </div>
                 </div>

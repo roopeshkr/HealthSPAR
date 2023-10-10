@@ -1,55 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HospitalImageService {
 
-  constructor(private httpClient: HttpClient) { }
+  private baseUrl = 'http://localhost:8086/api/v1/hospital';
+  constructor(private http: HttpClient) { }
 
-  uploadedImage: File | null = null; 
-  dbImage: any;
-  postResponse: any;
-  successResponse: string='';
-  image: any; 
 
-  public onImageUpload(event: any) {
-    this.uploadedImage = event.target.files[0];
+  uploadDoctorImage(hospitalId: number,index:number, file: File):Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('image', file, file.name);
+    return this.http.post(`${this.baseUrl}/upload/image/${hospitalId}/${index}`, formData);
   }
 
-  imageUploadAction() {
-    if (this.uploadedImage) {
-      const imageFormData = new FormData();
-      imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
+  getDoctorImage(name: string):string {
+    return `${this.baseUrl}/get/image/${name}`;
+  } 
 
-      const patientId = '123'; 
-      const uploadUrl = `http://localhost:8086/api/v1/hospital/upload/image/${patientId}`;
-
-      this.httpClient.post(uploadUrl, imageFormData, { observe: 'response' })
-        .subscribe((response) => {
-          if (response.status === 200) {
-            this.postResponse = response;
-            this.successResponse = this.postResponse.body.message;
-          } else {
-            this.successResponse = 'Image not uploaded due to some error!';
-          }
-        });
-    }
+  getHospitalImage(name: string):string {
+    return `${this.baseUrl}/get/hospital/image/${name}`;
   }
 
-  viewImage() {
-    if (this.image) {
-      const imageUrl = `http://localhost:8086/api/v1/hospital/get/image/info/${this.image}`;
-
-      this.httpClient.get(imageUrl)
-        .subscribe(
-          res => {
-            this.postResponse = res;
-            this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
-          }
-        );
-    }
+  uploadHospitalImage(hospitalId: number, file: File):Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('image', file, file.name);
+    return this.http.post(`${this.baseUrl}/upload/image/${hospitalId}`, formData);
   }
-  
+
 }

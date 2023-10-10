@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as $ from 'jquery';
 import { Hospital } from 'src/app/model/hospital';
+import { HospitalImageService } from 'src/app/service/hospital-image.service';
 import { HospitalService } from 'src/app/service/hospital.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { HospitalService } from 'src/app/service/hospital.service';
   styleUrls: ['./display-hospital-details.component.css'],
 })
 export class DisplayHospitalDetailsComponent implements OnInit {
-  hospital:Hospital={
+  hospital: Hospital = {
     hospitalId: 0,
     hospitalName: '',
     hospitalWebsite: '',
@@ -31,7 +32,7 @@ export class DisplayHospitalDetailsComponent implements OnInit {
     frequentlyAskedQuestion: []
   }
 
-  constructor(private hospitalService:HospitalService,private router:ActivatedRoute,private route:Router){}
+  constructor(private hospitalService: HospitalService, private router: ActivatedRoute, private route: Router,private hospitalImageService:HospitalImageService) { }
 
   ngOnInit() {
     this.getHospital();
@@ -62,17 +63,17 @@ export class DisplayHospitalDetailsComponent implements OnInit {
     });
   }
 
-  onEdit(){
+  onEdit() {
     this.route.navigate(['/hospital/update'])
   }
 
- 
+
   private getHospital(): void {
     const hospitalIdString = localStorage.getItem("hospitalId");
-  
+
     if (hospitalIdString !== null) {
       const hospitalId = parseInt(hospitalIdString, 10);
-  
+
       if (!isNaN(hospitalId)) {
         this.hospitalService.getHospitalProfile(hospitalId).subscribe(
           (response) => {
@@ -88,6 +89,25 @@ export class DisplayHospitalDetailsComponent implements OnInit {
       }
     } else {
       console.error("hospitalId not found in localStorage");
+    }
+  }
+
+
+  selectedFile?: File;
+  obFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  uploadImage() {
+    if (this.selectedFile !== undefined) {
+      this.hospitalImageService.uploadHospitalImage(this.hospital.hospitalId, this.selectedFile).subscribe(
+        (response) => {
+          console.log('Successfully uploaded image:', response);
+        },
+        (error) => {
+          console.error('Error uploading image:', error);
+        }
+      );
     }
   }
 }

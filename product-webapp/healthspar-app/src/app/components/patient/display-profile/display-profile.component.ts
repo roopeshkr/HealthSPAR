@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as $ from 'jquery';
 import { Patient } from 'src/app/model/patient';
+import { PatientImageService } from 'src/app/service/patient-image.service';
 import { PatientProfileService } from 'src/app/service/patient-profile.service';
 
 @Component({
@@ -30,7 +31,7 @@ export class DisplayProfileComponent implements OnInit {
   };
   dbImage: any;
 
-  constructor(private patientService: PatientProfileService, private router: ActivatedRoute, private httpClient: HttpClient) { }
+  constructor(private patientService: PatientProfileService, private router: ActivatedRoute, private httpClient: HttpClient,private imageService:PatientImageService) { }
 
   ngOnInit() {
 
@@ -72,6 +73,24 @@ export class DisplayProfileComponent implements OnInit {
         console.log(this.patient);
       }
     )
+  }
+
+  selectedFile?: File;
+  obFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  uploadImage() {
+    if (this.selectedFile !== undefined) {
+      this.imageService.uploadPatientImage(this.patient.patientId, this.selectedFile).subscribe(
+        (response) => {
+          console.log('Successfully uploaded image:', response);
+        },
+        (error) => {
+          console.error('Error uploading image:', error);
+        }
+      );
+    }
   }
 
 }

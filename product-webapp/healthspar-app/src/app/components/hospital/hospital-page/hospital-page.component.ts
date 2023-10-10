@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {  ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from 'src/app/model/appointment';
+import { EmailRequest } from 'src/app/model/email';
 import { Hospital } from 'src/app/model/hospital';
 import { AppointmentService } from 'src/app/service/appointment.service';
+import { EmailService } from 'src/app/service/email.service';
 import { HospitalService } from 'src/app/service/hospital.service';
 import { PatientProfileService } from 'src/app/service/patient-profile.service';
 
@@ -40,14 +42,20 @@ export class HospitalPageComponent implements OnInit {
   phoneNumber: string = '';
   patientId:string='';
 
+  notify:EmailRequest={
+    to:'',
+    subject:'',
+    message:''
+  }
+
   constructor(
     private hospitalService: HospitalService,
     private patientService: PatientProfileService,
     private formBuilder: FormBuilder,
     private appointmentService: AppointmentService,
     private route: Router,
-    private router:ActivatedRoute
-  
+    private router:ActivatedRoute,
+    private emialService:EmailService
   ) {
 
    
@@ -119,11 +127,26 @@ export class HospitalPageComponent implements OnInit {
       this.appointmentService.addAppointment(appointmentData).subscribe(
         (response) => {
           console.log("Appointment Initialized : ", response);
+          this.notify.to=response.email;
+          this.notify.subject="Appointment Booked Successfully";
+          this.notify.message=`Your appointment has been booked successfully. Your appointment is on ${response.dateTime} at ${this.hospital.hospitalName} hospital. Please be on time.`;
+          this.sendEmail();
           this.route.navigate(['/patient/index']);
         }
       );
 
     }
+  }
+
+  sendEmail() {
+    this.emialService.sendEmail(this.notify).subscribe(
+      (response)=>{
+        console.log("Email sent successfully",response);
+      },
+      (error)=>{
+        console.error("Error sending email : ",error);
+      }
+    )
   }
 
 }

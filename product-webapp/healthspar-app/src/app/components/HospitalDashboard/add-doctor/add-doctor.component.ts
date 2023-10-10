@@ -72,6 +72,7 @@ export class AddDoctorComponent implements OnInit {
         startTime: new Date(this.doctorDetailForm.value.startTime),
         endTime: new Date(this.doctorDetailForm.value.endTime),
         bio: this.doctorDetailForm.value.bio,
+        fileName: ''
       };
 
       this.addDoctor(this.hospitalId, newDoctor);

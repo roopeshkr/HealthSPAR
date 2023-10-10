@@ -18,12 +18,7 @@
             <div class="profile-view">
               <div class="profile-img-wrap">
                 <div class="profile-img">
-                  <a href="#"><img class="avatar" src="assets/img/doctor-03.jpg" alt="" /></a>
-                </div>
-                <img class="inline-block" src="assets/img/user.jpg" alt="user">
-                <div class="fileupload btn">
-                  <span class="btn-text">Edit Profile</span>
-                  <input class="upload" type="file">
+                  <a href="#"><img class="avatar" [src]="'http://localhost:8086/api/v1/hospital/get/doctor/image/' +doctor.fileName" alt="Doctor" /></a>
                 </div>
               </div>
               <div class="profile-basic">
@@ -33,6 +28,19 @@
                       <h3 class="user-name m-t-0 mb-0">
                         {{ doctor.doctorName }}
                       </h3>
+                      <div class="profile-info-left mt-4">
+                        <div class="form-group">
+                          <div class="profile-upload">
+                            <div class="upload-img">
+                              <input type="file" (change)="onFileSelected($event)" class="form-control" width="400"/>
+                            </div>
+                            <div class="upload-input">
+                              <button type="button" (click)="uploadImage()" class="btn btn-outline-primary btn-sm btn-upload">Upload</button>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-7">

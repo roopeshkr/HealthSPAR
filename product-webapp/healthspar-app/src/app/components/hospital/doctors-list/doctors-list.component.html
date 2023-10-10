@@ -10,8 +10,7 @@
           <a
             [routerLink]="['/hospital/add-doctor']"
             class="btn btn-primary btn-rounded float-right"
-            ><i class="fa fa-plus"></i> Add Doctor</a
-          >
+          ><i class="fa fa-plus"></i> Add Doctor</a>
         </div>
       </div>
       <div class="row doctor-grid">
@@ -21,14 +20,13 @@
         >
           <div class="profile-widget">
             <div class="doctor-img">
-              <a class="avatar" [routerLink]="['/hospital/doctor',i]"
-                ><img
-                  alt=""
-                  [src]="
-                    'http://localhost:8070/api/v1/hospital/get/doctor/image/' +
-                    doctor.fileName
-                  "
-              /></a>
+              <img
+                [src]="'http://localhost:8086/api/v1/hospital/get/doctor/image/' + doctor.fileName"
+                alt="Doctor Image"
+                class="img-fluid"
+                height="130"
+                width="130"
+              />
             </div>
             <div class="dropdown profile-action">
               <a
@@ -36,23 +34,20 @@
                 class="action-icon dropdown-toggle"
                 data-toggle="dropdown"
                 aria-expanded="false"
-                ><i class="fa fa-ellipsis-v"></i
-              ></a>
+              ><i class="fa fa-ellipsis-v"></i></a>
               <div class="dropdown-menu dropdown-menu-right">
                 <a
                   class="dropdown-item"
                   href="/edit-doctor"
-                  [routerLink]="['/hospital/edit-doctor',i]"
-                  ><i class="fa fa-pencil m-r-5"></i> Edit</a
-                >
+                  [routerLink]="['/hospital/edit-doctor', i]"
+                ><i class="fa fa-pencil m-r-5"></i> Edit</a>
                 <a
                   class="dropdown-item"
                   href="#"
                   data-toggle="modal"
                   data-target="#delete_doctor"
                   (click)="removeDoctor(i)"
-                  ><i class="fa fa-trash-o m-r-5"></i> Delete</a
-                >
+                ><i class="fa fa-trash-o m-r-5"></i> Delete</a>
               </div>
             </div>
             <h4 class="doctor-name text-ellipsis">
@@ -60,6 +55,11 @@
             </h4>
             <div class="user-country">
               {{ doctor.department }}
+            </div>
+            <div class="mt-2">
+              <button type="button" (click)="onClickDoctor(i)">
+                View Profile
+              </button>
             </div>
           </div>
         </div>

@@ -29,20 +29,23 @@ export class DoctorsListComponent implements OnInit {
     doctors: [],
     frequentlyAskedQuestion: []
   };
-  dbImage:string='http://localhost:8070/api/v1/hospital/get/doctor/image/';
+  imageData:string|undefined;
   
 
   constructor(
     private hospitalService: HospitalService,
     private route: Router,
-    private router:ActivatedRoute,
-  
+    private router:ActivatedRoute,  
   ) {
   }
 
   ngOnInit(): void {
+    this.router.params.subscribe((params) => {
+      const hospitalId = +params['id'];
+    });
     this.getHospital();
   }
+
 
   private getHospital(): void {
     const hospitalIdString = localStorage.getItem("hospitalId");
@@ -94,6 +97,7 @@ export class DoctorsListComponent implements OnInit {
   onClickDoctor(index:number): void {
     this.route.navigate(['/hospital/doctor',index]);
   }
+
   
 
 }

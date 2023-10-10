@@ -8,20 +8,12 @@
         </div>
 
         <div class="col-sm-5 col-6 text-right m-b-30">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <a [routerLink]="['/hospital/update',hospital.hospitalId]" class="btn btn-primary btn-rounded"><i
-              class="fa fa-plus"></i> Edit Profile</a>
-=======
-=======
->>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
-=======
->>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
+
+
           <a [routerLink]="['/hospital/update']" class="btn btn-primary btn-rounded"
             ><i class="fa fa-plus"></i> Edit Profile</a
           >
->>>>>>> bf5e039a07c07c68b6e8e5395df53b11f79923f7
+
         </div>
       </div>
       <div class="card-box profile-header">
@@ -30,9 +22,7 @@
             <div class="profile-view">
               <div class="profile-img-wrap">
                 <div class="profile-img">
-                  <a href="#"><img class="avatar" [src]="
-                        'http://localhost:8070/get/image/' + hospital.fileName
-                      " alt="" /></a>
+                  <a href="#"><img class="avatar" [src]="'http://localhost:8086/api/v1/hospital/get/image/' +hospital.fileName" alt="" /></a>
                 </div>
               </div>
               <div class="profile-basic">
@@ -43,8 +33,21 @@
                         <h1 class="user-name m-t-0 mb-0">
                           {{ hospital.hospitalName }}
                         </h1>
-                        <div class="staff-msg">
-                          <a href="chat.html" class="btn btn-primary">Edit Image</a>
+                        <div class="profile-info-left mt-2">
+                          <p class="user-name m-t-0 mb-0">Hospital Id: <span>{{hospital.hospitalId}}</span></p>
+                        </div>
+                        <div class="profile-info-left mt-4">
+                          <div class="form-group">
+                            <div class="profile-upload">
+                              <div class="upload-img">
+                                <input type="file" (change)="obFileSelected($event)" class="form-control" width="400"/>
+                              </div>
+                              <div class="upload-input">
+                                <button type="button" (click)="uploadImage()" class="btn btn-outline-primary btn-sm btn-upload">Upload</button>
+                              </div>
+                            </div>
+                          </div>
+                          
                         </div>
                       </div>
                     </div>

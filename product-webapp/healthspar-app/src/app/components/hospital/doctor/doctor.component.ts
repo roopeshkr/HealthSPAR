@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from 'src/app/model/appointment';
 import { Doctor } from 'src/app/model/doctor';
 import { AppointmentService } from 'src/app/service/appointment.service';
+import { HospitalImageService } from 'src/app/service/hospital-image.service';
 import { HospitalService } from 'src/app/service/hospital.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class DoctorComponent implements OnInit {
     yearOfExperience: 0,
     startTime: new Date,
     endTime: new Date,
-    bio: ''
+    bio: '',
+    fileName: ''
   }
   appointments: Appointment[] = [];
 
@@ -29,28 +31,40 @@ export class DoctorComponent implements OnInit {
     this.route.navigate(['/hospital/edit-doctor', hospitalId, index]);
   }
 
-  constructor(private hospitalService: HospitalService, private router: ActivatedRoute, private route: Router, private appointmentService: AppointmentService,) { }
+  constructor(private hospitalService: HospitalService, private router: ActivatedRoute, private route: Router, private appointmentService: AppointmentService, private doctorService: HospitalImageService) { }
 
   ngOnInit(): void {
     this.router.params.subscribe(
       (params) => {
-        this.index = +params['index'];
+        const indexParam = +params['index'];
+        if (!isNaN(indexParam)) {
+          this.index = indexParam;
+          this.getHospital();
+        } else {
+          console.error("Invalid index parameter:", params['index']);
+        }
       }
-    )
-    this.getHospital();
+    );
   }
+  
+
+
+  selectedFile?: File;
 
   private getHospital(): void {
     const hospitalIdString = localStorage.getItem("hospitalId");
 
     if (hospitalIdString !== null) {
       const hospitalId = parseInt(hospitalIdString, 10);
+      this.hospitalId = hospitalId;
 
       if (!isNaN(hospitalId)) {
         this.hospitalService.getHospitalProfile(hospitalId).subscribe(
           (response) => {
             this.getDoctor(response.hospitalId, this.index);
             this.getAppointmentForHospital(response.hospitalId);
+            console.log("hospital : ", response);
+
           },
           (error) => {
             console.error("Error fetching hospital profile:", error);
@@ -67,10 +81,11 @@ export class DoctorComponent implements OnInit {
   getDoctor(hospitalId: number, index: number): void {
     this.hospitalService.getDoctorByIndex(hospitalId, index).subscribe(
       (response) => {
-        this.doctor = response
+        this.doctor = response;
+        console.log("doctor : ", response);
       },
       (error) => {
-        console.error('Error fetching doctor:', error);
+        console.error("Error fetching doctor:", error);
       }
     );
   }
@@ -90,6 +105,23 @@ export class DoctorComponent implements OnInit {
 
       }
     )
+  }
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  uploadImage() {
+    if (this.selectedFile !== undefined) {
+      this.doctorService.uploadDoctorImage(this.hospitalId, this.index, this.selectedFile).subscribe(
+        (response) => {
+          console.log('Successfully uploaded image:', response);
+        },
+        (error) => {
+          console.error('Error uploading image:', error);
+        }
+      );
+    }
   }
 
 

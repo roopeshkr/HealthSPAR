@@ -84,20 +84,17 @@ export class HospitalDetailsComponent {
 
     if (this.basicDetails?.invalid && this.step == 1) {
       return
+    }else if (this.addressDetails?.invalid && this.step == 2) {
+      return
+    }else if (this.doctorDetails?.invalid && this.step == 3) {
+      return
+    }else{
+      this.step = this.step + 1;
     }
-
-    if (this.addressDetails?.invalid && this.step === 2) {
-      return;
-    }
-
-    if (this.doctorDetails?.invalid && this.step === 3) {
-      return;
-    }
-
-    this.step = this.step + 1;
+    
 
 
-    if (this.step === 5 && this.hospitalProfileForm.valid) {
+    if (this.step === 4 && this.hospitalProfileForm.valid) {
       console.log("form value: ", this.hospitalProfileForm.value);
       
 

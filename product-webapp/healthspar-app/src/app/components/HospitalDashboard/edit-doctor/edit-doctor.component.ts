@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from 'src/app/model/doctor';
 import { Hospital } from 'src/app/model/hospital';
+import { HospitalImageService } from 'src/app/service/hospital-image.service';
 import { HospitalService } from 'src/app/service/hospital.service';
 
 @Component({
@@ -36,11 +37,14 @@ export class EditDoctorComponent implements OnInit {
     frequentlyAskedQuestion: []
   };
 
+  selectedFile?: File;
+
   constructor(
     private profileService: HospitalService,
     private formBuilder: FormBuilder,
     private route: Router,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private hospitalImageService: HospitalImageService
   ) {
     this.doctorDetailForm = this.formBuilder.group({
       doctorName: ['', Validators.required],
@@ -119,6 +123,23 @@ export class EditDoctorComponent implements OnInit {
         console.error('Error updating doctor:', error);
       }
     );
+  }
+
+  obFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  uploadImage() {
+    if (this.selectedFile !== undefined) {
+      this.hospitalImageService.uploadDoctorImage(this.hospitalId, this.index, this.selectedFile).subscribe(
+        (response) => {
+          console.log('Successfully uploaded image:', response);
+        },
+        (error) => {
+          console.error('Error uploading image:', error);
+        }
+      );
+    }
   }
 
  
