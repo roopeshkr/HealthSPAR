@@ -21,14 +21,14 @@ public class AppointmentsServiceImplement implements AppointmentsService{
 
     @Override
     public Appointment initializeAppointment(Appointment appointment) {
-        appointment.setStatus("INITIALIZED");
+        appointment.setStatus("BOOKED");
         return repository.save(appointment);
     }
 
     @Override
     public Appointment rescheduleAppointment(int appointmentId, Appointment appointment) {
         Appointment existingAppointment=findById(appointmentId);
-        existingAppointment.setStatus("RESCHEDULE");
+        existingAppointment.setStatus("RESCHEDULED");
         existingAppointment.setPatientId(appointment.getPatientId());
         existingAppointment.setHospitalId(appointment.getHospitalId());
         existingAppointment.setTreatmentType(appointment.getTreatmentType());
@@ -45,7 +45,7 @@ public class AppointmentsServiceImplement implements AppointmentsService{
     @Override
     public Appointment deleteAppointment(int appointmentId) {
         Appointment existingAppointment=findById(appointmentId);
-        existingAppointment.setStatus("CANCEL");
+        existingAppointment.setStatus("CANCELED");
         return repository.save(existingAppointment);
     }
 
