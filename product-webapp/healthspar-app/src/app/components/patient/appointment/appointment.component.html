@@ -16,7 +16,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let appointment of appointments; let i = index">
-            <ng-container *ngIf="appointment.status != 'CANCEL'">
+            <ng-container *ngIf="appointment.status != 'CANCEL' && appointment.status != 'INITIALIZED'">
               <td>{{ i + 1 }}</td>
               <td>{{ appointment.patientName }}</td>
               <ng-container *ngIf="hospitals[i]?.hospitalName">
@@ -65,3 +65,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

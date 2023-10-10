@@ -348,12 +348,12 @@ table.table td h2 span {
 	display: inline-block;
 	min-width: 80px;
 }
-.modal-footer.text-left {
+/* .modal-footer.text-left {
 	text-align: left;
 }
 .modal-footer.text-center {
 	text-align: center;
-}
+} */
 .font-18 {
 	font-size: 18px;
 }
@@ -1964,11 +1964,11 @@ ul.chat-user-total li i.old-users {
 	color: #333;
 	font-size: 13px;
 }
-.chat-footer {
+/* .chat-footer {
 	background-color: #fff;
 	border-top: 1px solid #eaeaea;
 	padding: 15px;
-}
+} */
 .message-bar {
 	display: table;
 	height: 44px;
@@ -2573,9 +2573,9 @@ ul.chat-user-total li i.old-users {
 a.fc-event:not([href]) {
     color: #fff;
 }
-.none-border .modal-footer {
+/* .none-border .modal-footer {
 	border-top: none;
-}
+} */
 .fc-toolbar h2 {
 	font-size: 18px;
 	font-weight: 600;
@@ -2855,19 +2855,19 @@ a.fc-event:not([href]) {
 	border-bottom: 1px solid #eee;
 	text-align: center;
 }
-.topnav-dropdown-header,
-.topnav-dropdown-footer {
+/* .topnav-dropdown-footer, */
+.topnav-dropdown-header {
 	font-size: 12px;
 	height: 32px;
 	line-height: 32px;
 	padding-left: 12px;
 	padding-right: 12px;
 }
-.topnav-dropdown-footer a {
+/* .topnav-dropdown-footer a {
 	display: block;
 	text-align: center;
 	color: #333;
-}
+} */
 .user-menu.nav > li > a .badge {
 	color: #fff;
 	font-size: 60%;
@@ -3059,9 +3059,9 @@ html.menu-opened body {
 .fixed-header .custom-menu {
 	margin: 1px 0 0;
 }
-.topnav-dropdown-footer {
+/* .topnav-dropdown-footer {
 	border-top: 1px solid #eee;
-}
+} */
 .notification-box {
 	bottom: 0;
 	margin-right: -300px;
@@ -3477,14 +3477,14 @@ table.table-inbox tbody tr.checked {
 	margin-bottom: 20px;
 	padding-bottom: 15px;
 }
-.mailview-footer {
+/* .mailview-footer {
 	border-top: 1px solid #ddd;
 	margin-top: 20px;
 	padding-top: 15px;
-}
-.mailview-footer .btn-white {
+} */
+/* .mailview-footer .btn-white {
 	min-width: 102px;
-}
+} */
 .sender-img {
 	float: left;
 	margin-right: 10px;
