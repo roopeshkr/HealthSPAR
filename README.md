@@ -44,7 +44,7 @@ To get started with this code, you'll need to have the following installed on yo
 1. Clone this repository:
 
    ```bash
-   git clone
+   git clone https://github.com/roopeshkr/HealthSPAR.git
 
 ### Getting Started
 
